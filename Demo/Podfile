@@ -1,0 +1,13 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'RxSwiftExtDemo' do
+	pod 'RxSwift+Ext', :path => '../'
+	pod 'RxSwift'
+end
+
+target 'RxSwiftExtDemoTests' do
+	pod 'RxSwift+Ext', :path => '../'
+	pod 'RxSwift'
+	pod 'RxTests'
+end
