@@ -12,7 +12,7 @@ import RxSwift
 import RxSwift_Ext
 import RxTests
 
-class RxSwiftExtDemoTests: XCTestCase {
+class UnwrapTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -20,7 +20,6 @@ class RxSwiftExtDemoTests: XCTestCase {
     }
     
     override func tearDown() {
-
         super.tearDown()
     }
     

@@ -1,15 +1,14 @@
 //
-//  RxExt.swift
-//  rxswiftextplayground
+//  unwrap.swift
+//  RxSwift+Ext
 //
 //  Created by Marin Todorov on 4/7/16.
-//  Copyright © 2016 Underplot. All rights reserved.
+//  Copyright (c) 2016 RxSwiftCommunity https://github.com/RxSwiftCommunity
 //
 
 import Foundation
 import RxSwift
 
-////unwrap
 public protocol Optionable
 {
     associatedtype WrappedType
@@ -29,15 +28,14 @@ extension Optional : Optionable
     }
 }
 
-extension Observable where Element : Optionable {
-    public func unwrap() -> Observable<Element.WrappedType> {
+extension ObservableType where E : Optionable {
+    public func unwrap() -> Observable<E.WrappedType> {
         return self
             .filter {value in
                 return !value.isEmpty()
             }
-            .map {value -> Element.WrappedType in
+            .map { value -> E.WrappedType in
                 value.unwrap()
         }
     }
 }
-////
