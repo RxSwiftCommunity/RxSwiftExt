@@ -17,7 +17,7 @@ example("ignore a single value") {
         .ignore("Swift")
         .toArray()
         .subscribeNext { result in
-            // look types on the right panel ===>
+            // look values on the right panel ===>
             values
             result
             print("ignore() transformed \(values) to \(result)")
@@ -32,7 +32,7 @@ example("ignore multiple values") {
         .ignore("Swift", "and")
         .toArray()
         .subscribeNext { result in
-            // look types on the right panel ===>
+            // look values on the right panel ===>
             values
             result
             print("ignore() transformed \(values) to \(result)")
@@ -49,7 +49,7 @@ example("ignore a collection of values") {
         .ignore(ignoreSet)
         .toArray()
         .subscribeNext { result in
-            // look types on the right panel ===>
+            // look values on the right panel ===>
             values
             result
             print("ignore() transformed \(values) to \(result)")
