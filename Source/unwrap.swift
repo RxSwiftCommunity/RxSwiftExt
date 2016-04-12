@@ -29,9 +29,11 @@ extension Optional : Optionable
 }
 
 extension ObservableType where E : Optionable {
+
+    @warn_unused_result(message="http://git.io/rxs.uo")
     public func unwrap() -> Observable<E.WrappedType> {
         return self
-            .filter {value in
+            .filter { value in
                 return !value.isEmpty()
             }
             .map { value -> E.WrappedType in
