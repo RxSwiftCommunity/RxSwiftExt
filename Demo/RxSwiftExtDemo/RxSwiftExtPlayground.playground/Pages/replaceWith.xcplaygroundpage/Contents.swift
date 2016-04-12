@@ -19,7 +19,7 @@ example("replace any input with a value") {
             // look types on the right panel ===>
             numbers
             result
-            print("unwrap() transformed \(numbers) to \(result)")
+            print("reaplceWith() transformed \(numbers) to \(result)")
     }
 }
 
