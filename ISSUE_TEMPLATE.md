@@ -1,5 +1,5 @@
-### Name of the operator
+### Name and description
 
 ### Motivation for inclusion
 
-### Example of usage
+### Example of use
