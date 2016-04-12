@@ -24,7 +24,7 @@ class ReplaceWithTests: XCTestCase {
         observer = scheduler.createObserver(String)
         
         numbers.toObservable()
-            .replaceWith("candy")
+            .mapTo("candy")
             .subscribe(observer)
         
         scheduler.start()

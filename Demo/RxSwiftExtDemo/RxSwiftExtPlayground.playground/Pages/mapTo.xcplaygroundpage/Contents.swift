@@ -5,21 +5,21 @@ import RxSwift
 import RxSwift_Ext
 
 /*:
- ## replaceWith(AnyObject)
+ ## mapTo(Any)
  
- The `replaceWith` operator takes a sequence of elements and returns a sequence of the same constant provided as a parameter. In effect it ignores its input and replaces it with a constant
+ The `mapTo` operator takes a sequence of elements and returns a sequence of the same constant provided as a parameter. In effect it ignores its input and replaces it with a constant
  */
 example("replace any input with a value") {
     
     let numbers = Array<Int?>([1, 2, 3])
     numbers.toObservable()
-        .replaceWith("candy")
+        .mapTo("candy")
         .toArray()
         .subscribeNext {result in
             // look types on the right panel ===>
             numbers
             result
-            print("reaplceWith() transformed \(numbers) to \(result)")
+            print("mapTo() transformed \(numbers) to \(result)")
     }
 }
 

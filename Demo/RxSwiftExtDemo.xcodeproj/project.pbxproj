@@ -16,8 +16,8 @@
 		9C1F55021CB67026001421F2 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 9C1F55011CB67026001421F2 /* Podfile */; };
 		9C1F552F1CB674B0001421F2 /* UnwrapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F552E1CB674B0001421F2 /* UnwrapTests.swift */; };
 		9C1F55311CB674B0001421F2 /* RxSwiftExtDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C1F54F61CB67017001421F2 /* RxSwiftExtDemo.framework */; };
-		9C4C589B1CBD3EE7008021BF /* replaceWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4C589A1CBD3EE7008021BF /* replaceWith.swift */; };
-		9C4C589D1CBD417F008021BF /* ReplaceWithTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4C589C1CBD417F008021BF /* ReplaceWithTests.swift */; };
+		9C4C589B1CBD3EE7008021BF /* mapTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4C589A1CBD3EE7008021BF /* mapTo.swift */; };
+		9C4C589D1CBD417F008021BF /* mapToTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4C589C1CBD417F008021BF /* mapToTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,8 +49,8 @@
 		9C1F552C1CB674B0001421F2 /* RxSwiftExtDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RxSwiftExtDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C1F552E1CB674B0001421F2 /* UnwrapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnwrapTests.swift; sourceTree = "<group>"; };
 		9C1F55301CB674B0001421F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9C4C589A1CBD3EE7008021BF /* replaceWith.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = replaceWith.swift; path = ../Source/replaceWith.swift; sourceTree = "<group>"; };
-		9C4C589C1CBD417F008021BF /* ReplaceWithTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplaceWithTests.swift; sourceTree = "<group>"; };
+		9C4C589A1CBD3EE7008021BF /* mapTo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = mapTo.swift; path = ../Source/mapTo.swift; sourceTree = "<group>"; };
+		9C4C589C1CBD417F008021BF /* mapToTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapToTests.swift; sourceTree = "<group>"; };
 		FC8FC7C40238BC1CE814B096 /* Pods_RxSwiftExtDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftExtDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -81,7 +81,7 @@
 				3DC705A71CBCF67C00493BB2 /* once.swift */,
 				3D3EA4921CBAAE0200EB90DB /* unwrap.swift */,
 				3D3EA4931CBAAE4E00EB90DB /* ignore.swift */,
-				9C4C589A1CBD3EE7008021BF /* replaceWith.swift */,
+				9C4C589A1CBD3EE7008021BF /* mapTo.swift */,
 			);
 			name = "RxSwift+Ext Sources";
 			sourceTree = "<group>";
@@ -147,7 +147,7 @@
 				9C1F552E1CB674B0001421F2 /* UnwrapTests.swift */,
 				3D3EA4951CBAFEE800EB90DB /* IgnoreTests.swift */,
 				3DC705A91CBCF74100493BB2 /* OnceTests.swift */,
-				9C4C589C1CBD417F008021BF /* ReplaceWithTests.swift */,
+				9C4C589C1CBD417F008021BF /* mapToTests.swift */,
 			);
 			path = RxSwiftExtDemoTests;
 			sourceTree = "<group>";
@@ -345,7 +345,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C4C589B1CBD3EE7008021BF /* replaceWith.swift in Sources */,
+				9C4C589B1CBD3EE7008021BF /* mapTo.swift in Sources */,
 				3D3EA4941CBAAE4E00EB90DB /* ignore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,7 +354,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C4C589D1CBD417F008021BF /* ReplaceWithTests.swift in Sources */,
+				9C4C589D1CBD417F008021BF /* mapToTests.swift in Sources */,
 				9C1F552F1CB674B0001421F2 /* UnwrapTests.swift in Sources */,
 				3DC705AA1CBCF74100493BB2 /* OnceTests.swift in Sources */,
 				3D3EA4961CBAFEE800EB90DB /* IgnoreTests.swift in Sources */,

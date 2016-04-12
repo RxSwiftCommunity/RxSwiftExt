@@ -1,5 +1,5 @@
 //
-//  replaceWith.swift
+//  mapTo.swift
 //  RxSwiftExtDemo
 //
 //  Created by Marin Todorov on 4/12/16.
@@ -18,7 +18,7 @@ extension ObservableType {
 	- returns: An observable sequence containing the values `value` provided as a parameter
 	*/
 	@warn_unused_result(message="http://git.io/rxs.uo")
-	public func replaceWith<R>(value: R) -> Observable<R> {
+	public func mapTo<R>(value: R) -> Observable<R> {
 		return map {_ in value}
 	}
 }
