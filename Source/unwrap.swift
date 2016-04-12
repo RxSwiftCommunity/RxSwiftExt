@@ -19,18 +19,34 @@ public protocol Optionable
 extension Optional : Optionable
 {
     public typealias WrappedType = Wrapped
+
+	/**
+	Force unwraps the contained value and returns it. Will crash if there's no value stored.
+	
+	- returns: Value of the contained type
+	*/
     public func unwrap() -> WrappedType {
         return self!
     }
     
+	/**
+	Returns true if the Optional elements contains a value
+	
+	- returns: true if the Optional elements contains a value, false if it's nil
+	*/
     public func isEmpty() -> Bool {
         return !(flatMap({_ in true})?.boolValue == true)
     }
 }
 
 extension ObservableType where E : Optionable {
-
-    @warn_unused_result(message="http://git.io/rxs.uo")
+	
+	/**
+	Takes a sequence of optional elements and returns a sequence of non-optional elements, filtering out any nil values.
+	
+	- returns: An observable sequence of non-optional elements
+	*/
+	@warn_unused_result(message="http://git.io/rxs.uo")
     public func unwrap() -> Observable<E.WrappedType> {
         return self
             .filter { value in
