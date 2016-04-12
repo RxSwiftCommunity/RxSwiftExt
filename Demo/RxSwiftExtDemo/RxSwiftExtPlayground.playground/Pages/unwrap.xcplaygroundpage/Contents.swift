@@ -5,7 +5,7 @@ import RxSwift
 import RxSwift_Ext
 
 /*:
- ## unwrap
+ ## unwrap()
  
  The `unwrap` operator takes a sequence of optional elements
  and returns a sequence of non-optional elements, filtering out any `nil` values.
