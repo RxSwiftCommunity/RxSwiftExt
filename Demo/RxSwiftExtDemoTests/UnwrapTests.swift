@@ -13,30 +13,44 @@ import RxSwift_Ext
 import RxTests
 
 class UnwrapTests: XCTestCase {
+
+    let numbers: Array<Int?> = [1, nil, Int?(3), 4]
+    private var observer: TestableObserver<Int>!
     
     override func setUp() {
         super.setUp()
-
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
-    
-    func testUnwrap() {
-        let numbers: Array<Int?> = [1,nil,Int?(3),4]
-        let scheduler = TestScheduler(initialClock: 0)
         
-        let observer = scheduler.createObserver(Int)
+        let scheduler = TestScheduler(initialClock: 0)
+        observer = scheduler.createObserver(Int)
         
         numbers.toObservable()
             .unwrap()
             .subscribe(observer)
         
         scheduler.start()
-        
-        //test elements count
-        XCTAssertEqual(observer.events.count, numbers.count - 1/* the nr. of nil elements*/ + 1 /* complete event*/)
     }
     
+    func testUnwrapFilterNil() {
+        //test for nil values in result
+        XCTAssertFalse(observer.events.contains { event in
+            event.value == nil
+        })
+
+        //test results count
+        XCTAssertEqual(
+            observer.events.count,
+            numbers.count - 1/* the nr. of nil elements*/ + 1 /* complete event*/
+        )
+    }
+    
+    func testUnwrapResultValues() {
+        //test elements values and type
+        let correctValues = [
+            next(0, 1),
+            next(0, 3),
+            next(0, 4),
+            completed(0)
+        ]
+        XCTAssertEqual(observer.events, correctValues)
+    }    
 }
