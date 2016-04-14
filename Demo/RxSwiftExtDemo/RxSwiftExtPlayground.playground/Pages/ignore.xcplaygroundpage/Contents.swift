@@ -57,4 +57,27 @@ example("ignore a collection of values") {
 
 }
 
+/*:
+ ## ignoreWhen
+ 
+ The `ignoreWhen` operator works like `filter` but ignores the elements for which the predicate returns `true` instead of keeping them.
+ */
+
+example("ignore some elements") {
+    
+    let values = [1, 5, 40, 12, 60, 3, 9, 18]
+    
+    values.toObservable()
+        .ignoreWhen { value in
+            return value > 10
+        }
+        .toArray()
+        .subscribeNext() { result in
+            // look values on the right panel ===>
+            values
+            result
+            print("ignoreWhen() transformed \(values) to \(result)")
+    }
+}
+
 //: [Next](@next)

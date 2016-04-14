@@ -6,6 +6,5 @@
         <page name='unwrap'/>
         <page name='ignore'/>
         <page name='once'/>
-        <page name='mapTo'/>
     </pages>
 </playground>
