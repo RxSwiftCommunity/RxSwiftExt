@@ -12,7 +12,7 @@ import RxSwift
 import RxSwift_Ext
 import RxTests
 
-class ReplaceWithTests: XCTestCase {
+class MapToTests: XCTestCase {
 
     let numbers: Array<Int?> = [1, nil, Int?(3)]
     private var observer: TestableObserver<String>!
