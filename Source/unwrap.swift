@@ -35,7 +35,7 @@ extension Optional : Optionable
 	- returns: true if the Optional elements contains a value, false if it's nil
 	*/
     public func isEmpty() -> Bool {
-        return !(flatMap({_ in true})?.boolValue == true)
+        return self == nil
     }
 }
 
