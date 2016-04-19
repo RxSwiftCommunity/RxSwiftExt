@@ -17,6 +17,8 @@
 		3D3EA4961CBAFEE800EB90DB /* IgnoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3EA4951CBAFEE800EB90DB /* IgnoreTests.swift */; };
 		3DB4B1EE1CC43D940006B332 /* cascadeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB4B1ED1CC43D940006B332 /* cascadeTests.swift */; };
 		3DC705AA1CBCF74100493BB2 /* OnceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC705A91CBCF74100493BB2 /* OnceTests.swift */; };
+		68A12BDC1CC5EF45009AAAFE /* not.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A12BDB1CC5EF45009AAAFE /* not.swift */; };
+		68A12BDE1CC5EF5B009AAAFE /* notTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A12BDD1CC5EF5B009AAAFE /* notTests.swift */; };
 		8AFA763ED9F052A7A746FFE4 /* Pods_RxSwiftExtDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC8FC7C40238BC1CE814B096 /* Pods_RxSwiftExtDemoTests.framework */; };
 		9C1F54FA1CB67017001421F2 /* RxSwiftExtDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C1F54F91CB67017001421F2 /* RxSwiftExtDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9C1F55021CB67026001421F2 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 9C1F55011CB67026001421F2 /* Podfile */; };
@@ -54,6 +56,8 @@
 		3DB4B1ED1CC43D940006B332 /* cascadeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cascadeTests.swift; sourceTree = "<group>"; };
 		3DC705A71CBCF67C00493BB2 /* once.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = once.swift; path = ../Source/once.swift; sourceTree = "<group>"; };
 		3DC705A91CBCF74100493BB2 /* OnceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnceTests.swift; sourceTree = "<group>"; };
+		68A12BDB1CC5EF45009AAAFE /* not.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = not.swift; path = ../Source/not.swift; sourceTree = "<group>"; };
+		68A12BDD1CC5EF5B009AAAFE /* notTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = notTests.swift; sourceTree = "<group>"; };
 		9C1F54F61CB67017001421F2 /* RxSwiftExtDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxSwiftExtDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C1F54F91CB67017001421F2 /* RxSwiftExtDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RxSwiftExtDemo.h; sourceTree = "<group>"; };
 		9C1F54FB1CB67017001421F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -91,13 +95,14 @@
 		3D3EA4911CBAADE300EB90DB /* RxSwift+Ext Sources */ = {
 			isa = PBXGroup;
 			children = (
-				3DC705A71CBCF67C00493BB2 /* once.swift */,
-				3D3EA4921CBAAE0200EB90DB /* unwrap.swift */,
 				3D3EA4931CBAAE4E00EB90DB /* ignore.swift */,
-				9C4C589A1CBD3EE7008021BF /* mapTo.swift */,
 				3D3E95B71CC018440013FC08 /* ignoreWhen.swift */,
 				3DB4B1EB1CC42E770006B332 /* cascade.swift */,
 				32141AD81CC411B300569FFA /* ObservableType+Weak.swift */,
+				9C4C589A1CBD3EE7008021BF /* mapTo.swift */,
+				68A12BDB1CC5EF45009AAAFE /* not.swift */,
+				3DC705A71CBCF67C00493BB2 /* once.swift */,
+				3D3EA4921CBAAE0200EB90DB /* unwrap.swift */,
 			);
 			name = "RxSwift+Ext Sources";
 			sourceTree = "<group>";
@@ -159,15 +164,16 @@
 		9C1F552D1CB674B0001421F2 /* RxSwiftExtDemoTests */ = {
 			isa = PBXGroup;
 			children = (
-				9C1F55301CB674B0001421F2 /* Info.plist */,
-				9C1F552E1CB674B0001421F2 /* UnwrapTests.swift */,
 				3D3EA4951CBAFEE800EB90DB /* IgnoreTests.swift */,
-				3DC705A91CBCF74100493BB2 /* OnceTests.swift */,
-				9C4C589C1CBD417F008021BF /* mapToTests.swift */,
 				3D3E95BA1CC01A150013FC08 /* ignoreWhenTests.swift */,
 				3DB4B1ED1CC43D940006B332 /* cascadeTests.swift */,
 				32141ADA1CC4129600569FFA /* WeakTests.swift */,
 				32141ADD1CC4B9F300569FFA /* WeakTarget.swift */,
+				9C4C589C1CBD417F008021BF /* mapToTests.swift */,
+				68A12BDD1CC5EF5B009AAAFE /* notTests.swift */,
+				3DC705A91CBCF74100493BB2 /* OnceTests.swift */,
+				9C1F552E1CB674B0001421F2 /* UnwrapTests.swift */,
+				9C1F55301CB674B0001421F2 /* Info.plist */,
 			);
 			path = RxSwiftExtDemoTests;
 			sourceTree = "<group>";
@@ -366,6 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32141AD91CC411B300569FFA /* ObservableType+Weak.swift in Sources */,
+				68A12BDC1CC5EF45009AAAFE /* not.swift in Sources */,
 				9C4C589B1CBD3EE7008021BF /* mapTo.swift in Sources */,
 				3D3EA4941CBAAE4E00EB90DB /* ignore.swift in Sources */,
 			);
@@ -379,6 +386,7 @@
 				9C4C589D1CBD417F008021BF /* mapToTests.swift in Sources */,
 				32141ADE1CC4B9F300569FFA /* WeakTarget.swift in Sources */,
 				32141ADB1CC4129600569FFA /* WeakTests.swift in Sources */,
+				68A12BDE1CC5EF5B009AAAFE /* notTests.swift in Sources */,
 				9C1F552F1CB674B0001421F2 /* UnwrapTests.swift in Sources */,
 				3D3E95BB1CC01A150013FC08 /* ignoreWhenTests.swift in Sources */,
 				3DC705AA1CBCF74100493BB2 /* OnceTests.swift in Sources */,
