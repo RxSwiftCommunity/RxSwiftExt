@@ -34,34 +34,52 @@ extension Observable where Element : ObservableType {
 		return Observable<T>.create { observer in
 			var previous = 0
 			var current = 0
-			var subscriptions = [Disposable]()
+			let lock = NSRecursiveLock()
+			var subscriptions = [Disposable?](count: observables.count, repeatedValue: nil)
+			lock.lock()
+			defer { lock.unlock() }
+
 			for i in 0 ..< observables.count {
 				let index = i
-				subscriptions.append(observables[index].subscribe { event in
-					switch event {
+				var complete = false
+				let disposable = observables[index].subscribe { event in
+					lock.lock()
+					defer { lock.unlock() }
+					sw: switch event {
 					case .Next(let element):
 						if index >= current {
-                            // dispose subscriptions to sequences we now ignore
+							// dispose subscriptions to sequences we now ignore
 							for toDispose in previous ..< index {
-								subscriptions[toDispose].dispose()
+								subscriptions[toDispose]?.dispose()
 							}
 							previous = current
 							current = index
 							observer.onNext(element)
 						}
 					case .Completed:
-						if index == observables.count-1 {
+						complete = true
+						if index >= current {
+							subscriptions[index]?.dispose()
+                            subscriptions[index] = nil
+							for j in current ..< subscriptions.count {
+								if subscriptions[j] != nil {
+									break sw
+								}
+							}
 							observer.onCompleted()
 						}
 						
 					case .Error(let error):
 						observer.onError(error)
 					}
-				})
+				}
+				if !complete {
+					subscriptions[index] = disposable
+				}
 			}
 			
 			return AnonymousDisposable {
-				subscriptions.forEach { $0.dispose() }
+				subscriptions.forEach { $0?.dispose() }
 			}
 		}
 	}
@@ -80,8 +98,8 @@ extension ObservableType {
 	- returns: An observable sequence that contains elements from the latest observable sequence that emitted elements
 	*/
 	@warn_unused_result(message="http://git.io/rxs.uo")
-	public func cascadeTo(next : Observable<E> ...) -> Observable<E> {
-		return Observable.cascade([self.asObservable()] + next)
+    public func cascade<S : SequenceType where S.Generator.Element == Self>(next : S) -> Observable<E> {
+        return Observable.cascade([self.asObservable()] + Array(next).map { $0.asObservable() })
 	}
 
 }

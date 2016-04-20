@@ -267,4 +267,56 @@ class CascadeTests: XCTestCase {
             Subscription(200, 480)
             ])
     }
+    
+    func testOutOfOrderCompletion() {
+        let xs = scheduler.createHotObservable([
+            next(110, 1),
+            next(180, 2),
+            next(230, 3),
+            next(270, 4),
+            next(340, 5),
+            next(380, 6),
+            next(390, 7),
+            next(450, 8),
+            next(470, 9),
+            next(560, 10),
+            next(580, 11),
+            completed(600),
+            next(610, 12),
+            error(620, testError),
+            completed(630)
+            ])
+        
+        let ys = scheduler.createHotObservable([
+            next(350, 26),
+            next(390, 27),
+            completed(500)
+            ])
+        
+        let zs = scheduler.createHotObservable([
+            completed(400, Int.self)
+            ])
+        
+        let res = scheduler.start { () -> Observable<Int> in
+            Observable.cascade([xs,ys,zs])
+        }
+        
+        XCTAssertEqual(res.events, [
+            next(230, 3),
+            next(270, 4),
+            next(340, 5),
+            next(350, 26),
+            next(390, 27),
+            completed(500)
+            ])
+        XCTAssertEqual(xs.subscriptions, [
+            Subscription(200, 350)
+            ])
+        XCTAssertEqual(ys.subscriptions, [
+            Subscription(200, 500)
+            ])
+        XCTAssertEqual(zs.subscriptions, [
+            Subscription(200, 400)
+            ])
+    }
 }
