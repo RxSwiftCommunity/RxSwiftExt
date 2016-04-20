@@ -11,6 +11,7 @@
 		3D3E95BB1CC01A150013FC08 /* ignoreWhenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3E95BA1CC01A150013FC08 /* ignoreWhenTests.swift */; };
 		3D3EA4941CBAAE4E00EB90DB /* ignore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3EA4931CBAAE4E00EB90DB /* ignore.swift */; };
 		3D3EA4961CBAFEE800EB90DB /* IgnoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3EA4951CBAFEE800EB90DB /* IgnoreTests.swift */; };
+		3DB4B1EE1CC43D940006B332 /* cascadeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB4B1ED1CC43D940006B332 /* cascadeTests.swift */; };
 		3DC705AA1CBCF74100493BB2 /* OnceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC705A91CBCF74100493BB2 /* OnceTests.swift */; };
 		8AFA763ED9F052A7A746FFE4 /* Pods_RxSwiftExtDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC8FC7C40238BC1CE814B096 /* Pods_RxSwiftExtDemoTests.framework */; };
 		9C1F54FA1CB67017001421F2 /* RxSwiftExtDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C1F54F91CB67017001421F2 /* RxSwiftExtDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -42,6 +43,8 @@
 		3D3EA4921CBAAE0200EB90DB /* unwrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = unwrap.swift; path = ../Source/unwrap.swift; sourceTree = "<group>"; };
 		3D3EA4931CBAAE4E00EB90DB /* ignore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ignore.swift; path = ../Source/ignore.swift; sourceTree = "<group>"; };
 		3D3EA4951CBAFEE800EB90DB /* IgnoreTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IgnoreTests.swift; sourceTree = "<group>"; };
+		3DB4B1EB1CC42E770006B332 /* cascade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = cascade.swift; path = ../Source/cascade.swift; sourceTree = "<group>"; };
+		3DB4B1ED1CC43D940006B332 /* cascadeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cascadeTests.swift; sourceTree = "<group>"; };
 		3DC705A71CBCF67C00493BB2 /* once.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = once.swift; path = ../Source/once.swift; sourceTree = "<group>"; };
 		3DC705A91CBCF74100493BB2 /* OnceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnceTests.swift; sourceTree = "<group>"; };
 		9C1F54F61CB67017001421F2 /* RxSwiftExtDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxSwiftExtDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +89,7 @@
 				3D3EA4931CBAAE4E00EB90DB /* ignore.swift */,
 				9C4C589A1CBD3EE7008021BF /* mapTo.swift */,
 				3D3E95B71CC018440013FC08 /* ignoreWhen.swift */,
+				3DB4B1EB1CC42E770006B332 /* cascade.swift */,
 			);
 			name = "RxSwift+Ext Sources";
 			sourceTree = "<group>";
@@ -153,6 +157,7 @@
 				3DC705A91CBCF74100493BB2 /* OnceTests.swift */,
 				9C4C589C1CBD417F008021BF /* mapToTests.swift */,
 				3D3E95BA1CC01A150013FC08 /* ignoreWhenTests.swift */,
+				3DB4B1ED1CC43D940006B332 /* cascadeTests.swift */,
 			);
 			path = RxSwiftExtDemoTests;
 			sourceTree = "<group>";
@@ -363,6 +368,7 @@
 				9C1F552F1CB674B0001421F2 /* UnwrapTests.swift in Sources */,
 				3D3E95BB1CC01A150013FC08 /* ignoreWhenTests.swift in Sources */,
 				3DC705AA1CBCF74100493BB2 /* OnceTests.swift in Sources */,
+				3DB4B1EE1CC43D940006B332 /* cascadeTests.swift in Sources */,
 				3D3EA4961CBAFEE800EB90DB /* IgnoreTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
