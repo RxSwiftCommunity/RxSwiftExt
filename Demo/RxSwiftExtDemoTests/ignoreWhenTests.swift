@@ -12,8 +12,6 @@ import RxSwift
 import RxSwift_Ext
 import RxTests
 
-let testError = NSError(domain: "dummyError", code: -232, userInfo: nil)
-
 func isPrime(i: Int) -> Bool {
     if i <= 1 {
         return false
@@ -34,6 +32,8 @@ func isPrime(i: Int) -> Bool {
 }
 
 class IgnoreWhenTests: XCTestCase {
+    let testError = NSError(domain: "dummyError", code: -232, userInfo: nil)
+    
     func test_ignoreWhenComplete() {
         let scheduler = TestScheduler(initialClock: 0)
         
