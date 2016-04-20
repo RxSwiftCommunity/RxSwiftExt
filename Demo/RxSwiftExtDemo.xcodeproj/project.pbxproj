@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0DBC421DA83E083F68DB537A /* Pods_RxSwiftExtDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BEC4F1786209DFD7B65ADA1 /* Pods_RxSwiftExtDemo.framework */; };
+		32141AD91CC411B300569FFA /* ObservableType+Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32141AD81CC411B300569FFA /* ObservableType+Weak.swift */; };
+		32141ADB1CC4129600569FFA /* WeakTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32141ADA1CC4129600569FFA /* WeakTests.swift */; };
+		32141ADC1CC416BA00569FFA /* ObservableType+Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32141AD81CC411B300569FFA /* ObservableType+Weak.swift */; };
+		32141ADE1CC4B9F300569FFA /* WeakTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32141ADD1CC4B9F300569FFA /* WeakTarget.swift */; };
 		3D3E95BB1CC01A150013FC08 /* ignoreWhenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3E95BA1CC01A150013FC08 /* ignoreWhenTests.swift */; };
 		3D3EA4941CBAAE4E00EB90DB /* ignore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3EA4931CBAAE4E00EB90DB /* ignore.swift */; };
 		3D3EA4961CBAFEE800EB90DB /* IgnoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3EA4951CBAFEE800EB90DB /* IgnoreTests.swift */; };
@@ -37,6 +41,9 @@
 		0BEC4F1786209DFD7B65ADA1 /* Pods_RxSwiftExtDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftExtDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		16E9DA217CF086B9F92EBD61 /* Pods-RxSwiftExtDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftExtDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxSwiftExtDemo/Pods-RxSwiftExtDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		1AC24A0EB7F102C06AEB2B7F /* Pods-RxSwiftExtDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftExtDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxSwiftExtDemoTests/Pods-RxSwiftExtDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		32141AD81CC411B300569FFA /* ObservableType+Weak.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ObservableType+Weak.swift"; path = "../Source/ObservableType+Weak.swift"; sourceTree = "<group>"; };
+		32141ADA1CC4129600569FFA /* WeakTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakTests.swift; sourceTree = "<group>"; };
+		32141ADD1CC4B9F300569FFA /* WeakTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakTarget.swift; sourceTree = "<group>"; };
 		34D6139496D21A135F6CED6E /* Pods-RxSwiftExtDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftExtDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxSwiftExtDemo/Pods-RxSwiftExtDemo.release.xcconfig"; sourceTree = "<group>"; };
 		3D3E95B71CC018440013FC08 /* ignoreWhen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ignoreWhen.swift; path = ../Source/ignoreWhen.swift; sourceTree = "<group>"; };
 		3D3E95BA1CC01A150013FC08 /* ignoreWhenTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ignoreWhenTests.swift; sourceTree = "<group>"; };
@@ -90,6 +97,7 @@
 				9C4C589A1CBD3EE7008021BF /* mapTo.swift */,
 				3D3E95B71CC018440013FC08 /* ignoreWhen.swift */,
 				3DB4B1EB1CC42E770006B332 /* cascade.swift */,
+				32141AD81CC411B300569FFA /* ObservableType+Weak.swift */,
 			);
 			name = "RxSwift+Ext Sources";
 			sourceTree = "<group>";
@@ -158,6 +166,8 @@
 				9C4C589C1CBD417F008021BF /* mapToTests.swift */,
 				3D3E95BA1CC01A150013FC08 /* ignoreWhenTests.swift */,
 				3DB4B1ED1CC43D940006B332 /* cascadeTests.swift */,
+				32141ADA1CC4129600569FFA /* WeakTests.swift */,
+				32141ADD1CC4B9F300569FFA /* WeakTarget.swift */,
 			);
 			path = RxSwiftExtDemoTests;
 			sourceTree = "<group>";
@@ -355,6 +365,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32141AD91CC411B300569FFA /* ObservableType+Weak.swift in Sources */,
 				9C4C589B1CBD3EE7008021BF /* mapTo.swift in Sources */,
 				3D3EA4941CBAAE4E00EB90DB /* ignore.swift in Sources */,
 			);
@@ -364,7 +375,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32141ADC1CC416BA00569FFA /* ObservableType+Weak.swift in Sources */,
 				9C4C589D1CBD417F008021BF /* mapToTests.swift in Sources */,
+				32141ADE1CC4B9F300569FFA /* WeakTarget.swift in Sources */,
+				32141ADB1CC4129600569FFA /* WeakTests.swift in Sources */,
 				9C1F552F1CB674B0001421F2 /* UnwrapTests.swift in Sources */,
 				3D3E95BB1CC01A150013FC08 /* ignoreWhenTests.swift in Sources */,
 				3DC705AA1CBCF74100493BB2 /* OnceTests.swift in Sources */,
