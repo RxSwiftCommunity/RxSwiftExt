@@ -319,4 +319,44 @@ class CascadeTests: XCTestCase {
             Subscription(200, 400)
             ])
     }
+    
+    func testImmediateCompletion() {
+        let xs = scheduler.createHotObservable([
+            next(110, 1),
+            next(180, 2),
+            next(230, 3),
+            next(270, 4),
+            next(340, 5),
+            completed(400),
+            ])
+        
+        let ys = scheduler.createHotObservable([
+            next(100, 21),
+            completed(210, Int.self)
+            ])
+        
+        let zs = scheduler.createHotObservable([
+            completed(350, Int.self)
+            ])
+        
+        let res = scheduler.start { () -> Observable<Int> in
+            Observable.cascade([xs,ys,zs])
+        }
+        
+        XCTAssertEqual(res.events, [
+            next(230, 3),
+            next(270, 4),
+            next(340, 5),
+            completed(400)
+            ])
+        XCTAssertEqual(xs.subscriptions, [
+            Subscription(200, 400)
+            ])
+        XCTAssertEqual(ys.subscriptions, [
+            Subscription(200, 210)
+            ])
+        XCTAssertEqual(zs.subscriptions, [
+            Subscription(200, 350)
+            ])
+    }
 }
