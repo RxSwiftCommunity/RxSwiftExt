@@ -25,30 +25,31 @@ extension Observable where Element : ObservableType {
 	*/
 
 	@warn_unused_result(message="http://git.io/rxs.uo")
-	public static func cascade<S : SequenceType where S.Generator.Element == Element, S.Generator.Element.E == T>(all : S) -> Observable<T> {
-		let observables = Array(all)
-		if observables.isEmpty {
+	public static func cascade<S : SequenceType where S.Generator.Element == Element, S.Generator.Element.E == T>(observables : S) -> Observable<T> {
+		let flow = Array(observables)
+		if flow.isEmpty {
 			return Observable<T>.empty()
 		}
 
 		return Observable<T>.create { observer in
-			var previous = 0
-			var current = 0
+			var previous = 0, current = 0
+			var subscriptions = [Disposable?](count: flow.count, repeatedValue: nil)
+
 			let lock = NSRecursiveLock()
-			var subscriptions = [Disposable?](count: observables.count, repeatedValue: nil)
 			lock.lock()
 			defer { lock.unlock() }
 
-			for i in 0 ..< observables.count {
+			for i in 0 ..< flow.count {
 				let index = i
 				var complete = false
-				let disposable = observables[index].subscribe { event in
+				let disposable = flow[index].subscribe { event in
+
 					lock.lock()
 					defer { lock.unlock() }
-					sw: switch event {
+					
+					switch event {
 					case .Next(let element):
 						if index >= current {
-							// dispose subscriptions to sequences we now ignore
 							for toDispose in previous ..< index {
 								subscriptions[toDispose]?.dispose()
 							}
@@ -56,14 +57,15 @@ extension Observable where Element : ObservableType {
 							current = index
 							observer.onNext(element)
 						}
+
 					case .Completed:
 						complete = true
 						if index >= current {
 							subscriptions[index]?.dispose()
                             subscriptions[index] = nil
-							for j in current ..< subscriptions.count {
-								if subscriptions[j] != nil {
-									break sw
+							for next in current ..< subscriptions.count {
+								if subscriptions[next] != nil {
+									return
 								}
 							}
 							observer.onCompleted()
