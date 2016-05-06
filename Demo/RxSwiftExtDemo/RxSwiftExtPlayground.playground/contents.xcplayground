@@ -9,5 +9,6 @@
         <page name='mapTo'/>
         <page name='not'/>
         <page name='cascade'/>
+        <page name='distinct'/>
     </pages>
 </playground>
