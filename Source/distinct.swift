@@ -18,7 +18,6 @@ extension Observable where Element: Hashable {
     public func distinct() -> Observable<Element> {
         var cache = Set<Element>()
         return flatMap { element -> Observable<Element> in
-            objc_sync_enter(self); defer {objc_sync_exit(self)}
             if cache.contains(element) {
                 return Observable<Element>.empty()
             } else {
@@ -38,7 +37,6 @@ extension Observable where Element: Equatable {
     public func distinct() -> Observable<Element> {
         var cache = [Element]()
         return flatMap { element -> Observable<Element> in
-            objc_sync_enter(self); defer {objc_sync_exit(self)}
             if cache.contains(element) {
                 return Observable<Element>.empty()
             } else {
