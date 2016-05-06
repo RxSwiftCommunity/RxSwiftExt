@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0DBC421DA83E083F68DB537A /* Pods_RxSwiftExtDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BEC4F1786209DFD7B65ADA1 /* Pods_RxSwiftExtDemo.framework */; };
+		32141AD91CC411B300569FFA /* ObservableType+Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32141AD81CC411B300569FFA /* ObservableType+Weak.swift */; };
+		32141ADC1CC416BA00569FFA /* ObservableType+Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32141AD81CC411B300569FFA /* ObservableType+Weak.swift */; };
 		3D3E95BB1CC01A150013FC08 /* ignoreWhenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3E95BA1CC01A150013FC08 /* ignoreWhenTests.swift */; };
 		3D3EA4941CBAAE4E00EB90DB /* ignore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3EA4931CBAAE4E00EB90DB /* ignore.swift */; };
 		3D3EA4961CBAFEE800EB90DB /* IgnoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3EA4951CBAFEE800EB90DB /* IgnoreTests.swift */; };
