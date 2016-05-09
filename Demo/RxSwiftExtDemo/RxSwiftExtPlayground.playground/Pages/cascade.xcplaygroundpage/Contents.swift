@@ -1,13 +1,20 @@
+/*:
+ > # IMPORTANT: To use `RxSwiftExtPlayground.playground`, please:
+ 
+ 1. Build `RxSwift+Ext` scheme for a simulator target
+ 1. Build `RxSwiftExtDemo` scheme for a simulator target
+ 1. Choose `View > Show Debug Area`
+ */
+
 //: [Previous](@previous)
 
-import Foundation
 import RxSwift
 import RxSwift_Ext
 
 /*:
  ## cascade
  
- The `cascade` operator takes a sequence of observables and cascades through them: 
+ The `cascade` operator takes a ordinary sequence (i.e. Array) of observables and cascades through them: 
  - it first subscribes to all observables in the sequence
  - every time an observable emits an element, all previous observables in the sequence are unsubscribed from, and elements from this observables are sent through
  - when any of the currently subscribed-to observables errors, the resulting observable errors too
@@ -38,7 +45,7 @@ example("cascade") {
     Observable.cascade([a,b,c])
         .subscribeNext {
             print("Cascade next: \($0)")
-    }
+        }
     
     // watch the resulting sequence in the playground debug area!
     playgroundShouldContinueIndefinitely()
