@@ -24,6 +24,7 @@
  1. [ignore(Any...)](ignore) operator, filters out any of the elements passed in parameters
  1. [Observable.once(Element)](once) contructor, creates a sequence that delivers an element *once* to the first subscriber then completes. The same sequence will complete immediately without delivering any element to all further subscribers.
  1. [mapTo(Any)](mapTo) operator, takes a sequence of elements and returns a sequence of the same constant provided as a parameter
+ 1. [not()](not) operator, applies a the boolean not (!) to a `Bool`
  1. [Observable.cascade([Observable])](cascade) contructor, takes a ordinary sequence (i.e. Array) of observables and cascades through them
  1. [distinct()](distinct) operator, suppress duplicate items emitted by an Observable
  
