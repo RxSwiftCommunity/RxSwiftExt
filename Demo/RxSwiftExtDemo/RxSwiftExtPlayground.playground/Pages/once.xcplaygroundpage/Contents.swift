@@ -1,6 +1,13 @@
+/*:
+ > # IMPORTANT: To use `RxSwiftExtPlayground.playground`, please:
+ 
+ 1. Build `RxSwift+Ext` scheme for a simulator target
+ 1. Build `RxSwiftExtDemo` scheme for a simulator target
+ 1. Choose `View > Show Debug Area`
+ */
+
 //: [Previous](@previous)
 
-import Foundation
 import RxSwift
 import RxSwift_Ext
 
