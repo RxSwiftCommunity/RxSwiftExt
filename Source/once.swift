@@ -1,6 +1,6 @@
 //
 //  once.swift
-//  RxSwift+Ext
+//  RxSwiftExt
 //
 //  Created by Florent Pillet on 12/04/16.
 //  Copyright (c) 2016 RxSwiftCommunity https://github.com/RxSwiftCommunity

@@ -1,7 +1,7 @@
 /*:
  > # IMPORTANT: To use `RxSwiftExtPlayground.playground`, please:
  
- 1. Build `RxSwift+Ext` scheme for a simulator target
+ 1. Build `RxSwiftExt` scheme for a simulator target
  1. Build `RxSwiftExtDemo` scheme for a simulator target
  1. Choose `View > Show Debug Area`
  */
@@ -9,7 +9,7 @@
 //: [Previous](@previous)
 
 import RxSwift
-import RxSwift_Ext
+import RxSwiftExt
 
 /*:
  ## unwrap()
@@ -30,6 +30,10 @@ example("unwrap optional values") {
             print("unwrap() transformed \(numbers) to \(result)")
     }
 }
+
+Observable.of(1,2,nil,Int?(4))
+    .unwrap()
+    .subscribe { print($0) }
 
 example("unwrap and filter out nil values") {
     

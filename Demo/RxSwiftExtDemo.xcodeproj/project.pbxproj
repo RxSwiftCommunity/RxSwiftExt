@@ -51,7 +51,7 @@
 		9C1F54F61CB67017001421F2 /* RxSwiftExtDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxSwiftExtDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C1F54F91CB67017001421F2 /* RxSwiftExtDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RxSwiftExtDemo.h; sourceTree = "<group>"; };
 		9C1F54FB1CB67017001421F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9C1F55011CB67026001421F2 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		9C1F55011CB67026001421F2 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9C1F550F1CB670F9001421F2 /* RxSwiftExtPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = RxSwiftExtPlayground.playground; sourceTree = "<group>"; };
 		9C1F552C1CB674B0001421F2 /* RxSwiftExtDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RxSwiftExtDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C1F552E1CB674B0001421F2 /* UnwrapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnwrapTests.swift; sourceTree = "<group>"; };

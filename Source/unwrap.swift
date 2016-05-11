@@ -1,6 +1,6 @@
 //
 //  unwrap.swift
-//  RxSwift+Ext
+//  RxSwiftExt
 //
 //  Created by Marin Todorov on 4/7/16.
 //  Copyright (c) 2016 RxSwiftCommunity https://github.com/RxSwiftCommunity

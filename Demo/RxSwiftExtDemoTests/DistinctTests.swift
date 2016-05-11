@@ -9,7 +9,7 @@
 import XCTest
 import RxSwift
 import RxTests
-import RxSwift_Ext
+import RxSwiftExt
 
 
 struct  DummyHashable: Hashable {

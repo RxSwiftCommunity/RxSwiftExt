@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
-  s.name         = "RxSwift+Ext"
-  s.version      = "0.1"
-  s.summary      = "Additional RxSwift operators not found in the core distribtion"
+  s.name         = "RxSwiftExt"
+  s.version      = "1.0"
+  s.summary      = "RxSwift operators not found in the core distribtion"
   s.description  = <<-DESC
     A collection of operators for RxSwift
                    DESC
-  s.homepage     = "https://github.com/RxSwiftCommunity/NSObject-Rx"
+  s.homepage     = "https://github.com/RxSwiftCommunity/RxSwiftExt"
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.authors      = { "RxSwiftCommunity" => "https://github.com/RxSwiftCommunity" }
 
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.watchos.deployment_target = '2.0'
   s.tvos.deployment_target = '9.0'
 
-  s.source       = { :git => "https://github.com/RxSwiftCommunity/RxSwift+Ext.git", :tag => s.version }
+  s.source       = { :git => "https://github.com/RxSwiftCommunity/RxSwiftExt.git", :tag => s.version }
   s.source_files  = "Source/*.swift"
   s.frameworks  = "Foundation"
   s.dependency "RxSwift", '~> 2.1'

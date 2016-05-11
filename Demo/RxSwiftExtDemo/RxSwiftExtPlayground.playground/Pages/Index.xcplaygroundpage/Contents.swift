@@ -1,7 +1,7 @@
 /*:
  > # IMPORTANT: To use `RxSwiftExtPlayground.playground`, please:
  
- 1. Build `RxSwift+Ext` scheme for a simulator target
+ 1. Build `RxSwiftExt` scheme for a simulator target
  1. Build `RxSwiftExtDemo` scheme for a simulator target
  1. Choose `View > Show Debug Area`
  */
@@ -11,12 +11,12 @@
  
  ## Additional operators for RxSwift
  
- The core RxSwift distribution provides an extensive set of operators to transform observables. RxSwift+Ext aims at providing those less needed or convenience operators that do not necessarily fit in the core distribution, while being useful to many.
+ The core RxSwift distribution provides an extensive set of operators to transform observables. RxSwiftExt aims at providing those less needed or convenience operators that do not necessarily fit in the core distribution, while being useful to many.
  We think that these additional operators will help beginners and intermediate Rx users alike by offering straightforward solutions to some of the common problems Rx users need to solve.
  
  ## About this playground
  
- Each page in the playground provides examples of use for each operator RxSwift+Ext provides.
+ Each page in the playground provides examples of use for each operator RxSwiftExt provides.
  
  ## Index:
  

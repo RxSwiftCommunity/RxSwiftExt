@@ -9,7 +9,7 @@
 import XCTest
 
 import RxSwift
-import RxSwift_Ext
+import RxSwiftExt
 import RxTests
 
 class OnceTests: XCTestCase {
