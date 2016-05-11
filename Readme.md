@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/RxSwiftCommunity/RxSwift-Ext.svg?branch=master)](https://travis-ci.org/RxSwiftCommunity/RxSwift-Ext)
 
-RxSwift+Ext
+RxSwiftExt
 ===========
 
 If you're using [RxSwift](https://github.com/ReactiveX/RxSwift), you may have encountered situations where the built-in operators do not bring the exact functionality you want. The RxSwift core is being intentionally kept as compact as possible to avoid bloat. This repository's purpose is to provide additional convenience operators.
@@ -12,7 +12,7 @@ Installation
 
 ```
 use_frameworks!
-pod "RxSwift-Ext"
+pod "RxSwiftExt"
 ```
 
 #### Carthage
@@ -20,7 +20,7 @@ pod "RxSwift-Ext"
 Add this to your `Cartfile`
 
 ```
-github "RxSwiftCommunity/RxSwift-Ext"
+github "RxSwiftCommunity/RxSwiftExt"
 ```
 
 
