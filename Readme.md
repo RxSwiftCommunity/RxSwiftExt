@@ -27,7 +27,7 @@ github "RxSwiftCommunity/RxSwiftExt"
 Operators
 ===========
 
-RxSwift+Ext is all about adding operators to [RxSwift](https://github.com/ReactiveX/RxSwift)! Currently available operators:
+RxSwiftExt is all about adding operators to [RxSwift](https://github.com/ReactiveX/RxSwift)! Currently available operators:
 
 * [unwrap](#unwrap)
 * [ignore](#ignore)
@@ -184,4 +184,4 @@ Next(c:2)
 
 This library belongs to _RxSwiftCommunity_.
 
-RxSwift+Ext is available under the MIT license. See the LICENSE file for more info.
+RxSwiftExt is available under the MIT license. See the LICENSE file for more info.
