@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/RxSwiftCommunity/RxSwift-Ext.svg?branch=master)](https://travis-ci.org/RxSwiftCommunity/RxSwift-Ext)
+[![Build Status](https://travis-ci.org/RxSwiftCommunity/RxSwiftExt.svg?branch=master)](https://travis-ci.org/RxSwiftCommunity/RxSwiftExt)
 
 RxSwiftExt
 ===========
