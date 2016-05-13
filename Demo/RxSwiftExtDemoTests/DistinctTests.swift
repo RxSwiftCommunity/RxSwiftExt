@@ -152,4 +152,111 @@ class DistinctTests: XCTestCase {
         XCTAssertEqual(observer.events, correct)
     }
     
+    func testDistinctPredicateOne() {
+        let values = [DummyEquatable(id: 1, name: "SomeName1"),
+                      DummyEquatable(id: 2, name: "SomeName2"),
+                      DummyEquatable(id: 3, name: "SomeName1")]
+        let scheduler = TestScheduler(initialClock: 0)
+        let observer = scheduler.createObserver(DummyEquatable)
+        
+        values.toObservable().distinct {
+            $0.name.containsString("1")
+        }.subscribe(observer)
+        
+        scheduler.start()
+        
+        let correct = [
+            next(0, DummyEquatable(id: 1, name: "SomeName1")),
+            completed(0)
+        ]
+        
+        XCTAssertEqual(observer.events, correct)
+    }
+    
+    func testDistinctPredicateAll() {
+        let values = [DummyEquatable(id: 1, name: "SomeName1"),
+                      DummyEquatable(id: 2, name: "SomeName2"),
+                      DummyEquatable(id: 3, name: "SomeName3")]
+        let scheduler = TestScheduler(initialClock: 0)
+        let observer = scheduler.createObserver(DummyEquatable)
+        
+        values.toObservable().distinct {
+            $0.name.containsString("T")
+            }.subscribe(observer)
+        
+        scheduler.start()
+        
+        let correct = [
+            next(0, DummyEquatable(id: 1, name: "SomeName1")),
+            next(0, DummyEquatable(id: 2, name: "SomeName2")),
+            next(0, DummyEquatable(id: 3, name: "SomeName3")),
+            completed(0)
+        ]
+        
+        XCTAssertEqual(observer.events, correct)
+    }
+    
+    func testDistinctPredicateEmpty() {
+        let scheduler = TestScheduler(initialClock: 0)
+        let observer = scheduler.createObserver(DummyEquatable)
+        
+        Observable<DummyEquatable>.empty()
+            .distinct {
+                $0.id < 0
+            }
+            .subscribe(observer)
+        
+        scheduler.start()
+        
+        let correct: [Recorded<Event<DummyEquatable>>] = [
+            completed(0)
+        ]
+        
+        XCTAssertEqual(observer.events, correct)
+    }
+
+    func testDistinctPredicateFirst() {
+        let values = [DummyEquatable(id: 1, name: "SomeName1"),
+                      DummyEquatable(id: 2, name: "SomeName2"),
+                      DummyEquatable(id: 3, name: "SomeName3")]
+        let scheduler = TestScheduler(initialClock: 0)
+        let observer = scheduler.createObserver(DummyEquatable)
+        
+        values.toObservable().distinct {
+            $0.id > 0
+        }.subscribe(observer)
+        
+        scheduler.start()
+        
+        let correct = [
+            next(0, DummyEquatable(id: 1, name: "SomeName1")),
+            completed(0)
+        ]
+        
+        XCTAssertEqual(observer.events, correct)
+    }
+    
+    func testDistinctPredicateTwo() {
+        let values = [DummyEquatable(id: 1, name: "SomeName1"),
+                      DummyEquatable(id: 2, name: "SomeName2"),
+                      DummyEquatable(id: 3, name: "SomeName3")]
+        let scheduler = TestScheduler(initialClock: 0)
+        let observer = scheduler.createObserver(DummyEquatable)
+        
+        values.toObservable().distinct {
+            $0.id > 1
+        }.subscribe(observer)
+        
+        scheduler.start()
+        
+        let correct = [
+            next(0, DummyEquatable(id: 1, name: "SomeName1")),
+            next(0, DummyEquatable(id: 2, name: "SomeName2")),
+            completed(0)
+        ]
+        
+        XCTAssertEqual(observer.events, correct)
+
+    }
+    
 }

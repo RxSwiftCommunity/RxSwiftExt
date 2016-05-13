@@ -9,6 +9,27 @@
 import Foundation
 import RxSwift
 
+extension Observable {
+    /**
+     Suppress duplicate items emitted by an Observable
+     - seealso: [distinct operator on reactivex.io](http://reactivex.io/documentation/operators/distinct.html)
+     - parameter predicate: predicate determines whether element distinct
+     
+     - returns: An observable sequence only containing the distinct contiguous elements, based on predicate, from the source sequence.
+     */
+    public func distinct(predicate: (Element) throws -> Bool) -> Observable<E> {
+        var cache = [Element]()
+        return flatMap { element -> Observable<Element> in
+            if try cache.contains(predicate) {
+                return Observable<Element>.empty()
+            } else {
+                cache.append(element)
+                return Observable<Element>.just(element)
+            }
+        }
+    }
+}
+
 extension Observable where Element: Hashable {
     /**
      Suppress duplicate items emitted by an Observable
