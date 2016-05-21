@@ -18,7 +18,7 @@ extension ObservableType {
      */
     @warn_unused_result(message="http://git.io/rxs.uo")
     public func ignoreErrors() -> Observable<E> {
-        return self.retry()
+        return retry()
     }
     
     /**
@@ -29,7 +29,7 @@ extension ObservableType {
      */
 	@warn_unused_result(message="http://git.io/rxs.uo")
     public func ignoreErrors(predicate : (ErrorType) -> Bool) -> Observable<E> {
-        return self.asObservable().retryWhen {
+        return retryWhen {
             return $0.flatMap { error -> Observable<Bool> in
 				return predicate(error) ?  Observable.just(true) : Observable<Bool>.error(error)
             }
