@@ -87,4 +87,58 @@ example("ignore some elements") {
     }
 }
 
+/*:
+ ## ignoreErrors
+ 
+ The `ignoreErrors` operator is a synonym for the `retry` operator: it unconditionally ignores any error emitted by the sequence,
+ creating an sequence that never fails
+ */
+enum ExampleError : ErrorType {
+    case SeriousError
+    case MinorError
+}
+
+example("ignore all errors") {
+
+    let subject = PublishSubject<Observable<Int>>()
+    
+    let _ = subject
+        .asObservable()
+        .flatMap { $0 }
+        .ignoreErrors()
+        .subscribe { print($0) }
+    
+    subject.onNext(Observable.just(1))
+    subject.onNext(Observable.just(2))
+    subject.onNext(Observable.just(3))
+    subject.onNext(Observable.error(ExampleError.SeriousError))
+    subject.onNext(Observable.just(4))
+    subject.onNext(Observable.just(5))
+
+}
+
+example("ignore only minor errors") {
+    
+    let subject = PublishSubject<Observable<Int>>()
+    
+    let _ = subject
+        .asObservable()
+        .flatMap { $0 }
+        .ignoreErrors {
+            if case ExampleError.SeriousError = $0 {
+                return false
+            }
+            return true
+        }
+        .subscribe { print($0) }
+    
+    subject.onNext(Observable.just(1))
+    subject.onNext(Observable.just(2))
+    subject.onNext(Observable.just(3))
+    subject.onNext(Observable.error(ExampleError.SeriousError))
+    subject.onNext(Observable.just(4))
+    subject.onNext(Observable.just(5))
+
+}
+
 //: [Next](@next)
