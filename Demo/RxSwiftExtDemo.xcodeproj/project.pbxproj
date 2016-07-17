@@ -14,6 +14,7 @@
 		3DC39F321CED19AC000054B6 /* ignoreErrorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC39F311CED19AC000054B6 /* ignoreErrorsTests.swift */; };
 		3DC705AA1CBCF74100493BB2 /* OnceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC705A91CBCF74100493BB2 /* OnceTests.swift */; };
 		68A12BDE1CC5EF5B009AAAFE /* notTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A12BDD1CC5EF5B009AAAFE /* notTests.swift */; };
+		6EC6851F1D3BCEFC0051C188 /* RetryWithBehaviorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC6851E1D3BCEFC0051C188 /* RetryWithBehaviorTests.swift */; };
 		8458AF191CDA679600E6F2FE /* DistinctTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8458AF181CDA679600E6F2FE /* DistinctTests.swift */; };
 		8458AF1F1CDA74A000E6F2FE /* WeakTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32141ADA1CC4129600569FFA /* WeakTests.swift */; };
 		8458AF201CDA74A000E6F2FE /* WeakTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32141ADD1CC4B9F300569FFA /* WeakTarget.swift */; };
@@ -46,6 +47,7 @@
 		3DC39F311CED19AC000054B6 /* ignoreErrorsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ignoreErrorsTests.swift; sourceTree = "<group>"; };
 		3DC705A91CBCF74100493BB2 /* OnceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnceTests.swift; sourceTree = "<group>"; };
 		68A12BDD1CC5EF5B009AAAFE /* notTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = notTests.swift; sourceTree = "<group>"; };
+		6EC6851E1D3BCEFC0051C188 /* RetryWithBehaviorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetryWithBehaviorTests.swift; sourceTree = "<group>"; };
 		83B550588DE118291080BB92 /* Pods-RxSwiftExtDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftExtDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxSwiftExtDemo/Pods-RxSwiftExtDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		8458AF181CDA679600E6F2FE /* DistinctTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistinctTests.swift; sourceTree = "<group>"; };
 		9C1F54F61CB67017001421F2 /* RxSwiftExtDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxSwiftExtDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,6 +151,7 @@
 				68A12BDD1CC5EF5B009AAAFE /* notTests.swift */,
 				3DC705A91CBCF74100493BB2 /* OnceTests.swift */,
 				9C1F552E1CB674B0001421F2 /* UnwrapTests.swift */,
+				6EC6851E1D3BCEFC0051C188 /* RetryWithBehaviorTests.swift */,
 				9C1F55301CB674B0001421F2 /* Info.plist */,
 			);
 			path = RxSwiftExtDemoTests;
@@ -198,6 +201,7 @@
 				9C1F552A1CB674B0001421F2 /* Resources */,
 				C56E445668C074BE1CA42709 /* 📦 Embed Pods Frameworks */,
 				00974543E2EBCD10EE11968B /* 📦 Copy Pods Resources */,
+				08E1A010838D15A994FCB084 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -280,6 +284,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RxSwiftExtDemoTests/Pods-RxSwiftExtDemoTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		08E1A010838D15A994FCB084 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RxSwiftExtDemoTests/Pods-RxSwiftExtDemoTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		6FAF8FD8FC061620E64F107A /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -358,6 +377,7 @@
 				3DC39F321CED19AC000054B6 /* ignoreErrorsTests.swift in Sources */,
 				68A12BDE1CC5EF5B009AAAFE /* notTests.swift in Sources */,
 				8458AF191CDA679600E6F2FE /* DistinctTests.swift in Sources */,
+				6EC6851F1D3BCEFC0051C188 /* RetryWithBehaviorTests.swift in Sources */,
 				9C1F552F1CB674B0001421F2 /* UnwrapTests.swift in Sources */,
 				8458AF201CDA74A000E6F2FE /* WeakTarget.swift in Sources */,
 				8458AF1F1CDA74A000E6F2FE /* WeakTests.swift in Sources */,
