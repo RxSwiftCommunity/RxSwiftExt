@@ -11,7 +11,7 @@ import RxSwift
 import RxSwiftExt
 import RxTests
 
-enum RepeatTestErrors : ErrorType {
+private enum RepeatTestErrors : ErrorType {
 	case fatalError
 }
 
@@ -67,6 +67,7 @@ class RetryWithBehaviorTests: XCTestCase {
 			next(680, 2),
 			error(690, RepeatTestErrors.fatalError)]
 		
+		// provide simple predicate that always return true
 		let res = scheduler.start(0, subscribed: 0, disposed: 1000) { () -> Observable<Int> in
 			return self.sampleValues.asObservable().retry(.Immediate(maxAttemptCount: 3), scheduler: self.scheduler) { _ in
 				return true
@@ -82,6 +83,7 @@ class RetryWithBehaviorTests: XCTestCase {
 			next(220, 2),
 			error(230, RepeatTestErrors.fatalError)]
 		
+		// provide simple predicate that always return false (so, sequence will not repeated)
 		let res = scheduler.start(0, subscribed: 0, disposed: 1000) { () -> Observable<Int> in
 			return self.sampleValues.asObservable().retry(.Immediate(maxAttemptCount: 3), scheduler: self.scheduler) { _ in
 				return false
@@ -212,6 +214,7 @@ class RetryWithBehaviorTests: XCTestCase {
 			error(1320, RepeatTestErrors.fatalError)]
 		
 		let res = scheduler.start(0, subscribed: 0, disposed: 2000) { () -> Observable<Int> in
+			// custom delay calculator
 			let customCalculator: (UInt -> Double) = { attempt in
 				switch attempt {
 				case 1: return 10.0
@@ -242,6 +245,7 @@ class RetryWithBehaviorTests: XCTestCase {
 			error(1320, RepeatTestErrors.fatalError)]
 		
 		let res = scheduler.start(0, subscribed: 0, disposed: 2000) { () -> Observable<Int> in
+			// custom delay calculator
 			let customCalculator: (UInt -> Double) = { attempt in
 				switch attempt {
 				case 1: return 10.0
@@ -266,6 +270,7 @@ class RetryWithBehaviorTests: XCTestCase {
 			error(230, RepeatTestErrors.fatalError)]
 		
 		let res = scheduler.start(0, subscribed: 0, disposed: 2000) { () -> Observable<Int> in
+			// custom delay calculator
 			let customCalculator: (UInt -> Double) = { attempt in
 				switch attempt {
 				case 1: return 10.0
