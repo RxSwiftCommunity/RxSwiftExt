@@ -37,6 +37,7 @@ RxSwiftExt is all about adding operators to [RxSwift](https://github.com/Reactiv
 * [mapTo](#mapto)
 * [not](#not)
 * [Observable.cascade](#cascade)
+* [retry](#retry)
 
 ##### unwrap
 
@@ -179,6 +180,64 @@ Next(b:1)
 Next(c:1)
 Next(c:2)
 ```
+
+##### retry
+
+Repeats the source observable sequence using given behavior in case of an error or until it successfully terminated. 
+There are four behaviors:
+
+```swift
+public enum RepeatBehavior {
+	// Specifies number or attempts to observe sequence. Retry will be performed without delay
+	case Immediate (maxAttemptCount: UInt)
+	// Specifies number or attempts to observe sequence.
+	// Retry will be performed after specified delay
+	case Delayed (maxAttemptCount: UInt, time: Double)
+	// Specifies number or attempts to observe sequence.
+	// Retry will be performed after specified delay.
+	// First retry will be delayed by initial time, each next delay will be incremented by multiplier
+	case ExponentialDelayed (maxAttemptCount: UInt, initial: Double, multiplier: Double)
+	/// Specifies number or attempts to observe sequence.
+	/// Provides custom closure to calculate delay
+	case CustomTimerDelayed (maxAttemptCount: UInt, delayCalculator:(UInt -> Double))
+}
+```
+
+For all cases maxAttemptCount = 1 means only one attempt and retry will not be performed if error occurred, maxAttemptCount = 0 means same as maxAttemptCount = 1.
+
+ExponentialDelayed case uses this formula to calculate delay: `initial * pow(1 + multiplier, Double(currentAttempt - 1))`. So, multiplier 1.0 means delay will be incremented by 100%, multiplier 0.3 means delay will be incremented by 30%.
+
+CustomTimerDelayed case invokes delayCalculator before actual attemp started and calculated delay will be used if error occurred. 
+
+```swift
+let sample = /* Any observable */
+let delayScheduler = /* Any scheduler, that will be used for delay */
+// immediate retry 
+_ = sample.retry(.Immediate(maxAttemptCount: 3))
+		.doOnError { error in
+			print("Receive error \(error)")
+		}
+		.subscribeNext { event in
+			print("Receive event: \(event)")
+	}
+// retry with custom calculator
+let customCalculator: (UInt -> Double) = { attempt in
+	switch attempt {
+	case 1: return 0.5
+	case 2: return 1.5
+	default: return 2.0
+	}
+}
+_ = sample.retry(.CustomTimerDelayed(maxAttemptCount: 3, delayCalculator: customCalculator), scheduler: delayScheduler)
+	.doOnError { error in
+		print("Receive error: \(error)")
+	}
+	.subscribeNext { event in
+		print("1Receive event: \(event)")
+}
+```
+
+More examples available in Playground.
 
 ## License
 
