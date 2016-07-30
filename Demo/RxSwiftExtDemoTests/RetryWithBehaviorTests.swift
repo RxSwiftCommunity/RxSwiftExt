@@ -17,6 +17,8 @@ private enum RepeatTestErrors : ErrorType {
 
 class RetryWithBehaviorTests: XCTestCase {
 	var sampleValues: TestableObservable<Int>!
+    var sampleValuesImmediateError: TestableObservable<Int>!
+    var sampleValuesNeverError: TestableObservable<Int>!
 	let scheduler = TestScheduler(initialClock: 0)
 	
 	override func setUp() {
@@ -32,6 +34,20 @@ class RetryWithBehaviorTests: XCTestCase {
 			next(270, 6),
 			completed(300)
 			])
+     
+        sampleValuesImmediateError = scheduler.createColdObservable([
+            error(230, RepeatTestErrors.fatalError),
+            ])
+        
+        sampleValuesNeverError = scheduler.createColdObservable([
+            next(210, 1),
+            next(220, 2),
+            next(240, 3),
+            next(250, 4),
+            next(260, 5),
+            next(270, 6),
+            completed(300)
+            ])
 	}
 	
 	override func tearDown() {
@@ -56,7 +72,36 @@ class RetryWithBehaviorTests: XCTestCase {
 		XCTAssertEqual(res.events, correctValues)
 	}
 	
-	
+    func testImmediateRetryWithoutPredicate_ImmediateError() {
+        let correctValues : [Recorded<Event<Int>>] = [
+            error(690, RepeatTestErrors.fatalError)
+        ]
+        
+        let res = scheduler.start(0, subscribed: 0, disposed: 1000) { () -> Observable<Int> in
+            return self.sampleValuesImmediateError.asObservable().retry(.Immediate(maxAttemptCount: 3), scheduler: self.scheduler)
+        }
+        
+        XCTAssertEqual(res.events, correctValues)
+    }
+
+    func testImmediateRetryWithoutPredicate_NoError() {
+        let correctValues = [
+            next(210, 1),
+            next(220, 2),
+            next(240, 3),
+            next(250, 4),
+            next(260, 5),
+            next(270, 6),
+            completed(300)
+        ]
+        
+        let res = scheduler.start(0, subscribed: 0, disposed: 1000) { () -> Observable<Int> in
+            return self.sampleValuesNeverError.asObservable().retry(.Immediate(maxAttemptCount: 3), scheduler: self.scheduler)
+        }
+        
+        XCTAssertEqual(res.events, correctValues)
+    }
+
 	func testImmediateRetryWithPredicate() {
 		let correctValues = [
 			next(210, 1),
@@ -76,7 +121,27 @@ class RetryWithBehaviorTests: XCTestCase {
 		
 		XCTAssertEqual(res.events, correctValues)
 	}
-	
+
+    func testImmediateRetryWithPredicate_Limited() {
+        let correctValues = [
+            next(210, 1),
+            next(220, 2),
+            next(440, 1),
+            next(450, 2),
+            error(460, RepeatTestErrors.fatalError)]
+        
+        // provide simple predicate that always return true
+        var attempts = 0
+        let res = scheduler.start(0, subscribed: 0, disposed: 1000) { () -> Observable<Int> in
+            return self.sampleValues.asObservable().retry(.Immediate(maxAttemptCount: 3), scheduler: self.scheduler) { _ in
+                attempts += 1
+                return attempts == 1
+            }
+        }
+        
+        XCTAssertEqual(res.events, correctValues)
+    }
+
 	func testImmediateNotRetryWithPredicate() {
 		let correctValues = [
 			next(210, 1),
