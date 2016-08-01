@@ -40,7 +40,7 @@ RxSwiftExt is all about adding operators to [RxSwift](https://github.com/Reactiv
 * [retry](#retry)
 * [catchErrorJustComplete](#catcherrorjustcomplete)
 
-##### unwrap
+#### unwrap
 
 Unwrap optionals and filter out nil values.
 
@@ -55,7 +55,7 @@ Next(2)
 Next(4)
 ```
 
-##### ignore
+#### ignore
 
 Ignore specific elements.
 
@@ -71,7 +71,7 @@ Next(Three)
 Completed  
 ```
 
-##### ignoreWhen
+#### ignoreWhen
 
 Ignore elements according to closure.
 
@@ -88,7 +88,7 @@ Next(6)
 Completed
 ```
 
-##### once
+#### once
 
 Send a next element exactly once to the first subscriber that takes it. Further subscribers get an empty sequence.
 
@@ -107,7 +107,7 @@ Second
 Completed
 ```
 
-##### distinct
+#### distinct
 
 Pass elements through only if they were never seen before in the sequence.
 
@@ -124,7 +124,7 @@ Next(d)
 Completed
 ```
 
-##### mapTo
+#### mapTo
 
 Replace every element with the provided value.
 
@@ -140,7 +140,7 @@ Next(Nope.)
 Completed
 ```
 
-##### not
+#### not
 
 Negate booleans.
 
@@ -154,7 +154,7 @@ Next(true)
 Completed
 ```
 
-##### cascade
+#### cascade
 
 Sequentially cascade through a list of observable, dropping previous subscriptions as soon as an observable further down the list starts emitting elements.
 
@@ -182,7 +182,7 @@ Next(c:1)
 Next(c:2)
 ```
 
-##### retry
+#### retry
 
 Repeats the source observable sequence using given behavior in case of an error or until it successfully terminated. 
 There are four behaviors with various predicate and delay options: `Immediate`, `Delayed`, `ExponentialDelayed` and 
@@ -211,7 +211,7 @@ Receive event: Second
 Receive error: fatalError
 ```
 
-##### catchErrorJustComplete
+#### catchErrorJustComplete
 
 Completes a sequence when an error occurs, dismissing the error condition
 
