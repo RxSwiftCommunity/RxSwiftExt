@@ -10,5 +10,6 @@
         <page name='cascade'/>
         <page name='distinct'/>
         <page name='retryWithBehavior'/>
+        <page name='catchErrorJustComplete'/>
     </pages>
 </playground>
