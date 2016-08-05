@@ -66,7 +66,7 @@ class RetryWithBehaviorTests: XCTestCase {
 			error(690, RepeatTestErrors.fatalError)]
 		
 		let res = scheduler.start(0, subscribed: 0, disposed: 1000) { () -> Observable<Int> in
-			return self.sampleValues.asObservable().retry(.Immediate(maxAttemptCount: 3), scheduler: self.scheduler)
+			return self.sampleValues.asObservable().retry(.Immediate(maxCount: 3), scheduler: self.scheduler)
 		}
 		
 		XCTAssertEqual(res.events, correctValues)
@@ -78,7 +78,7 @@ class RetryWithBehaviorTests: XCTestCase {
         ]
         
         let res = scheduler.start(0, subscribed: 0, disposed: 1000) { () -> Observable<Int> in
-            return self.sampleValuesImmediateError.asObservable().retry(.Immediate(maxAttemptCount: 3), scheduler: self.scheduler)
+            return self.sampleValuesImmediateError.asObservable().retry(.Immediate(maxCount: 3), scheduler: self.scheduler)
         }
         
         XCTAssertEqual(res.events, correctValues)
@@ -96,7 +96,7 @@ class RetryWithBehaviorTests: XCTestCase {
         ]
         
         let res = scheduler.start(0, subscribed: 0, disposed: 1000) { () -> Observable<Int> in
-            return self.sampleValuesNeverError.asObservable().retry(.Immediate(maxAttemptCount: 3), scheduler: self.scheduler)
+            return self.sampleValuesNeverError.asObservable().retry(.Immediate(maxCount: 3), scheduler: self.scheduler)
         }
         
         XCTAssertEqual(res.events, correctValues)
@@ -114,7 +114,7 @@ class RetryWithBehaviorTests: XCTestCase {
 		
 		// provide simple predicate that always return true
 		let res = scheduler.start(0, subscribed: 0, disposed: 1000) { () -> Observable<Int> in
-			return self.sampleValues.asObservable().retry(.Immediate(maxAttemptCount: 3), scheduler: self.scheduler) { _ in
+			return self.sampleValues.asObservable().retry(.Immediate(maxCount: 3), scheduler: self.scheduler) { _ in
 				return true
 			}
 		}
@@ -133,7 +133,7 @@ class RetryWithBehaviorTests: XCTestCase {
         // provide simple predicate that always return true
         var attempts = 0
         let res = scheduler.start(0, subscribed: 0, disposed: 1000) { () -> Observable<Int> in
-            return self.sampleValues.asObservable().retry(.Immediate(maxAttemptCount: 3), scheduler: self.scheduler) { _ in
+            return self.sampleValues.asObservable().retry(.Immediate(maxCount: 3), scheduler: self.scheduler) { _ in
                 attempts += 1
                 return attempts == 1
             }
@@ -150,7 +150,7 @@ class RetryWithBehaviorTests: XCTestCase {
 		
 		// provide simple predicate that always return false (so, sequence will not repeated)
 		let res = scheduler.start(0, subscribed: 0, disposed: 1000) { () -> Observable<Int> in
-			return self.sampleValues.asObservable().retry(.Immediate(maxAttemptCount: 3), scheduler: self.scheduler) { _ in
+			return self.sampleValues.asObservable().retry(.Immediate(maxCount: 3), scheduler: self.scheduler) { _ in
 				return false
 			}
 		}
@@ -169,7 +169,7 @@ class RetryWithBehaviorTests: XCTestCase {
 			error(700, RepeatTestErrors.fatalError)]
 		
 		let res = scheduler.start(0, subscribed: 0, disposed: 1000) { () -> Observable<Int> in
-			return self.sampleValues.asObservable().retry(.Delayed(maxAttemptCount: 3, time: 5.0), scheduler: self.scheduler)
+			return self.sampleValues.asObservable().retry(.Delayed(maxCount: 3, time: 5.0), scheduler: self.scheduler)
 		}
 		
 		XCTAssertEqual(res.events, correctValues)
@@ -186,7 +186,7 @@ class RetryWithBehaviorTests: XCTestCase {
 			error(700, RepeatTestErrors.fatalError)]
 		
 		let res = scheduler.start(0, subscribed: 0, disposed: 1000) { () -> Observable<Int> in
-			return self.sampleValues.asObservable().retry(.Delayed(maxAttemptCount: 3, time: 5.0), scheduler: self.scheduler) { _ in
+			return self.sampleValues.asObservable().retry(.Delayed(maxCount: 3, time: 5.0), scheduler: self.scheduler) { _ in
 				return true
 			}
 		}
@@ -201,7 +201,7 @@ class RetryWithBehaviorTests: XCTestCase {
 			error(230, RepeatTestErrors.fatalError)]
 		
 		let res = scheduler.start(0, subscribed: 0, disposed: 1000) { () -> Observable<Int> in
-			return self.sampleValues.asObservable().retry(.Delayed(maxAttemptCount: 3, time: 5.0), scheduler: self.scheduler) { _ in
+			return self.sampleValues.asObservable().retry(.Delayed(maxCount: 3, time: 5.0), scheduler: self.scheduler) { _ in
 				return false
 			}
 		}
@@ -222,7 +222,7 @@ class RetryWithBehaviorTests: XCTestCase {
 			error(955, RepeatTestErrors.fatalError)]
 		
 		let res = scheduler.start(0, subscribed: 0, disposed: 1000) { () -> Observable<Int> in
-			return self.sampleValues.asObservable().retry(.ExponentialDelayed(maxAttemptCount: 4, initial: 5.0, multiplier: 1.0), scheduler: self.scheduler)
+			return self.sampleValues.asObservable().retry(.ExponentialDelayed(maxCount: 4, initial: 5.0, multiplier: 1.0), scheduler: self.scheduler)
 		}
 		
 		XCTAssertEqual(res.events, correctValues)
@@ -241,7 +241,7 @@ class RetryWithBehaviorTests: XCTestCase {
 			error(955, RepeatTestErrors.fatalError)]
 		
 		let res = scheduler.start(0, subscribed: 0, disposed: 1000) { () -> Observable<Int> in
-			return self.sampleValues.asObservable().retry(.ExponentialDelayed(maxAttemptCount: 4, initial: 5.0, multiplier: 1.0), scheduler: self.scheduler) { _ in
+			return self.sampleValues.asObservable().retry(.ExponentialDelayed(maxCount: 4, initial: 5.0, multiplier: 1.0), scheduler: self.scheduler) { _ in
 				return true
 			}
 		}
@@ -256,7 +256,7 @@ class RetryWithBehaviorTests: XCTestCase {
 			error(230, RepeatTestErrors.fatalError)]
 		
 		let res = scheduler.start(0, subscribed: 0, disposed: 1000) { () -> Observable<Int> in
-			return self.sampleValues.asObservable().retry(.ExponentialDelayed(maxAttemptCount: 4, initial: 5.0, multiplier: 1.0), scheduler: self.scheduler) { _ in
+			return self.sampleValues.asObservable().retry(.ExponentialDelayed(maxCount: 4, initial: 5.0, multiplier: 1.0), scheduler: self.scheduler) { _ in
 				return false
 			}
 		}
@@ -289,7 +289,7 @@ class RetryWithBehaviorTests: XCTestCase {
 				}
 			}
 			
-			return self.sampleValues.asObservable().retry(.CustomTimerDelayed(maxAttemptCount: 5, delayCalculator: customCalculator), scheduler: self.scheduler)
+			return self.sampleValues.asObservable().retry(.CustomTimerDelayed(maxCount: 5, delayCalculator: customCalculator), scheduler: self.scheduler)
 		}
 		
 		XCTAssertEqual(res.events, correctValues)
@@ -320,7 +320,7 @@ class RetryWithBehaviorTests: XCTestCase {
 				}
 			}
 			
-			return self.sampleValues.asObservable().retry(.CustomTimerDelayed(maxAttemptCount: 5, delayCalculator: customCalculator), scheduler: self.scheduler) { _ in
+			return self.sampleValues.asObservable().retry(.CustomTimerDelayed(maxCount: 5, delayCalculator: customCalculator), scheduler: self.scheduler) { _ in
 				return true
 			}
 		}
@@ -345,7 +345,7 @@ class RetryWithBehaviorTests: XCTestCase {
 				}
 			}
 			
-			return self.sampleValues.asObservable().retry(.CustomTimerDelayed(maxAttemptCount: 5, delayCalculator: customCalculator), scheduler: self.scheduler) { _ in
+			return self.sampleValues.asObservable().retry(.CustomTimerDelayed(maxCount: 5, delayCalculator: customCalculator), scheduler: self.scheduler) { _ in
 				return false
 			}
 		}

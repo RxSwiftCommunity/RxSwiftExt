@@ -18,35 +18,35 @@ Delay will be incremented by multiplier after each iteration (multiplier = 0.5 m
 - CustomTimerDelayed: Will be repeated specified number of times. Delay will be calculated by custom closure
 */
 public enum RepeatBehavior {
-	case Immediate (maxAttemptCount: UInt)
-	case Delayed (maxAttemptCount: UInt, time: Double)
-	case ExponentialDelayed (maxAttemptCount: UInt, initial: Double, multiplier: Double)
-	case CustomTimerDelayed (maxAttemptCount: UInt, delayCalculator:(UInt -> Double))
+	case Immediate (maxCount: UInt)
+	case Delayed (maxCount: UInt, time: Double)
+	case ExponentialDelayed (maxCount: UInt, initial: Double, multiplier: Double)
+	case CustomTimerDelayed (maxCount: UInt, delayCalculator: (UInt) -> Double)
 }
 
 public typealias RepeatPredicate = (ErrorType) -> Bool
 
 extension RepeatBehavior {
 	/**
-	Extracts maxAttemptCount and calculates delay for current RepeatBehavior
+	Extracts maxCount and calculates delay for current RepeatBehavior
 	- parameter currentAttempt: Number of current attempt
-	- returns: Tuple with maxAttemptCount and calculated delay for provided attempt
+	- returns: Tuple with maxCount and calculated delay for provided attempt
 	*/
-	func calculateConditions(currentAttempt: UInt) -> (maxAttemptCount: UInt, delay: Double) {
+	func calculateConditions(currentRepetition: UInt) -> (maxCount: UInt, delay: Double) {
 		switch self {
 		case .Immediate(let max):
 			// if Immediate, return 0.0 as delay
-			return (maxAttemptCount: max, delay: 0.0)
+			return (maxCount: max, delay: 0.0)
 		case .Delayed(let max, let time):
 			// return specified delay
-			return (maxAttemptCount: max, delay: time)
+			return (maxCount: max, delay: time)
 		case .ExponentialDelayed(let max, let initial, let multiplier):
 			// if it's first attempt, simply use initial delay, otherwise calculate delay
-			let delay = currentAttempt == 1 ? initial : initial * pow(1 + multiplier, Double(currentAttempt - 1))
-			return (maxAttemptCount: max, delay: delay)
+			let delay = currentRepetition == 1 ? initial : initial * pow(1 + multiplier, Double(currentRepetition - 1))
+			return (maxCount: max, delay: delay)
 		case .CustomTimerDelayed(let max, let delayCalculator):
 			// calculate delay using provided calculator
-			return (maxAttemptCount: max, delay: delayCalculator(currentAttempt))
+			return (maxCount: max, delay: delayCalculator(currentRepetition))
 		}
 	}
 }
@@ -82,7 +82,7 @@ extension ObservableType {
 			
 			return catchError { error -> Observable<E> in
 				// return error if exceeds maximum amount of retries
-				guard conditions.maxAttemptCount > currentAttempt else { return Observable.error(error) }
+				guard conditions.maxCount > currentAttempt else { return Observable.error(error) }
 				
 				if let shouldRetry = shouldRetry where !shouldRetry(error) {
 					// also return error if predicate says so
