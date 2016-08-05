@@ -24,7 +24,7 @@ public enum RepeatBehavior {
 	case CustomTimerDelayed (maxCount: UInt, delayCalculator: (UInt) -> Double)
 }
 
-public typealias RepeatPredicate = (ErrorType) -> Bool
+public typealias RetryPredicate = (ErrorType) -> Bool
 
 extension RepeatBehavior {
 	/**
@@ -60,7 +60,7 @@ extension ObservableType {
 	- returns: Observable sequence that will be automatically repeat if error occurred
 	*/
 	@warn_unused_result(message="http://git.io/rxs.uo")
-	public func retry(behavior: RepeatBehavior, scheduler : SchedulerType = MainScheduler.instance, shouldRetry : RepeatPredicate? = nil) -> Observable<E> {
+	public func retry(behavior: RepeatBehavior, scheduler: SchedulerType = MainScheduler.instance, shouldRetry: RetryPredicate? = nil) -> Observable<E> {
 		return retry(1, behavior: behavior, scheduler: scheduler, shouldRetry: shouldRetry)
 	}
 	
@@ -73,7 +73,7 @@ extension ObservableType {
 	- returns: Observable sequence that will be automatically repeat if error occurred
 	*/
 	@warn_unused_result(message="http://git.io/rxs.uo")
-	internal func retry(currentAttempt: UInt, behavior: RepeatBehavior, scheduler : SchedulerType = MainScheduler.instance, shouldRetry : RepeatPredicate? = nil)
+	internal func retry(currentAttempt: UInt, behavior: RepeatBehavior, scheduler: SchedulerType = MainScheduler.instance, shouldRetry: RetryPredicate? = nil)
 		-> Observable<E> {
 			guard currentAttempt > 0 else { return Observable.empty() }
 			
