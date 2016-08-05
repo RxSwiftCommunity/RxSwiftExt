@@ -11,9 +11,10 @@ import RxSwift
 public typealias RepeatPredicate = () -> Bool
 
 /*
-Uses RepeatBehavior and RepeatPredicate defined in retryWithBehavior
+ Uses RepeatBehavior defined in retryWithBehavior
 */
 
+/** Dummy error to use with catchError to restart the observable */
 private enum RepeatError: ErrorType {
     case catchable
 }
@@ -21,11 +22,11 @@ private enum RepeatError: ErrorType {
 extension ObservableType {
 
     /**
-	Repeats the source observable sequence using given behavior in case of an error or until it successfully terminated
-	- parameter behavior: Behavior that will be used in case of an error
+	Repeats the source observable sequence using given behavior when it completes
+	- parameter behavior: Behavior that will be used when the observable completes
 	- parameter scheduler: Schedular that will be used for delaying subscription after error
-	- parameter shouldRetry: Custom optional closure for checking error (if returns true, repeat will be performed)
-	- returns: Observable sequence that will be automatically repeat if error occurred
+	- parameter shouldRepeat: Custom optional closure for decided whether the observable should repeat another round
+	- returns: Observable sequence that will be automatically repeat when it completes
 	*/
 	@warn_unused_result(message="http://git.io/rxs.uo")
 	public func repeatWithBehavior(behavior: RepeatBehavior, scheduler : SchedulerType = MainScheduler.instance, shouldRepeat : RepeatPredicate? = nil) -> Observable<E> {
@@ -33,12 +34,12 @@ extension ObservableType {
 	}
 	
 	/**
-	Repeats the source observable sequence using given behavior in case of an error or until it successfully terminated
-	- parameter currentAttempt: Number of current attempt
-	- parameter behavior: Behavior that will be used in case of an error
+	Repeats the source observable sequence using given behavior when it completes
+	- parameter currentRepeat: Number of the current repetition
+	- parameter behavior: Behavior that will be used in case of completion
 	- parameter scheduler: Schedular that will be used for delaying subscription after error
-	- parameter shouldRetry: Custom optional closure for checking error (if returns true, repeat will be performed)
-	- returns: Observable sequence that will be automatically repeat if error occurred
+	- parameter shouldRepeat: Custom optional closure for decided whether the observable should repeat another round
+	- returns: Observable sequence that will be automatically repeat when it completes
 	*/
 	@warn_unused_result(message="http://git.io/rxs.uo")
 	internal func repeatWithBehavior(currentRepeat: UInt, behavior: RepeatBehavior, scheduler : SchedulerType = MainScheduler.instance, shouldRepeat : RepeatPredicate? = nil)
