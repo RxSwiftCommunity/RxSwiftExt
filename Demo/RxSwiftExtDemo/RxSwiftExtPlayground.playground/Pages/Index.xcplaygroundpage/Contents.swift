@@ -28,6 +28,7 @@
  1. [Observable.cascade([Observable])](cascade) contructor, takes a ordinary sequence (i.e. Array) of observables and cascades through them
  1. [distinct()](distinct) operator, suppress duplicate items emitted by an Observable
  1. [retryWithBehavior()](retryWithBehavior) operator, retry on error with various delay / predicate options
+ 1. [repeatWithBehavior()](retryWithBehavior) operator, repeat on completion with various delay / predicate options
  1. [catchErrorJustComplete()](catchErrorJustComplete) ignore any error and complete the sequence instead
  */
 
