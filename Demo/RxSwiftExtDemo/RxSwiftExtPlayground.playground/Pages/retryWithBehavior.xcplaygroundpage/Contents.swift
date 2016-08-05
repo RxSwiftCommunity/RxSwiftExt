@@ -11,7 +11,6 @@
 import Foundation
 import RxSwift
 import RxSwiftExt
-import RxTests
 
 private enum SampleErrors : ErrorType {
 	case fatalError
