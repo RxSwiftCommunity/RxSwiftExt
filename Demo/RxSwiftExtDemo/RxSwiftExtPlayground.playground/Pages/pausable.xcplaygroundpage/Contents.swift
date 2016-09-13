@@ -29,7 +29,7 @@ example("pausable") {
     let pausedObservable = observable.pausable(pauser)
 
     pausedObservable
-        .subscribeNext { print($0) }
+        .subscribe { print($0) }
 
     playgroundShouldContinueIndefinitely()
 }
