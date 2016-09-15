@@ -30,6 +30,7 @@
  1. [retryWithBehavior()](retryWithBehavior) operator, retry on error with various delay / predicate options
  1. [repeatWithBehavior()](retryWithBehavior) operator, repeat on completion with various delay / predicate options
  1. [catchErrorJustComplete()](catchErrorJustComplete) ignore any error and complete the sequence instead
+ 1. [pausable()](pausable) operator, pauses emission of elements unless the most recent element from the provided sequence is `true`
  */
 
 //: [Next >>](@next)
