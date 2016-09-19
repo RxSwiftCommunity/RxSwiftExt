@@ -19,6 +19,7 @@
 		8458AF191CDA679600E6F2FE /* DistinctTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8458AF181CDA679600E6F2FE /* DistinctTests.swift */; };
 		8458AF1F1CDA74A000E6F2FE /* WeakTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32141ADA1CC4129600569FFA /* WeakTests.swift */; };
 		8458AF201CDA74A000E6F2FE /* WeakTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32141ADD1CC4B9F300569FFA /* WeakTarget.swift */; };
+		887C1FAA1D87029B0045EF04 /* pausableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887C1FA91D87029B0045EF04 /* pausableTests.swift */; };
 		9C072FDD1D5519690092EFA1 /* repeatWithBehaviorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C072FDC1D5519690092EFA1 /* repeatWithBehaviorTests.swift */; };
 		9C1F54FA1CB67017001421F2 /* RxSwiftExtDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C1F54F91CB67017001421F2 /* RxSwiftExtDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9C1F55021CB67026001421F2 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 9C1F55011CB67026001421F2 /* Podfile */; };
@@ -55,6 +56,7 @@
 		6EC6851E1D3BCEFC0051C188 /* RetryWithBehaviorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetryWithBehaviorTests.swift; sourceTree = "<group>"; };
 		80211527B45BAEA1EC93FFC5 /* Pods-RxSwiftExtDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftExtDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxSwiftExtDemo/Pods-RxSwiftExtDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		8458AF181CDA679600E6F2FE /* DistinctTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistinctTests.swift; sourceTree = "<group>"; };
+		887C1FA91D87029B0045EF04 /* pausableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pausableTests.swift; sourceTree = "<group>"; };
 		9C072FDC1D5519690092EFA1 /* repeatWithBehaviorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = repeatWithBehaviorTests.swift; sourceTree = "<group>"; };
 		9C1F54F61CB67017001421F2 /* RxSwiftExtDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxSwiftExtDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C1F54F91CB67017001421F2 /* RxSwiftExtDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RxSwiftExtDemo.h; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				9C4C589C1CBD417F008021BF /* mapToTests.swift */,
 				68A12BDD1CC5EF5B009AAAFE /* notTests.swift */,
 				3DC705A91CBCF74100493BB2 /* OnceTests.swift */,
+				887C1FA91D87029B0045EF04 /* pausableTests.swift */,
 				9C1F552E1CB674B0001421F2 /* UnwrapTests.swift */,
 				6EC6851E1D3BCEFC0051C188 /* RetryWithBehaviorTests.swift */,
 				9C072FDC1D5519690092EFA1 /* repeatWithBehaviorTests.swift */,
@@ -364,6 +367,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C4C589D1CBD417F008021BF /* mapToTests.swift in Sources */,
+				887C1FAA1D87029B0045EF04 /* pausableTests.swift in Sources */,
 				3DC39F321CED19AC000054B6 /* ignoreErrorsTests.swift in Sources */,
 				68A12BDE1CC5EF5B009AAAFE /* notTests.swift in Sources */,
 				8458AF191CDA679600E6F2FE /* DistinctTests.swift in Sources */,

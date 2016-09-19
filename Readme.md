@@ -39,6 +39,7 @@ RxSwiftExt is all about adding operators to [RxSwift](https://github.com/Reactiv
 * [Observable.cascade](#cascade)
 * [retry](#retry)
 * [catchErrorJustComplete](#catcherrorjustcomplete)
+* [pausable](#pausable)
 
 #### unwrap
 
@@ -229,6 +230,28 @@ Next(First)
 Next(Second)
 Source observable emitted error fatalError, ignoring it
 Completed
+```
+
+#### pausable
+
+Pauses the elements of the source observable sequence unless the latest element from the second observable sequence is `true`.
+
+```swift
+let observable = Observable<Int>.interval(1, scheduler: MainScheduler.instance)
+
+let trueAtThreeSeconds = Observable<Int>.timer(3, scheduler: MainScheduler.instance).map { _ in true }
+let falseAtFiveSeconds = Observable<Int>.timer(5, scheduler: MainScheduler.instance).map { _ in false }
+let pauser = Observable.of(trueAtThreeSeconds, falseAtFiveSeconds).merge()
+
+let pausedObservable = observable.pausable(pauser)
+
+let _ = pausedObservable
+    .subscribe { print($0) }
+```
+
+```
+Next(2)
+Next(3)
 ```
 
 More examples are available in the project's Playground.
