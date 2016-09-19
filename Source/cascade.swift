@@ -25,7 +25,7 @@ extension Observable where Element : ObservableType {
 	*/
 	
 	@warn_unused_result(message="http://git.io/rxs.uo")
-	public static func cascade<S : SequenceType where S.Generator.Element == Element, S.Generator.Element.E == T>(observables : S) -> Observable<T> {
+	public static func cascade<S : Sequence where S.Iterator.Element == Element, S.Iterator.Element.E == T>(_ observables : S) -> Observable<T> {
 		let flow = Array(observables)
 		if flow.isEmpty {
 			return Observable<T>.empty()
@@ -33,7 +33,7 @@ extension Observable where Element : ObservableType {
 		
 		return Observable<T>.create { observer in
 			var current = 0, initialized = false
-			var subscriptions = [Disposable?](count: flow.count, repeatedValue: nil)
+			var subscriptions = [Disposable?](repeating: nil, count: flow.count)
 
 			let lock = NSRecursiveLock()
 			lock.lock()
@@ -48,7 +48,7 @@ extension Observable where Element : ObservableType {
 					defer { lock.unlock() }
 					
 					switch event {
-					case .Next(let element):
+					case .next(let element):
 						while current < index {
 							subscriptions[current]?.dispose()
 							subscriptions[current] = nil
@@ -56,7 +56,7 @@ extension Observable where Element : ObservableType {
 						}
 						observer.onNext(element)
 						
-					case .Completed:
+					case .completed:
 						complete = true
 						if index >= current {
 							if (initialized) {
@@ -71,7 +71,7 @@ extension Observable where Element : ObservableType {
 							}
 						}
 						
-					case .Error(let error):
+					case .error(let error):
 						observer.onError(error)
 					}
 				}
@@ -82,6 +82,7 @@ extension Observable where Element : ObservableType {
 					disposable.dispose()
 				}
 			}
+
 			initialized = true
 			
 			for i in 0 ..< flow.count {
@@ -111,7 +112,7 @@ extension ObservableType {
 	- returns: An observable sequence that contains elements from the latest observable sequence that emitted elements
 	*/
 	@warn_unused_result(message="http://git.io/rxs.uo")
-	public func cascade<S : SequenceType where S.Generator.Element == Self>(next : S) -> Observable<E> {
+	public func cascade<S : Sequence where S.Iterator.Element == Self>(next : S) -> Observable<E> {
 		return Observable.cascade([self.asObservable()] + Array(next).map { $0.asObservable() })
 	}
 	

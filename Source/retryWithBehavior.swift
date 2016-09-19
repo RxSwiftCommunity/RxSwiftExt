@@ -24,7 +24,7 @@ public enum RepeatBehavior {
 	case CustomTimerDelayed (maxCount: UInt, delayCalculator: (UInt) -> Double)
 }
 
-public typealias RetryPredicate = (ErrorType) -> Bool
+public typealias RetryPredicate = (Error) -> Bool
 
 extension RepeatBehavior {
 	/**
@@ -32,7 +32,7 @@ extension RepeatBehavior {
 	- parameter currentAttempt: Number of current attempt
 	- returns: Tuple with maxCount and calculated delay for provided attempt
 	*/
-	func calculateConditions(currentRepetition: UInt) -> (maxCount: UInt, delay: Double) {
+	func calculateConditions(_ currentRepetition: UInt) -> (maxCount: UInt, delay: Double) {
 		switch self {
 		case .Immediate(let max):
 			// if Immediate, return 0.0 as delay
@@ -73,7 +73,7 @@ extension ObservableType {
 	- returns: Observable sequence that will be automatically repeat if error occurred
 	*/
 	@warn_unused_result(message="http://git.io/rxs.uo")
-	internal func retry(currentAttempt: UInt, behavior: RepeatBehavior, scheduler: SchedulerType = MainScheduler.instance, shouldRetry: RetryPredicate? = nil)
+	internal func retry(_ currentAttempt: UInt, behavior: RepeatBehavior, scheduler: SchedulerType = MainScheduler.instance, shouldRetry: RetryPredicate? = nil)
 		-> Observable<E> {
 			guard currentAttempt > 0 else { return Observable.empty() }
 			
@@ -84,7 +84,7 @@ extension ObservableType {
 				// return error if exceeds maximum amount of retries
 				guard conditions.maxCount > currentAttempt else { return Observable.error(error) }
 				
-				if let shouldRetry = shouldRetry where !shouldRetry(error) {
+				if let shouldRetry = shouldRetry, !shouldRetry(error) {
 					// also return error if predicate says so
 					return Observable.error(error)
 				}
@@ -95,7 +95,7 @@ extension ObservableType {
 				}
 				
 				// otherwise retry after specified delay
-				return Observable<Void>.just().delaySubscription(conditions.delay, scheduler: scheduler).flatMapLatest {
+				return Observable<Void>.just(()).delaySubscription(conditions.delay, scheduler: scheduler).flatMapLatest {
 					self.retry(currentAttempt + 1, behavior: behavior, scheduler: scheduler, shouldRetry: shouldRetry)
 				}
 			}

@@ -17,7 +17,7 @@ extension ObservableType where E : Equatable {
     }
 
 	@warn_unused_result(message="http://git.io/rxs.uo")
-	public func ignore<S: SequenceType where S.Generator.Element == E>(valuesToIgnore : S) -> Observable<E> {
+	public func ignore<S: Sequence where S.Iterator.Element == E>(valuesToIgnore : S) -> Observable<E> {
 		return self.asObservable().filter { !valuesToIgnore.contains($0) }
 	}
 }

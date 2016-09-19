@@ -16,7 +16,7 @@ extension ObservableType {
 	- parameter obj:    The object that owns the function
 	- parameter method: The instance function represented as `InstanceType.instanceFunc`
 	*/
-	private func weakify<A: AnyObject, B>(obj: A, method: ((A) -> (B) -> Void)?) -> ((B) -> Void) {
+	private func weakify<A: AnyObject, B>(_ obj: A, method: ((A) -> (B) -> Void)?) -> ((B) -> Void) {
 		return { [weak obj] value in
 			guard let obj = obj else { return }
 			method?(obj)(value)
@@ -31,7 +31,7 @@ extension ObservableType {
 	- returns: Subscription object used to unsubscribe from the observable sequence.
 	*/
 	@warn_unused_result(message="http://git.io/rxs.ud")
-	public func subscribe<A: AnyObject>(weak obj: A, _ on: (A) -> (RxSwift.Event<Self.E>) -> Void) -> Disposable {
+	public func subscribe<A: AnyObject>(weak obj: A, _ on: @escaping (A) -> (RxSwift.Event<Self.E>) -> Void) -> Disposable {
 		return self.subscribe(weakify(obj, method: on))
 	}
 	
@@ -50,7 +50,7 @@ extension ObservableType {
 	public func subscribe<A: AnyObject>(
 		weak obj: A,
 		     onNext: ((A) -> (Self.E) -> Void)? = nil,
-		     onError: ((A) -> (ErrorType) -> Void)? = nil,
+		     onError: ((A) -> (Error) -> Void)? = nil,
 		     onCompleted: ((A) -> () -> Void)? = nil,
 		     onDisposed: ((A) -> () -> Void)? = nil) -> Disposable {
 		
@@ -66,12 +66,12 @@ extension ObservableType {
 		let observer = AnyObserver { [weak obj] (e: RxSwift.Event<Self.E>) in
 			guard let obj = obj else { return }
 			switch e {
-			case .Next(let value):
+			case .next(let value):
 				onNext?(obj)(value)
-			case .Error(let e):
+			case .error(let e):
 				onError?(obj)(e)
 				disposable.dispose()
-			case .Completed:
+			case .completed:
 				onCompleted?(obj)()
 				disposable.dispose()
 			}
@@ -91,7 +91,7 @@ extension ObservableType {
 	- returns: Subscription object used to unsubscribe from the observable sequence.
 	*/
 	@warn_unused_result(message="http://git.io/rxs.ud")
-	public func subscribeNext<A: AnyObject>(weak obj: A, _ onNext: (A) -> (Self.E) -> Void) -> Disposable {
+	public func subscribeNext<A: AnyObject>(weak obj: A, _ onNext: @escaping (A) -> (Self.E) -> Void) -> Disposable {
 		return self.subscribeNext(weakify(obj, method: onNext))
 	}
 	
@@ -103,7 +103,7 @@ extension ObservableType {
 	- returns: Subscription object used to unsubscribe from the observable sequence.
 	*/
 	@warn_unused_result(message="http://git.io/rxs.ud")
-	public func subscribeError<A: AnyObject>(weak obj: A, _ onError: (A) -> (ErrorType) -> Void) -> Disposable {
+	public func subscribeError<A: AnyObject>(weak obj: A, _ onError: @escaping (A) -> (Error) -> Void) -> Disposable {
 		return self.subscribeError(weakify(obj, method: onError))
 	}
 	
@@ -115,7 +115,7 @@ extension ObservableType {
 	- returns: Subscription object used to unsubscribe from the observable sequence.
 	*/
 	@warn_unused_result(message="http://git.io/rxs.ud")
-	public func subscribeCompleted<A: AnyObject>(weak obj: A, _ onCompleted: (A) -> () -> Void) -> Disposable {
+	public func subscribeCompleted<A: AnyObject>(weak obj: A, _ onCompleted: @escaping (A) -> () -> Void) -> Disposable {
 		return self.subscribeCompleted(weakify(obj, method: onCompleted))
 	}
 }

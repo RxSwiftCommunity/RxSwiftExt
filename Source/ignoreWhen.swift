@@ -21,7 +21,7 @@ extension ObservableType {
 	- returns: An observable sequence that contains elements from the input sequence except those that satisfy the condition.
 	*/
 	@warn_unused_result(message="http://git.io/rxs.uo")
-	public func ignoreWhen(predicate: (E) throws -> Bool) -> Observable<E> {
+	public func ignoreWhen(predicate: @escaping (E) throws -> Bool) -> Observable<E> {
 		return self.asObservable().filter { try !predicate($0) }
 	}
 }
