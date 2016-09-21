@@ -24,8 +24,8 @@ extension Observable where Element : ObservableType {
 	- returns: An observable sequence that contains elements from the latest observable sequence that emitted elements
 	*/
 	
-	@warn_unused_result(message="http://git.io/rxs.uo")
-	public static func cascade<S : Sequence where S.Iterator.Element == Element, S.Iterator.Element.E == T>(_ observables : S) -> Observable<T> {
+	
+	public static func cascade<S : Sequence>(_ observables : S) -> Observable<T> where S.Iterator.Element == Element, S.Iterator.Element.E == T {
 		let flow = Array(observables)
 		if flow.isEmpty {
 			return Observable<T>.empty()
@@ -111,8 +111,8 @@ extension ObservableType {
 	- parameter observables: a sequence of observables which will all be immediately subscribed to
 	- returns: An observable sequence that contains elements from the latest observable sequence that emitted elements
 	*/
-	@warn_unused_result(message="http://git.io/rxs.uo")
-	public func cascade<S : Sequence where S.Iterator.Element == Self>(next : S) -> Observable<E> {
+	
+	public func cascade<S : Sequence>(_ next : S) -> Observable<E> where S.Iterator.Element == Self {
 		return Observable.cascade([self.asObservable()] + Array(next).map { $0.asObservable() })
 	}
 	

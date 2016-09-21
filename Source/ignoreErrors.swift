@@ -16,7 +16,7 @@ extension ObservableType {
      - returns: An observable sequence that never fails
      - seealso: `retry` operator
      */
-    @warn_unused_result(message="http://git.io/rxs.uo")
+    
     public func ignoreErrors() -> Observable<E> {
         return retry()
     }
@@ -27,8 +27,8 @@ extension ObservableType {
      - parameter predicate a predicate called when an error occurs and returns `true` to ignore the error (continuing), `false` to terminate the sequence with the given error.
      - returns: An observable sequence that errors only when `predicate` returns `false`
      */
-    @warn_unused_result(message="http://git.io/rxs.uo")
-    public func ignoreErrors(predicate : @escaping (Error) -> Bool) -> Observable<E> {
+    
+    public func ignoreErrors(_ predicate : @escaping (Error) -> Bool) -> Observable<E> {
         return retryWhen {
             return $0.flatMap { error -> Observable<Bool> in
                 return predicate(error) ?  Observable.just(true) : Observable<Bool>.error(error)

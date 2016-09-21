@@ -17,8 +17,8 @@ extension ObservableType {
 	- parameter value: A constant that each element of the input sequence is being replaced with
 	- returns: An observable sequence containing the values `value` provided as a parameter
 	*/
-	@warn_unused_result(message="http://git.io/rxs.uo")
-	public func mapTo<R>(value: R) -> Observable<R> {
+	
+	public func mapTo<R>(_ value: R) -> Observable<R> {
 		return map {_ in value}
 	}
 }

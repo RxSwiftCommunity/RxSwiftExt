@@ -17,7 +17,7 @@ extension Observable {
      
      - returns: An observable sequence only containing the distinct contiguous elements, based on predicate, from the source sequence.
      */
-    public func distinct(predicate: @escaping (Element) throws -> Bool) -> Observable<E> {
+    public func distinct(_ predicate: @escaping (Element) throws -> Bool) -> Observable<E> {
         var cache = [Element]()
         return flatMap { element -> Observable<Element> in
             if try cache.contains(where: predicate) {

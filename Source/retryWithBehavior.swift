@@ -18,10 +18,10 @@ Delay will be incremented by multiplier after each iteration (multiplier = 0.5 m
 - CustomTimerDelayed: Will be repeated specified number of times. Delay will be calculated by custom closure
 */
 public enum RepeatBehavior {
-	case Immediate (maxCount: UInt)
-	case Delayed (maxCount: UInt, time: Double)
-	case ExponentialDelayed (maxCount: UInt, initial: Double, multiplier: Double)
-	case CustomTimerDelayed (maxCount: UInt, delayCalculator: (UInt) -> Double)
+	case immediate (maxCount: UInt)
+	case delayed (maxCount: UInt, time: Double)
+	case exponentialDelayed (maxCount: UInt, initial: Double, multiplier: Double)
+	case customTimerDelayed (maxCount: UInt, delayCalculator: (UInt) -> Double)
 }
 
 public typealias RetryPredicate = (Error) -> Bool
@@ -34,17 +34,17 @@ extension RepeatBehavior {
 	*/
 	func calculateConditions(_ currentRepetition: UInt) -> (maxCount: UInt, delay: Double) {
 		switch self {
-		case .Immediate(let max):
+		case .immediate(let max):
 			// if Immediate, return 0.0 as delay
 			return (maxCount: max, delay: 0.0)
-		case .Delayed(let max, let time):
+		case .delayed(let max, let time):
 			// return specified delay
 			return (maxCount: max, delay: time)
-		case .ExponentialDelayed(let max, let initial, let multiplier):
+		case .exponentialDelayed(let max, let initial, let multiplier):
 			// if it's first attempt, simply use initial delay, otherwise calculate delay
 			let delay = currentRepetition == 1 ? initial : initial * pow(1 + multiplier, Double(currentRepetition - 1))
 			return (maxCount: max, delay: delay)
-		case .CustomTimerDelayed(let max, let delayCalculator):
+		case .customTimerDelayed(let max, let delayCalculator):
 			// calculate delay using provided calculator
 			return (maxCount: max, delay: delayCalculator(currentRepetition))
 		}
@@ -59,8 +59,8 @@ extension ObservableType {
 	- parameter shouldRetry: Custom optional closure for checking error (if returns true, repeat will be performed)
 	- returns: Observable sequence that will be automatically repeat if error occurred
 	*/
-	@warn_unused_result(message="http://git.io/rxs.uo")
-	public func retry(behavior: RepeatBehavior, scheduler: SchedulerType = MainScheduler.instance, shouldRetry: RetryPredicate? = nil) -> Observable<E> {
+	
+	public func retry(_ behavior: RepeatBehavior, scheduler: SchedulerType = MainScheduler.instance, shouldRetry: RetryPredicate? = nil) -> Observable<E> {
 		return retry(1, behavior: behavior, scheduler: scheduler, shouldRetry: shouldRetry)
 	}
 	
@@ -72,7 +72,7 @@ extension ObservableType {
 	- parameter shouldRetry: Custom optional closure for checking error (if returns true, repeat will be performed)
 	- returns: Observable sequence that will be automatically repeat if error occurred
 	*/
-	@warn_unused_result(message="http://git.io/rxs.uo")
+	
 	internal func retry(_ currentAttempt: UInt, behavior: RepeatBehavior, scheduler: SchedulerType = MainScheduler.instance, shouldRetry: RetryPredicate? = nil)
 		-> Observable<E> {
 			guard currentAttempt > 0 else { return Observable.empty() }

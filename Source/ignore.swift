@@ -11,13 +11,13 @@ import RxSwift
 
 extension ObservableType where E : Equatable {
 	
-	@warn_unused_result(message="http://git.io/rxs.uo")
-	public func ignore(valuesToIgnore: E ...) -> Observable<E> {
+	
+	public func ignore(_ valuesToIgnore: E ...) -> Observable<E> {
         return self.asObservable().filter { !valuesToIgnore.contains($0) }
     }
 
-	@warn_unused_result(message="http://git.io/rxs.uo")
-	public func ignore<S: Sequence where S.Iterator.Element == E>(valuesToIgnore : S) -> Observable<E> {
+	
+	public func ignore<S: Sequence>(_ valuesToIgnore : S) -> Observable<E> where S.Iterator.Element == E {
 		return self.asObservable().filter { !valuesToIgnore.contains($0) }
 	}
 }
