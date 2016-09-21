@@ -12,7 +12,7 @@ import RxSwift
 import RxSwiftExt
 import RxTests
 
-func isPrime(i: Int) -> Bool {
+func isPrime(_ i: Int) -> Bool {
     if i <= 1 {
         return false
     }

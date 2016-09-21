@@ -1,0 +1,53 @@
+[
+ {
+  "file": "/Users/dkmadboe/Developer/Github/RxSwiftExt2/Demo/RxSwiftExtDemo/RxSwiftExtPlayground.playground/Sources/SupportCode.swift",
+  "offset": 39,
+  "text": "_ ",
+ },
+ {
+  "file": "/Users/dkmadboe/Developer/Github/RxSwiftExt2/Demo/RxSwiftExtDemo/RxSwiftExtPlayground.playground/Sources/SupportCode.swift",
+  "offset": 160,
+  "text": "_ ",
+ },
+ {
+  "file": "/Users/dkmadboe/Developer/Github/RxSwiftExt2/Demo/RxSwiftExtDemo/RxSwiftExtPlayground.playground/Sources/SupportCode.swift",
+  "offset": 182,
+  "text": "@escaping ",
+ },
+ {
+  "file": "/Users/dkmadboe/Developer/Github/RxSwiftExt2/Demo/RxSwiftExtDemo/RxSwiftExtPlayground.playground/Sources/SupportCode.swift",
+  "offset": 196,
+  "remove": 1,
+  "text": "D",
+ },
+ {
+  "file": "/Users/dkmadboe/Developer/Github/RxSwiftExt2/Demo/RxSwiftExtDemo/RxSwiftExtPlayground.playground/Sources/SupportCode.swift",
+  "offset": 204,
+  "remove": 2,
+  "text": "Queue.main.asyncA",
+ },
+ {
+  "file": "/Users/dkmadboe/Developer/Github/RxSwiftExt2/Demo/RxSwiftExtDemo/RxSwiftExtPlayground.playground/Sources/SupportCode.swift",
+  "offset": 221,
+  "remove": 1,
+  "text": "eadline: Di",
+ },
+ {
+  "file": "/Users/dkmadboe/Developer/Github/RxSwiftExt2/Demo/RxSwiftExtDemo/RxSwiftExtPlayground.playground/Sources/SupportCode.swift",
+  "offset": 228,
+  "remove": 2,
+  "text": "T",
+ },
+ {
+  "file": "/Users/dkmadboe/Developer/Github/RxSwiftExt2/Demo/RxSwiftExtDemo/RxSwiftExtPlayground.playground/Sources/SupportCode.swift",
+  "offset": 233,
+  "remove": 46,
+  "text": ".now() + Double(I",
+ },
+ {
+  "file": "/Users/dkmadboe/Developer/Github/RxSwiftExt2/Demo/RxSwiftExtDemo/RxSwiftExtPlayground.playground/Sources/SupportCode.swift",
+  "offset": 313,
+  "remove": 46,
+  "text": ") / Double(NSEC_PER_SEC), execute:",
+ }
+]

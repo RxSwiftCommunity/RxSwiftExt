@@ -11,7 +11,7 @@ import RxSwift
 import RxSwiftExt
 import RxTests
 
-private enum RepeatTestErrors : ErrorType {
+private enum RepeatTestErrors : Error {
 	case fatalError
 }
 
@@ -280,7 +280,7 @@ class RetryWithBehaviorTests: XCTestCase {
 		
 		let res = scheduler.start(0, subscribed: 0, disposed: 2000) { () -> Observable<Int> in
 			// custom delay calculator
-			let customCalculator: (UInt -> Double) = { attempt in
+			let customCalculator: ((UInt) -> Double) = { attempt in
 				switch attempt {
 				case 1: return 10.0
 				case 2: return 30.0
@@ -311,7 +311,7 @@ class RetryWithBehaviorTests: XCTestCase {
 		
 		let res = scheduler.start(0, subscribed: 0, disposed: 2000) { () -> Observable<Int> in
 			// custom delay calculator
-			let customCalculator: (UInt -> Double) = { attempt in
+			let customCalculator: ((UInt) -> Double) = { attempt in
 				switch attempt {
 				case 1: return 10.0
 				case 2: return 30.0
@@ -336,7 +336,7 @@ class RetryWithBehaviorTests: XCTestCase {
 		
 		let res = scheduler.start(0, subscribed: 0, disposed: 2000) { () -> Observable<Int> in
 			// custom delay calculator
-			let customCalculator: (UInt -> Double) = { attempt in
+			let customCalculator: ((UInt) -> Double) = { attempt in
 				switch attempt {
 				case 1: return 10.0
 				case 2: return 30.0
