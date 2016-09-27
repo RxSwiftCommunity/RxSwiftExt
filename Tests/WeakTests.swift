@@ -46,7 +46,7 @@ class WeakTests: XCTestCase {
         self.source.onError(WeakTargetError.Error)
         self.target?.dispose()
         
-        let expected: [RxEvent: Int] = [.Next: 2, .Error: 0, .Completed: 0, .Disposed: 0]
+        let expected: [RxEvent: Int] = [.next: 2, .error: 0, .completed: 0, .disposed: 0]
         XCTAssertTrue(events == expected)
     }
     
@@ -60,7 +60,7 @@ class WeakTests: XCTestCase {
         self.source.onNext(0)
         
         //if a retain cycle was present the .Next count would be 3
-        let expected: [RxEvent: Int] = [.Next: 2, .Error: 0, .Completed: 0, .Disposed: 0]
+        let expected: [RxEvent: Int] = [.next: 2, .error: 0, .completed: 0, .disposed: 0]
         XCTAssertTrue(events == expected)
     }
     
@@ -71,7 +71,7 @@ class WeakTests: XCTestCase {
         self.target = nil
         
         //errors only emit once...
-        let expected: [RxEvent: Int] = [.Next: 0, .Error: 1, .Completed: 0, .Disposed: 0]
+        let expected: [RxEvent: Int] = [.next: 0, .error: 1, .completed: 0, .disposed: 0]
         XCTAssertTrue(events == expected)
     }
     
@@ -82,7 +82,7 @@ class WeakTests: XCTestCase {
         self.target = nil
         
         //completed only emit once...
-        let expected: [RxEvent: Int] = [.Next: 0, .Error: 0, .Completed: 1, .Disposed: 0]
+        let expected: [RxEvent: Int] = [.next: 0, .error: 0, .completed: 1, .disposed: 0]
         XCTAssertTrue(events == expected)
     }
     
@@ -96,7 +96,7 @@ class WeakTests: XCTestCase {
         self.source.onNext(0)
         
         //if a retain cycle was present the .Next count would be 3
-        let expected: [RxEvent: Int] = [.Next: 2, .Error: 0, .Completed: 0, .Disposed: 0]
+        let expected: [RxEvent: Int] = [.next: 2, .error: 0, .completed: 0, .disposed: 0]
         XCTAssertTrue(events == expected)
     }
     
@@ -107,7 +107,7 @@ class WeakTests: XCTestCase {
         self.target = nil
         
         //errors only emit once...
-        let expected: [RxEvent: Int] = [.Next: 0, .Error: 1, .Completed: 0, .Disposed: 1]
+        let expected: [RxEvent: Int] = [.next: 0, .error: 1, .completed: 0, .disposed: 1]
         XCTAssertTrue(events == expected)
     }
     
@@ -118,7 +118,7 @@ class WeakTests: XCTestCase {
         self.target = nil
         
         //completed only emit once...
-        let expected: [RxEvent: Int] = [.Next: 0, .Error: 0, .Completed: 1, .Disposed: 1]
+        let expected: [RxEvent: Int] = [.next: 0, .error: 0, .completed: 1, .disposed: 1]
         XCTAssertTrue(events == expected)
     }
     
@@ -129,7 +129,7 @@ class WeakTests: XCTestCase {
         self.target = nil
         
         //completed only emit once...
-        let expected: [RxEvent: Int] = [.Next: 0, .Error: 0, .Completed: 0, .Disposed: 1]
+        let expected: [RxEvent: Int] = [.next: 0, .error: 0, .completed: 0, .disposed: 1]
         XCTAssertTrue(events == expected)
     }
 }

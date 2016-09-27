@@ -46,7 +46,7 @@ extension ObservableType where E : Optionable {
 	
 	- returns: An observable sequence of non-optional elements
 	*/
-	@warn_unused_result(message="http://git.io/rxs.uo")
+	
     public func unwrap() -> Observable<E.WrappedType> {
         return self
             .filter { value in

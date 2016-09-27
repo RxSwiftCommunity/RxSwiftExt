@@ -15,7 +15,7 @@ import RxTests
 class UnwrapTests: XCTestCase {
 
     let numbers: Array<Int?> = [1, nil, Int?(3), 4]
-    private var observer: TestableObserver<Int>!
+    fileprivate var observer: TestableObserver<Int>!
     
     override func setUp() {
         super.setUp()

@@ -11,7 +11,7 @@ import RxSwift
 import RxSwiftExt
 import RxTests
 
-private enum RepeatTestErrors : ErrorType {
+private enum RepeatTestErrors : Error {
 	case fatalError
 }
 

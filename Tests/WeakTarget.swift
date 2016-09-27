@@ -9,11 +9,11 @@
 import Foundation
 import RxSwift
 
-enum WeakTargetError: ErrorType {
-    case Error
+enum WeakTargetError: Error {
+    case error
 }
 enum RxEvent {
-    case Next, Error, Completed, Disposed
+    case next, error, completed, disposed
     init<T>(event: Event<T>) {
         switch event {
         case .Next(_): self = .Next
@@ -27,10 +27,10 @@ var WeakTargetReferenceCount: Int = 0
 
 class WeakTarget<Type> {
     let listener: ([RxEvent: Int]) -> Void
-    private let observable: Observable<Type>
-    private var disposeBag = DisposeBag()
-    private var events: [RxEvent: Int] = [.Next: 0, .Error: 0, .Completed: 0, .Disposed: 0]
-    private func updateEvents(event: RxEvent) {
+    fileprivate let observable: Observable<Type>
+    fileprivate var disposeBag = DisposeBag()
+    fileprivate var events: [RxEvent: Int] = [.next: 0, .error: 0, .completed: 0, .disposed: 0]
+    fileprivate func updateEvents(_ event: RxEvent) {
         self.events[event] = (self.events[event] ?? 0) + 1
         self.listener(self.events)
     }
@@ -43,11 +43,11 @@ class WeakTarget<Type> {
     deinit { WeakTargetReferenceCount -= 1 }
     
     //MARK: - Subscribers
-    private func subscriber_on(event: Event<Type>) { self.updateEvents(RxEvent(event: event)) }
-    private func subscriber_onNext(element: Type) { self.updateEvents(.Next) }
-    private func subscriber_onError(error: ErrorType) { self.updateEvents(.Error) }
-    private func subscriber_onComplete() { self.updateEvents(.Completed) }
-    private func subscriber_onDisposed() { self.updateEvents(.Disposed) }
+    fileprivate func subscriber_on(_ event: Event<Type>) { self.updateEvents(RxEvent(event: event)) }
+    fileprivate func subscriber_onNext(_ element: Type) { self.updateEvents(.next) }
+    fileprivate func subscriber_onError(_ error: Error) { self.updateEvents(.error) }
+    fileprivate func subscriber_onComplete() { self.updateEvents(.completed) }
+    fileprivate func subscriber_onDisposed() { self.updateEvents(.disposed) }
     
     //MARK: - Subscription Setup
     func useSubscribe() {

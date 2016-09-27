@@ -9,9 +9,8 @@
 import Foundation
 import RxSwift
 
-extension ObservableType where E: BooleanType {
+extension ObservableType where E == Bool {
     /// Boolean not operator
-    @warn_unused_result(message="http://git.io/rxs.uo")
     public func not() -> Observable<Bool> {
         return self.map(!)
     }
