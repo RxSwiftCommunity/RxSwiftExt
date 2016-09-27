@@ -23,8 +23,8 @@ extension Observable {
 	 - parameter element: Single element in the resulting observable sequence.
 	 - returns: An observable sequence containing the single specified element delivered once.
 	*/
-	@warn_unused_result(message="http://git.io/rxs.uo")
-	public static func once(element: E) -> Observable<E> {
+	
+	public static func once(_ element: E) -> Observable<E> {
 		var delivered : UInt32 = 0
 		return create { observer in
 			let wasDelivered = OSAtomicOr32OrigBarrier(1, &delivered)

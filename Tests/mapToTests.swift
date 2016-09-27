@@ -15,7 +15,7 @@ import RxTests
 class MapToTests: XCTestCase {
 
     let numbers: Array<Int?> = [1, nil, Int?(3)]
-    private var observer: TestableObserver<String>!
+    fileprivate var observer: TestableObserver<String>!
     
     override func setUp() {
         super.setUp()
