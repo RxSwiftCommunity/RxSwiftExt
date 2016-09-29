@@ -30,9 +30,9 @@ extension Optional : Optionable
     }
     
 	/**
-	Returns true if the Optional elements contains a value
+	Returns `true` if the Optional element is `nil`; if it does not contain a value
 	
-	- returns: true if the Optional elements contains a value, false if it's nil
+	- returns: `true` if the Optional element is `nil`; true if it *does* have a value
 	*/
     public func isEmpty() -> Bool {
         return self == nil
