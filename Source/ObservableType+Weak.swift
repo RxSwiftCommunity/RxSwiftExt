@@ -57,10 +57,10 @@ extension ObservableType {
 		let disposable: Disposable
 		
 		if let disposed = onDisposed {
-			disposable = AnonymousDisposable(weakify(obj, method: disposed))
+			disposable = Disposables.create(with: weakify(obj, method: disposed))
 		}
 		else {
-			disposable = NopDisposable.instance
+			disposable = Disposables.create()
 		}
 		
 		let observer = AnyObserver { [weak obj] (e: RxSwift.Event<Self.E>) in
@@ -77,10 +77,7 @@ extension ObservableType {
 			}
 		}
 		
-		return StableCompositeDisposable.create(
-			self.asObservable().subscribe(observer),
-			disposable
-		)
+		return Disposables.create(self.asObservable().subscribe(observer), disposable)
 	}
 	
 	/**
@@ -92,7 +89,7 @@ extension ObservableType {
 	*/
 	
 	public func subscribeNext<A: AnyObject>(weak obj: A, _ onNext: @escaping (A) -> (Self.E) -> Void) -> Disposable {
-		return self.subscribeNext(weakify(obj, method: onNext))
+        return self.subscribe(onNext: weakify(obj, method: onNext))
 	}
 	
 	/**
@@ -104,7 +101,7 @@ extension ObservableType {
 	*/
 	
 	public func subscribeError<A: AnyObject>(weak obj: A, _ onError: @escaping (A) -> (Error) -> Void) -> Disposable {
-		return self.subscribeError(weakify(obj, method: onError))
+        return self.subscribe(onError: weakify(obj, method: onError))
 	}
 	
 	/**
@@ -116,6 +113,6 @@ extension ObservableType {
 	*/
 	
 	public func subscribeCompleted<A: AnyObject>(weak obj: A, _ onCompleted: @escaping (A) -> () -> Void) -> Disposable {
-		return self.subscribeCompleted(weakify(obj, method: onCompleted))
+        return self.subscribe(onCompleted: weakify(obj, method: onCompleted))
 	}
 }
