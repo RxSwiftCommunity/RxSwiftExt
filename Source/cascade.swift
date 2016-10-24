@@ -87,14 +87,14 @@ extension Observable where Element : ObservableType {
 			
 			for i in 0 ..< flow.count {
 				if subscriptions[i] != nil {
-					return AnonymousDisposable {
+					return Disposables.create {
 						subscriptions.forEach { $0?.dispose() }
 					}
 				}
 			}
 
 			observer.onCompleted()
-			return NopDisposable.instance
+			return Disposables.create()
 		}
 	}
 }
