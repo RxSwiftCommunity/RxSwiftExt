@@ -297,8 +297,8 @@
 		18EE7A0F1C47B12F00C7256C = {
 			isa = PBXGroup;
 			children = (
-				3DB035021DC3C3CC002C6A26 /* Rx.xcodeproj */,
 				3DB035011DC3C283002C6A26 /* RxSwiftExtPlayground.playground */,
+				3DB035441DC3CFBF002C6A26 /* Carthage Dependencies for playground */,
 				188C6D921C47B2B20092101A /* Sources */,
 				3D638DF21DC2B2EE0089A590 /* Tests */,
 				9DAB77991D6763AC007E85BC /* Frameworks */,
@@ -363,6 +363,14 @@
 				3DB035401DC3C3CD002C6A26 /* PerformanceTests.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		3DB035441DC3CFBF002C6A26 /* Carthage Dependencies for playground */ = {
+			isa = PBXGroup;
+			children = (
+				3DB035021DC3C3CC002C6A26 /* Rx.xcodeproj */,
+			);
+			name = "Carthage Dependencies for playground";
 			sourceTree = "<group>";
 		};
 		9DAB77991D6763AC007E85BC /* Frameworks */ = {
