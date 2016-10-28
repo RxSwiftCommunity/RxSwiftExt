@@ -10,7 +10,7 @@ import XCTest
 
 import RxSwift
 import RxSwiftExt
-import RxTests
+import RxTest
 
 class UnwrapTests: XCTestCase {
 
@@ -21,9 +21,9 @@ class UnwrapTests: XCTestCase {
         super.setUp()
         
         let scheduler = TestScheduler(initialClock: 0)
-        observer = scheduler.createObserver(Int)
+        observer = scheduler.createObserver(Int.self)
         
-        numbers.toObservable()
+        _ = Observable.from(numbers)
             .unwrap()
             .subscribe(observer)
         
@@ -31,11 +31,6 @@ class UnwrapTests: XCTestCase {
     }
     
     func testUnwrapFilterNil() {
-        //test for nil values in result
-        XCTAssertFalse(observer.events.contains { event in
-            event.value == nil
-        })
-
         //test results count
         XCTAssertEqual(
             observer.events.count,

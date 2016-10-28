@@ -10,7 +10,7 @@ import XCTest
 
 import RxSwift
 import RxSwiftExt
-import RxTests
+import RxTest
 
 class IgnoreTests: XCTestCase {
     
@@ -19,9 +19,9 @@ class IgnoreTests: XCTestCase {
         let values = ["Hello", "Swift", "world"]
 
         let scheduler = TestScheduler(initialClock: 0)
-        let observer = scheduler.createObserver(String)
+        let observer = scheduler.createObserver(String.self)
         
-        values.toObservable()
+        _ = Observable.from(values)
             .ignore("Swift")
             .subscribe(observer)
         
@@ -41,9 +41,9 @@ class IgnoreTests: XCTestCase {
         let values = [1,2,3,4,5,1,3,5,7,9]
         
         let scheduler = TestScheduler(initialClock: 0)
-        let observer = scheduler.createObserver(Int)
+        let observer = scheduler.createObserver(Int.self)
         
-        values.toObservable()
+        _ = Observable.from(values)
             .ignore(3)
             .subscribe(observer)
         
@@ -69,9 +69,9 @@ class IgnoreTests: XCTestCase {
         let values = [1,2,3,4,5,1,3,5,7,9]
         
         let scheduler = TestScheduler(initialClock: 0)
-        let observer = scheduler.createObserver(Int)
+        let observer = scheduler.createObserver(Int.self)
         
-        values.toObservable()
+        _ = Observable.from(values)
             .ignore(3,1,9)
             .subscribe(observer)
         
@@ -95,9 +95,9 @@ class IgnoreTests: XCTestCase {
         let sequence = Set([3,1,9])
         
         let scheduler = TestScheduler(initialClock: 0)
-        let observer = scheduler.createObserver(Int)
+        let observer = scheduler.createObserver(Int.self)
         
-        values.toObservable()
+        _ = Observable.from(values)
             .ignore(sequence)
             .subscribe(observer)
         
@@ -120,9 +120,9 @@ class IgnoreTests: XCTestCase {
         let sequence = [3,1,9]
         
         let scheduler = TestScheduler(initialClock: 0)
-        let observer = scheduler.createObserver(Int)
+        let observer = scheduler.createObserver(Int.self)
         
-        values.toObservable()
+        _ = Observable.from(values)
             .ignore(sequence)
             .subscribe(observer)
         
@@ -145,9 +145,9 @@ class IgnoreTests: XCTestCase {
         let emptySequence : [Int] = []
         
         let scheduler = TestScheduler(initialClock: 0)
-        let observer = scheduler.createObserver(Int)
+        let observer = scheduler.createObserver(Int.self)
         
-        values.toObservable()
+        _ = Observable.from(values)
             .ignore(emptySequence)
             .subscribe(observer)
         

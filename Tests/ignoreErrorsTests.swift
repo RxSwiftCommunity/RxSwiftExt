@@ -10,7 +10,7 @@ import XCTest
 
 import RxSwift
 import RxSwiftExt
-import RxTests
+import RxTest
 
 // credits:
 // tests for ignoreErrors() are the tests for retry() retargeted to the ignoreErrors() operator

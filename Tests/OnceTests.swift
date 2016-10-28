@@ -10,7 +10,7 @@ import XCTest
 
 import RxSwift
 import RxSwiftExt
-import RxTests
+import RxTest
 
 class OnceTests: XCTestCase {
     
@@ -19,11 +19,11 @@ class OnceTests: XCTestCase {
         let onceObservable = Observable.once("Hello")
         let scheduler = TestScheduler(initialClock: 0)
 
-        let observer1 = scheduler.createObserver(String)
-        onceObservable.subscribe(observer1)
+        let observer1 = scheduler.createObserver(String.self)
+        _ = onceObservable.subscribe(observer1)
 
-        let observer2 = scheduler.createObserver(String)
-        onceObservable.subscribe(observer2)
+        let observer2 = scheduler.createObserver(String.self)
+        _ = onceObservable.subscribe(observer2)
         
         scheduler.start()
         
@@ -46,15 +46,15 @@ class OnceTests: XCTestCase {
         let onceObservable2 = Observable.once("world")
         let scheduler = TestScheduler(initialClock: 0)
 
-        let observer1 = scheduler.createObserver(String)
-        onceObservable1.subscribe(observer1)
-        let observer2 = scheduler.createObserver(String)
-        onceObservable1.subscribe(observer2)
+        let observer1 = scheduler.createObserver(String.self)
+        _ = onceObservable1.subscribe(observer1)
+        let observer2 = scheduler.createObserver(String.self)
+        _ = onceObservable1.subscribe(observer2)
 
-        let observer3 = scheduler.createObserver(String)
-        onceObservable2.subscribe(observer3)
-        let observer4 = scheduler.createObserver(String)
-        onceObservable2.subscribe(observer4)
+        let observer3 = scheduler.createObserver(String.self)
+        _ = onceObservable2.subscribe(observer3)
+        let observer4 = scheduler.createObserver(String.self)
+        _ = onceObservable2.subscribe(observer4)
 
         scheduler.start()
         

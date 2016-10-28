@@ -10,7 +10,7 @@ import XCTest
 
 import RxSwift
 import RxSwiftExt
-import RxTests
+import RxTest
 
 class CatchErrorJustCompleteTests: XCTestCase {
     let testError = NSError(domain: "dummyError", code: -232, userInfo: nil)

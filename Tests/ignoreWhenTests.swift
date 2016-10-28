@@ -10,7 +10,7 @@ import XCTest
 
 import RxSwift
 import RxSwiftExt
-import RxTests
+import RxTest
 
 func isPrime(_ i: Int) -> Bool {
     if i <= 1 {

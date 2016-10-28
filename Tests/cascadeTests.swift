@@ -10,7 +10,7 @@ import XCTest
 
 import RxSwift
 import RxSwiftExt
-import RxTests
+import RxTest
 
 class CascadeTests: XCTestCase {
     let testError = NSError(domain: "dummyError", code: -232, userInfo: nil)
@@ -19,10 +19,10 @@ class CascadeTests: XCTestCase {
     
     func testCascadeEmpty() {
         
-        let emptySequence = Array<Int>().toObservable()
+        let emptySequence = Observable.from([Int]())
 
-        let obs = scheduler.createObserver(Int)
-        Observable.cascade([emptySequence])
+        let obs = scheduler.createObserver(Int.self)
+		_ = Observable.cascade([emptySequence])
             .subscribe(obs)
         
         scheduler.start()

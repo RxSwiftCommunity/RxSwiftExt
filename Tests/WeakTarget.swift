@@ -16,9 +16,9 @@ enum RxEvent {
     case next, error, completed, disposed
     init<T>(event: Event<T>) {
         switch event {
-        case .Next(_): self = .Next
-        case .Error(_): self = .Error
-        case .Completed: self = .Completed
+        case .next(_): self = .next
+        case .error(_): self = .error
+        case .completed: self = .completed
         }
     }
 }
@@ -35,7 +35,7 @@ class WeakTarget<Type> {
         self.listener(self.events)
     }
     
-    init(obs: Observable<Type>, listener: ([RxEvent: Int]) -> Void) {
+    init(obs: Observable<Type>, listener: @escaping ([RxEvent: Int]) -> Void) {
         WeakTargetReferenceCount += 1
         self.listener = listener
         self.observable = obs

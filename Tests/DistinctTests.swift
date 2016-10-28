@@ -8,7 +8,7 @@
 
 import XCTest
 import RxSwift
-import RxTests
+import RxTest
 import RxSwiftExt
 
 
@@ -39,9 +39,9 @@ class DistinctTests: XCTestCase {
     func testDistinctHashableOne() {
         let values = [DummyHashable(id: 1, name: "SomeName")]
         let scheduler = TestScheduler(initialClock: 0)
-        let observer = scheduler.createObserver(DummyHashable)
+        let observer = scheduler.createObserver(DummyHashable.self)
         
-        values.toObservable()
+        _ = Observable.from(values)
             .distinct()
             .subscribe(observer)
         
@@ -60,9 +60,9 @@ class DistinctTests: XCTestCase {
                       DummyHashable(id: 2, name: "SomeName2"),
                       DummyHashable(id: 1, name: "SomeName")]
         let scheduler = TestScheduler(initialClock: 0)
-        let observer = scheduler.createObserver(DummyHashable)
+        let observer = scheduler.createObserver(DummyHashable.self)
         
-        values.toObservable()
+        _ = Observable.from(values)
             .distinct()
             .subscribe(observer)
         
@@ -79,9 +79,9 @@ class DistinctTests: XCTestCase {
     
     func testDistinctHashableEmpty() {
         let scheduler = TestScheduler(initialClock: 0)
-        let observer = scheduler.createObserver(DummyHashable)
+        let observer = scheduler.createObserver(DummyHashable.self)
         
-        Observable<DummyHashable>.empty()
+        _ = Observable<DummyHashable>.empty()
             .distinct()
             .subscribe(observer)
         
@@ -97,9 +97,9 @@ class DistinctTests: XCTestCase {
     func testDistinctEquatableOne() {
         let values = [DummyEquatable(id: 1, name: "SomeName")]
         let scheduler = TestScheduler(initialClock: 0)
-        let observer = scheduler.createObserver(DummyEquatable)
+        let observer = scheduler.createObserver(DummyEquatable.self)
         
-        values.toObservable()
+        _ = Observable.from(values)
             .distinct()
             .subscribe(observer)
         
@@ -118,9 +118,9 @@ class DistinctTests: XCTestCase {
                       DummyEquatable(id: 2, name: "SomeName2"),
                       DummyEquatable(id: 1, name: "SomeName")]
         let scheduler = TestScheduler(initialClock: 0)
-        let observer = scheduler.createObserver(DummyEquatable)
+        let observer = scheduler.createObserver(DummyEquatable.self)
         
-        values.toObservable()
+        _ = Observable.from(values)
             .distinct()
             .subscribe(observer)
         
@@ -137,9 +137,9 @@ class DistinctTests: XCTestCase {
 
     func testDistinctEquatableEmpty() {
         let scheduler = TestScheduler(initialClock: 0)
-        let observer = scheduler.createObserver(DummyEquatable)
+        let observer = scheduler.createObserver(DummyEquatable.self)
         
-        Observable<DummyEquatable>.empty()
+        _ = Observable<DummyEquatable>.empty()
             .distinct()
             .subscribe(observer)
         
@@ -157,12 +157,13 @@ class DistinctTests: XCTestCase {
                       DummyEquatable(id: 2, name: "SomeName2"),
                       DummyEquatable(id: 3, name: "SomeName1")]
         let scheduler = TestScheduler(initialClock: 0)
-        let observer = scheduler.createObserver(DummyEquatable)
+        let observer = scheduler.createObserver(DummyEquatable.self)
         
-        values.toObservable().distinct {
-            $0.name.containsString("1")
-        }.subscribe(observer)
-        
+		_ = Observable.from(values)
+			.distinct {
+				$0.name.contains("1")
+			}.subscribe(observer)
+		
         scheduler.start()
         
         let correct = [
@@ -178,12 +179,13 @@ class DistinctTests: XCTestCase {
                       DummyEquatable(id: 2, name: "SomeName2"),
                       DummyEquatable(id: 3, name: "SomeName3")]
         let scheduler = TestScheduler(initialClock: 0)
-        let observer = scheduler.createObserver(DummyEquatable)
+        let observer = scheduler.createObserver(DummyEquatable.self)
         
-        values.toObservable().distinct {
-            $0.name.containsString("T")
-            }.subscribe(observer)
-        
+		_ = Observable.from(values)
+			.distinct {
+				$0.name.contains("T")
+			}.subscribe(observer)
+		
         scheduler.start()
         
         let correct = [
@@ -198,9 +200,9 @@ class DistinctTests: XCTestCase {
     
     func testDistinctPredicateEmpty() {
         let scheduler = TestScheduler(initialClock: 0)
-        let observer = scheduler.createObserver(DummyEquatable)
+        let observer = scheduler.createObserver(DummyEquatable.self)
         
-        Observable<DummyEquatable>.empty()
+		_ = Observable<DummyEquatable>.empty()
             .distinct {
                 $0.id < 0
             }
@@ -220,12 +222,13 @@ class DistinctTests: XCTestCase {
                       DummyEquatable(id: 2, name: "SomeName2"),
                       DummyEquatable(id: 3, name: "SomeName3")]
         let scheduler = TestScheduler(initialClock: 0)
-        let observer = scheduler.createObserver(DummyEquatable)
+        let observer = scheduler.createObserver(DummyEquatable.self)
         
-        values.toObservable().distinct {
-            $0.id > 0
-        }.subscribe(observer)
-        
+		_ = Observable.from(values)
+			.distinct {
+				$0.id > 0
+			}.subscribe(observer)
+		
         scheduler.start()
         
         let correct = [
@@ -241,12 +244,13 @@ class DistinctTests: XCTestCase {
                       DummyEquatable(id: 2, name: "SomeName2"),
                       DummyEquatable(id: 3, name: "SomeName3")]
         let scheduler = TestScheduler(initialClock: 0)
-        let observer = scheduler.createObserver(DummyEquatable)
+        let observer = scheduler.createObserver(DummyEquatable.self)
         
-        values.toObservable().distinct {
-            $0.id > 1
-        }.subscribe(observer)
-        
+		_ = Observable.from(values)
+			.distinct {
+				$0.id > 1
+			}.subscribe(observer)
+		
         scheduler.start()
         
         let correct = [
@@ -256,7 +260,5 @@ class DistinctTests: XCTestCase {
         ]
         
         XCTAssertEqual(observer.events, correct)
-
     }
-    
 }

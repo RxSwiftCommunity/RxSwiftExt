@@ -10,7 +10,7 @@ import XCTest
 
 import RxSwift
 import RxSwiftExt
-import RxTests
+import RxTest
 
 class NotTests: XCTestCase {
 
@@ -18,9 +18,9 @@ class NotTests: XCTestCase {
         let values = [true, false, true]
 
         let scheduler = TestScheduler(initialClock: 0)
-        let observer = scheduler.createObserver(Bool)
+        let observer = scheduler.createObserver(Bool.self)
 
-        values.toObservable()
+        _ = Observable.from(values)
             .not()
             .subscribe(observer)
 

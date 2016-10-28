@@ -10,7 +10,7 @@ import XCTest
 
 import RxSwift
 import RxSwiftExt
-import RxTests
+import RxTest
 
 class MapToTests: XCTestCase {
 
@@ -21,9 +21,9 @@ class MapToTests: XCTestCase {
         super.setUp()
         
         let scheduler = TestScheduler(initialClock: 0)
-        observer = scheduler.createObserver(String)
+        observer = scheduler.createObserver(String.self)
         
-        numbers.toObservable()
+		_ = Observable.from(numbers)
             .mapTo("candy")
             .subscribe(observer)
         
