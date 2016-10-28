@@ -10,7 +10,7 @@ import XCTest
 
 import RxSwift
 import RxSwiftExt
-import RxTests
+import RxTest
 
 class PausableTests: XCTestCase {
     
@@ -36,8 +36,8 @@ class PausableTests: XCTestCase {
             next(209, true),
         ])
 
-        let res = scheduler.start {
-            underlying.pausable(pauser)
+        let res = scheduler.start(1000) {
+			underlying.pausable(pauser)
         }
 
         XCTAssertEqual(res.events, [
@@ -73,7 +73,7 @@ class PausableTests: XCTestCase {
             next(400, true),
         ])
 
-        let res = scheduler.start {
+        let res = scheduler.start(1000) {
             underlying.pausable(pauser)
         }
 
@@ -106,7 +106,7 @@ class PausableTests: XCTestCase {
             next(400, true),
         ])
 
-        let res = scheduler.start {
+		let res = scheduler.start(1000) {
             underlying.pausable(pauser)
         }
 
