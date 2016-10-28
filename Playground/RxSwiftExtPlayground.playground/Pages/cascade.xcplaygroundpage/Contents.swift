@@ -43,9 +43,9 @@ example("cascade") {
     // as it starts emitting values (after 6 seconds), effectively cascading through the
     // given observables with no possible return to previous ones.
     Observable.cascade([a,b,c])
-        .subscribeNext {
+		.subscribe(onNext: {
             print("Cascade next: \($0)")
-        }
+        })
     
     // watch the resulting sequence in the playground debug area!
     playgroundShouldContinueIndefinitely()

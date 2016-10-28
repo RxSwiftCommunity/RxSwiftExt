@@ -1,9 +1,9 @@
 /*:
  > # IMPORTANT: To use `RxSwiftExtPlayground.playground`, please:
  
- 1. Build `RxSwiftExt` scheme for a simulator target
- 1. Build `RxSwiftExtDemo` scheme for a simulator target
- 1. Choose `View > Show Debug Area`
+1. Make sure you update your Carthage dependencies from shell: `carthage update --platform ios`
+1. Build scheme `RxSwiftExt` scheme for a simulator target
+1. Choose `View > Show Debug Area`
  */
 
 //: [Previous](@previous)
@@ -20,15 +20,15 @@ import RxSwiftExt
 example("unwrap optional values") {
     
     let numbers = Array<Int?>([1, 2, 3])
-    numbers.toObservable()
+    Observable.from(numbers)
         .unwrap()
         .toArray()
-        .subscribeNext {result in
+		.subscribe(onNext: { result in
             // look types on the right panel ===>
             numbers
             result
             print("unwrap() transformed \(numbers) to \(result)")
-    }
+    })
 }
 
 Observable.of(1,2,nil,Int?(4))
@@ -38,15 +38,15 @@ Observable.of(1,2,nil,Int?(4))
 example("unwrap and filter out nil values") {
     
     let numbers = [1, 2, nil, Int?(4)]
-    numbers.toObservable()
+    Observable.from(numbers)
         .unwrap()
         .toArray()
-        .subscribeNext { result in
+		.subscribe(onNext: { result in
             // look types on the right panel ===>
             numbers
             result
             print("unwrap() transformed \(numbers) to \(result)")
-    }
+    })
 }
 
 //: [Next](@next)

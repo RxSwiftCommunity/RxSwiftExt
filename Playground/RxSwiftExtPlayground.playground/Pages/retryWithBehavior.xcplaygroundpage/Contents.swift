@@ -12,7 +12,7 @@ import Foundation
 import RxSwift
 import RxSwiftExt
 
-private enum SampleErrors : ErrorType {
+private enum SampleErrors : Error {
 	case fatalError
 }
 
@@ -21,85 +21,80 @@ let sampleObservable = Observable<String>.create { observer in
 	observer.onNext("Second")
 	observer.onError(SampleErrors.fatalError)
 	observer.onCompleted()
-	return NopDisposable.instance
+	return Disposables.create()
 }
 
-let delayScheduler = SerialDispatchQueueScheduler(globalConcurrentQueueQOS: .Utility)
+let delayScheduler = SerialDispatchQueueScheduler(qos: .utility)
 
 example("Immediate retry") {
 	// after receiving error will immediate retry
-	_ = sampleObservable.retry(.Immediate(maxCount: 3))
-		.doOnError { error in
-			print("Receive error \(error)")
-		}
-		.subscribeNext { event in
+	_ = sampleObservable.retry(.immediate(maxCount: 3))
+		.subscribe(onNext: { event in
 			print("Receive event: \(event)")
-	}
+		}, onError: { error in
+			print("Receive error \(error)")
+		})
 }
 
 example("Immediate retry with custom predicate") {
 	// in this case we provide custom predicate, that will evaluate error and decide, should we retry or not
-	_ = sampleObservable.retry(.Immediate(maxCount: 3), scheduler: delayScheduler) { error in
+	_ = sampleObservable.retry(.immediate(maxCount: 3), scheduler: delayScheduler) { error in
 		// error checks here
 		// in this example we simply say, that retry not allowed
 		return false
 		}
-		.doOnError { error in
-			print("Receive error \(error)")
-		}
-		.subscribeNext { event in
+		.subscribe(onNext: { event in
 			print("Receive event: \(event)")
-	}
+		}, onError: { error in
+			print("Receive error \(error)")
+		})
 }
 
 example("Delayed retry") {
 	// after error, observable will be retried after 1.0 second delay
-	_ = sampleObservable.retry(.Delayed(maxCount: 3, time: 1.0), scheduler: delayScheduler)
-		.doOnError { error in
-			print("Receive error: \(error)")
-		}
-		.subscribeNext { event in
+	_ = sampleObservable.retry(.delayed(maxCount: 3, time: 1.0), scheduler: delayScheduler)
+		.subscribe(onNext: { event in
 			print("Receive event: \(event)")
-	}
+		}, onError: { error in
+			print("Receive error: \(error)")
+		})
 }
 
 // sleep in order to wait until previous example finishes
-NSThread.sleepForTimeInterval(2.5)
+Thread.sleep(forTimeInterval: 2.5)
 
 example("Exponential delay") {
 	// in case of an error initial delay will be 1 second,
 	// every next delay will be doubled
 	// delay formula is: initial * pow(1 + multiplier, Double(currentRepetition - 1)), so multiplier 1.0 means, delay will doubled
-	_ = sampleObservable.retry(.ExponentialDelayed(maxCount: 3, initial: 1.0, multiplier: 1.0), scheduler: delayScheduler)
-		.doOnError { error in
-			print("Receive error: \(error)")
-		}
-		.subscribeNext { event in
+	_ = sampleObservable.retry(.exponentialDelayed(maxCount: 3, initial: 1.0, multiplier: 1.0), scheduler: delayScheduler)
+		.subscribe(onNext: { event in
 			print("Receive event: \(event)")
-	}
+		}, onError: { error in
+			print("Receive error: \(error)")
+		})
 }
 
 // sleep in order to wait until previous example finishes
-NSThread.sleepForTimeInterval(4.0)
+Thread.sleep(forTimeInterval: 4.0)
 
 example("Delay with calculator") {
 	// custom delay calculator
 	// will be invoked to calculate delay for particular repetition
 	// will be invoked in the beginning of repetition, not when error occurred
-	let customCalculator: (UInt -> Double) = { attempt in
+	let customCalculator: (UInt) -> Double = { attempt in
 		switch attempt {
 		case 1: return 0.5
 		case 2: return 1.5
 		default: return 2.0
 		}
 	}
-	_ = sampleObservable.retry(.CustomTimerDelayed(maxCount: 3, delayCalculator: customCalculator), scheduler: delayScheduler)
-		.doOnError { error in
+	_ = sampleObservable.retry(.customTimerDelayed(maxCount: 3, delayCalculator: customCalculator), scheduler: delayScheduler)
+		.subscribe(onNext: { event in
+			print("Receive event: \(event)")
+		}, onError: { error in
 			print("Receive error: \(error)")
-		}
-		.subscribeNext { event in
-			print("1Receive event: \(event)")
-	}
+		})
 }
 
 playgroundShouldContinueIndefinitely()

@@ -1,9 +1,9 @@
 /*:
  > # IMPORTANT: To use `RxSwiftExtPlayground.playground`, please:
  
- 1. Build `RxSwiftExt` scheme for a simulator target
- 1. Build `RxSwiftExtDemo` scheme for a simulator target
- 1. Choose `View > Show Debug Area`
+1. Make sure you update your Carthage dependencies from shell: `carthage update --platform ios`
+1. Build scheme `RxSwiftExt` scheme for a simulator target
+1. Choose `View > Show Debug Area`
  */
 
 //: [Previous](@previous)
@@ -20,47 +20,47 @@ import RxSwiftExt
 example("ignore a single value") {
     
     let values = ["Hello", "Swift", "world"]
-    values.toObservable()
+    Observable.from(values)
         .ignore("Swift")
         .toArray()
-        .subscribeNext { result in
+		.subscribe(onNext: { result in
             // look values on the right panel ===>
             values
             result
             print("ignore() transformed \(values) to \(result)")
-    }
+    })
 
 }
 
 example("ignore multiple values") {
     
-    let values = "Hello Swift world we really like Swift and RxSwift".componentsSeparatedByString(" ")
-    values.toObservable()
+	let values = "Hello Swift world we really like Swift and RxSwift".components(separatedBy: " ")
+    Observable.from(values)
         .ignore("Swift", "and")
         .toArray()
-        .subscribeNext { result in
+		.subscribe(onNext: { result in
             // look values on the right panel ===>
             values
             result
             print("ignore() transformed \(values) to \(result)")
-    }
+    })
     
 }
 
 example("ignore a collection of values") {
   
-    let values = "Hello Swift world we really like Swift and RxSwift".componentsSeparatedByString(" ")
+	let values = "Hello Swift world we really like Swift and RxSwift".components(separatedBy: " ")
     let ignoreSet = Set(["and", "Swift"])
     
-    values.toObservable()
+    Observable.from(values)
         .ignore(ignoreSet)
         .toArray()
-        .subscribeNext { result in
+		.subscribe(onNext: { result in
             // look values on the right panel ===>
             values
             result
             print("ignore() transformed \(values) to \(result)")
-    }
+    })
 
 }
 
@@ -74,17 +74,17 @@ example("ignore some elements") {
     
     let values = [1, 5, 40, 12, 60, 3, 9, 18]
     
-    values.toObservable()
+    Observable.from(values)
         .ignoreWhen { value in
             return value > 10
         }
         .toArray()
-        .subscribeNext() { result in
+		.subscribe(onNext: { result in
             // look values on the right panel ===>
             values
             result
             print("ignoreWhen() transformed \(values) to \(result)")
-    }
+    })
 }
 
 /*:
@@ -93,7 +93,7 @@ example("ignore some elements") {
  The `ignoreErrors` operator is a synonym for the `retry` operator: it unconditionally ignores any error emitted by the sequence,
  creating an sequence that never fails
  */
-enum ExampleError : ErrorType {
+enum ExampleError : Error {
     case SeriousError
     case MinorError
 }

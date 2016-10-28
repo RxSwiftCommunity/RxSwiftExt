@@ -1,9 +1,9 @@
 /*:
  > # IMPORTANT: To use `RxSwiftExtPlayground.playground`, please:
  
- 1. Build `RxSwiftExt` scheme for a simulator target
- 1. Build `RxSwiftExtDemo` scheme for a simulator target
- 1. Choose `View > Show Debug Area`
+1. Make sure you update your Carthage dependencies from shell: `carthage update --platform ios`
+1. Build scheme `RxSwiftExt` scheme for a simulator target
+1. Choose `View > Show Debug Area`
  */
 
 //: [Previous](@previous)
@@ -24,9 +24,9 @@ let justOnce = Observable.once("Hello, world")
 // let's subscribe a first time
 justOnce.subscribe { event in
     switch event {
-    case .Next(let value):
+    case .next(let value):
         print("First subscriber received value \"\(value)\"")
-    case .Completed:
+    case .completed:
         print("First subscriber completed")
     default:
         break
@@ -36,10 +36,10 @@ justOnce.subscribe { event in
 // let's subscribe a second time to the SAME sequence
 justOnce.subscribe { event in
     switch event {
-    case .Next(let value):
+    case .next(let value):
         // this will never be reached
         print("Second subscriber received value \"\(value)\"")
-    case .Completed:
+    case .completed:
         print("Second subscriber completed")
     default:
         break

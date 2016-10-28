@@ -18,7 +18,7 @@ import RxSwiftExt
  
  - returns: An observable sequence that never errors and completes when an error occurs in the underlying sequence
  */
-private enum SampleErrors : ErrorType {
+private enum SampleErrors : Error {
     case fatalError
 }
 
@@ -27,18 +27,18 @@ let sampleObservable = Observable<String>.create { observer in
     observer.onNext("Second")
     observer.onError(SampleErrors.fatalError)
     observer.onCompleted()
-    return NopDisposable.instance
+    return Disposables.create()
 }
 
 example("catchErrorJustComplete") {
-    
+
     let _ = sampleObservable
-        .doOnError { print("Source observable emitted error \($0)") }
+		.do(onError: { print("Source observable emitted error \($0)") })
         .catchErrorJustComplete()
         .subscribe {
             print ("\($0)")
     }
-    
+
 }
 
 //: [Next](@next)

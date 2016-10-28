@@ -23,12 +23,11 @@ import RxSwiftExt
 example("distinct") {
     
     // suppress duplicate strings from the sequence
-    let _ = ["a","b","a","c","b","a","d"]
-        .toObservable()
+    let _ = Observable.from(["a","b","a","c","b","a","d"])
         .distinct()
-        .subscribeNext {
+		.subscribe(onNext: {
             print ("\($0)")
-        }
+        })
     
 }
 

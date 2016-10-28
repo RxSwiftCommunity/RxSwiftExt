@@ -19,15 +19,15 @@ import RxSwiftExt
 example("replace any input with a value") {
     
     let numbers = Array<Int?>([1, 2, 3])
-    numbers.toObservable()
+    Observable.from(numbers)
         .mapTo("candy")
         .toArray()
-        .subscribeNext {result in
+		.subscribe(onNext: {result in
             // look types on the right panel ===>
             numbers
             result
             print("mapTo() transformed \(numbers) to \(result)")
-    }
+    })
 }
 
 

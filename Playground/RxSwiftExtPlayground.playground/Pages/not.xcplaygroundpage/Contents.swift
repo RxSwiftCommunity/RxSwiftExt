@@ -20,9 +20,10 @@ example("boolean not - example 1") {
 
     _ = Observable.just(false)
         .not()
-        .subscribeNext { result in
+		.subscribe(onNext: { result in
             assert(result)
-        }
+			print("Success! result = \(result)")
+        })
 }
 
 //: [Next](@next)

@@ -28,8 +28,7 @@ extension ObservableType {
 	- parameter shouldRepeat: Custom optional closure for decided whether the observable should repeat another round
 	- returns: Observable sequence that will be automatically repeat when it completes
 	*/
-	@warn_unused_result(message="http://git.io/rxs.uo")
-	public func repeatWithBehavior(behavior: RepeatBehavior, scheduler : SchedulerType = MainScheduler.instance, shouldRepeat : RepeatPredicate? = nil) -> Observable<E> {
+	public func repeatWithBehavior(_ behavior: RepeatBehavior, scheduler : SchedulerType = MainScheduler.instance, shouldRepeat : RepeatPredicate? = nil) -> Observable<E> {
 		return repeatWithBehavior(1, behavior: behavior, scheduler: scheduler, shouldRepeat: shouldRepeat)
 	}
 	
@@ -41,7 +40,6 @@ extension ObservableType {
 	- parameter shouldRepeat: Custom optional closure for decided whether the observable should repeat another round
 	- returns: Observable sequence that will be automatically repeat when it completes
 	*/
-	@warn_unused_result(message="http://git.io/rxs.uo")
 	internal func repeatWithBehavior(_ currentRepeat: UInt, behavior: RepeatBehavior, scheduler : SchedulerType = MainScheduler.instance, shouldRepeat : RepeatPredicate? = nil)
 		-> Observable<E> {
 			guard currentRepeat > 0 else { return Observable.empty() }

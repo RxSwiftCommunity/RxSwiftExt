@@ -12,7 +12,7 @@ import Foundation
 import RxSwift
 import RxSwiftExt
 
-private enum SampleErrors : ErrorType {
+private enum SampleErrors : Error {
     case fatalError
 }
 
@@ -20,61 +20,61 @@ let completingObservable = Observable<String>.create { observer in
     observer.onNext("First")
     observer.onNext("Second")
     observer.onCompleted()
-    return NopDisposable.instance
+    return Disposables.create()
 }
 
 let erroringObservable = Observable<String>.create { observer in
     observer.onNext("First")
     observer.onNext("Second")
     observer.onError(SampleErrors.fatalError)
-    return NopDisposable.instance
+    return Disposables.create()
 }
 
-let delayScheduler = SerialDispatchQueueScheduler(globalConcurrentQueueQOS: .Utility)
+let delayScheduler = SerialDispatchQueueScheduler(qos: .utility)
 
 example("Immediate repeat") {
     // repeat immediately after completion
-    _ = completingObservable.repeatWithBehavior(.Immediate(maxCount: 2))
-        .subscribeNext { event in
+    _ = completingObservable.repeatWithBehavior(.immediate(maxCount: 2))
+		.subscribe(onNext: { event in
             print("Receive event: \(event)")
-    }
+    })
 }
 
 
 
 example("Immediate repeat with custom predicate") {
     // in this case we provide custom predicate, that will evaluate error and decide, should we retry or not
-    _ = completingObservable.repeatWithBehavior(.Immediate(maxCount: 2), scheduler: delayScheduler) {
+    _ = completingObservable.repeatWithBehavior(.immediate(maxCount: 2), scheduler: delayScheduler) {
             return true
         }
-        .subscribeNext { event in
+		.subscribe(onNext: { event in
             print("Receive event: \(event)")
-    }
+    })
 }
 
 example("Delayed repeat") {
     // after error, observable will be retried after 1.0 second delay
-    _ = completingObservable.repeatWithBehavior(.Delayed(maxCount: 2, time: 1.0), scheduler: delayScheduler)
-        .subscribeNext { event in
+    _ = completingObservable.repeatWithBehavior(.delayed(maxCount: 2, time: 1.0), scheduler: delayScheduler)
+		.subscribe(onNext: { event in
             print("Receive event: \(event)")
-    }
+    })
 }
 
 // sleep in order to wait until previous example finishes
-NSThread.sleepForTimeInterval(2.5)
+Thread.sleep(forTimeInterval: 2.5)
 
 example("Exponential delay") {
     // in case of an error initial delay will be 1 second,
     // every next delay will be doubled
     // delay formula is: initial * pow(1 + multiplier, Double(currentAttempt - 1)), so multiplier 1.0 means, delay will doubled
-    _ = completingObservable.repeatWithBehavior(.ExponentialDelayed(maxCount: 3, initial: 1.0, multiplier: 1.2), scheduler: delayScheduler)
-        .subscribeNext { event in
+    _ = completingObservable.repeatWithBehavior(.exponentialDelayed(maxCount: 3, initial: 1.0, multiplier: 1.2), scheduler: delayScheduler)
+		.subscribe(onNext: { event in
             print("Receive event: \(event)")
-    }
+    })
 }
 
 // sleep in order to wait until previous example finishes
-NSThread.sleepForTimeInterval(4.0)
+Thread.sleep(forTimeInterval: 4.0)
 
 example("Delay with calculator") {
     // custom delay calculator
@@ -87,23 +87,22 @@ example("Delay with calculator") {
         default: return 2.0
         }
     }
-    _ = completingObservable.repeatWithBehavior(.CustomTimerDelayed(maxCount: 3, delayCalculator: customCalculator), scheduler: delayScheduler)
-        .subscribeNext { event in
+    _ = completingObservable.repeatWithBehavior(.customTimerDelayed(maxCount: 3, delayCalculator: customCalculator), scheduler: delayScheduler)
+		.subscribe(onNext: { event in
             print("Receive event: \(event)")
-    }
+    })
 }
 
 // sleep in order to wait until previous example finishes
-NSThread.sleepForTimeInterval(4.0)
+Thread.sleep(forTimeInterval: 4.0)
 
 example("Observable with error") {
-    _ = erroringObservable.repeatWithBehavior(.Immediate(maxCount: 2))
-        .doOnError {error in
-            print("Repetition interrupted with error: \(error)")
-        }
-        .subscribeNext { event in
+    _ = erroringObservable.repeatWithBehavior(.immediate(maxCount: 2))
+		.subscribe(onNext: { event in
             print("Receive event: \(event)")
-    }
+		}, onError: { error in
+			print("Repetition interrupted with error: \(error)")
+		})
 }
 
 playgroundShouldContinueIndefinitely()
