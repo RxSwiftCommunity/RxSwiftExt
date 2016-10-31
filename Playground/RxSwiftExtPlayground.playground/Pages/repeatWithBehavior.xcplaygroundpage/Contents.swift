@@ -1,9 +1,10 @@
 /*:
  > # IMPORTANT: To use `RxSwiftExtPlayground.playground`, please:
 
- 1. Build `RxSwiftExt` scheme for a simulator target
- 1. Build `RxSwiftExtDemo` scheme for a simulator target
- 1. Choose `View > Show Debug Area`
+1. Make sure you have [Carthage](https://github.com/Carthage/Carthage) installed
+1. Fetch Carthage dependencies from shell: `carthage bootstrap --platform ios`
+1. Build scheme `RxSwiftExt` scheme for a simulator target
+1. Choose `View > Show Debug Area`
  */
 
 //: [Previous](@previous)
@@ -43,7 +44,7 @@ example("Immediate repeat") {
 
 
 example("Immediate repeat with custom predicate") {
-    // in this case we provide custom predicate, that will evaluate error and decide, should we retry or not
+    // here we provide a custom predicate that will determines whether we should resubscribe when the sequence is complete
     _ = completingObservable.repeatWithBehavior(.immediate(maxCount: 2), scheduler: delayScheduler) {
             return true
         }
@@ -53,7 +54,7 @@ example("Immediate repeat with custom predicate") {
 }
 
 example("Delayed repeat") {
-    // after error, observable will be retried after 1.0 second delay
+    // once complete, the observable will be resubscribed to after 1.0 second delay
     _ = completingObservable.repeatWithBehavior(.delayed(maxCount: 2, time: 1.0), scheduler: delayScheduler)
 		.subscribe(onNext: { event in
             print("Receive event: \(event)")
@@ -64,7 +65,7 @@ example("Delayed repeat") {
 Thread.sleep(forTimeInterval: 2.5)
 
 example("Exponential delay") {
-    // in case of an error initial delay will be 1 second,
+    // when the sequence completes initial delay will be 1 second,
     // every next delay will be doubled
     // delay formula is: initial * pow(1 + multiplier, Double(currentAttempt - 1)), so multiplier 1.0 means, delay will doubled
     _ = completingObservable.repeatWithBehavior(.exponentialDelayed(maxCount: 3, initial: 1.0, multiplier: 1.2), scheduler: delayScheduler)
