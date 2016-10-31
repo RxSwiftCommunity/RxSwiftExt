@@ -30,9 +30,9 @@ extension Optional : Optionable
     }
     
 	/**
-	Returns `true` if the Optional element is `nil`; if it does not contain a value
+	Returns `true` if the Optional element is `nil` (if it does not contain a value) or `false` if the element *does* contain a value
 	
-	- returns: `true` if the Optional element is `nil`; true if it *does* have a value
+	- returns: `true` if the Optional element is `nil`; false if it *does* have a value
 	*/
     public func isEmpty() -> Bool {
         return self == nil
@@ -46,7 +46,7 @@ extension ObservableType where E : Optionable {
 	
 	- returns: An observable sequence of non-optional elements
 	*/
-	@warn_unused_result(message="http://git.io/rxs.uo")
+	
     public func unwrap() -> Observable<E.WrappedType> {
         return self
             .filter { value in

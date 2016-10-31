@@ -8,11 +8,20 @@ If you're using [RxSwift](https://github.com/ReactiveX/RxSwift), you may have en
 Installation
 ===========
 
+RxSwiftExt now requires Swift 3 and RxSwift 3.0.0 or later. If your project is running on Swift 2.x, please use version `1.2` of the library.
+
 #### CocoaPods
 
+Using Swift 3:
+
 ```
-use_frameworks!
 pod "RxSwiftExt"
+```
+
+If you use Swift 2.x:
+
+```
+pod "RxSwiftExt", '1.2'
 ```
 
 #### Carthage
@@ -38,6 +47,7 @@ RxSwiftExt is all about adding operators to [RxSwift](https://github.com/Reactiv
 * [not](#not)
 * [Observable.cascade](#cascade)
 * [retry](#retry)
+* [repeatWithBehavior](#repeatWithBehavior)
 * [catchErrorJustComplete](#catcherrorjustcomplete)
 * [pausable](#pausable)
 
@@ -50,6 +60,7 @@ Unwrap optionals and filter out nil values.
     .unwrap()
     .subscribe { print($0) }
 ```
+
 ```
 Next(1)
 Next(2)
@@ -61,11 +72,11 @@ Next(4)
 Ignore specific elements.
 
 ```swift
-  Observable<String>
-    .of("One","Two","Three")
+  Observable.from(["One","Two","Three"])
     .ignore("Two")
     .subscribe { print($0) }
 ```
+
 ```
 Next(One)
 Next(Three)
@@ -186,20 +197,19 @@ Next(c:2)
 #### retry
 
 Repeats the source observable sequence using given behavior in case of an error or until it successfully terminated. 
-There are four behaviors with various predicate and delay options: `Immediate`, `Delayed`, `ExponentialDelayed` and 
-`CustomTimerDelayed`.
+There are four behaviors with various predicate and delay options: `immediate`, `delayed`, `exponentialDelayed` and 
+`customTimerDelayed`.
 
 ```swift
 // in case of an error initial delay will be 1 second,
 // every next delay will be doubled
 // delay formula is: initial * pow(1 + multiplier, Double(currentAttempt - 1)), so multiplier 1.0 means, delay will doubled
-_ = sampleObservable.retry(.ExponentialDelayed(maxAttemptCount: 3, initial: 1.0, multiplier: 1.0), scheduler: delayScheduler)
-	.doOnError { error in
-		print("Receive error: \(error)")
-	}
-	.subscribeNext { event in
-		print("Receive event: \(event)")
-}
+_ = sampleObservable.retry(.exponentialDelayed(maxCount: 3, initial: 1.0, multiplier: 1.0), scheduler: delayScheduler)
+    .subscribe(onNext: { event in
+        print("Receive event: \(event)")
+    }, onError: { error in
+        print("Receive error: \(error)")
+    })
 ```
 
 ```
@@ -212,13 +222,37 @@ Receive event: Second
 Receive error: fatalError
 ```
 
+#### repeatWithBehavior
+
+Repeats the source observable sequence using given behavior when it completes. This operator takes the same parameters as the [retry](#retry) operator.
+There are four behaviors with various predicate and delay options: `immediate`, `delayed`, `exponentialDelayed` and `customTimerDelayed`.
+
+```swift
+// when the sequence completes initial delay will be 1 second,
+// every next delay will be doubled
+// delay formula is: initial * pow(1 + multiplier, Double(currentAttempt - 1)), so multiplier 1.0 means, delay will doubled
+_ = completingObservable.repeatWithBehavior(.exponentialDelayed(maxCount: 3, initial: 1.0, multiplier: 1.2), scheduler: delayScheduler)
+    .subscribe(onNext: { event in
+        print("Receive event: \(event)")
+})
+```
+
+```
+Receive event: First
+Receive event: Second
+Receive event: First
+Receive event: Second
+Receive event: First
+Receive event: Second
+```
+
 #### catchErrorJustComplete
 
 Completes a sequence when an error occurs, dismissing the error condition
 
 ```swift
 let _ = sampleObservable
-    .doOnError { print("Source observable emitted error \($0), ignoring it") }
+    .do(onError: { print("Source observable emitted error \($0), ignoring it") })
     .catchErrorJustComplete()
     .subscribe {
         print ("\($0)")
