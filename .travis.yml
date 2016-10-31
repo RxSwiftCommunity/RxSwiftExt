@@ -3,10 +3,13 @@
 # * https://github.com/supermarin/xcpretty#usage
 
 language: objective-c
-osx_image: xcode7.3
-xcode_sdk: iphonesimulator9.3
+osx_image: xcode8
+xcode_sdk: iphonesimulator10.1
 before_install:
- - gem install cocoapods
- - pod install --project-directory=Demo
+  - brew update
+  - brew outdated carthage || brew upgrade carthage
+before_script:
+  - carthage bootstrap --platform iOS
 script:
-- xctool test -workspace Demo/RxSwiftExtDemo.xcworkspace -scheme RxSwiftExtDemo -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+  - set -o pipefail && xcodebuild -workspace 'RxSwiftExt.xcworkspace' -scheme 'RxSwiftExt' -configuration 'Debug' -sdk iphonesimulator -destination platform='iOS Simulator',OS='10.1',name='iPhone 7' build
+  - set -o pipefail && xcodebuild -workspace 'RxSwiftExt.xcworkspace' -scheme 'RxSwiftExtTests' -configuration 'Debug' -sdk iphonesimulator -destination platform='iOS Simulator',OS='10.1',name='iPhone 7' test | xcpretty -c --test
