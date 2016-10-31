@@ -47,7 +47,7 @@ RxSwiftExt is all about adding operators to [RxSwift](https://github.com/Reactiv
 * [not](#not)
 * [Observable.cascade](#cascade)
 * [retry](#retry)
-* [repeatWithBehavior](#repeatWithBehavior)
+* [repeatWithBehavior](#repeatwithbehavior)
 * [catchErrorJustComplete](#catcherrorjustcomplete)
 * [pausable](#pausable)
 
