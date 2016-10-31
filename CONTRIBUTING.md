@@ -5,7 +5,7 @@
 3. Do a `carthage update --platform ios`
 4. Open `RxSwiftExt.xcworkspace` and start hacking!
 
-## About contributing
+## About contributions
 
 There are multiple ways you can contribute to this project.
 
