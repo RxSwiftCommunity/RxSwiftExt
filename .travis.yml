@@ -11,5 +11,5 @@ before_install:
 before_script:
   - carthage bootstrap --platform iOS
 script:
-  - set -o pipefail && xcodebuild -workspace 'RxSwiftExt.xcworkspace' -scheme 'RxSwiftExt' -configuration 'Debug' -sdk iphonesimulator -destination platform='iOS Simulator',OS='10.1',name='iPhone 7' build
-  - set -o pipefail && xcodebuild -workspace 'RxSwiftExt.xcworkspace' -scheme 'RxSwiftExtTests' -configuration 'Debug' -sdk iphonesimulator -destination platform='iOS Simulator',OS='10.1',name='iPhone 7' test | xcpretty -c --test
+  - set -o pipefail && xcodebuild -workspace 'RxSwiftExt.xcworkspace' -scheme 'RxSwiftExt' -configuration 'Debug' -sdk iphonesimulator build
+  - set -o pipefail && xcodebuild -workspace 'RxSwiftExt.xcworkspace' -scheme 'RxSwiftExtTests' -configuration 'Debug' -sdk iphonesimulator test | xcpretty -c --test
