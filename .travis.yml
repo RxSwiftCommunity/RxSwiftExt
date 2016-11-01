@@ -4,7 +4,6 @@
 
 language: objective-c
 osx_image: xcode8
-xcode_sdk: iphonesimulator10.1
 before_install:
   - brew update
   - brew outdated carthage || brew upgrade carthage
