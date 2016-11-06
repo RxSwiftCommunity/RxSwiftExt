@@ -224,7 +224,6 @@
 				188C6D8D1C47B2B20092101A /* Frameworks */,
 				188C6D8E1C47B2B20092101A /* Headers */,
 				188C6D8F1C47B2B20092101A /* Resources */,
-				188C6DA11C47B31E0092101A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -310,23 +309,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		188C6DA11C47B31E0092101A /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		188C6D8C1C47B2B20092101A /* Sources */ = {
