@@ -4,11 +4,27 @@
 
 language: objective-c
 osx_image: xcode8
+
+env:
+  global:
+  - WORKSPACE=RxSwiftExt.xcworkspace
+  - SDK=iphonesimulator10.0
+  - DESTINATION_PLATFORM='platform=iOS Simulator,name=iPhone 6s,OS=10.0'
+
 before_install:
   - brew update
   - brew outdated carthage || brew upgrade carthage
 before_script:
-  - carthage bootstrap --platform iOS
+  #- carthage bootstrap --platform iOS
+  - carthage checkout
+  - mkdir -p ./Carthage/Build/iOS
+
+  #build RxSwift
+  - (cd ./Carthage/Checkouts/RxSwift && set -o pipefail && xcodebuild -scheme "RxSwift-iOS" -workspace "Rx.xcworkspace" -sdk "$SDK" -configuration Release SYMROOT=../../../Build  | xcpretty -c)
+  - (cd ./Carthage/Checkouts/RxSwift && set -o pipefail && xcodebuild -scheme "RxTests-iOS" -workspace "Rx.xcworkspace" -sdk "$SDK" -configuration Release SYMROOT=../../../Build  | xcpretty -c)
+
+  #copy RxSwift frameworks to Carthage/Build folder
+  - cp -R -f ./Build/Release-iphonesimulator/ ./Carthage/Build/iOS
 script:
-  - set -o pipefail && xcodebuild -workspace 'RxSwiftExt.xcworkspace' -scheme 'RxSwiftExt' -configuration 'Debug' -sdk iphonesimulator build
-  - set -o pipefail && xcodebuild -workspace 'RxSwiftExt.xcworkspace' -scheme 'RxSwiftExtTests' -configuration 'Debug' -sdk iphonesimulator test | xcpretty -c --test
+  - set -o pipefail && xcodebuild -workspace "$WORKSPACE" -scheme 'RxSwiftExt' ONLY_ACTIVE_ARCH=YES -destination "$DESTINATION_PLATFORM" -configuration 'Debug' -sdk "$SDK" build | xcpretty -c
+  - set -o pipefail && xcodebuild -workspace "$WORKSPACE" -scheme 'RxSwiftExtTests' ONLY_ACTIVE_ARCH=YES -destination "$DESTINATION_PLATFORM" -configuration 'Debug' -sdk "$SDK" test  | xcpretty -c
