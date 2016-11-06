@@ -21,7 +21,7 @@ before_script:
 
   #build RxSwift
   - (cd ./Carthage/Checkouts/RxSwift && set -o pipefail && xcodebuild -scheme "RxSwift-iOS" -workspace "Rx.xcworkspace" -sdk "$SDK" -configuration Release SYMROOT=../../../Build  | xcpretty -c)
-  - (cd ./Carthage/Checkouts/RxSwift && set -o pipefail && xcodebuild -scheme "RxTest-iOS" -workspace "Rx.xcworkspace" -sdk "$SDK" -configuration Release SYMROOT=../../../Build  | xcpretty -c)
+  - (cd ./Carthage/Checkouts/RxSwift && set -o pipefail && xcodebuild -scheme "RxTests-iOS" -workspace "Rx.xcworkspace" -sdk "$SDK" -configuration Release SYMROOT=../../../Build  | xcpretty -c)
 
   #copy RxSwift frameworks to Carthage/Build folder
   - cp -R -f ./Build/Release-iphonesimulator/ ./Carthage/Build/iOS

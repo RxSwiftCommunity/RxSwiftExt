@@ -24,8 +24,6 @@
 		3D638E1C1DC2B33F0089A590 /* WeakTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D638E001DC2B3060089A590 /* WeakTests.swift */; };
 		3D638E1D1DC2B36A0089A590 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188C6DA21C47B4240092101A /* RxSwift.framework */; };
 		3D638E1F1DC2B3A40089A590 /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D638E1E1DC2B3A40089A590 /* RxTest.framework */; };
-		3DB034F91DC37734002C6A26 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 188C6DA21C47B4240092101A /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3DB034FA1DC37736002C6A26 /* RxTest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D638E1E1DC2B3A40089A590 /* RxTest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3DB034FE1DC3A73C002C6A26 /* pausableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB034FC1DC3A724002C6A26 /* pausableTests.swift */; };
 		3DB035001DC3A787002C6A26 /* pausable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB034FF1DC3A787002C6A26 /* pausable.swift */; };
 		3DB035421DC3C645002C6A26 /* repeatWithBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB035411DC3C645002C6A26 /* repeatWithBehavior.swift */; };
@@ -53,21 +51,6 @@
 			remoteInfo = RxSwiftExt;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		3DB034F81DC37723002C6A26 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				3DB034F91DC37734002C6A26 /* RxSwift.framework in Embed Frameworks */,
-				3DB034FA1DC37736002C6A26 /* RxTest.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		188C6D911C47B2B20092101A /* RxSwiftExt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxSwiftExt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -241,7 +224,7 @@
 				3D638DE31DC2B2D40089A590 /* Sources */,
 				3D638DE41DC2B2D40089A590 /* Frameworks */,
 				3D638DE51DC2B2D40089A590 /* Resources */,
-				3DB034F81DC37723002C6A26 /* Embed Frameworks */,
+				6E407C291DCF8E4C008D2828 /* Copy carthage frameworks */,
 			);
 			buildRules = (
 			);
@@ -309,6 +292,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6E407C291DCF8E4C008D2828 /* Copy carthage frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxTest.framework",
+			);
+			name = "Copy carthage frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		188C6D8C1C47B2B20092101A /* Sources */ = {
@@ -387,6 +389,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -414,6 +417,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.RxSwiftCommunity.RxSwiftExt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -463,7 +467,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -503,7 +507,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_VERSION = 3.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
