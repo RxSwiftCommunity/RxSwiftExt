@@ -3,19 +3,15 @@
 # * https://github.com/supermarin/xcpretty#usage
 
 language: objective-c
-osx_image: xcode8
+osx_image: xcode8.1
 
 env:
   global:
   - WORKSPACE=RxSwiftExt.xcworkspace
-  - SDK=iphonesimulator10.0
-  - DESTINATION_PLATFORM='platform=iOS Simulator,name=iPhone 6s,OS=10.0'
+  - SDK=iphonesimulator10.1
+  - DESTINATION_PLATFORM='platform=iOS Simulator,name=iPhone 6s,OS=10.1'
 
-before_install:
-  - brew update
-  - brew outdated carthage || brew upgrade carthage
 before_script:
-  #- carthage bootstrap --platform iOS
   - carthage checkout
   - mkdir -p ./Carthage/Build/iOS
 
