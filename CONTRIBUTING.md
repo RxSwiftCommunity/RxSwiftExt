@@ -2,7 +2,7 @@
 
 1. Make sure you have [Carthage](https://github.com/Carthage/Carthage) installed. We use it to pull the RxSwiftExt dependency for development.
 2. Check out this repository.
-3. Do a `carthage update --platform ios`
+3. Do a `carthage update --platform ios --no-use-binaries`
 4. Open `RxSwiftExt.xcworkspace` and start hacking!
 
 ## About contributions
