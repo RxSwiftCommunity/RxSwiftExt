@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		188C6DA31C47B4240092101A /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188C6DA21C47B4240092101A /* RxSwift.framework */; };
+		1A5542941E1EDD4E001F3121 /* materialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5542931E1EDD4E001F3121 /* materialize.swift */; };
+		1A5542961E1EE3DE001F3121 /* materializeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5542951E1EE3DE001F3121 /* materializeTests.swift */; };
 		3D638DEC1DC2B2D50089A590 /* RxSwiftExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188C6D911C47B2B20092101A /* RxSwiftExt.framework */; };
 		3D638E0F1DC2B33E0089A590 /* cascadeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D638DF31DC2B3060089A590 /* cascadeTests.swift */; };
 		3D638E101DC2B33F0089A590 /* catchErrorJustCompleteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D638DF41DC2B3060089A590 /* catchErrorJustCompleteTests.swift */; };
@@ -55,6 +57,8 @@
 /* Begin PBXFileReference section */
 		188C6D911C47B2B20092101A /* RxSwiftExt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxSwiftExt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		188C6DA21C47B4240092101A /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = SOURCE_ROOT; };
+		1A5542931E1EDD4E001F3121 /* materialize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = materialize.swift; path = Source/materialize.swift; sourceTree = SOURCE_ROOT; };
+		1A5542951E1EE3DE001F3121 /* materializeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = materializeTests.swift; path = Tests/materializeTests.swift; sourceTree = "<group>"; };
 		3D638DE71DC2B2D40089A590 /* RxSwiftExtTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RxSwiftExtTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D638DF31DC2B3060089A590 /* cascadeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = cascadeTests.swift; path = Tests/cascadeTests.swift; sourceTree = "<group>"; };
 		3D638DF41DC2B3060089A590 /* catchErrorJustCompleteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = catchErrorJustCompleteTests.swift; path = Tests/catchErrorJustCompleteTests.swift; sourceTree = "<group>"; };
@@ -123,6 +127,7 @@
 				9DAB77841D67639C007E85BC /* ignoreWhen.swift */,
 				9DAB77851D67639C007E85BC /* Info.plist */,
 				9DAB77861D67639C007E85BC /* mapTo.swift */,
+				1A5542931E1EDD4E001F3121 /* materialize.swift */,
 				9DAB77871D67639C007E85BC /* not.swift */,
 				9DAB77881D67639C007E85BC /* ObservableType+Weak.swift */,
 				9DAB77891D67639C007E85BC /* once.swift */,
@@ -165,6 +170,7 @@
 				3D638DF71DC2B3060089A590 /* IgnoreTests.swift */,
 				3D638DF81DC2B3060089A590 /* ignoreWhenTests.swift */,
 				3D638DF91DC2B3060089A590 /* mapToTests.swift */,
+				1A5542951E1EE3DE001F3121 /* materializeTests.swift */,
 				3D638DFA1DC2B3060089A590 /* notTests.swift */,
 				3D638DFB1DC2B3060089A590 /* OnceTests.swift */,
 				3DB034FC1DC3A724002C6A26 /* pausableTests.swift */,
@@ -328,6 +334,7 @@
 				9DAB77971D67639C007E85BC /* retryWithBehavior.swift in Sources */,
 				9DAB778D1D67639C007E85BC /* catchErrorJustComplete.swift in Sources */,
 				3DB035001DC3A787002C6A26 /* pausable.swift in Sources */,
+				1A5542941E1EDD4E001F3121 /* materialize.swift in Sources */,
 				9DAB778E1D67639C007E85BC /* distinct.swift in Sources */,
 				9DAB77981D67639C007E85BC /* unwrap.swift in Sources */,
 				9DAB77931D67639C007E85BC /* mapTo.swift in Sources */,
@@ -349,6 +356,7 @@
 				3D638E121DC2B33F0089A590 /* ignoreErrorsTests.swift in Sources */,
 				3D638E191DC2B33F0089A590 /* retryWithBehaviorTests.swift in Sources */,
 				3D638E1C1DC2B33F0089A590 /* WeakTests.swift in Sources */,
+				1A5542961E1EE3DE001F3121 /* materializeTests.swift in Sources */,
 				3D638E1A1DC2B33F0089A590 /* UnwrapTests.swift in Sources */,
 				3D638E161DC2B33F0089A590 /* notTests.swift in Sources */,
 				3D638E101DC2B33F0089A590 /* catchErrorJustCompleteTests.swift in Sources */,
