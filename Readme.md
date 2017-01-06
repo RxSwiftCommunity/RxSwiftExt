@@ -50,7 +50,7 @@ RxSwiftExt is all about adding operators to [RxSwift](https://github.com/Reactiv
 * [repeatWithBehavior](#repeatwithbehavior)
 * [catchErrorJustComplete](#catcherrorjustcomplete)
 * [pausable](#pausable)
-* [materialize/dematerialize](#materialize/dematerialize)
+* [materialize/dematerialize](#materializedematerialize)
 
 #### unwrap
 
