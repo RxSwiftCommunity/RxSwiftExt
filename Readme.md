@@ -293,8 +293,11 @@ More examples are available in the project's Playground.
 
 #### materialize/dematerialize
 
-Materialize converts an observable into a sequence of Events. Dematerialize
-performs the inverse operation.
+Materialize converts an observable into a sequence of Events for both items
+emitted and notifications sent. Dematerialize performs the inverse
+operation. See the documentation for
+[materialize/dematerialize](http://reactivex.io/documentation/operators/materialize-dematerialize.html)
+on ReactiveX.io.
 
 ```swift
     let numbers = [1, 2, 3]
