@@ -50,6 +50,7 @@ RxSwiftExt is all about adding operators to [RxSwift](https://github.com/Reactiv
 * [repeatWithBehavior](#repeatwithbehavior)
 * [catchErrorJustComplete](#catcherrorjustcomplete)
 * [pausable](#pausable)
+* [materialize/dematerialize](#materialize/dematerialize)
 
 #### unwrap
 
@@ -289,6 +290,39 @@ Next(3)
 ```
 
 More examples are available in the project's Playground.
+
+#### materialize/dematerialize
+
+Materialize converts an observable into a sequence of Events. Dematerialize
+performs the inverse operation.
+
+```swift
+    let numbers = [1, 2, 3]
+    print("materialize() transformed \(numbers) to sequence of Events: ")
+    let materialized = Observable.from(numbers).materialize()
+    materialized.subscribe{ result in
+        print(result)
+    }
+    print("\n...and dematerialize() transformed it back: ")
+    materialized.dematerialize().subscribe { result in
+        print(result)
+    }
+```
+
+```
+materialize() transformed [1, 2, 3] to sequence of Events: 
+next(next(1))
+next(next(2))
+next(next(3))
+next(completed)
+completed
+
+...and dematerialize() transformed it back: 
+next(1)
+next(2)
+next(3)
+completed
+```
 
 ## License
 
