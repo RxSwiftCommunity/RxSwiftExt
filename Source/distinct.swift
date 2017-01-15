@@ -21,10 +21,10 @@ extension Observable {
         var cache = [Element]()
         return flatMap { element -> Observable<Element> in
             if try cache.contains(where: predicate) {
-                return Observable<Element>.empty()
+                return .empty()
             } else {
                 cache.append(element)
-                return Observable<Element>.just(element)
+                return .just(element)
             }
         }
     }
@@ -39,11 +39,11 @@ extension Observable where Element: Hashable {
     public func distinct() -> Observable<Element> {
         var cache = Set<Element>()
         return flatMap { element -> Observable<Element> in
-            if cache.contains(element) {
-                return Observable<Element>.empty()
-            } else {
-                cache.insert(element)
-                return Observable<Element>.just(element)
+            if cache.insert(element).inserted {
+                return .just(element)
+            }
+            else {
+                return .empty()
             }
         }
     }
@@ -59,10 +59,10 @@ extension Observable where Element: Equatable {
         var cache = [Element]()
         return flatMap { element -> Observable<Element> in
             if cache.contains(element) {
-                return Observable<Element>.empty()
+                return .empty()
             } else {
                 cache.append(element)
-                return Observable<Element>.just(element)
+                return .just(element)
             }
         }
     }

@@ -62,11 +62,10 @@ extension Observable where Element : ObservableType {
 							if (initialized) {
 								subscriptions[index]?.dispose()
 								subscriptions[index] = nil
-								for next in current ..< subscriptions.count {
-									if subscriptions[next] != nil {
-										return
-									}
-								}
+                if ((current ..< subscriptions.count).contains {
+                    subscriptions[$0] != nil }) {
+                  return
+                }
 								observer.onCompleted()
 							}
 						}

@@ -50,7 +50,7 @@ extension ObservableType where E : Optionable {
     public func unwrap() -> Observable<E.WrappedType> {
         return self
             .filter { value in
-                return !value.isEmpty()
+                !value.isEmpty()
             }
             .map { value -> E.WrappedType in
                 value.unwrap()
