@@ -42,7 +42,7 @@ extension ObservableType {
 	*/
 	internal func repeatWithBehavior(_ currentRepeat: UInt, behavior: RepeatBehavior, scheduler : SchedulerType = MainScheduler.instance, shouldRepeat : RepeatPredicate? = nil)
 		-> Observable<E> {
-			guard currentRepeat > 0 else { return Observable.empty() }
+			guard currentRepeat > 0 else { return .empty() }
 			
 			// calculate conditions for bahavior
 			let conditions = behavior.calculateConditions(currentRepeat)

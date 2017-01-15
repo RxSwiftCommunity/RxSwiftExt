@@ -28,7 +28,7 @@ extension Observable where Element : ObservableType {
 	public static func cascade<S : Sequence>(_ observables : S) -> Observable<T> where S.Iterator.Element == Element, S.Iterator.Element.E == T {
 		let flow = Array(observables)
 		if flow.isEmpty {
-			return Observable<T>.empty()
+			return .empty()
 		}
 		
 		return Observable<T>.create { observer in
@@ -62,8 +62,7 @@ extension Observable where Element : ObservableType {
 							if (initialized) {
 								subscriptions[index]?.dispose()
 								subscriptions[index] = nil
-                if ((current ..< subscriptions.count).contains {
-                    subscriptions[$0] != nil }) {
+                if ((current ..< subscriptions.count).contains { subscriptions[$0] != nil }) {
                   return
                 }
 								observer.onCompleted()
@@ -83,7 +82,7 @@ extension Observable where Element : ObservableType {
 			}
 
 			initialized = true
-			
+
 			for i in 0 ..< flow.count {
 				if subscriptions[i] != nil {
 					return Disposables.create {
@@ -112,7 +111,7 @@ extension ObservableType {
 	*/
 	
 	public func cascade<S : Sequence>(_ next : S) -> Observable<E> where S.Iterator.Element == Self {
-		return Observable.cascade([self.asObservable()] + Array(next).map { $0.asObservable() })
+		return Observable.cascade([asObservable()] + next.map { $0.asObservable() })
 	}
 	
 }

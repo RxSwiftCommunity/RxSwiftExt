@@ -54,15 +54,10 @@ extension ObservableType {
 		     onCompleted: ((A) -> () -> Void)? = nil,
 		     onDisposed: ((A) -> () -> Void)? = nil) -> Disposable {
 		
-		let disposable: Disposable
-		
-		if let disposed = onDisposed {
-			disposable = Disposables.create(with: weakify(obj, method: disposed))
-		}
-		else {
-			disposable = Disposables.create()
-		}
-		
+		let disposable: Disposable = onDisposed.map {
+      Disposables.create(with: weakify(obj, method: $0))
+    } ?? Disposables.create()
+
 		let observer = AnyObserver { [weak obj] (e: RxSwift.Event<Self.E>) in
 			guard let obj = obj else { return }
 			switch e {
