@@ -31,7 +31,7 @@ extension Observable where Element : ObservableType {
 			return .empty()
 		}
 		
-		return Observable<T>.create { observer in
+		return .create { observer in
 			var current = 0, initialized = false
 			var subscriptions = [Disposable?](repeating: nil, count: flow.count)
 
