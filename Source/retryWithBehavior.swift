@@ -75,7 +75,7 @@ extension ObservableType {
 	
 	internal func retry(_ currentAttempt: UInt, behavior: RepeatBehavior, scheduler: SchedulerType = MainScheduler.instance, shouldRetry: RetryPredicate? = nil)
 		-> Observable<E> {
-			guard currentAttempt > 0 else { return Observable.empty() }
+			guard currentAttempt > 0 else { return .empty() }
 			
 			// calculate conditions for bahavior
 			let conditions = behavior.calculateConditions(currentAttempt)

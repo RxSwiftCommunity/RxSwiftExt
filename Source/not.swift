@@ -12,6 +12,6 @@ import RxSwift
 extension ObservableType where E == Bool {
     /// Boolean not operator
     public func not() -> Observable<Bool> {
-        return self.map(!)
+        return map(!)
     }
 }
