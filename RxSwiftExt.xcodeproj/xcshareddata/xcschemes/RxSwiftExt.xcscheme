@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "188C6D901C47B2B20092101A"
-               BuildableName = "RxSwiftExt.framework"
-               BlueprintName = "RxSwiftExt"
+               BuildableName = "RxSwiftExt-iOS.framework"
+               BlueprintName = "RxSwiftExt-iOS"
                ReferencedContainer = "container:RxSwiftExt.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,8 +46,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "188C6D901C47B2B20092101A"
-            BuildableName = "RxSwiftExt.framework"
-            BlueprintName = "RxSwiftExt"
+            BuildableName = "RxSwiftExt-iOS.framework"
+            BlueprintName = "RxSwiftExt-iOS"
             ReferencedContainer = "container:RxSwiftExt.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -64,8 +64,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "188C6D901C47B2B20092101A"
-            BuildableName = "RxSwiftExt.framework"
-            BlueprintName = "RxSwiftExt"
+            BuildableName = "RxSwiftExt-iOS.framework"
+            BlueprintName = "RxSwiftExt-iOS"
             ReferencedContainer = "container:RxSwiftExt.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
