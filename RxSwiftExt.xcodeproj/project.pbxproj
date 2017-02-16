@@ -63,7 +63,6 @@
 		62A5ACBB1E562B0000D06430 /* repeatWithBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB035411DC3C645002C6A26 /* repeatWithBehavior.swift */; };
 		62A5ACBC1E562B0000D06430 /* unwrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAB778B1D67639C007E85BC /* unwrap.swift */; };
 		62A5ACC11E562BD800D06430 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62A5ACBF1E562BD800D06430 /* RxSwift.framework */; };
-		62A5ACC21E562BD800D06430 /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62A5ACC01E562BD800D06430 /* RxTest.framework */; };
 		62A5ACC31E562C7B00D06430 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62A5ACBF1E562BD800D06430 /* RxSwift.framework */; };
 		62A5ACC41E562C7E00D06430 /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62A5ACC01E562BD800D06430 /* RxTest.framework */; };
 		9DAB778C1D67639C007E85BC /* cascade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAB777F1D67639C007E85BC /* cascade.swift */; };
@@ -164,7 +163,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62A5ACC21E562BD800D06430 /* RxTest.framework in Frameworks */,
 				62A5ACC11E562BD800D06430 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -905,6 +903,7 @@
 				62A5AC8E1E562A8900D06430 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		62A5AC9B1E562AEA00D06430 /* Build configuration list for PBXNativeTarget "RxSwiftExtTests-macOS" */ = {
 			isa = XCConfigurationList;
@@ -913,6 +912,7 @@
 				62A5AC9D1E562AEA00D06430 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
