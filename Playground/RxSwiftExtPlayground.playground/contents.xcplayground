@@ -2,6 +2,7 @@
 <playground version='6.0' target-platform='ios' display-mode='rendered' executeOnSourceChanges='false'>
     <pages>
         <page name='Index'/>
+        <page name='apply'/>
         <page name='cascade'/>
         <page name='catchErrorJustComplete'/>
         <page name='distinct'/>
