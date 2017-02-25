@@ -22,6 +22,6 @@ extension ObservableType {
 	*/
 	
 	public func ignoreWhen(_ predicate: @escaping (E) throws -> Bool) -> Observable<E> {
-		return self.asObservable().filter { try !predicate($0) }
+		return asObservable().filter { try !predicate($0) }
 	}
 }

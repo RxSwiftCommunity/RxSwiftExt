@@ -42,7 +42,7 @@ extension ObservableType {
 	*/
 	internal func repeatWithBehavior(_ currentRepeat: UInt, behavior: RepeatBehavior, scheduler : SchedulerType = MainScheduler.instance, shouldRepeat : RepeatPredicate? = nil)
 		-> Observable<E> {
-			guard currentRepeat > 0 else { return Observable.empty() }
+			guard currentRepeat > 0 else { return .empty() }
 			
 			// calculate conditions for bahavior
 			let conditions = behavior.calculateConditions(currentRepeat)
@@ -51,15 +51,15 @@ extension ObservableType {
                 .catchError {error in
                     //if observable errors, forward the error
                     guard error is RepeatError else {
-                        return Observable.error(error)
+                        return .error(error)
                     }
 
                     //repeat
-                    guard conditions.maxCount > currentRepeat else { return Observable.empty() }
+                    guard conditions.maxCount > currentRepeat else { return .empty() }
 
-                    if let shouldRepeat = shouldRepeat , !shouldRepeat() {
+                    if let shouldRepeat = shouldRepeat, !shouldRepeat() {
                         // also return error if predicate says so
-                        return Observable.empty()
+                        return .empty()
                     }
 
                     guard conditions.delay > 0.0 else {

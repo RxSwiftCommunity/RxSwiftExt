@@ -18,8 +18,8 @@ extension ObservableType {
      - returns: An observable sequence that wraps events in an Event<E>. The returned Observable never errors, but it does complete after observing all of the events of the underlying Observable.
      */
     public func materialize() -> Observable<Event<E>> {
-        return Observable.create { observer in
-            return self.subscribe { event in
+        return .create { observer in
+            self.subscribe { event in
                 observer.onNext(event)
                 if event.isStopEvent {
                     observer.onCompleted()
@@ -52,8 +52,8 @@ extension ObservableType where E: EventConvertibleType {
      - returns: An observable sequence that unwraps the Events of the underlying observable.
      */
     public func dematerialize() -> Observable<E.E> {
-        return Observable.create { observer in
-            return self.subscribe(onNext: { event in
+        return .create { observer in
+            self.subscribe(onNext: { event in
                 switch event.asEvent() {
                 case .next(let element): observer.onNext(element)
                 case .error(let error): observer.onError(error)
@@ -65,13 +65,13 @@ extension ObservableType where E: EventConvertibleType {
 
     /// Return only the error events of an Observable<Event<E>>
     public func errors() -> Observable<Error> {
-        return self.filter { $0.asEvent().error != nil }
+        return filter { $0.asEvent().error != nil }
             .map { $0.asEvent().error! }
     }
 
     /// Return only the onNext element events of an Observable<Event<E>>
     public func elements() -> Observable<E.E> {
-        return self.filter { $0.asEvent().element != nil }
+        return filter { $0.asEvent().element != nil }
             .map { $0.asEvent().element! }
     }
 }

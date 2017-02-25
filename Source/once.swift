@@ -32,7 +32,7 @@ extension Observable {
 				observer.onNext(element)
 			}
 			observer.onCompleted()
-            return Disposables.create()
+      return Disposables.create()
 		}
 	}
 

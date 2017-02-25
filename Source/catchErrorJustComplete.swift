@@ -17,7 +17,7 @@ extension ObservableType {
      */
     public func catchErrorJustComplete() -> Observable<E> {
         return catchError { _ in
-            return Observable.empty()
+            return .empty()
         }
     }
 }

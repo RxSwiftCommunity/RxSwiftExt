@@ -30,8 +30,8 @@ extension ObservableType {
     
     public func ignoreErrors(_ predicate : @escaping (Error) -> Bool) -> Observable<E> {
         return retryWhen {
-            return $0.flatMap { error -> Observable<Bool> in
-                return predicate(error) ?  Observable.just(true) : Observable<Bool>.error(error)
+            $0.flatMap { error -> Observable<Bool> in
+                predicate(error) ? .just(true) : .error(error)
             }
         }
     }

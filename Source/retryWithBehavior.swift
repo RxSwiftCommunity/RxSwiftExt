@@ -75,18 +75,18 @@ extension ObservableType {
 	
 	internal func retry(_ currentAttempt: UInt, behavior: RepeatBehavior, scheduler: SchedulerType = MainScheduler.instance, shouldRetry: RetryPredicate? = nil)
 		-> Observable<E> {
-			guard currentAttempt > 0 else { return Observable.empty() }
+			guard currentAttempt > 0 else { return .empty() }
 			
 			// calculate conditions for bahavior
 			let conditions = behavior.calculateConditions(currentAttempt)
 			
 			return catchError { error -> Observable<E> in
 				// return error if exceeds maximum amount of retries
-				guard conditions.maxCount > currentAttempt else { return Observable.error(error) }
+				guard conditions.maxCount > currentAttempt else { return .error(error) }
 				
 				if let shouldRetry = shouldRetry, !shouldRetry(error) {
 					// also return error if predicate says so
-					return Observable.error(error)
+					return .error(error)
 				}
 
 				guard conditions.delay > 0.0 else {
