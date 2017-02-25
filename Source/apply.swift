@@ -10,8 +10,8 @@ import Foundation
 import RxSwift
 
 extension ObservableType {
-    /// Apply a transform function to the Observable.
-    public func apply<T>(_ transformation transform: (Observable<Self.E>) -> Observable<T>) -> Observable<T> {
+    /// Apply a transformation function to the Observable.
+    public func apply<T>(_ transform: (Observable<Self.E>) -> Observable<T>) -> Observable<T> {
         return transform(self.asObservable())
     }
 }

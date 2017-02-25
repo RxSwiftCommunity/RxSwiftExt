@@ -16,7 +16,7 @@ import RxSwiftExt
 /*:
  ## apply
 
- The `apply` operator takes a transform function `(Observable) -> Observable` and applies it to the stream. The purpose of this operator is to provide syntactic sugar for applying multiple operators to the stream, while preserving the chaining operator structure of Rx.
+ The `apply` operator takes a transformation function `(Observable) -> Observable` and applies it to the stream. The purpose of this operator is to provide syntactic sugar for applying multiple operators to the stream, while preserving the chaining operator structure of Rx.
 
  */
 
