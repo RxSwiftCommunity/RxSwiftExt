@@ -51,6 +51,7 @@ RxSwiftExt is all about adding operators to [RxSwift](https://github.com/Reactiv
 * [catchErrorJustComplete](#catcherrorjustcomplete)
 * [pausable](#pausable)
 * [materialize/dematerialize](#materializedematerialize)
+* [apply](#apply)
 
 #### unwrap
 
@@ -325,6 +326,25 @@ next(1)
 next(2)
 next(3)
 completed
+```
+
+#### apply
+
+Apply provides a unified mechanism for applying transformations on Observable
+sequences, without having to extend ObservableType or repeating your
+transformations. For additional rationale for this see
+[discussion on github](https://github.com/RxSwiftCommunity/RxSwiftExt/issues/73)
+
+```swift
+// An ordinary function that applies some operators to its argument, and returns the resulting Observable
+func requestPolicy(_ request: Observable<Void>) -> Observable<Response> {
+    return request.retry(maxAttempts)
+        .do(onNext: sideEffect)
+        .map { Response.success }
+        .catchError { error in Observable.just(parseRequestError(error: error)) }
+
+// We can apply the function in the apply operator, which preserves the chaining style of invoking Rx operators
+let resilientRequest = request.apply(requestPolicy)
 ```
 
 ## License
