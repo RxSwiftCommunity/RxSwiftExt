@@ -330,8 +330,9 @@ completed
 
 #### apply
 
-Apply allows you to chain your own custom Observable operator-like functions
-without having to extend ObservableType. For additional rationale for this see
+Apply provides a unified mechanism for applying transformations on Observable
+sequences, without having to extend ObservableType or repeating your
+transformations. For additional rationale for this see
 [discussion on github](https://github.com/RxSwiftCommunity/RxSwiftExt/issues/73)
 
 ```swift
