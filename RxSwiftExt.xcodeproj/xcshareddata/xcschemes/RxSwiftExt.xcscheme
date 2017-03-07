@@ -20,6 +20,20 @@
                ReferencedContainer = "container:RxSwiftExt.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3D638DE61DC2B2D40089A590"
+               BuildableName = "RxSwiftExtTests.xctest"
+               BlueprintName = "RxSwiftExtTests"
+               ReferencedContainer = "container:RxSwiftExt.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -28,7 +42,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3D638DE61DC2B2D40089A590"
+               BuildableName = "RxSwiftExtTests.xctest"
+               BlueprintName = "RxSwiftExtTests"
+               ReferencedContainer = "container:RxSwiftExt.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "188C6D901C47B2B20092101A"
+            BuildableName = "RxSwiftExt.framework"
+            BlueprintName = "RxSwiftExt"
+            ReferencedContainer = "container:RxSwiftExt.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
