@@ -48,6 +48,8 @@
 		538607EE1E6F36A9000361DE /* WeakTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538607CB1E6F367A000361DE /* WeakTests.swift */; };
 		538607F01E6F589E000361DE /* not+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538607EF1E6F589E000361DE /* not+RxCocoa.swift */; };
 		53C79D621E6F5B3900CD9B6A /* notTests+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C79D5F1E6F5AAB00CD9B6A /* notTests+RxCocoa.swift */; };
+		53F336E81E70CBF700D35D38 /* distinct+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F336E71E70CBF700D35D38 /* distinct+RxCocoa.swift */; };
+		53F336EA1E70D59000D35D38 /* distinct+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F336E91E70D59000D35D38 /* distinct+RxCocoa.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +105,8 @@
 		538607CB1E6F367A000361DE /* WeakTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakTests.swift; sourceTree = "<group>"; };
 		538607EF1E6F589E000361DE /* not+RxCocoa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "not+RxCocoa.swift"; path = "Source/RxCocoa/not+RxCocoa.swift"; sourceTree = SOURCE_ROOT; };
 		53C79D5F1E6F5AAB00CD9B6A /* notTests+RxCocoa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "notTests+RxCocoa.swift"; sourceTree = "<group>"; };
+		53F336E71E70CBF700D35D38 /* distinct+RxCocoa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "distinct+RxCocoa.swift"; path = "Source/RxCocoa/distinct+RxCocoa.swift"; sourceTree = SOURCE_ROOT; };
+		53F336E91E70D59000D35D38 /* distinct+RxCocoa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "distinct+RxCocoa.swift"; sourceTree = "<group>"; };
 		9DAB77851D67639C007E85BC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Source/Info.plist; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -171,6 +175,7 @@
 		5386076D1E6F1BF9000361DE /* RxCocoa */ = {
 			isa = PBXGroup;
 			children = (
+				53F336E71E70CBF700D35D38 /* distinct+RxCocoa.swift */,
 				5386076E1E6F1C0A000361DE /* mapTo+RxCocoa.swift */,
 				538607EF1E6F589E000361DE /* not+RxCocoa.swift */,
 			);
@@ -181,6 +186,7 @@
 		538607701E6F1C38000361DE /* RxCocoa */ = {
 			isa = PBXGroup;
 			children = (
+				53F336E91E70D59000D35D38 /* distinct+RxCocoa.swift */,
 				538607711E6F1CFB000361DE /* mapToTests+RxCocoa.swift */,
 				53C79D5F1E6F5AAB00CD9B6A /* notTests+RxCocoa.swift */,
 			);
@@ -391,6 +397,7 @@
 				538607B31E6F334B000361DE /* not.swift in Sources */,
 				538607AD1E6F334B000361DE /* distinct.swift in Sources */,
 				538607B61E6F334B000361DE /* pausable.swift in Sources */,
+				53F336E81E70CBF700D35D38 /* distinct+RxCocoa.swift in Sources */,
 				538607AE1E6F334B000361DE /* ignore.swift in Sources */,
 				5386076F1E6F1C0A000361DE /* mapTo+RxCocoa.swift in Sources */,
 				538607B71E6F334B000361DE /* repeatWithBehavior.swift in Sources */,
@@ -403,6 +410,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				538607E01E6F36A9000361DE /* cascadeTests.swift in Sources */,
+				53F336EA1E70D59000D35D38 /* distinct+RxCocoa.swift in Sources */,
 				538607E81E6F36A9000361DE /* notTests.swift in Sources */,
 				538607EB1E6F36A9000361DE /* retryWithBehaviorTests.swift in Sources */,
 				538607E21E6F36A9000361DE /* DistinctTests.swift in Sources */,
