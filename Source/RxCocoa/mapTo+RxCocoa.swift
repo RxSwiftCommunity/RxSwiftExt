@@ -16,6 +16,6 @@ extension SharedSequenceConvertibleType {
      - returns: An unit containing the values `value` provided as a parameter
      */
     public func mapTo<R>(_ value: R) -> SharedSequence<SharingStrategy, R> {
-        return map{ _ in value }
+        return map { _ in value }
     }
 }

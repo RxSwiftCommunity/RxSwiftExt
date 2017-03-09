@@ -27,8 +27,7 @@ class MapToCocoaTests: XCTestCase {
         _ = Observable.from(numbers)
             .asDriver(onErrorJustReturn: nil)
             .mapTo("candy")
-            .asObservable()
-            .subscribe(observer)
+            .drive(observer)
 
         scheduler.start()
     }

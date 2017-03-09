@@ -21,8 +21,7 @@ class NotCocoaTests: XCTestCase {
 
         _ = Observable.from(values).asDriver(onErrorJustReturn: false)
             .not()
-            .asObservable()
-            .subscribe(observer)
+            .drive(observer)
 
         scheduler.start()
 
