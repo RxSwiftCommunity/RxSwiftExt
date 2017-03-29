@@ -33,7 +33,7 @@ extension Observable where Element : ObservableType {
 		
 		return Observable<T>.create { observer in
 			var current = 0, initialized = false
-			var subscriptions = [Disposable?](repeating: nil, count: flow.count)
+			var subscriptions: [SerialDisposable?] = flow.map { _ in SerialDisposable() }
 
 			let lock = NSRecursiveLock()
 			lock.lock()
@@ -41,9 +41,7 @@ extension Observable where Element : ObservableType {
 			
 			for i in 0 ..< flow.count {
 				let index = i
-				var complete = false
 				let disposable = flow[index].subscribe { event in
-					
 					lock.lock()
 					defer { lock.unlock() }
 					
@@ -54,10 +52,12 @@ extension Observable where Element : ObservableType {
 							subscriptions[current] = nil
 							current += 1
 						}
-						observer.onNext(element)
+						if index == current {
+							assert(subscriptions[index] != nil)
+							observer.onNext(element)
+						}
 						
 					case .completed:
-						complete = true
 						if index >= current {
 							if (initialized) {
 								subscriptions[index]?.dispose()
@@ -75,10 +75,9 @@ extension Observable where Element : ObservableType {
 						observer.onError(error)
 					}
 				}
-				if !complete {
-					subscriptions[index] = disposable
-				}
-				else {
+				if let serialDisposable = subscriptions[index] {
+					serialDisposable.disposable = disposable
+				} else {
 					disposable.dispose()
 				}
 			}
