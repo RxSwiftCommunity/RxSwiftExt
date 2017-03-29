@@ -1,6 +1,11 @@
 Changelog
 =========
 
+2.2.0
+-----
+- new operator: `apply`
+- added `not`, `mapTo` and `distinct` support for RxCocoa units (`Driver` et al.)
+
 2.1.0
 -----
 - new operators: `materialize` / `dematerialize`
