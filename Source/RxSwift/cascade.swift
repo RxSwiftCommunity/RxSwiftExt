@@ -11,7 +11,7 @@ import RxSwift
 
 extension Observable where Element : ObservableType {
 	
-	typealias T = Element.E
+	public typealias T = Element.E
 	
 	/**
 	Cascade through a sequence of observables: every observable that sends a `next` value becomes the "current"
