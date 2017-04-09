@@ -1,6 +1,10 @@
 Changelog
 =========
 
+2.2.1
+-----
+- fixed compilation warning with Swift 3.1
+
 2.2.0
 -----
 - new operator: `apply`
