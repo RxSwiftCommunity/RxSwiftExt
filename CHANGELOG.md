@@ -1,6 +1,10 @@
 Changelog
 =========
 
+2.3.0
+-----
+- removed `materialize` and `dematerialize` operators as they now are part of RxSwift 3.4.0 and later
+
 2.2.1
 -----
 - fixed compilation warning with Swift 3.1

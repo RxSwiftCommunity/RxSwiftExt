@@ -21,7 +21,6 @@
 		538607AF1E6F334B000361DE /* ignoreErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386079F1E6F334B000361DE /* ignoreErrors.swift */; };
 		538607B01E6F334B000361DE /* ignoreWhen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538607A01E6F334B000361DE /* ignoreWhen.swift */; };
 		538607B11E6F334B000361DE /* mapTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538607A11E6F334B000361DE /* mapTo.swift */; };
-		538607B21E6F334B000361DE /* materialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538607A21E6F334B000361DE /* materialize.swift */; };
 		538607B31E6F334B000361DE /* not.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538607A31E6F334B000361DE /* not.swift */; };
 		538607B41E6F334B000361DE /* ObservableType+Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538607A41E6F334B000361DE /* ObservableType+Weak.swift */; };
 		538607B51E6F334B000361DE /* once.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538607A51E6F334B000361DE /* once.swift */; };
@@ -38,7 +37,6 @@
 		538607E41E6F36A9000361DE /* IgnoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538607C01E6F367A000361DE /* IgnoreTests.swift */; };
 		538607E51E6F36A9000361DE /* ignoreWhenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538607C11E6F367A000361DE /* ignoreWhenTests.swift */; };
 		538607E61E6F36A9000361DE /* mapToTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538607C21E6F367A000361DE /* mapToTests.swift */; };
-		538607E71E6F36A9000361DE /* materializeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538607C31E6F367A000361DE /* materializeTests.swift */; };
 		538607E81E6F36A9000361DE /* notTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538607C41E6F367A000361DE /* notTests.swift */; };
 		538607E91E6F36A9000361DE /* OnceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538607C51E6F367A000361DE /* OnceTests.swift */; };
 		538607EA1E6F36A9000361DE /* pausableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538607C61E6F367A000361DE /* pausableTests.swift */; };
@@ -78,7 +76,6 @@
 		5386079F1E6F334B000361DE /* ignoreErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ignoreErrors.swift; path = Source/RxSwift/ignoreErrors.swift; sourceTree = SOURCE_ROOT; };
 		538607A01E6F334B000361DE /* ignoreWhen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ignoreWhen.swift; path = Source/RxSwift/ignoreWhen.swift; sourceTree = SOURCE_ROOT; };
 		538607A11E6F334B000361DE /* mapTo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = mapTo.swift; path = Source/RxSwift/mapTo.swift; sourceTree = SOURCE_ROOT; };
-		538607A21E6F334B000361DE /* materialize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = materialize.swift; path = Source/RxSwift/materialize.swift; sourceTree = SOURCE_ROOT; };
 		538607A31E6F334B000361DE /* not.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = not.swift; path = Source/RxSwift/not.swift; sourceTree = SOURCE_ROOT; };
 		538607A41E6F334B000361DE /* ObservableType+Weak.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ObservableType+Weak.swift"; path = "Source/RxSwift/ObservableType+Weak.swift"; sourceTree = SOURCE_ROOT; };
 		538607A51E6F334B000361DE /* once.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = once.swift; path = Source/RxSwift/once.swift; sourceTree = SOURCE_ROOT; };
@@ -94,7 +91,6 @@
 		538607C01E6F367A000361DE /* IgnoreTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IgnoreTests.swift; sourceTree = "<group>"; };
 		538607C11E6F367A000361DE /* ignoreWhenTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ignoreWhenTests.swift; sourceTree = "<group>"; };
 		538607C21E6F367A000361DE /* mapToTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapToTests.swift; sourceTree = "<group>"; };
-		538607C31E6F367A000361DE /* materializeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = materializeTests.swift; sourceTree = "<group>"; };
 		538607C41E6F367A000361DE /* notTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = notTests.swift; sourceTree = "<group>"; };
 		538607C51E6F367A000361DE /* OnceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnceTests.swift; sourceTree = "<group>"; };
 		538607C61E6F367A000361DE /* pausableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pausableTests.swift; sourceTree = "<group>"; };
@@ -205,7 +201,6 @@
 				5386079F1E6F334B000361DE /* ignoreErrors.swift */,
 				538607A01E6F334B000361DE /* ignoreWhen.swift */,
 				538607A11E6F334B000361DE /* mapTo.swift */,
-				538607A21E6F334B000361DE /* materialize.swift */,
 				538607A31E6F334B000361DE /* not.swift */,
 				538607A41E6F334B000361DE /* ObservableType+Weak.swift */,
 				538607A51E6F334B000361DE /* once.swift */,
@@ -228,7 +223,6 @@
 				538607C01E6F367A000361DE /* IgnoreTests.swift */,
 				538607C11E6F367A000361DE /* ignoreWhenTests.swift */,
 				538607C21E6F367A000361DE /* mapToTests.swift */,
-				538607C31E6F367A000361DE /* materializeTests.swift */,
 				538607C41E6F367A000361DE /* notTests.swift */,
 				538607C51E6F367A000361DE /* OnceTests.swift */,
 				538607C61E6F367A000361DE /* pausableTests.swift */,
@@ -385,7 +379,6 @@
 			files = (
 				538607AF1E6F334B000361DE /* ignoreErrors.swift in Sources */,
 				538607B91E6F334B000361DE /* unwrap.swift in Sources */,
-				538607B21E6F334B000361DE /* materialize.swift in Sources */,
 				538607B01E6F334B000361DE /* ignoreWhen.swift in Sources */,
 				538607AB1E6F334B000361DE /* cascade.swift in Sources */,
 				538607F01E6F589E000361DE /* not+RxCocoa.swift in Sources */,
@@ -414,7 +407,6 @@
 				538607E81E6F36A9000361DE /* notTests.swift in Sources */,
 				538607EB1E6F36A9000361DE /* retryWithBehaviorTests.swift in Sources */,
 				538607E21E6F36A9000361DE /* DistinctTests.swift in Sources */,
-				538607E71E6F36A9000361DE /* materializeTests.swift in Sources */,
 				538607EA1E6F36A9000361DE /* pausableTests.swift in Sources */,
 				538607E91E6F36A9000361DE /* OnceTests.swift in Sources */,
 				538607EE1E6F36A9000361DE /* WeakTests.swift in Sources */,
