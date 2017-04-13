@@ -52,6 +52,16 @@ RxSwiftExt is all about adding operators to [RxSwift](https://github.com/Reactiv
 * [pausable](#pausable)
 * [apply](#apply)
 
+Two additional operators are available for `materialize()'d sequences:
+
+* [errors](#errorselements)
+* [elements](#errorselements)
+
+Read below for details about each operator.
+
+Operator details
+===========
+
 #### unwrap
 
 Unwrap optionals and filter out nil values.
@@ -308,6 +318,26 @@ func requestPolicy(_ request: Observable<Void>) -> Observable<Response> {
 
 // We can apply the function in the apply operator, which preserves the chaining style of invoking Rx operators
 let resilientRequest = request.apply(requestPolicy)
+```
+
+#### errors, elements
+
+These operators only apply to observable serquences that have been materialized with the `materialize()` operator (from RxSwift core). `errors` returns a sequence of filtered error events, ommitting elements. `elements` returns a sequence of filtered element events, ommitting errors.
+
+```swift
+let imageResult = _chooseImageButtonPressed.asObservable()
+    .flatMap { imageReceiver.image.materialize() }
+    .share()
+
+let image = imageResult
+    .elements()
+    .asDriver(onErrorDriveWith: .never())
+
+let errorMessage = imageResult
+    .errors()
+    .map(mapErrorMessages)
+    .unwrap()
+    .asDriver(onErrorDriveWith: .never())
 ```
 
 ## License
