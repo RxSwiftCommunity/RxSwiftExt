@@ -1,6 +1,11 @@
 Changelog
 =========
 
+2.4.0
+-----
+- re-added `errors()` and `elements()` operatores for materialized sequences
+- fixed Carthage and CI issues
+
 2.3.0
 -----
 - removed `materialize` and `dematerialize` operators as they now are part of RxSwift 3.4.0 and later
