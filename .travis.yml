@@ -12,7 +12,7 @@ env:
   - DESTINATION_PLATFORM='platform=iOS Simulator,name=iPhone 6s,OS=10.1'
 
 before_script:
-  - carthage checkout
+  - carthage checkout --no-use-binaries
   - mkdir -p ./Carthage/Build/iOS
 
   #build RxSwift
