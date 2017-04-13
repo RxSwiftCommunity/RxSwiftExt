@@ -54,8 +54,8 @@ RxSwiftExt is all about adding operators to [RxSwift](https://github.com/Reactiv
 
 Two additional operators are available for `materialize()'d sequences:
 
-* [errors](#errorselements)
-* [elements](#errorselements)
+* [errors](#errors-elements)
+* [elements](#errors-elements)
 
 Read below for details about each operator.
 
