@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		188C6DA31C47B4240092101A /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188C6DA21C47B4240092101A /* RxSwift.framework */; };
-		1F0FA0F0C2DD1B4DBF07C36A /* materialized+elements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0FAB985E76638FEC500609 /* materialized+elements.swift */; };
 		3D638DEC1DC2B2D50089A590 /* RxSwiftExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188C6D911C47B2B20092101A /* RxSwiftExt.framework */; };
 		3D638E1D1DC2B36A0089A590 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188C6DA21C47B4240092101A /* RxSwift.framework */; };
 		3D638E1F1DC2B3A40089A590 /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D638E1E1DC2B3A40089A590 /* RxTest.framework */; };
@@ -50,6 +49,7 @@
 		53F336E81E70CBF700D35D38 /* distinct+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F336E71E70CBF700D35D38 /* distinct+RxCocoa.swift */; };
 		53F336EA1E70D59000D35D38 /* distinct+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F336E91E70D59000D35D38 /* distinct+RxCocoa.swift */; };
 		6662395E1E9E0950009BB134 /* materialized+elementsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6662395D1E9E0950009BB134 /* materialized+elementsTests.swift */; };
+		66C663061EA0ECD9005245C4 /* materialized+elements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C663051EA0ECD9005245C4 /* materialized+elements.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +65,6 @@
 /* Begin PBXFileReference section */
 		188C6D911C47B2B20092101A /* RxSwiftExt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxSwiftExt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		188C6DA21C47B4240092101A /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = SOURCE_ROOT; };
-		1F0FAB985E76638FEC500609 /* materialized+elements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "materialized+elements.swift"; sourceTree = SOURCE_ROOT; };
 		3D638DE71DC2B2D40089A590 /* RxSwiftExtTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RxSwiftExtTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D638E1E1DC2B3A40089A590 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
 		3DB034F61DC376D9002C6A26 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = "<group>"; };
@@ -107,6 +106,7 @@
 		53F336E71E70CBF700D35D38 /* distinct+RxCocoa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "distinct+RxCocoa.swift"; path = "Source/RxCocoa/distinct+RxCocoa.swift"; sourceTree = SOURCE_ROOT; };
 		53F336E91E70D59000D35D38 /* distinct+RxCocoa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "distinct+RxCocoa.swift"; sourceTree = "<group>"; };
 		6662395D1E9E0950009BB134 /* materialized+elementsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "materialized+elementsTests.swift"; sourceTree = "<group>"; };
+		66C663051EA0ECD9005245C4 /* materialized+elements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "materialized+elements.swift"; path = "Source/RxSwift/materialized+elements.swift"; sourceTree = SOURCE_ROOT; };
 		9DAB77851D67639C007E85BC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Source/Info.plist; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -205,7 +205,7 @@
 				5386079F1E6F334B000361DE /* ignoreErrors.swift */,
 				538607A01E6F334B000361DE /* ignoreWhen.swift */,
 				538607A11E6F334B000361DE /* mapTo.swift */,
-				1F0FAB985E76638FEC500609 /* materialized+elements.swift */,
+				66C663051EA0ECD9005245C4 /* materialized+elements.swift */,
 				538607A31E6F334B000361DE /* not.swift */,
 				538607A41E6F334B000361DE /* ObservableType+Weak.swift */,
 				538607A51E6F334B000361DE /* once.swift */,
@@ -389,6 +389,7 @@
 				538607AB1E6F334B000361DE /* cascade.swift in Sources */,
 				538607F01E6F589E000361DE /* not+RxCocoa.swift in Sources */,
 				538607B81E6F334B000361DE /* retryWithBehavior.swift in Sources */,
+				66C663061EA0ECD9005245C4 /* materialized+elements.swift in Sources */,
 				538607B51E6F334B000361DE /* once.swift in Sources */,
 				538607B11E6F334B000361DE /* mapTo.swift in Sources */,
 				538607AA1E6F334B000361DE /* apply.swift in Sources */,
@@ -401,7 +402,6 @@
 				5386076F1E6F1C0A000361DE /* mapTo+RxCocoa.swift in Sources */,
 				538607B71E6F334B000361DE /* repeatWithBehavior.swift in Sources */,
 				538607AC1E6F334B000361DE /* catchErrorJustComplete.swift in Sources */,
-				1F0FA0F0C2DD1B4DBF07C36A /* materialized+elements.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
