@@ -75,7 +75,7 @@ class PausableBufferedTests: XCTestCase {
             completed(600),
             ])
         
-        let res = scheduler.start(disposed: 1000) {
+        let res = scheduler.start(1000) {
             underlying.pausableBuffered(pauser)
         }
         
