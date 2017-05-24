@@ -23,11 +23,56 @@ extension ObservableType {
      - returns: The observable sequence which is paused based upon the pauser observable sequence.
      */
     
-    public func pausableBuffered<P : ObservableType> (_ pauser: P) -> Observable<E> where P.E == Bool {
-        return Observable.combineLatest(self, pauser.distinctUntilChanged()) { ($0, $1) }
-            .filter { (element, paused) in paused }
-            .map { (element, paused) in element }
+public func pausableBuffered<P : ObservableType> (_ pauser: P) -> Observable<E> where P.E == Bool {
+    
+    return Observable<E>.create { observer in
+        var latest: E? = nil
+        var paused = true
+        var completeCount = 0
+        let lock = NSRecursiveLock()
+        
+        let boundaryDisposable =
+            pauser
+                .distinctUntilChanged()
+                .subscribe { event in
+                    lock.lock(); defer { lock.unlock() }
+                    switch event {
+                    case .next(let resume):
+                        paused = !resume
+                        
+                        if resume {
+                            if let el = latest {
+                                observer.onNext(el)
+                                latest = nil
+                            }
+                        }
+                    case .error(let error):
+                        observer.onError(error)
+                    default:
+                        break
+                    }
+        }
+        
+        let disposable = self.subscribe { event in
+            lock.lock(); defer { lock.unlock() }
+            switch event {
+            case .next(let element):
+                if paused {
+                    latest = element
+                } else {
+                    observer.onNext(element)
+                }
+            case .completed:
+                observer.onCompleted()
+            case .error(let error):
+                observer.onError(error)
+            }
+        }
+        
+        return Disposables.create([disposable, boundaryDisposable])
     }
+    
+}
     
 }
 
