@@ -12,7 +12,7 @@ import RxSwift
 import RxSwiftExt
 import RxTest
 
-class PausableTests: XCTestCase {
+class PausableBufferedTests: XCTestCase {
     
     let testError = NSError(domain: "dummyError", code: -232, userInfo: nil)
     
@@ -111,7 +111,7 @@ class PausableTests: XCTestCase {
             ])
         
         let res = scheduler.start(1000) {
-            underlying.pausable(pauser)
+            underlying.pausableBuffered(pauser)
         }
         
         XCTAssertEqual(res.events, [
