@@ -24,9 +24,9 @@ extension ObservableType {
      */
     
     public func pausableBuffered<P : ObservableType> (_ pauser: P) -> Observable<E> where P.E == Bool {
-        let pause = pausable(pauser)
-        let restart = sample(pauser.ignore(false).distinctUntilChanged())
-        return Observable.merge(pause, restart)
+        return Observable.combineLatest(self, pauser.distinctUntilChanged()) { ($0, $1) }
+            .filter { (element, paused) in paused }
+            .map { (element, paused) in element }
     }
     
 }

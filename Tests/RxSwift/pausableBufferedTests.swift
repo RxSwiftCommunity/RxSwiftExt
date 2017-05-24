@@ -34,6 +34,7 @@ class PausableBufferedTests: XCTestCase {
             next(201, true),
             next(205, false),
             next(209, true),
+            completed(600),
             ])
         
         let res = scheduler.start(1000) {
@@ -41,14 +42,12 @@ class PausableBufferedTests: XCTestCase {
         }
         
         XCTAssertEqual(res.events, [
-            next(201, 1),
-            next(209, 1),
             next(210, 2),
             next(230, 3),
             next(301, 4),
             next(350, 5),
             next(399, 6),
-            completed(500),
+            completed(600),
             ])
         
         XCTAssertEqual(underlying.subscriptions, [
@@ -73,9 +72,10 @@ class PausableBufferedTests: XCTestCase {
             next(220, true),
             next(300, false),
             next(400, true),
+            completed(600),
             ])
         
-        let res = scheduler.start(1000) {
+        let res = scheduler.start(disposed: 1000) {
             underlying.pausableBuffered(pauser)
         }
         
@@ -83,7 +83,7 @@ class PausableBufferedTests: XCTestCase {
             next(220, 2),
             next(230, 3),
             next(400, 6),
-            completed(500),
+            completed(600),
             ])
         
         XCTAssertEqual(underlying.subscriptions, [
@@ -108,6 +108,7 @@ class PausableBufferedTests: XCTestCase {
             next(201, true),
             next(300, false),
             next(400, true),
+            completed(600),
             ])
         
         let res = scheduler.start(1000) {
@@ -115,10 +116,8 @@ class PausableBufferedTests: XCTestCase {
         }
         
         XCTAssertEqual(res.events, [
-            next(201, 1),
             next(210, 2),
             error(230, testError),
-            next(400, 6),
             ])
         
         XCTAssertEqual(underlying.subscriptions, [
