@@ -48,6 +48,8 @@
 		53C79D621E6F5B3900CD9B6A /* notTests+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C79D5F1E6F5AAB00CD9B6A /* notTests+RxCocoa.swift */; };
 		53F336E81E70CBF700D35D38 /* distinct+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F336E71E70CBF700D35D38 /* distinct+RxCocoa.swift */; };
 		53F336EA1E70D59000D35D38 /* distinct+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F336E91E70D59000D35D38 /* distinct+RxCocoa.swift */; };
+		5A1DDEB91ED58D2800F2E4B1 /* pausableBufferedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1DDEB81ED58D2800F2E4B1 /* pausableBufferedTests.swift */; };
+		5A1DDEBF1ED58F8600F2E4B1 /* pausableBuffered.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1DDEBE1ED58F8600F2E4B1 /* pausableBuffered.swift */; };
 		6662395E1E9E0950009BB134 /* materialized+elementsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6662395D1E9E0950009BB134 /* materialized+elementsTests.swift */; };
 		66C663061EA0ECD9005245C4 /* materialized+elements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C663051EA0ECD9005245C4 /* materialized+elements.swift */; };
 		98309EAF1EDF14AC00BD07D9 /* customOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98309EAE1EDF14AC00BD07D9 /* customOperator.swift */; };
@@ -108,6 +110,8 @@
 		53C79D5F1E6F5AAB00CD9B6A /* notTests+RxCocoa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "notTests+RxCocoa.swift"; sourceTree = "<group>"; };
 		53F336E71E70CBF700D35D38 /* distinct+RxCocoa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "distinct+RxCocoa.swift"; path = "Source/RxCocoa/distinct+RxCocoa.swift"; sourceTree = SOURCE_ROOT; };
 		53F336E91E70D59000D35D38 /* distinct+RxCocoa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "distinct+RxCocoa.swift"; sourceTree = "<group>"; };
+		5A1DDEB81ED58D2800F2E4B1 /* pausableBufferedTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pausableBufferedTests.swift; sourceTree = "<group>"; };
+		5A1DDEBE1ED58F8600F2E4B1 /* pausableBuffered.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = pausableBuffered.swift; path = Source/RxSwift/pausableBuffered.swift; sourceTree = SOURCE_ROOT; };
 		6662395D1E9E0950009BB134 /* materialized+elementsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "materialized+elementsTests.swift"; sourceTree = "<group>"; };
 		66C663051EA0ECD9005245C4 /* materialized+elements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "materialized+elements.swift"; path = "Source/RxSwift/materialized+elements.swift"; sourceTree = SOURCE_ROOT; };
 		98309EAE1EDF14AC00BD07D9 /* customOperator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = customOperator.swift; path = Source/RxSwift/customOperator.swift; sourceTree = SOURCE_ROOT; };
@@ -216,6 +220,7 @@
 				538607A41E6F334B000361DE /* ObservableType+Weak.swift */,
 				538607A51E6F334B000361DE /* once.swift */,
 				538607A61E6F334B000361DE /* pausable.swift */,
+				5A1DDEBE1ED58F8600F2E4B1 /* pausableBuffered.swift */,
 				538607A71E6F334B000361DE /* repeatWithBehavior.swift */,
 				538607A81E6F334B000361DE /* retryWithBehavior.swift */,
 				538607A91E6F334B000361DE /* unwrap.swift */,
@@ -240,6 +245,7 @@
 				538607C41E6F367A000361DE /* notTests.swift */,
 				538607C51E6F367A000361DE /* OnceTests.swift */,
 				538607C61E6F367A000361DE /* pausableTests.swift */,
+				5A1DDEB81ED58D2800F2E4B1 /* pausableBufferedTests.swift */,
 				538607C71E6F367A000361DE /* repeatWithBehaviorTests.swift */,
 				538607C81E6F367A000361DE /* retryWithBehaviorTests.swift */,
 				538607C91E6F367A000361DE /* UnwrapTests.swift */,
@@ -410,9 +416,11 @@
 				98309EB11EDF159500BD07D9 /* filterMap.swift in Sources */,
 				53F336E81E70CBF700D35D38 /* distinct+RxCocoa.swift in Sources */,
 				538607AE1E6F334B000361DE /* ignore.swift in Sources */,
+				5A1DDEBF1ED58F8600F2E4B1 /* pausableBuffered.swift in Sources */,
 				5386076F1E6F1C0A000361DE /* mapTo+RxCocoa.swift in Sources */,
 				538607B71E6F334B000361DE /* repeatWithBehavior.swift in Sources */,
 				538607AC1E6F334B000361DE /* catchErrorJustComplete.swift in Sources */,
+				5A1DDEB91ED58D2800F2E4B1 /* pausableBufferedTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
