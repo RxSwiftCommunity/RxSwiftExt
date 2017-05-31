@@ -50,6 +50,9 @@
 		53F336EA1E70D59000D35D38 /* distinct+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F336E91E70D59000D35D38 /* distinct+RxCocoa.swift */; };
 		6662395E1E9E0950009BB134 /* materialized+elementsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6662395D1E9E0950009BB134 /* materialized+elementsTests.swift */; };
 		66C663061EA0ECD9005245C4 /* materialized+elements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C663051EA0ECD9005245C4 /* materialized+elements.swift */; };
+		98309EAF1EDF14AC00BD07D9 /* customOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98309EAE1EDF14AC00BD07D9 /* customOperator.swift */; };
+		98309EB11EDF159500BD07D9 /* filterMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98309EB01EDF159500BD07D9 /* filterMap.swift */; };
+		98309EB41EDF167300BD07D9 /* filterMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98309EB21EDF161700BD07D9 /* filterMapTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +110,9 @@
 		53F336E91E70D59000D35D38 /* distinct+RxCocoa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "distinct+RxCocoa.swift"; sourceTree = "<group>"; };
 		6662395D1E9E0950009BB134 /* materialized+elementsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "materialized+elementsTests.swift"; sourceTree = "<group>"; };
 		66C663051EA0ECD9005245C4 /* materialized+elements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "materialized+elements.swift"; path = "Source/RxSwift/materialized+elements.swift"; sourceTree = SOURCE_ROOT; };
+		98309EAE1EDF14AC00BD07D9 /* customOperator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = customOperator.swift; path = Source/RxSwift/customOperator.swift; sourceTree = SOURCE_ROOT; };
+		98309EB01EDF159500BD07D9 /* filterMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = filterMap.swift; path = Source/RxSwift/filterMap.swift; sourceTree = SOURCE_ROOT; };
+		98309EB21EDF161700BD07D9 /* filterMapTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = filterMapTests.swift; sourceTree = "<group>"; };
 		9DAB77851D67639C007E85BC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Source/Info.plist; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -213,6 +219,8 @@
 				538607A71E6F334B000361DE /* repeatWithBehavior.swift */,
 				538607A81E6F334B000361DE /* retryWithBehavior.swift */,
 				538607A91E6F334B000361DE /* unwrap.swift */,
+				98309EAE1EDF14AC00BD07D9 /* customOperator.swift */,
+				98309EB01EDF159500BD07D9 /* filterMap.swift */,
 			);
 			name = RxSwift;
 			sourceTree = "<group>";
@@ -237,6 +245,7 @@
 				538607C91E6F367A000361DE /* UnwrapTests.swift */,
 				538607CA1E6F367A000361DE /* WeakTarget.swift */,
 				538607CB1E6F367A000361DE /* WeakTests.swift */,
+				98309EB21EDF161700BD07D9 /* filterMapTests.swift */,
 			);
 			name = RxSwift;
 			path = Tests/RxSwift;
@@ -397,6 +406,8 @@
 				538607B31E6F334B000361DE /* not.swift in Sources */,
 				538607AD1E6F334B000361DE /* distinct.swift in Sources */,
 				538607B61E6F334B000361DE /* pausable.swift in Sources */,
+				98309EAF1EDF14AC00BD07D9 /* customOperator.swift in Sources */,
+				98309EB11EDF159500BD07D9 /* filterMap.swift in Sources */,
 				53F336E81E70CBF700D35D38 /* distinct+RxCocoa.swift in Sources */,
 				538607AE1E6F334B000361DE /* ignore.swift in Sources */,
 				5386076F1E6F1C0A000361DE /* mapTo+RxCocoa.swift in Sources */,
@@ -411,6 +422,7 @@
 			files = (
 				538607E01E6F36A9000361DE /* cascadeTests.swift in Sources */,
 				53F336EA1E70D59000D35D38 /* distinct+RxCocoa.swift in Sources */,
+				98309EB41EDF167300BD07D9 /* filterMapTests.swift in Sources */,
 				6662395E1E9E0950009BB134 /* materialized+elementsTests.swift in Sources */,
 				538607E81E6F36A9000361DE /* notTests.swift in Sources */,
 				538607EB1E6F36A9000361DE /* retryWithBehaviorTests.swift in Sources */,
