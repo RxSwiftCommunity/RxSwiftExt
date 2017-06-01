@@ -8,14 +8,14 @@
 
 import RxSwift
 
-public enum FilterMap<Result>: CustomOperator {
+public enum FilterMap<Result> {
     case ignore
     case map(Result)
 
-    public func apply(_ sink: (Result) -> Void) {
+    fileprivate var asOperator: AnyOperator<Result> {
         switch self {
-        case .ignore: return
-        case .map(let value): sink(value)
+        case .ignore: return .filter
+        case .map(let value): return .map(value)
         }
     }
 }
@@ -30,6 +30,6 @@ extension ObservableType {
         - returning `.map(newValue)` will propagate newValue through the returned Observable.
      */
     public func filterMap<T>(_ transform: @escaping (E) -> FilterMap<T>) -> Observable<T> {
-        return customOperator(transform)
+        return flatMapSync { transform($0).asOperator }
     }
 }
