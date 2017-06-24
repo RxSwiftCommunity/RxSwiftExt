@@ -33,6 +33,7 @@
  - [repeatWithBehavior()](repeatWithBehavior) operator, repeat on completion with various delay / predicate options
  - [catchErrorJustComplete()](catchErrorJustComplete) ignore any error and complete the sequence instead
  - [pausable()](pausable) operator, pauses emission of elements unless the most recent element from the provided sequence is `true`
+ - [pausableBuffered()](pausableBuffered) operator, pauses emission of elements unless the most recent element from the provided sequence is `true`; buffers elements that arrive while paused; emits buffered elements on resume.
  */
 
 //: [Next >>](@next)

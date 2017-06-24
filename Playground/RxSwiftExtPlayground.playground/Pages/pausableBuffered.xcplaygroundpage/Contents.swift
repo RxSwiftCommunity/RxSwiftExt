@@ -13,13 +13,16 @@ import RxSwift
 import RxSwiftExt
 
 /*:
-## pausable
+## pausableBuffered
 
-The `pausable` operator pauses the elements of the source observable sequence based on the latest element from the second observable sequence.
-- elements from the underlying observable sequence are emitted if and only if the second sequence has most recently emitted `true`.
+Pauses the elements of the source observable sequence based on the latest element from the second observable sequence.
+
+While paused, elements from the source are buffered, limited to a maximum number of element.
+
+When resumed, all bufered elements are flushed as single events in a contiguous stream.
 */
 
-example("pausable") {
+example("pausableBuffered") {
 	
 	let observable = Observable<Int>.interval(1, scheduler: MainScheduler.instance)
 	
@@ -27,12 +30,13 @@ example("pausable") {
 	let falseAtFiveSeconds = Observable<Int>.timer(5, scheduler: MainScheduler.instance).map { _ in false }
 	let pauser = Observable.of(trueAtThreeSeconds, falseAtFiveSeconds).merge()
 	
-	let pausedObservable = observable.pausable(pauser)
+	// unlimited buffering of values received while paused
+	let pausedObservable = observable.pausableBuffered(pauser, limit: nil)
 	
 	pausedObservable
 		.subscribe { print($0) }
 	
 	playgroundShouldContinueIndefinitely()
+	
 }
-
 //: [Next](@next)
