@@ -15,5 +15,6 @@
         <page name='repeatWithBehavior'/>
         <page name='retryWithBehavior'/>
         <page name='unwrap'/>
+        <page name='filterMap'/>
     </pages>
 </playground>

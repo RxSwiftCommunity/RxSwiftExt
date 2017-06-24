@@ -50,7 +50,9 @@ RxSwiftExt is all about adding operators to [RxSwift](https://github.com/Reactiv
 * [repeatWithBehavior](#repeatwithbehavior)
 * [catchErrorJustComplete](#catcherrorjustcomplete)
 * [pausable](#pausable)
+* [pausableBuffered](#pausableBuffered)
 * [apply](#apply)
+* [filterMap](#filterMap)
 
 Two additional operators are available for `materialize()'d sequences:
 
@@ -301,6 +303,12 @@ Next(3)
 
 More examples are available in the project's Playground.
 
+#### pausableBuffered
+
+Pauses the elements of the source observable sequence unless the latest element from the second observable sequence is `true`. Elements emitted by the source observable are buffered (with a configurable limit) and "flushed" (re-emitted) when the observable resumes.
+
+Examples are available in the project's Playground.
+
 #### apply
 
 Apply provides a unified mechanism for applying transformations on Observable
@@ -318,6 +326,18 @@ func requestPolicy(_ request: Observable<Void>) -> Observable<Response> {
 
 // We can apply the function in the apply operator, which preserves the chaining style of invoking Rx operators
 let resilientRequest = request.apply(requestPolicy)
+```
+
+#### filterMap
+
+A common pattern in Rx is to filter out some values, then map the remaining ones to something else. `filterMap` allows you to do this in one step:
+
+```swift
+// keep only odd numbers and double them
+Observable.of(1,2,3,4,5,6)
+	.filterMap { number in
+		(number % 2 == 0) ? .ignore : .map(number * 2)
+	}
 ```
 
 #### errors, elements
