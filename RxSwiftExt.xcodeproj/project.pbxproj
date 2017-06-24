@@ -6,6 +6,21 @@
 	objectVersion = 48;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		988839241EFEBD1D0012DF6E /* RxSwiftExtPlayground */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 988839271EFEBD1D0012DF6E /* Build configuration list for PBXAggregateTarget "RxSwiftExtPlayground" */;
+			buildPhases = (
+				988839551EFEC2390012DF6E /* ShellScript */,
+			);
+			dependencies = (
+				988839291EFEBD230012DF6E /* PBXTargetDependency */,
+			);
+			name = RxSwiftExtPlayground;
+			productName = RxSwiftExtPlayground;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		188C6DA31C47B4240092101A /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188C6DA21C47B4240092101A /* RxSwift.framework */; };
 		3D638DEC1DC2B2D50089A590 /* RxSwiftExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188C6D911C47B2B20092101A /* RxSwiftExt.framework */; };
@@ -59,6 +74,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		3D638DED1DC2B2D50089A590 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18EE7A101C47B12F00C7256C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 188C6D901C47B2B20092101A;
+			remoteInfo = RxSwiftExt;
+		};
+		988839281EFEBD230012DF6E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 18EE7A101C47B12F00C7256C /* Project object */;
 			proxyType = 1;
@@ -335,6 +357,10 @@
 						CreatedOnToolsVersion = 8.0;
 						ProvisioningStyle = Automatic;
 					};
+					988839241EFEBD1D0012DF6E = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 18EE7A131C47B12F00C7256C /* Build configuration list for PBXProject "RxSwiftExt" */;
@@ -352,6 +378,7 @@
 			targets = (
 				188C6D901C47B2B20092101A /* RxSwiftExt */,
 				3D638DE61DC2B2D40089A590 /* RxSwiftExtTests */,
+				988839241EFEBD1D0012DF6E /* RxSwiftExtPlayground */,
 			);
 		};
 /* End PBXProject section */
@@ -390,6 +417,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		988839551EFEC2390012DF6E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "for framework in \"${PROJECT_DIR}\"/Carthage/Build/iOS/*.framework; do\nfile=`basename \"$framework\"`\nditto \"$framework\" \"${BUILT_PRODUCTS_DIR}/$file\"\ndone";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -459,6 +499,11 @@
 			isa = PBXTargetDependency;
 			target = 188C6D901C47B2B20092101A /* RxSwiftExt */;
 			targetProxy = 3D638DED1DC2B2D50089A590 /* PBXContainerItemProxy */;
+		};
+		988839291EFEBD230012DF6E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 188C6D901C47B2B20092101A /* RxSwiftExt */;
+			targetProxy = 988839281EFEBD230012DF6E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -641,6 +686,22 @@
 			};
 			name = Release;
 		};
+		988839251EFEBD1D0012DF6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 64F4JG42ZZ;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		988839261EFEBD1D0012DF6E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 64F4JG42ZZ;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -670,6 +731,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		988839271EFEBD1D0012DF6E /* Build configuration list for PBXAggregateTarget "RxSwiftExtPlayground" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				988839251EFEBD1D0012DF6E /* Debug */,
+				988839261EFEBD1D0012DF6E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
