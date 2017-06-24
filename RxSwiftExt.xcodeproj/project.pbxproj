@@ -6,6 +6,21 @@
 	objectVersion = 48;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		988839241EFEBD1D0012DF6E /* RxSwiftExtPlayground */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 988839271EFEBD1D0012DF6E /* Build configuration list for PBXAggregateTarget "RxSwiftExtPlayground" */;
+			buildPhases = (
+				9888392A1EFEBD260012DF6E /* CopyFiles */,
+			);
+			dependencies = (
+				988839291EFEBD230012DF6E /* PBXTargetDependency */,
+			);
+			name = RxSwiftExtPlayground;
+			productName = RxSwiftExtPlayground;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		188C6DA31C47B4240092101A /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188C6DA21C47B4240092101A /* RxSwift.framework */; };
 		3D638DEC1DC2B2D50089A590 /* RxSwiftExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188C6D911C47B2B20092101A /* RxSwiftExt.framework */; };
@@ -55,6 +70,8 @@
 		98309EAF1EDF14AC00BD07D9 /* flatMapSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98309EAE1EDF14AC00BD07D9 /* flatMapSync.swift */; };
 		98309EB11EDF159500BD07D9 /* filterMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98309EB01EDF159500BD07D9 /* filterMap.swift */; };
 		98309EB41EDF167300BD07D9 /* filterMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98309EB21EDF161700BD07D9 /* filterMapTests.swift */; };
+		9888392B1EFEBD310012DF6E /* RxSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 188C6DA21C47B4240092101A /* RxSwift.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		988839321EFEBD8B0012DF6E /* RxCocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9888392E1EFEBD8B0012DF6E /* RxCocoa.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +82,28 @@
 			remoteGlobalIDString = 188C6D901C47B2B20092101A;
 			remoteInfo = RxSwiftExt;
 		};
+		988839281EFEBD230012DF6E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18EE7A101C47B12F00C7256C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 188C6D901C47B2B20092101A;
+			remoteInfo = RxSwiftExt;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9888392A1EFEBD260012DF6E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				988839321EFEBD8B0012DF6E /* RxCocoa.framework in CopyFiles */,
+				9888392B1EFEBD310012DF6E /* RxSwift.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		188C6D911C47B2B20092101A /* RxSwiftExt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxSwiftExt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +155,8 @@
 		98309EAE1EDF14AC00BD07D9 /* flatMapSync.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = flatMapSync.swift; path = Source/RxSwift/flatMapSync.swift; sourceTree = SOURCE_ROOT; };
 		98309EB01EDF159500BD07D9 /* filterMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = filterMap.swift; path = Source/RxSwift/filterMap.swift; sourceTree = SOURCE_ROOT; };
 		98309EB21EDF161700BD07D9 /* filterMapTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = filterMapTests.swift; sourceTree = "<group>"; };
+		9888392E1EFEBD8B0012DF6E /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		9888392F1EFEBD8B0012DF6E /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		9DAB77851D67639C007E85BC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Source/Info.plist; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -158,6 +198,7 @@
 			children = (
 				188C6D921C47B2B20092101A /* Sources */,
 				3D638DF21DC2B2EE0089A590 /* Tests */,
+				988839541EFEBF5F0012DF6E /* Carthage Dependencies */,
 				9DAB77991D6763AC007E85BC /* Frameworks */,
 				18EE7A191C47B12F00C7256C /* Products */,
 			);
@@ -257,6 +298,15 @@
 			path = Tests/RxSwift;
 			sourceTree = "<group>";
 		};
+		988839541EFEBF5F0012DF6E /* Carthage Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				9888392E1EFEBD8B0012DF6E /* RxCocoa.framework */,
+				9888392F1EFEBD8B0012DF6E /* RxSwift.framework */,
+			);
+			name = "Carthage Dependencies";
+			sourceTree = "<group>";
+		};
 		9DAB77991D6763AC007E85BC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -335,6 +385,10 @@
 						CreatedOnToolsVersion = 8.0;
 						ProvisioningStyle = Automatic;
 					};
+					988839241EFEBD1D0012DF6E = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 18EE7A131C47B12F00C7256C /* Build configuration list for PBXProject "RxSwiftExt" */;
@@ -352,6 +406,7 @@
 			targets = (
 				188C6D901C47B2B20092101A /* RxSwiftExt */,
 				3D638DE61DC2B2D40089A590 /* RxSwiftExtTests */,
+				988839241EFEBD1D0012DF6E /* RxSwiftExtPlayground */,
 			);
 		};
 /* End PBXProject section */
@@ -459,6 +514,11 @@
 			isa = PBXTargetDependency;
 			target = 188C6D901C47B2B20092101A /* RxSwiftExt */;
 			targetProxy = 3D638DED1DC2B2D50089A590 /* PBXContainerItemProxy */;
+		};
+		988839291EFEBD230012DF6E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 188C6D901C47B2B20092101A /* RxSwiftExt */;
+			targetProxy = 988839281EFEBD230012DF6E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -641,6 +701,22 @@
 			};
 			name = Release;
 		};
+		988839251EFEBD1D0012DF6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 64F4JG42ZZ;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		988839261EFEBD1D0012DF6E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 64F4JG42ZZ;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -670,6 +746,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		988839271EFEBD1D0012DF6E /* Build configuration list for PBXAggregateTarget "RxSwiftExtPlayground" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				988839251EFEBD1D0012DF6E /* Debug */,
+				988839261EFEBD1D0012DF6E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
