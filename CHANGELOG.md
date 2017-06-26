@@ -1,9 +1,16 @@
 Changelog
 =========
 
+2.5.0
+-----
+- new operator: `filterMap`
+- new operator: `flatMapSync`
+- new operator: `pausableBuffered`
+- fixed issues with the demo Playground
+
 2.4.0
 -----
-- re-added `errors()` and `elements()` operatores for materialized sequences
+- re-added `errors()` and `elements()` operators for materialized sequences
 - fixed Carthage and CI issues
 
 2.3.0
