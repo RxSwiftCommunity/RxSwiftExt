@@ -50,9 +50,9 @@ RxSwiftExt is all about adding operators to [RxSwift](https://github.com/Reactiv
 * [repeatWithBehavior](#repeatwithbehavior)
 * [catchErrorJustComplete](#catcherrorjustcomplete)
 * [pausable](#pausable)
-* [pausableBuffered](#pausableBuffered)
+* [pausableBuffered](#pausablebuffered)
 * [apply](#apply)
-* [filterMap](#filterMap)
+* [filterMap](#filtermap)
 
 Two additional operators are available for `materialize()'d sequences:
 
@@ -339,6 +339,8 @@ Observable.of(1,2,3,4,5,6)
 		(number % 2 == 0) ? .ignore : .map(number * 2)
 	}
 ```
+
+The sequence above keeps even numbers 2, 4, 6 and produces the sequence 4, 8, 12.
 
 #### errors, elements
 
