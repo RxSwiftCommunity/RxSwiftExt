@@ -134,6 +134,8 @@
 		53F336E91E70D59000D35D38 /* distinct+RxCocoa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "distinct+RxCocoa.swift"; sourceTree = "<group>"; };
 		5A1DDEB81ED58D2800F2E4B1 /* pausableBufferedTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pausableBufferedTests.swift; sourceTree = "<group>"; };
 		5A1DDEBE1ED58F8600F2E4B1 /* pausableBuffered.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = pausableBuffered.swift; path = Source/RxSwift/pausableBuffered.swift; sourceTree = SOURCE_ROOT; };
+		62512C571F0EAED20083A89F /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/Mac/RxCocoa.framework; sourceTree = "<group>"; };
+		62512C581F0EAED20083A89F /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/Mac/RxSwift.framework; sourceTree = "<group>"; };
 		6662395D1E9E0950009BB134 /* materialized+elementsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "materialized+elementsTests.swift"; sourceTree = "<group>"; };
 		66C663051EA0ECD9005245C4 /* materialized+elements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "materialized+elements.swift"; path = "Source/RxSwift/materialized+elements.swift"; sourceTree = SOURCE_ROOT; };
 		98309EAE1EDF14AC00BD07D9 /* flatMapSync.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = flatMapSync.swift; path = Source/RxSwift/flatMapSync.swift; sourceTree = SOURCE_ROOT; };
@@ -279,11 +281,29 @@
 			path = Tests/RxSwift;
 			sourceTree = "<group>";
 		};
-		9DAB77991D6763AC007E85BC /* Frameworks */ = {
+		62512C551F0EAEB20083A89F /* iOS */ = {
 			isa = PBXGroup;
 			children = (
 				188C6DA21C47B4240092101A /* RxSwift.framework */,
 				3D638E1E1DC2B3A40089A590 /* RxTest.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		62512C561F0EAEB90083A89F /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				62512C571F0EAED20083A89F /* RxCocoa.framework */,
+				62512C581F0EAED20083A89F /* RxSwift.framework */,
+			);
+			name = macOS;
+			sourceTree = "<group>";
+		};
+		9DAB77991D6763AC007E85BC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				62512C561F0EAEB90083A89F /* macOS */,
+				62512C551F0EAEB20083A89F /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -739,6 +759,7 @@
 				988839261EFEBD1D0012DF6E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
