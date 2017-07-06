@@ -17,8 +17,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3D638DE61DC2B2D40089A590"
-               BuildableName = "RxSwiftExtTests.xctest"
-               BlueprintName = "RxSwiftExtTests"
+               BuildableName = "RxSwiftExtTests-iOS.xctest"
+               BlueprintName = "RxSwiftExtTests-iOS"
                ReferencedContainer = "container:RxSwiftExt.xcodeproj">
             </BuildableReference>
          </TestableReference>

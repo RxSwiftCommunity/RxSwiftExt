@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "62512C831F0EB1280083A89F"
+               BuildableName = "RxSwiftExtTests-macOS.xctest"
+               BlueprintName = "RxSwiftExtTests-macOS"
+               ReferencedContainer = "container:RxSwiftExt.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "62512C5D1F0EAF200083A89F"
+            BuildableName = "RxSwiftExt.framework"
+            BlueprintName = "RxSwiftExt-macOS"
+            ReferencedContainer = "container:RxSwiftExt.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
