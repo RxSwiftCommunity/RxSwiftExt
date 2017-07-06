@@ -65,6 +65,30 @@
 		53F336EA1E70D59000D35D38 /* distinct+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F336E91E70D59000D35D38 /* distinct+RxCocoa.swift */; };
 		5A1DDEBF1ED58F8600F2E4B1 /* pausableBuffered.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1DDEBE1ED58F8600F2E4B1 /* pausableBuffered.swift */; };
 		5A5FCE411ED5AEC60052A9B5 /* pausableBufferedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1DDEB81ED58D2800F2E4B1 /* pausableBufferedTests.swift */; };
+		62512C621F0EAF200083A89F /* RxSwiftExt-macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 62512C601F0EAF200083A89F /* RxSwiftExt-macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		62512C661F0EAF670083A89F /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62512C581F0EAED20083A89F /* RxSwift.framework */; };
+		62512C671F0EAF820083A89F /* distinct+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F336E71E70CBF700D35D38 /* distinct+RxCocoa.swift */; };
+		62512C681F0EAF850083A89F /* mapTo+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386076E1E6F1C0A000361DE /* mapTo+RxCocoa.swift */; };
+		62512C691F0EAF850083A89F /* not+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538607EF1E6F589E000361DE /* not+RxCocoa.swift */; };
+		62512C6A1F0EAF950083A89F /* apply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386079A1E6F334B000361DE /* apply.swift */; };
+		62512C6B1F0EAF950083A89F /* cascade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386079B1E6F334B000361DE /* cascade.swift */; };
+		62512C6C1F0EAF950083A89F /* catchErrorJustComplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386079C1E6F334B000361DE /* catchErrorJustComplete.swift */; };
+		62512C6D1F0EAF950083A89F /* distinct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386079D1E6F334B000361DE /* distinct.swift */; };
+		62512C6E1F0EAF950083A89F /* ignore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386079E1E6F334B000361DE /* ignore.swift */; };
+		62512C6F1F0EAF950083A89F /* ignoreErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386079F1E6F334B000361DE /* ignoreErrors.swift */; };
+		62512C701F0EAF950083A89F /* ignoreWhen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538607A01E6F334B000361DE /* ignoreWhen.swift */; };
+		62512C711F0EAF950083A89F /* mapTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538607A11E6F334B000361DE /* mapTo.swift */; };
+		62512C721F0EAF950083A89F /* materialized+elements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C663051EA0ECD9005245C4 /* materialized+elements.swift */; };
+		62512C731F0EAF950083A89F /* not.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538607A31E6F334B000361DE /* not.swift */; };
+		62512C741F0EAF950083A89F /* ObservableType+Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538607A41E6F334B000361DE /* ObservableType+Weak.swift */; };
+		62512C751F0EAF950083A89F /* once.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538607A51E6F334B000361DE /* once.swift */; };
+		62512C761F0EAF950083A89F /* pausable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538607A61E6F334B000361DE /* pausable.swift */; };
+		62512C771F0EAF950083A89F /* pausableBuffered.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1DDEBE1ED58F8600F2E4B1 /* pausableBuffered.swift */; };
+		62512C781F0EAF950083A89F /* repeatWithBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538607A71E6F334B000361DE /* repeatWithBehavior.swift */; };
+		62512C791F0EAF950083A89F /* retryWithBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538607A81E6F334B000361DE /* retryWithBehavior.swift */; };
+		62512C7A1F0EAF950083A89F /* unwrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538607A91E6F334B000361DE /* unwrap.swift */; };
+		62512C7B1F0EAF950083A89F /* flatMapSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98309EAE1EDF14AC00BD07D9 /* flatMapSync.swift */; };
+		62512C7C1F0EAF950083A89F /* filterMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98309EB01EDF159500BD07D9 /* filterMap.swift */; };
 		6662395E1E9E0950009BB134 /* materialized+elementsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6662395D1E9E0950009BB134 /* materialized+elementsTests.swift */; };
 		66C663061EA0ECD9005245C4 /* materialized+elements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C663051EA0ECD9005245C4 /* materialized+elements.swift */; };
 		98309EAF1EDF14AC00BD07D9 /* flatMapSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98309EAE1EDF14AC00BD07D9 /* flatMapSync.swift */; };
@@ -136,6 +160,8 @@
 		5A1DDEBE1ED58F8600F2E4B1 /* pausableBuffered.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = pausableBuffered.swift; path = Source/RxSwift/pausableBuffered.swift; sourceTree = SOURCE_ROOT; };
 		62512C571F0EAED20083A89F /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/Mac/RxCocoa.framework; sourceTree = "<group>"; };
 		62512C581F0EAED20083A89F /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/Mac/RxSwift.framework; sourceTree = "<group>"; };
+		62512C5E1F0EAF200083A89F /* RxSwiftExt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxSwiftExt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		62512C601F0EAF200083A89F /* RxSwiftExt-macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RxSwiftExt-macOS.h"; sourceTree = "<group>"; };
 		6662395D1E9E0950009BB134 /* materialized+elementsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "materialized+elementsTests.swift"; sourceTree = "<group>"; };
 		66C663051EA0ECD9005245C4 /* materialized+elements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "materialized+elements.swift"; path = "Source/RxSwift/materialized+elements.swift"; sourceTree = SOURCE_ROOT; };
 		98309EAE1EDF14AC00BD07D9 /* flatMapSync.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = flatMapSync.swift; path = Source/RxSwift/flatMapSync.swift; sourceTree = SOURCE_ROOT; };
@@ -163,6 +189,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		62512C5A1F0EAF200083A89F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62512C661F0EAF670083A89F /* RxSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -182,6 +216,7 @@
 			children = (
 				188C6D921C47B2B20092101A /* Sources */,
 				3D638DF21DC2B2EE0089A590 /* Tests */,
+				62512C5F1F0EAF200083A89F /* RxSwiftExt-macOS */,
 				9DAB77991D6763AC007E85BC /* Frameworks */,
 				18EE7A191C47B12F00C7256C /* Products */,
 			);
@@ -192,6 +227,7 @@
 			children = (
 				188C6D911C47B2B20092101A /* RxSwiftExt.framework */,
 				3D638DE71DC2B2D40089A590 /* RxSwiftExtTests.xctest */,
+				62512C5E1F0EAF200083A89F /* RxSwiftExt.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -299,6 +335,14 @@
 			name = macOS;
 			sourceTree = "<group>";
 		};
+		62512C5F1F0EAF200083A89F /* RxSwiftExt-macOS */ = {
+			isa = PBXGroup;
+			children = (
+				62512C601F0EAF200083A89F /* RxSwiftExt-macOS.h */,
+			);
+			path = "RxSwiftExt-macOS";
+			sourceTree = "<group>";
+		};
 		9DAB77991D6763AC007E85BC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,12 +362,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		62512C5B1F0EAF200083A89F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62512C621F0EAF200083A89F /* RxSwiftExt-macOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		188C6D901C47B2B20092101A /* RxSwiftExt */ = {
+		188C6D901C47B2B20092101A /* RxSwiftExt-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 188C6D9A1C47B2B20092101A /* Build configuration list for PBXNativeTarget "RxSwiftExt" */;
+			buildConfigurationList = 188C6D9A1C47B2B20092101A /* Build configuration list for PBXNativeTarget "RxSwiftExt-iOS" */;
 			buildPhases = (
 				188C6D8C1C47B2B20092101A /* Sources */,
 				188C6D8D1C47B2B20092101A /* Frameworks */,
@@ -334,7 +386,7 @@
 			);
 			dependencies = (
 			);
-			name = RxSwiftExt;
+			name = "RxSwiftExt-iOS";
 			productName = NSObject_Rx;
 			productReference = 188C6D911C47B2B20092101A /* RxSwiftExt.framework */;
 			productType = "com.apple.product-type.framework";
@@ -358,6 +410,24 @@
 			productReference = 3D638DE71DC2B2D40089A590 /* RxSwiftExtTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		62512C5D1F0EAF200083A89F /* RxSwiftExt-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 62512C631F0EAF200083A89F /* Build configuration list for PBXNativeTarget "RxSwiftExt-macOS" */;
+			buildPhases = (
+				62512C591F0EAF200083A89F /* Sources */,
+				62512C5A1F0EAF200083A89F /* Frameworks */,
+				62512C5B1F0EAF200083A89F /* Headers */,
+				62512C5C1F0EAF200083A89F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "RxSwiftExt-macOS";
+			productName = "RxSwiftExt-macOS";
+			productReference = 62512C5E1F0EAF200083A89F /* RxSwiftExt.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -375,6 +445,10 @@
 					};
 					3D638DE61DC2B2D40089A590 = {
 						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+					62512C5D1F0EAF200083A89F = {
+						CreatedOnToolsVersion = 8.3.2;
 						ProvisioningStyle = Automatic;
 					};
 					988839241EFEBD1D0012DF6E = {
@@ -396,7 +470,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				188C6D901C47B2B20092101A /* RxSwiftExt */,
+				188C6D901C47B2B20092101A /* RxSwiftExt-iOS */,
+				62512C5D1F0EAF200083A89F /* RxSwiftExt-macOS */,
 				3D638DE61DC2B2D40089A590 /* RxSwiftExtTests */,
 				988839241EFEBD1D0012DF6E /* RxSwiftExtPlayground */,
 			);
@@ -412,6 +487,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		3D638DE51DC2B2D40089A590 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		62512C5C1F0EAF200083A89F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -512,17 +594,46 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		62512C591F0EAF200083A89F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62512C7A1F0EAF950083A89F /* unwrap.swift in Sources */,
+				62512C741F0EAF950083A89F /* ObservableType+Weak.swift in Sources */,
+				62512C6F1F0EAF950083A89F /* ignoreErrors.swift in Sources */,
+				62512C701F0EAF950083A89F /* ignoreWhen.swift in Sources */,
+				62512C6A1F0EAF950083A89F /* apply.swift in Sources */,
+				62512C6B1F0EAF950083A89F /* cascade.swift in Sources */,
+				62512C671F0EAF820083A89F /* distinct+RxCocoa.swift in Sources */,
+				62512C771F0EAF950083A89F /* pausableBuffered.swift in Sources */,
+				62512C761F0EAF950083A89F /* pausable.swift in Sources */,
+				62512C721F0EAF950083A89F /* materialized+elements.swift in Sources */,
+				62512C6E1F0EAF950083A89F /* ignore.swift in Sources */,
+				62512C781F0EAF950083A89F /* repeatWithBehavior.swift in Sources */,
+				62512C731F0EAF950083A89F /* not.swift in Sources */,
+				62512C6D1F0EAF950083A89F /* distinct.swift in Sources */,
+				62512C7C1F0EAF950083A89F /* filterMap.swift in Sources */,
+				62512C7B1F0EAF950083A89F /* flatMapSync.swift in Sources */,
+				62512C681F0EAF850083A89F /* mapTo+RxCocoa.swift in Sources */,
+				62512C791F0EAF950083A89F /* retryWithBehavior.swift in Sources */,
+				62512C691F0EAF850083A89F /* not+RxCocoa.swift in Sources */,
+				62512C6C1F0EAF950083A89F /* catchErrorJustComplete.swift in Sources */,
+				62512C751F0EAF950083A89F /* once.swift in Sources */,
+				62512C711F0EAF950083A89F /* mapTo.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		3D638DEE1DC2B2D50089A590 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 188C6D901C47B2B20092101A /* RxSwiftExt */;
+			target = 188C6D901C47B2B20092101A /* RxSwiftExt-iOS */;
 			targetProxy = 3D638DED1DC2B2D50089A590 /* PBXContainerItemProxy */;
 		};
 		988839291EFEBD230012DF6E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 188C6D901C47B2B20092101A /* RxSwiftExt */;
+			target = 188C6D901C47B2B20092101A /* RxSwiftExt-iOS */;
 			targetProxy = 988839281EFEBD230012DF6E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -547,7 +658,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.RxSwiftCommunity.RxSwiftExt;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = RxSwiftExt;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -576,7 +687,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.RxSwiftCommunity.RxSwiftExt;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = RxSwiftExt;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -706,6 +817,71 @@
 			};
 			name = Release;
 		};
+		62512C641F0EAF200083A89F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.RxSwiftCommunity.RxSwiftExt;
+				PRODUCT_NAME = RxSwiftExt;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		62512C651F0EAF200083A89F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.RxSwiftCommunity.RxSwiftExt;
+				PRODUCT_NAME = RxSwiftExt;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		988839251EFEBD1D0012DF6E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -725,7 +901,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		188C6D9A1C47B2B20092101A /* Build configuration list for PBXNativeTarget "RxSwiftExt" */ = {
+		188C6D9A1C47B2B20092101A /* Build configuration list for PBXNativeTarget "RxSwiftExt-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				188C6D9B1C47B2B20092101A /* Debug */,
@@ -751,6 +927,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		62512C631F0EAF200083A89F /* Build configuration list for PBXNativeTarget "RxSwiftExt-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				62512C641F0EAF200083A89F /* Debug */,
+				62512C651F0EAF200083A89F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		988839271EFEBD1D0012DF6E /* Build configuration list for PBXAggregateTarget "RxSwiftExtPlayground" */ = {
 			isa = XCConfigurationList;
