@@ -65,7 +65,6 @@
 		53F336EA1E70D59000D35D38 /* distinct+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F336E91E70D59000D35D38 /* distinct+RxCocoa.swift */; };
 		5A1DDEBF1ED58F8600F2E4B1 /* pausableBuffered.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1DDEBE1ED58F8600F2E4B1 /* pausableBuffered.swift */; };
 		5A5FCE411ED5AEC60052A9B5 /* pausableBufferedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1DDEB81ED58D2800F2E4B1 /* pausableBufferedTests.swift */; };
-		62512C621F0EAF200083A89F /* RxSwiftExt-macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 62512C601F0EAF200083A89F /* RxSwiftExt-macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		62512C661F0EAF670083A89F /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62512C581F0EAED20083A89F /* RxSwift.framework */; };
 		62512C671F0EAF820083A89F /* distinct+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F336E71E70CBF700D35D38 /* distinct+RxCocoa.swift */; };
 		62512C681F0EAF850083A89F /* mapTo+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386076E1E6F1C0A000361DE /* mapTo+RxCocoa.swift */; };
@@ -192,7 +191,6 @@
 		5A1DDEBE1ED58F8600F2E4B1 /* pausableBuffered.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = pausableBuffered.swift; path = Source/RxSwift/pausableBuffered.swift; sourceTree = SOURCE_ROOT; };
 		62512C581F0EAED20083A89F /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/Mac/RxSwift.framework; sourceTree = "<group>"; };
 		62512C5E1F0EAF200083A89F /* RxSwiftExt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxSwiftExt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		62512C601F0EAF200083A89F /* RxSwiftExt-macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RxSwiftExt-macOS.h"; sourceTree = "<group>"; };
 		62512C841F0EB1280083A89F /* RxSwiftExtTests-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RxSwiftExtTests-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		62512CA61F0EB1BD0083A89F /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/Mac/RxTest.framework; sourceTree = "<group>"; };
 		6662395D1E9E0950009BB134 /* materialized+elementsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "materialized+elementsTests.swift"; sourceTree = "<group>"; };
@@ -259,7 +257,6 @@
 			children = (
 				188C6D921C47B2B20092101A /* Sources */,
 				3D638DF21DC2B2EE0089A590 /* Tests */,
-				62512C5F1F0EAF200083A89F /* RxSwiftExt-macOS */,
 				9DAB77991D6763AC007E85BC /* Frameworks */,
 				18EE7A191C47B12F00C7256C /* Products */,
 			);
@@ -379,14 +376,6 @@
 			name = macOS;
 			sourceTree = "<group>";
 		};
-		62512C5F1F0EAF200083A89F /* RxSwiftExt-macOS */ = {
-			isa = PBXGroup;
-			children = (
-				62512C601F0EAF200083A89F /* RxSwiftExt-macOS.h */,
-			);
-			path = "RxSwiftExt-macOS";
-			sourceTree = "<group>";
-		};
 		9DAB77991D6763AC007E85BC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -410,7 +399,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62512C621F0EAF200083A89F /* RxSwiftExt-macOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
