@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0800"
+   LastUpgradeVersion = "0830"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "188C6D901C47B2B20092101A"
                BuildableName = "RxSwiftExt.framework"
-               BlueprintName = "RxSwiftExt"
+               BlueprintName = "RxSwiftExt-iOS"
                ReferencedContainer = "container:RxSwiftExt.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -29,8 +29,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3D638DE61DC2B2D40089A590"
-               BuildableName = "RxSwiftExtTests.xctest"
-               BlueprintName = "RxSwiftExtTests"
+               BuildableName = "RxSwiftExtTests-iOS.xctest"
+               BlueprintName = "RxSwiftExtTests-iOS"
                ReferencedContainer = "container:RxSwiftExt.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,8 +47,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3D638DE61DC2B2D40089A590"
-               BuildableName = "RxSwiftExtTests.xctest"
-               BlueprintName = "RxSwiftExtTests"
+               BuildableName = "RxSwiftExtTests-iOS.xctest"
+               BlueprintName = "RxSwiftExtTests-iOS"
                ReferencedContainer = "container:RxSwiftExt.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -58,7 +58,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "188C6D901C47B2B20092101A"
             BuildableName = "RxSwiftExt.framework"
-            BlueprintName = "RxSwiftExt"
+            BlueprintName = "RxSwiftExt-iOS"
             ReferencedContainer = "container:RxSwiftExt.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -80,7 +80,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "188C6D901C47B2B20092101A"
             BuildableName = "RxSwiftExt.framework"
-            BlueprintName = "RxSwiftExt"
+            BlueprintName = "RxSwiftExt-iOS"
             ReferencedContainer = "container:RxSwiftExt.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -98,7 +98,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "188C6D901C47B2B20092101A"
             BuildableName = "RxSwiftExt.framework"
-            BlueprintName = "RxSwiftExt"
+            BlueprintName = "RxSwiftExt-iOS"
             ReferencedContainer = "container:RxSwiftExt.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

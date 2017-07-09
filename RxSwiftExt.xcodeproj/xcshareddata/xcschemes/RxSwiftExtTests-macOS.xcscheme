@@ -16,9 +16,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3D638DE61DC2B2D40089A590"
-               BuildableName = "RxSwiftExtTests-iOS.xctest"
-               BlueprintName = "RxSwiftExtTests-iOS"
+               BlueprintIdentifier = "62512C831F0EB1280083A89F"
+               BuildableName = "RxSwiftExtTests-macOS.xctest"
+               BlueprintName = "RxSwiftExtTests-macOS"
                ReferencedContainer = "container:RxSwiftExt.xcodeproj">
             </BuildableReference>
          </TestableReference>
