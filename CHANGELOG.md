@@ -1,6 +1,10 @@
 Changelog
 =========
 
+2.5.1
+-----
+- added support for macOS
+
 2.5.0
 -----
 - new operator: `filterMap`
