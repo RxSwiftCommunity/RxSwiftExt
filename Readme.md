@@ -149,7 +149,7 @@ Next(d)
 Completed
 ```
 
-#### map(to:)
+#### map
 
 Replace every element with the provided value.
 
