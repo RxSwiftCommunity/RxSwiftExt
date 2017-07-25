@@ -13,21 +13,21 @@ import RxSwift
 import RxSwiftExt
 
 /*:
- ## mapTo(Any)
+ ## map(to: Any)
  
- The `mapTo` operator takes a sequence of elements and returns a sequence of the same constant provided as a parameter. In effect it ignores its input and replaces it with a constant
+ The `map` operator takes a sequence of elements and returns a sequence of the same constant provided as a parameter. In effect it ignores its input and replaces it with a constant
  */
 example("replace any input with a value") {
     
     let numbers = Array<Int?>([1, 2, 3])
     Observable.from(numbers)
-        .mapTo("candy")
+        .map(to: "candy")
         .toArray()
 		.subscribe(onNext: {result in
             // look types on the right panel ===>
             numbers
             result
-            print("mapTo() transformed \(numbers) to \(result)")
+            print("map(to:) transformed \(numbers) to \(result)")
     })
 }
 

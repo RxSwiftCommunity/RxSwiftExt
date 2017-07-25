@@ -43,7 +43,7 @@ RxSwiftExt is all about adding operators to [RxSwift](https://github.com/Reactiv
 * [ignoreWhen](#ignorewhen)
 * [Observable.once](#once)
 * [distinct](#distinct)
-* [mapTo](#mapto)
+* [map](#map)
 * [not](#not)
 * [Observable.cascade](#cascade)
 * [retry](#retry)
@@ -149,13 +149,13 @@ Next(d)
 Completed
 ```
 
-#### mapTo
+#### map
 
 Replace every element with the provided value.
 
 ```swift
 Observable.of(1,2,3)
-    .mapTo("Nope.")
+    .map(to: "Nope.")
     .subscribe { print($0) }
 ```
 ```

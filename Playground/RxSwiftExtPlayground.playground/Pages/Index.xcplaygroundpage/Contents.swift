@@ -25,7 +25,7 @@
  - [unwrap()](unwrap) operator, takes a sequence of optional elements and returns a sequence of non-optional elements, filtering out any `nil` values
  - [ignore(Any...)](ignore) operator, filters out any of the elements passed in parameters
  - [Observable.once(Element)](once) contructor, creates a sequence that delivers an element *once* to the first subscriber then completes. The same sequence will complete immediately without delivering any element to all further subscribers.
- - [mapTo(Any)](mapTo) operator, takes a sequence of elements and returns a sequence of the same constant provided as a parameter
+ - [map(to: Any)](map) operator, takes a sequence of elements and returns a sequence of the same constant provided as a parameter
  - [not()](not) operator, applies a the boolean not (!) to a `Bool`
  - [Observable.cascade([Observable])](cascade) contructor, takes a ordinary sequence (i.e. Array) of observables and cascades through them
  - [distinct()](distinct) operator, suppress duplicate items emitted by an Observable
