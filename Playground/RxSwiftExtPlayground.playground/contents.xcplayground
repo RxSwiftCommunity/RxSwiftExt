@@ -7,7 +7,6 @@
         <page name='catchErrorJustComplete'/>
         <page name='distinct'/>
         <page name='ignore'/>
-        <page name='mapTo'/>
         <page name='not'/>
         <page name='once'/>
         <page name='pausable'/>
@@ -16,5 +15,7 @@
         <page name='retryWithBehavior'/>
         <page name='unwrap'/>
         <page name='filterMap'/>
+        <page name='map'/>
+        <page name='fromAsync'/>
     </pages>
 </playground>
