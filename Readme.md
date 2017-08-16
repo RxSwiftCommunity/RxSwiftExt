@@ -53,6 +53,7 @@ RxSwiftExt is all about adding operators to [RxSwift](https://github.com/Reactiv
 * [pausableBuffered](#pausablebuffered)
 * [apply](#apply)
 * [filterMap](#filtermap)
+* [Observable.fromAsync](#fromasync)
 
 Two additional operators are available for `materialize()'d sequences:
 
@@ -360,6 +361,24 @@ let errorMessage = imageResult
     .map(mapErrorMessages)
     .unwrap()
     .asDriver(onErrorDriveWith: .never())
+```
+
+#### fromAsync
+
+Turns simple asynchronous completion handlers into observable sequences. Suitable for use with existing asynchronous services which call a completion handler with only one parameter.
+
+```swift
+func someAsynchronousService(arg1: String, arg2: Int, completionHandler:(String) -> Void) {
+	// a service that asynchrnous
+}
+
+let observableService = Observable.fromAsync(someAsynchronousService)
+
+observableService("Foo", 0)
+	.subscribe(onNext: { (result) in
+    	print(result)
+	})
+	.disposed(by: disposeBag)
 ```
 
 ## License

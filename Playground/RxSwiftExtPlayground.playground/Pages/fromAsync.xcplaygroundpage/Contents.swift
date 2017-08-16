@@ -19,17 +19,23 @@ This function takes as argument a function that takes up to 9 arbitrary argument
 and returns a function with the same signature, minus the completionHandler, and returns an Observable with
 the same Element type as the completionHandler
 */
+example("Turn a completion handler into an observable sequence") {
+	func someAsynchronousTask(arg1: String, arg2: Int, completionHandler: @escaping (String) -> Void) {
+		DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+			completionHandler("completion handler result")
+		}
+	}
 
-func myService(arg1: String, arg2: Int, completionHandler:(String) -> Void) {
-    Thread.sleep(forTimeInterval: 0.2)
-    
-    completionHandler("Result")
+	let observableService = Observable.fromAsync(someAsynchronousTask)
+	
+	print("Waiting for completion handler to be called...")
+	
+	_ = observableService("Foo", 0)
+		.subscribe(onNext: { (result) in
+			print("Asynchronous callback called with: \(result)")
+		})
+
+	playgroundShouldContinueIndefinitely()
 }
-
-let observableService = Observable.fromAsync(myService(arg1:arg2:completionHandler:))
-
-observableService("Foo", 0).subscribe(onNext: { (result) in
-    print(result)
-}).addDisposableTo(DisposeBag())
 
 //: [Next](@next)
