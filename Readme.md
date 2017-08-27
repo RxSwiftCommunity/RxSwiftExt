@@ -365,14 +365,16 @@ let errorMessage = imageResult
 
 #### fromAsync
 
-Turns simple asynchronous completion handlers into observable sequences. Suitable for use with existing asynchronous services which call a completion handler with only one parameter.
+Turns simple asynchronous completion handlers into observable sequences. Suitable for use with existing asynchronous services which call a completion handler with only one parameter. Emits the result produced by the completion handler then completes.
 
 ```swift
 func someAsynchronousService(arg1: String, arg2: Int, completionHandler:(String) -> Void) {
-    // a service that asynchrnous
+    // a service that asynchronously calls
+	// the given completionHandler
 }
 
-let observableService = Observable.fromAsync(someAsynchronousService)
+let observableService = Observable
+    .fromAsync(someAsynchronousService)
 
 observableService("Foo", 0)
     .subscribe(onNext: { (result) in
