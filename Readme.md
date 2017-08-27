@@ -369,16 +369,16 @@ Turns simple asynchronous completion handlers into observable sequences. Suitabl
 
 ```swift
 func someAsynchronousService(arg1: String, arg2: Int, completionHandler:(String) -> Void) {
-	// a service that asynchrnous
+    // a service that asynchrnous
 }
 
 let observableService = Observable.fromAsync(someAsynchronousService)
 
 observableService("Foo", 0)
-	.subscribe(onNext: { (result) in
-    	print(result)
-	})
-	.disposed(by: disposeBag)
+    .subscribe(onNext: { (result) in
+        print(result)
+    })
+    .disposed(by: disposeBag)
 ```
 
 ## License
