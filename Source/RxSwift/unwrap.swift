@@ -9,51 +9,21 @@
 import Foundation
 import RxSwift
 
-public protocol Optionable
-{
-    associatedtype WrappedType
-    func unwrap() -> WrappedType
-    func isEmpty() -> Bool
-}
+extension ObservableType {
 
-extension Optional : Optionable
-{
-    public typealias WrappedType = Wrapped
+    /**
+     Takes a sequence of optional elements and returns a sequence of non-optional elements, filtering out any nil values.
 
-	/**
-	Force unwraps the contained value and returns it. Will crash if there's no value stored.
-	
-	- returns: Value of the contained type
-	*/
-    public func unwrap() -> WrappedType {
-        return self!
-    }
-    
-	/**
-	Returns `true` if the Optional element is `nil` (if it does not contain a value) or `false` if the element *does* contain a value
-	
-	- returns: `true` if the Optional element is `nil`; false if it *does* have a value
-	*/
-    public func isEmpty() -> Bool {
-        return self == nil
-    }
-}
+     - returns: An observable sequence of non-optional elements
+     */
 
-extension ObservableType where E : Optionable {
-	
-	/**
-	Takes a sequence of optional elements and returns a sequence of non-optional elements, filtering out any nil values.
-	
-	- returns: An observable sequence of non-optional elements
-	*/
-	
-    public func unwrap() -> Observable<E.WrappedType> {
+    public func unwrap<T>() -> Observable<T> where E == Optional<T> {
         return self
             .filter { value in
-                return !value.isEmpty()
-            }
-            .map { value -> E.WrappedType in
-                value.unwrap()
-        }
+                if case .some = value {
+                   return true
+                }
+                return false
+            }.map { $0! }
     }
 }
