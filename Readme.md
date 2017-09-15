@@ -19,7 +19,7 @@ This branch of RxSwiftExt targets Swift 3.x and RxSwift 3.4.0 or later.
 Using Swift 4:
 
 ```
-pod "RxSwiftExt", :git => 'https://github.com/RxSwiftCommunity/RxSwiftExt/RxSwiftExt.git', :branch => 'swift4.0'
+pod "RxSwiftExt", :git => 'https://github.com/RxSwiftCommunity/RxSwiftExt.git', :branch => 'swift4.0'
 ```
 
 Using Swift 3:
