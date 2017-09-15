@@ -22,7 +22,14 @@ extension ObservableType {
 			method?(obj)(value)
 		}
 	}
-	
+
+	fileprivate func weakify<A: AnyObject>(_ obj: A, method: ((A) -> (()) -> Void)?) -> () -> Void {
+		return { [weak obj] in
+			guard let obj = obj else { return }
+			method?(obj)(())
+		}
+	}
+
 	/**
 	Subscribes an event handler to an observable sequence.
 	
@@ -46,13 +53,12 @@ extension ObservableType {
 	gracefully completed, errored, or if the generation is cancelled by disposing subscription)
 	- returns: Subscription object used to unsubscribe from the observable sequence.
 	*/
-	
 	public func subscribe<A: AnyObject>(
 		weak obj: A,
 		     onNext: ((A) -> (Self.E) -> Void)? = nil,
 		     onError: ((A) -> (Error) -> Void)? = nil,
-		     onCompleted: ((A) -> () -> Void)? = nil,
-		     onDisposed: ((A) -> () -> Void)? = nil) -> Disposable {
+		     onCompleted: ((A) -> (()) -> Void)? = nil,
+		     onDisposed: ((A) -> (()) -> Void)? = nil) -> Disposable {
 		
 		let disposable: Disposable
 		
@@ -72,7 +78,7 @@ extension ObservableType {
 				onError?(obj)(e)
 				disposable.dispose()
 			case .completed:
-				onCompleted?(obj)()
+				onCompleted?(obj)(())
 				disposable.dispose()
 			}
 		}
