@@ -3,7 +3,7 @@
 # * https://github.com/supermarin/xcpretty#usage
 
 language: objective-c
-osx_image: xcode8.3
+osx_image: xcode9
 
 env:
   global:
@@ -12,7 +12,7 @@ env:
   - DESTINATION_PLATFORM='platform=iOS Simulator,name=iPhone 6s,OS=10.3.1'
 
 before_script:
-  - carthage bootstrap --platform iOS
+  - carthage bootstrap --platform iOS --no-use-binaries
 #  - mkdir -p ./Carthage/Build/iOS
 
   #build RxSwift
