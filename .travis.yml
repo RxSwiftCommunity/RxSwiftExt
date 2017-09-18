@@ -9,7 +9,7 @@ env:
   global:
   - WORKSPACE=RxSwiftExt.xcworkspace
   - SDK=iphonesimulator
-  - DESTINATION_PLATFORM='platform=iOS Simulator'
+  - DESTINATION_PLATFORM='platform=iOS Simulator,name=iPhone 7,OS=latest'
 
 before_script:
   - carthage bootstrap --platform iOS --no-use-binaries
