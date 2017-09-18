@@ -65,7 +65,7 @@ RxSwiftExt is all about adding operators to [RxSwift](https://github.com/Reactiv
 * [filterMap](#filtermap)
 * [Observable.fromAsync](#fromasync)
 
-Two additional operators are available for `materialize()'d sequences:
+Two additional operators are available for `materialize()`'d sequences:
 
 * [errors](#errors-elements)
 * [elements](#errors-elements)
