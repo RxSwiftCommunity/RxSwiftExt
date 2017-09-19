@@ -29,7 +29,26 @@
       language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E39C41F11F18B0EA007F2ACD"
+               BuildableName = "RxSwiftTests.xctest"
+               BlueprintName = "RxSwiftExtTests-tvOS"
+               ReferencedContainer = "container:RxSwiftExt.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "E39C41CF1F18AF84007F2ACD"
+            BuildableName = "RxSwiftExt.framework"
+            BlueprintName = "RxSwiftExt-tvOS"
+            ReferencedContainer = "container:RxSwiftExt.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
