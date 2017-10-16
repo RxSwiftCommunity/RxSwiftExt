@@ -184,7 +184,7 @@ class IgnoreWhenTests: XCTestCase {
             completed(600)
             ])
         
-        let res = scheduler.start(400) { () -> Observable<Int> in
+        let res = scheduler.start(disposed: 400) { () -> Observable<Int> in
             return xs.ignoreWhen { (num: Int) -> Bool in
                 invoked += 1
                 return !isPrime(num)
