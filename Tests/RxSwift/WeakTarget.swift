@@ -51,17 +51,17 @@ class WeakTarget<Type> {
     
     //MARK: - Subscription Setup
     func useSubscribe() {
-        self.observable.subscribe(weak: self, WeakTarget.subscriber_on).addDisposableTo(self.disposeBag)
+        self.observable.subscribe(weak: self, WeakTarget.subscriber_on).disposed(by: self.disposeBag)
     }
     func useSubscribeNext() {
         //self.observable.subscribeNext(self.subscriber_onNext).addDisposableTo(self.disposeBag) //uncomment this line to create a retain cycle
-        self.observable.subscribeNext(weak: self, WeakTarget.subscriber_onNext).addDisposableTo(self.disposeBag)
+        self.observable.subscribeNext(weak: self, WeakTarget.subscriber_onNext).disposed(by: self.disposeBag)
     }
     func useSubscribeError() {
-        self.observable.subscribeError(weak: self, WeakTarget.subscriber_onError).addDisposableTo(self.disposeBag)
+        self.observable.subscribeError(weak: self, WeakTarget.subscriber_onError).disposed(by: self.disposeBag)
     }
     func useSubscribeComplete() {
-        self.observable.subscribeCompleted(weak: self, WeakTarget.subscriber_onComplete).addDisposableTo(self.disposeBag)
+        self.observable.subscribeCompleted(weak: self, WeakTarget.subscriber_onComplete).disposed(by: self.disposeBag)
     }
     func useSubscribeMulti() {
         self.observable
@@ -72,7 +72,7 @@ class WeakTarget<Type> {
                 onCompleted: WeakTarget.subscriber_onComplete,
                 onDisposed: WeakTarget.subscriber_onDisposed
             )
-            .addDisposableTo(self.disposeBag)
+            .disposed(by: self.disposeBag)
     }
     
     func dispose() {
