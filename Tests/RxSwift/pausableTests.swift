@@ -36,7 +36,7 @@ class PausableTests: XCTestCase {
             next(209, true),
         ])
 
-        let res = scheduler.start(1000) {
+        let res = scheduler.start(disposed: 1000) {
 			underlying.pausable(pauser)
         }
 
@@ -73,7 +73,7 @@ class PausableTests: XCTestCase {
             next(400, true),
         ])
 
-        let res = scheduler.start(1000) {
+        let res = scheduler.start(disposed: 1000) {
             underlying.pausable(pauser)
         }
 
@@ -106,7 +106,7 @@ class PausableTests: XCTestCase {
             next(400, true),
         ])
 
-		let res = scheduler.start(1000) {
+        let res = scheduler.start(disposed: 1000) {
             underlying.pausable(pauser)
         }
 
