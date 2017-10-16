@@ -16,7 +16,7 @@ class DistinctCocoaTests: XCTestCase {
     func testDistinctHashableOne() {
         let scheduler = TestScheduler(initialClock: 0, simulateProcessingDelay: false)
 
-        driveOnScheduler(scheduler) {
+        SharingScheduler.mock(scheduler: scheduler) {
             let values = [DummyHashable(id: 1, name: "SomeName")]
 
             let errored = DummyHashable(id: 0, name: "NoneName")
@@ -38,7 +38,7 @@ class DistinctCocoaTests: XCTestCase {
     func testDistinctHashableTwo() {
         let scheduler = TestScheduler(initialClock: 0, simulateProcessingDelay: false)
 
-        driveOnScheduler(scheduler) {
+        SharingScheduler.mock(scheduler: scheduler) {
             let values = [DummyHashable(id: 1, name: "SomeName"),
                           DummyHashable(id: 2, name: "SomeName2"),
                           DummyHashable(id: 1, name: "SomeName")]
@@ -63,7 +63,7 @@ class DistinctCocoaTests: XCTestCase {
     func testDistinctHashableEmpty() {
         let scheduler = TestScheduler(initialClock: 0, simulateProcessingDelay: false)
 
-        driveOnScheduler(scheduler) { 
+        SharingScheduler.mock(scheduler: scheduler) {
             let errored = DummyHashable(id: 0, name: "NoneName")
             let observer = scheduler.createObserver(DummyHashable.self)
 
@@ -83,7 +83,7 @@ class DistinctCocoaTests: XCTestCase {
     func testDistinctEquatableOne() {
         let scheduler = TestScheduler(initialClock: 0, simulateProcessingDelay: false)
 
-        driveOnScheduler(scheduler) { 
+        SharingScheduler.mock(scheduler: scheduler) {
             let values = [DummyEquatable(id: 1, name: "SomeName")]
             let value = DummyEquatable(id: 0, name: "NoneName")
             let observer = scheduler.createObserver(DummyEquatable.self)
@@ -105,7 +105,7 @@ class DistinctCocoaTests: XCTestCase {
     func testDistinctEquatableTwo() {
         let scheduler = TestScheduler(initialClock: 0, simulateProcessingDelay: false)
 
-        driveOnScheduler(scheduler) { 
+        SharingScheduler.mock(scheduler: scheduler) {
             let values = [DummyEquatable(id: 1, name: "SomeName"),
                           DummyEquatable(id: 2, name: "SomeName2"),
                           DummyEquatable(id: 1, name: "SomeName")]
@@ -130,7 +130,7 @@ class DistinctCocoaTests: XCTestCase {
     func testDistinctEquatableEmpty() {
         let scheduler = TestScheduler(initialClock: 0, simulateProcessingDelay: false)
 
-        driveOnScheduler(scheduler) {
+        SharingScheduler.mock(scheduler: scheduler) {
             let errored = DummyEquatable(id: 0, name: "NoneName")
             let observer = scheduler.createObserver(DummyEquatable.self)
 
@@ -149,7 +149,7 @@ class DistinctCocoaTests: XCTestCase {
     func testDistinctPredicateOne() {
         let scheduler = TestScheduler(initialClock: 0, simulateProcessingDelay: false)
 
-        driveOnScheduler(scheduler) {
+        SharingScheduler.mock(scheduler: scheduler) {
             let values = [DummyEquatable(id: 1, name: "SomeName1"),
                           DummyEquatable(id: 2, name: "SomeName2"),
                           DummyEquatable(id: 3, name: "SomeName1")]
@@ -176,7 +176,7 @@ class DistinctCocoaTests: XCTestCase {
     func testDistinctPredicateAll() {
         let scheduler = TestScheduler(initialClock: 0, simulateProcessingDelay: false)
 
-        driveOnScheduler(scheduler) { 
+        SharingScheduler.mock(scheduler: scheduler) { 
             let values = [DummyEquatable(id: 1, name: "SomeName1"),
                           DummyEquatable(id: 2, name: "SomeName2"),
                           DummyEquatable(id: 3, name: "SomeName3")]
@@ -205,7 +205,7 @@ class DistinctCocoaTests: XCTestCase {
     func testDistinctPredicateEmpty() {
         let scheduler = TestScheduler(initialClock: 0, simulateProcessingDelay: false)
 
-        driveOnScheduler(scheduler) {
+        SharingScheduler.mock(scheduler: scheduler) {
             let errored = DummyEquatable(id: 0, name: "NoneName")
             let observer = scheduler.createObserver(DummyEquatable.self)
 
@@ -228,7 +228,7 @@ class DistinctCocoaTests: XCTestCase {
     func testDistinctPredicateFirst() {
         let scheduler = TestScheduler(initialClock: 0, simulateProcessingDelay: false)
 
-        driveOnScheduler(scheduler) { 
+        SharingScheduler.mock(scheduler: scheduler) { 
             let values = [DummyEquatable(id: 1, name: "SomeName1"),
                           DummyEquatable(id: 2, name: "SomeName2"),
                           DummyEquatable(id: 3, name: "SomeName3")]
@@ -255,7 +255,7 @@ class DistinctCocoaTests: XCTestCase {
     func testDistinctPredicateTwo() {
         let scheduler = TestScheduler(initialClock: 0, simulateProcessingDelay: false)
 
-        driveOnScheduler(scheduler) { 
+        SharingScheduler.mock(scheduler: scheduler) { 
             let values = [DummyEquatable(id: 1, name: "SomeName1"),
                           DummyEquatable(id: 2, name: "SomeName2"),
                           DummyEquatable(id: 3, name: "SomeName3")]
