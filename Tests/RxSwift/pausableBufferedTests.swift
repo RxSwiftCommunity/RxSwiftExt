@@ -36,7 +36,7 @@ class PausableBufferedTests: XCTestCase {
             next(209, true),
             ])
         
-        let res = scheduler.start(1000) {
+        let res = scheduler.start(disposed: 1000) {
             underlying.pausableBuffered(pauser)
         }
         
@@ -73,7 +73,7 @@ class PausableBufferedTests: XCTestCase {
             next(400, true),
             ])
         
-        let res = scheduler.start(1000) {
+        let res = scheduler.start(disposed: 1000) {
             underlying.pausableBuffered(pauser)
         }
         
@@ -108,7 +108,7 @@ class PausableBufferedTests: XCTestCase {
             next(400, true),
             ])
         
-        let res = scheduler.start(1000) {
+        let res = scheduler.start(disposed: 1000) {
             underlying.pausableBuffered(pauser, limit: 2)
         }
         
@@ -144,7 +144,7 @@ class PausableBufferedTests: XCTestCase {
             next(400, true),
             ])
         
-        let res = scheduler.start(1000) {
+        let res = scheduler.start(disposed: 1000) {
             underlying.pausableBuffered(pauser, limit: nil)
         }
         
@@ -182,7 +182,7 @@ class PausableBufferedTests: XCTestCase {
             completed(600),
             ])
         
-        let res = scheduler.start(1000) {
+        let res = scheduler.start(disposed: 1000) {
             underlying.pausableBuffered(pauser)
         }
         
