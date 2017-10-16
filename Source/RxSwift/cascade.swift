@@ -25,7 +25,7 @@ extension Observable where Element : ObservableType {
 	*/
 	
 	
-	public static func cascade<S : Sequence>(_ observables : S) -> Observable<T> where S.Iterator.Element == Element, S.Iterator.Element.E == T {
+	public static func cascade<S : Sequence>(_ observables : S) -> Observable<T> where S.Iterator.Element == Element {
 		let flow = Array(observables)
 		if flow.isEmpty {
 			return Observable<T>.empty()
