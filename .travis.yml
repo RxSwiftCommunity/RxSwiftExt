@@ -4,12 +4,10 @@ osx_image: xcode9
 
 before_script:
   - carthage version
-  - carthage bootstrap --platform iOS, tvOS, macOS
+  - carthage bootstrap
 
 script:
   - set -o pipefail && xcodebuild test -scheme RxSwiftExt-macOS -workspace RxSwiftExt.xcworkspace  -sdk macosx -destination "arch=x86_64" | xcpretty -c 
   - set -o pipefail && xcodebuild test -scheme RxSwiftExt-iOS -workspace RxSwiftExt.xcworkspace -sdk iphonesimulator -destination "name=iPhone X" | xcpretty -c
-
-  # for some reason building RxSwiftExt-tvOS fails on travis but works locally.
-  #- set -o pipefail && xcodebuild build -scheme RxSwiftExt-tvOS -workspace RxSwiftExt.xcworkspace -sdk appletvsimulator -destination "name=Apple TV 1080p" | xcpretty -c
+  - set -o pipefail && xcodebuild test -scheme RxSwiftExt-tvOS -workspace RxSwiftExt.xcworkspace -sdk appletvsimulator -destination "name=Apple TV 1080p" | xcpretty -c
   
