@@ -1,25 +1,13 @@
-# references:
-# * http://www.objc.io/issue-6/travis-ci.html
-# * https://github.com/supermarin/xcpretty#usage
-
+os: osx
 language: objective-c
-osx_image: xcode8.3
-
-env:
-  global:
-  - WORKSPACE=RxSwiftExt.xcworkspace
-  - SDK=iphonesimulator10.3
-  - DESTINATION_PLATFORM='platform=iOS Simulator,name=iPhone 6s,OS=10.3.1'
+osx_image: xcode9
 
 before_script:
-  - carthage bootstrap --platform iOS
-#  - mkdir -p ./Carthage/Build/iOS
-
-  #build RxSwift
-#  - (cd ./Carthage/Checkouts/RxSwift && set -o pipefail && xcodebuild -scheme "RxSwift-iOS" -workspace "Rx.xcworkspace" -sdk "$SDK" -configuration Release SYMROOT=../../../Build  | xcpretty -c)
-#  - (cd ./Carthage/Checkouts/RxSwift && set -o pipefail && xcodebuild -scheme "RxCocoa-iOS" -workspace "Rx.xcworkspace" -sdk "$SDK" -configuration Release SYMROOT=../../../Build  | xcpretty -c)
-#  - (cd ./Carthage/Checkouts/RxSwift && set -o pipefail && xcodebuild -scheme "RxTests-iOS" -workspace "Rx.xcworkspace" -sdk "$SDK" -configuration Release SYMROOT=../../../Build  | xcpretty -c)
+  - carthage version
+  - carthage bootstrap
 
 script:
-  - set -o pipefail && xcodebuild -workspace "$WORKSPACE" -scheme 'RxSwiftExt-iOS' ONLY_ACTIVE_ARCH=YES -destination "$DESTINATION_PLATFORM" -configuration 'Debug' -sdk "$SDK" build | xcpretty -c
-  - set -o pipefail && xcodebuild -workspace "$WORKSPACE" -scheme 'RxSwiftExtTests-iOS' ONLY_ACTIVE_ARCH=YES -destination "$DESTINATION_PLATFORM" -configuration 'Debug' -sdk "$SDK" test  | xcpretty -c
+  - set -o pipefail && xcodebuild test -scheme RxSwiftExt-macOS -workspace RxSwiftExt.xcworkspace  -sdk macosx -destination "arch=x86_64" | xcpretty -c 
+  - set -o pipefail && xcodebuild test -scheme RxSwiftExt-iOS -workspace RxSwiftExt.xcworkspace -sdk iphonesimulator -destination "name=iPhone X" | xcpretty -c
+  - set -o pipefail && xcodebuild test -scheme RxSwiftExt-tvOS -workspace RxSwiftExt.xcworkspace -sdk appletvsimulator -destination "name=Apple TV 1080p" | xcpretty -c
+  

@@ -22,6 +22,13 @@ extension ObservableType {
 			method?(obj)(value)
 		}
 	}
+    
+    fileprivate func weakify<A: AnyObject>(_ obj: A, method: ((A) -> () -> Void)?) -> (() -> Void) {
+        return { [weak obj] in
+            guard let obj = obj else { return }
+            method?(obj)()
+        }
+    }
 	
 	/**
 	Subscribes an event handler to an observable sequence.

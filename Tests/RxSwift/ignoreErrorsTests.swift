@@ -79,7 +79,7 @@ class IgnoreErrorsTests: XCTestCase {
             error(250, testError),
             ])
 
-        let res = scheduler.start(1100) {
+        let res = scheduler.start(disposed: 1100) {
             xs.ignoreErrors()
         }
 
@@ -152,7 +152,7 @@ class IgnoreErrorsTests: XCTestCase {
             error(20, testError)
             ])
 
-        let res = scheduler.start(231) {
+        let res = scheduler.start(disposed: 231) {
             xs.ignoreErrors { error -> Bool in
                 return true
             }

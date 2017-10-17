@@ -37,5 +37,4 @@ example("Turn a completion handler into an observable sequence") {
 
 	playgroundShouldContinueIndefinitely()
 }
-
 //: [Next](@next)
