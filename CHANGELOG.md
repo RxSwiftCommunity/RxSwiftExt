@@ -1,6 +1,10 @@
 Changelog
 =========
 
+3.0.0
+-----
+- added support for Swift 4, RxSwift 4.0
+
 2.5.1
 -----
 - added support for macOS
