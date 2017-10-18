@@ -8,10 +8,10 @@ If you're using [RxSwift](https://github.com/ReactiveX/RxSwift), you may have en
 Installation
 ===========
 
-This branch of RxSwiftExt targets Swift 3.x and RxSwift 3.4.0 or later.
+This branch of RxSwiftExt targets Swift 4.x and RxSwift 4.0.0 or later.
 
-* If you're looking for the Swift 4 version of RxSwiftExt, please checkout the `swift4.0` [branch](https://github.com/RxSwiftCommunity/RxSwiftExt/tree/swift4.0)
-* If your project is running on Swift 2.x, please use version `1.2` of the library.
+* If you're looking for the Swift 3 version of RxSwiftExt, please use version `2.5.1` of the framework.
+* If your project is running on Swift 2.x, please use version `1.2` of the framework.
 
 
 #### CocoaPods
@@ -19,13 +19,13 @@ This branch of RxSwiftExt targets Swift 3.x and RxSwift 3.4.0 or later.
 Using Swift 4:
 
 ```
-pod "RxSwiftExt", :git => 'https://github.com/RxSwiftCommunity/RxSwiftExt.git', :branch => 'swift4.0'
+pod "RxSwiftExt"
 ```
 
 Using Swift 3:
 
 ```
-pod "RxSwiftExt"
+pod "RxSwiftExt", '2.5.1'
 ```
 
 If you use Swift 2.x:
