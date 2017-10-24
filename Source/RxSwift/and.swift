@@ -1,3 +1,11 @@
+//
+//  and.swift
+//  RxSwiftExt
+//
+//  Created by Joan Disho on 19.10.17.
+//  Copyright © 2017 RxSwiftCommunity. All rights reserved.
+//
+
 extension Observable where E == Bool {
 
    func and(_ right: Observable<Bool>) -> Observable<Bool> {
