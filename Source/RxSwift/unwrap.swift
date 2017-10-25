@@ -18,12 +18,6 @@ extension ObservableType {
      */
 
     public func unwrap<T>() -> Observable<T> where E == Optional<T> {
-        return self
-            .filter { value in
-                if case .some = value {
-                   return true
-                }
-                return false
-            }.map { $0! }
+        return self.filter { $0 != nil }.map { $0! }
     }
 }
