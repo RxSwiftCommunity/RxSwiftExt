@@ -9,21 +9,21 @@
 import Foundation
 import RxSwift
 
-extension ObservableType {
+protocol OptionalType {
+    associatedtype Wrapped
+    var value: Wrapped? { get }
+}
 
-    /**
-     Takes a sequence of optional elements and returns a sequence of non-optional elements, filtering out any nil values.
-
-     - returns: An observable sequence of non-optional elements
-     */
-
-    public func unwrap<T>() -> Observable<T> where E == Optional<T> {
+extension Optional: OptionalType {
+    public var value: Wrapped? {
         return self
-            .filter { value in
-                if case .some = value {
-                   return true
-                }
-                return false
-            }.map { $0! }
     }
+}
+
+extension Observable where E: OptionalType {
+    
+    public func unwrap() -> Observable<E.Wrapped> {
+        return self.filter { $0.value != nil }.map { $0.value! }
+    }
+    
 }
