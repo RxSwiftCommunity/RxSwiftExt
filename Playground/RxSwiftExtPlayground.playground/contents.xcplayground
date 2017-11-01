@@ -17,5 +17,6 @@
         <page name='filterMap'/>
         <page name='map'/>
         <page name='fromAsync'/>
+        <page name='add'/>
     </pages>
 </playground>
