@@ -339,7 +339,7 @@
 				BF515CDE1F3F36F200492640 /* Tools */,
 			);
 			name = Sources;
-			path = NSObject_Rx;
+			path = Source;
 			sourceTree = "<group>";
 		};
 		18EE7A0F1C47B12F00C7256C = {
@@ -382,8 +382,7 @@
 				5386076E1E6F1C0A000361DE /* mapTo+RxCocoa.swift */,
 				538607EF1E6F589E000361DE /* not+RxCocoa.swift */,
 			);
-			name = RxCocoa;
-			path = Source/RxCocoa;
+			path = RxCocoa;
 			sourceTree = "<group>";
 		};
 		538607701E6F1C38000361DE /* RxCocoa */ = {
@@ -421,7 +420,7 @@
 				98309EB01EDF159500BD07D9 /* filterMap.swift */,
 				BF515CE11F3F371600492640 /* fromAsync.swift */,
 			);
-			name = RxSwift;
+			path = RxSwift;
 			sourceTree = "<group>";
 		};
 		538607BA1E6F362B000361DE /* RxSwift */ = {
@@ -485,8 +484,7 @@
 			children = (
 				BF515CDF1F3F370600492640 /* curry.swift */,
 			);
-			name = Tools;
-			path = Source/Tools;
+			path = Tools;
 			sourceTree = "<group>";
 		};
 		E36BDFB81F38755F008C9D56 /* tvOS */ = {
@@ -1030,6 +1028,7 @@
 		188C6D9B1C47B2B20092101A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1059,6 +1058,7 @@
 		188C6D9C1C47B2B20092101A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1223,6 +1223,7 @@
 		62512C641F0EAF200083A89F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1257,6 +1258,7 @@
 		62512C651F0EAF200083A89F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1355,6 +1357,7 @@
 		E39C41D51F18AF84007F2ACD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -1390,6 +1393,7 @@
 		E39C41D61F18AF84007F2ACD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_ENABLE_OBJC_ARC = YES;
