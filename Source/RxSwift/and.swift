@@ -10,12 +10,12 @@ import RxSwift
 
 extension Observable where E == Bool {
 
-    func and<C: Collection>(_ collection: C) -> Observable<Bool> where C.Iterator.Element: ObservableType, C.Iterator.Element.E == E {
-        return Observable.combineLatest(collection).map { $0.reduce(true, { $0 && $1 }) }
-    }
-    
-    func and<O: ObservableType>(_ sources: O ...) -> Observable<Bool> where O.E == Bool {
-        return self.and(sources)
-    }
-    
+	public func and<C: Collection>(_ collection: C) -> Observable<Bool> where C.Iterator.Element: ObservableType, C.Iterator.Element.E == E {
+		return Observable.combineLatest(collection).map { $0.reduce(true, { $0 && $1 }) }
+	}
+
+	public func and<O: ObservableType>(_ sources: O ...) -> Observable<Bool> where O.E == Bool {
+		return self.and(sources)
+	}
+
 }
