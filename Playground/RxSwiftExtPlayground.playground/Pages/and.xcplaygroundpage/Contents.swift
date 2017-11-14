@@ -14,13 +14,18 @@ import RxSwiftExt
 example("Combine observables using the .and(...) operator") {
     
     let bool = Observable.just(true)
-    let bools = [Observable.just(true), Observable.just(true), Observable.just(true), Observable.just(false)]
-    let output = bool.and(bools)
+	let boolsWithFalse: [Observable<Bool>] = [.just(true), .just(true), .just(true), .just(false)]
+	let boolsWithoutFalse: [Observable<Bool>] = [.just(true), .just(true), .just(true)]
+    let outputFalse = bool.and(boolsWithFalse)
+	let outputTrue = bool.and(boolsWithoutFalse)
 
-    output.subscribe(onNext: { value in
-        print("output = \(value)")
+    outputFalse.subscribe(onNext: { value in
+        print("output when one or more is false = \(value)")
     })
-    
+
+	outputTrue.subscribe(onNext: { value in
+		print("output when all are true = \(value)")
+	})
 }
 
 //: [Next](@next)
