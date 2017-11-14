@@ -5,6 +5,8 @@
 //  Created by Joan Disho on 19.10.17.
 //  Copyright © 2017 RxSwiftCommunity. All rights reserved.
 //
+import Foundation
+import RxSwift
 
 extension Observable where E == Bool {
 
