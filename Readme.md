@@ -55,6 +55,7 @@ RxSwiftExt is all about adding operators to [RxSwift](https://github.com/Reactiv
 * [distinct](#distinct)
 * [map](#map)
 * [not](#not)
+* [and](#and)
 * [Observable.cascade](#cascade)
 * [retry](#retry)
 * [repeatWithBehavior](#repeatwithbehavior)
@@ -188,6 +189,32 @@ Observable.just(false)
 ```
 Next(true)
 Completed
+```
+
+#### and
+
+Verifies that every value emitted is `true`
+
+```swift
+Observable.of(true, true)
+	.and()
+	.subscribe { print($0) }
+	
+Observable.of(true, false)
+	.and()
+	.subscribe { print($0) }
+	
+Observable<Bool>.empty()
+	.and()
+	.subscribe { print($0) }
+```
+
+Returns a `Maybe<Bool>`:
+
+```
+success(true)
+success(false)
+completed
 ```
 
 #### cascade

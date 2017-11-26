@@ -23,9 +23,15 @@
 
 /* Begin PBXBuildFile section */
 		188C6DA31C47B4240092101A /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188C6DA21C47B4240092101A /* RxSwift.framework */; };
+		3D11958B1FCAD9AE0095134B /* and.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBDE5FB1FBBAE3900DF47F9 /* and.swift */; };
+		3D11958C1FCAD9AF0095134B /* and.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBDE5FB1FBBAE3900DF47F9 /* and.swift */; };
 		3D638DEC1DC2B2D50089A590 /* RxSwiftExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188C6D911C47B2B20092101A /* RxSwiftExt.framework */; };
 		3D638E1D1DC2B36A0089A590 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188C6DA21C47B4240092101A /* RxSwift.framework */; };
 		3D638E1F1DC2B3A40089A590 /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D638E1E1DC2B3A40089A590 /* RxTest.framework */; };
+		3DBDE5FC1FBBAE3A00DF47F9 /* and.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBDE5FB1FBBAE3900DF47F9 /* and.swift */; };
+		3DBDE5FF1FBBB09900DF47F9 /* andTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBDE5FD1FBBB05400DF47F9 /* andTests.swift */; };
+		3DBDE6001FBBB09A00DF47F9 /* andTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBDE5FD1FBBB05400DF47F9 /* andTests.swift */; };
+		3DBDE6011FBBB09A00DF47F9 /* andTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBDE5FD1FBBB05400DF47F9 /* andTests.swift */; };
 		5386076F1E6F1C0A000361DE /* mapTo+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386076E1E6F1C0A000361DE /* mapTo+RxCocoa.swift */; };
 		538607731E6F1D51000361DE /* mapToTests+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538607711E6F1CFB000361DE /* mapToTests+RxCocoa.swift */; };
 		538607AA1E6F334B000361DE /* apply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386079A1E6F334B000361DE /* apply.swift */; };
@@ -214,6 +220,8 @@
 		3D638DE71DC2B2D40089A590 /* RxSwiftExtTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RxSwiftExtTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D638E1E1DC2B3A40089A590 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
 		3DB034F61DC376D9002C6A26 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = "<group>"; };
+		3DBDE5FB1FBBAE3900DF47F9 /* and.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = and.swift; sourceTree = "<group>"; };
+		3DBDE5FD1FBBB05400DF47F9 /* andTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = andTests.swift; sourceTree = "<group>"; };
 		5386076E1E6F1C0A000361DE /* mapTo+RxCocoa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "mapTo+RxCocoa.swift"; path = "Source/RxCocoa/mapTo+RxCocoa.swift"; sourceTree = SOURCE_ROOT; };
 		538607711E6F1CFB000361DE /* mapToTests+RxCocoa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "mapToTests+RxCocoa.swift"; sourceTree = "<group>"; };
 		5386079A1E6F334B000361DE /* apply.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = apply.swift; path = Source/RxSwift/apply.swift; sourceTree = SOURCE_ROOT; };
@@ -399,10 +407,14 @@
 		538607991E6F3338000361DE /* RxSwift */ = {
 			isa = PBXGroup;
 			children = (
+				3DBDE5FB1FBBAE3900DF47F9 /* and.swift */,
 				5386079A1E6F334B000361DE /* apply.swift */,
 				5386079B1E6F334B000361DE /* cascade.swift */,
 				5386079C1E6F334B000361DE /* catchErrorJustComplete.swift */,
 				5386079D1E6F334B000361DE /* distinct.swift */,
+				98309EB01EDF159500BD07D9 /* filterMap.swift */,
+				98309EAE1EDF14AC00BD07D9 /* flatMapSync.swift */,
+				BF515CE11F3F371600492640 /* fromAsync.swift */,
 				5386079E1E6F334B000361DE /* ignore.swift */,
 				5386079F1E6F334B000361DE /* ignoreErrors.swift */,
 				538607A01E6F334B000361DE /* ignoreWhen.swift */,
@@ -416,9 +428,6 @@
 				538607A71E6F334B000361DE /* repeatWithBehavior.swift */,
 				538607A81E6F334B000361DE /* retryWithBehavior.swift */,
 				538607A91E6F334B000361DE /* unwrap.swift */,
-				98309EAE1EDF14AC00BD07D9 /* flatMapSync.swift */,
-				98309EB01EDF159500BD07D9 /* filterMap.swift */,
-				BF515CE11F3F371600492640 /* fromAsync.swift */,
 			);
 			path = RxSwift;
 			sourceTree = "<group>";
@@ -426,6 +435,7 @@
 		538607BA1E6F362B000361DE /* RxSwift */ = {
 			isa = PBXGroup;
 			children = (
+				3DBDE5FD1FBBB05400DF47F9 /* andTests.swift */,
 				538607BB1E6F367A000361DE /* applyTests.swift */,
 				538607BC1E6F367A000361DE /* cascadeTests.swift */,
 				538607BD1E6F367A000361DE /* catchErrorJustCompleteTests.swift */,
@@ -831,6 +841,7 @@
 				538607B11E6F334B000361DE /* mapTo.swift in Sources */,
 				538607AA1E6F334B000361DE /* apply.swift in Sources */,
 				538607B41E6F334B000361DE /* ObservableType+Weak.swift in Sources */,
+				3DBDE5FC1FBBAE3A00DF47F9 /* and.swift in Sources */,
 				538607B31E6F334B000361DE /* not.swift in Sources */,
 				538607AD1E6F334B000361DE /* distinct.swift in Sources */,
 				538607B61E6F334B000361DE /* pausable.swift in Sources */,
@@ -874,6 +885,7 @@
 				538607731E6F1D51000361DE /* mapToTests+RxCocoa.swift in Sources */,
 				538607E61E6F36A9000361DE /* mapToTests.swift in Sources */,
 				5A5FCE411ED5AEC60052A9B5 /* pausableBufferedTests.swift in Sources */,
+				3DBDE5FF1FBBB09900DF47F9 /* andTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -892,6 +904,7 @@
 				62512C761F0EAF950083A89F /* pausable.swift in Sources */,
 				62512C721F0EAF950083A89F /* materialized+elements.swift in Sources */,
 				62512C6E1F0EAF950083A89F /* ignore.swift in Sources */,
+				3D11958B1FCAD9AE0095134B /* and.swift in Sources */,
 				62512C781F0EAF950083A89F /* repeatWithBehavior.swift in Sources */,
 				62512C731F0EAF950083A89F /* not.swift in Sources */,
 				62512C6D1F0EAF950083A89F /* distinct.swift in Sources */,
@@ -935,6 +948,7 @@
 				62512CA21F0EB1850083A89F /* WeakTarget.swift in Sources */,
 				62512C9D1F0EB1850083A89F /* pausableTests.swift in Sources */,
 				62512C991F0EB1850083A89F /* mapToTests.swift in Sources */,
+				3DBDE6001FBBB09A00DF47F9 /* andTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -953,6 +967,7 @@
 				E39C41E71F18B08A007F2ACD /* pausable.swift in Sources */,
 				E39C41E31F18B08A007F2ACD /* materialized+elements.swift in Sources */,
 				E39C41DF1F18B08A007F2ACD /* ignore.swift in Sources */,
+				3D11958C1FCAD9AF0095134B /* and.swift in Sources */,
 				E39C41E91F18B08A007F2ACD /* repeatWithBehavior.swift in Sources */,
 				E39C41E41F18B08A007F2ACD /* not.swift in Sources */,
 				E39C41DE1F18B08A007F2ACD /* distinct.swift in Sources */,
@@ -996,6 +1011,7 @@
 				E39C42091F18B13E007F2ACD /* notTests.swift in Sources */,
 				E39C42081F18B13E007F2ACD /* materialized+elementsTests.swift in Sources */,
 				E39C42071F18B13E007F2ACD /* mapToTests.swift in Sources */,
+				3DBDE6011FBBB09A00DF47F9 /* andTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1048,7 +1064,6 @@
 				PRODUCT_NAME = RxSwiftExt;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1078,7 +1093,6 @@
 				PRODUCT_NAME = RxSwiftExt;
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1132,8 +1146,9 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -1178,7 +1193,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1196,9 +1211,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.RxSwiftCommunity.RxSwiftExtTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -1216,7 +1229,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.RxSwiftCommunity.RxSwiftExtTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -1247,9 +1259,7 @@
 				PRODUCT_NAME = RxSwiftExt;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1283,7 +1293,6 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1307,9 +1316,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.RxSwiftCommunity.RxSwiftExtTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -1332,7 +1339,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -1380,9 +1386,7 @@
 				PRODUCT_NAME = RxSwiftExt;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1416,7 +1420,6 @@
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1441,8 +1444,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.RxSwiftCommunity.RxSwiftExtTests;
 				PRODUCT_NAME = RxSwiftTests;
 				SDKROOT = appletvos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 4.0;
 				TVOS_DEPLOYMENT_TARGET = 10.2;
 			};
 			name = Debug;
@@ -1463,7 +1464,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.RxSwiftCommunity.RxSwiftExtTests;
 				PRODUCT_NAME = RxSwiftTests;
 				SDKROOT = appletvos;
-				SWIFT_VERSION = 4.0;
 				TVOS_DEPLOYMENT_TARGET = 10.2;
 			};
 			name = Release;
