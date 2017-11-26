@@ -24,7 +24,7 @@ class andTests: XCTestCase {
 		return observer
 	}
 
-	func testSingle_OneTrueValue() {
+	func testSingle_oneTrueValue() {
 		let source = Observable.just(true)
 		let observer = runAndObserve(source.and())
 		let correct = [
@@ -34,7 +34,7 @@ class andTests: XCTestCase {
 		XCTAssertEqual(observer.events, correct)
 	}
 
-	func testSingle_OneFalseValue() {
+	func testSingle_oneFalseValue() {
 		let source = Observable.just(false)
 		let observer = runAndObserve(source.and())
 		let correct = [
@@ -44,7 +44,7 @@ class andTests: XCTestCase {
 		XCTAssertEqual(observer.events, correct)
 	}
 
-	func testSingle_EmptySequence() {
+	func testSingle_emptySequence() {
 		let source = Observable<Bool>.empty()
 		let observer = runAndObserve(source.and())
 		let correct: [Recorded<Event<Bool>>] = [
@@ -93,7 +93,7 @@ class andTests: XCTestCase {
 		XCTAssertEqual(observer.events, correct)
 	}
 
-	func testSingle_OnlyError() {
+	func testSingle_onlyError() {
 		let source = Observable<Bool>.error(AndTestsError.anyError)
 		let observer = runAndObserve(source.and())
 		let correct: [Recorded<Event<Bool>>] = [
