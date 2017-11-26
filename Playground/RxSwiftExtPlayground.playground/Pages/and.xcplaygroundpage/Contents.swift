@@ -18,27 +18,27 @@ example("Ensure that only `true` values are emitted") {
 	let empty = Observable<Bool>.empty()
 
 	allTrue.and().subscribe { result in
-		print("- when all values are true, we get a Maybe result: \(result)")
+		print("- when all values are true, we get a `true` Maybe: \(result)")
 	}
 
 	someFalse.and().subscribe { result in
-		print("- when some values are false, we get a Maybe result: \(result)")
+		print("- when some values are false, we get a `false` Maybe: \(result)")
 	}
 
 	empty.and().subscribe { result in
-		print("- when no value is emitted, we get a Maybe result: \(result)")
+		print("- when no value is emitted, we get a Maybe with no result: \(result)")
 	}
 
 	Observable.and(allTrue, empty).subscribe { result in
-		print("- mixing an empty sequence and a sequence of true values, we get a Maybe result: \(result)")
+		print("- mixing an empty sequence and a sequence of true values, we get a `true` Maybe: \(result)")
 	}
 
 	Observable.and(allTrue, someFalse, empty).subscribe { result in
-		print("- mixing an empty sequence and sequences of true and false values, we get a Maybe result: \(result)")
+		print("- mixing an empty sequence and sequences of true and false values, we get a `false` Maybe: \(result)")
 	}
 
 	Observable.and(allTrue, allTrue2).subscribe { result in
-		print("- mixing sequences of true values, we get a Maybe result: \(result)")
+		print("- mixing sequences of true values, we get a `true` Maybe: \(result)")
 	}
 }
 

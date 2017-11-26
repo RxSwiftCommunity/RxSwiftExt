@@ -199,9 +199,11 @@ Verifies that every value emitted is `true`
 Observable.of(true, true)
 	.and()
 	.subscribe { print($0) }
+	
 Observable.of(true, false)
 	.and()
 	.subscribe { print($0) }
+	
 Observable<Bool>.empty()
 	.and()
 	.subscribe { print($0) }
