@@ -10,8 +10,7 @@ import RxSwift
 
 extension ObservableType where E == Bool {
 	/**
-	Converts a source sequence of Bool values to a single final result `true` or `false`
-	unless no value is received, in which case the resulting `Maybe` sequence will just complete.
+	Emits a single Bool value indicating whether or not a Bool sequence emits only `true` values.
 
 	If a `false` value is emitted, the resulting sequence immediately completes with a `false` result.
 	If only `true` values are emitted, the resulting sequence completes with a `true` result once the
@@ -29,8 +28,9 @@ extension ObservableType where E == Bool {
 					if !value {
 						// first `false` value emits false & completes
 						observer(.success(false))
+					} else {
+						gotValue = true
 					}
-					gotValue = true
 				case .error(let error):
 					observer(.error(error))
 				case .completed:
@@ -41,15 +41,16 @@ extension ObservableType where E == Bool {
 	}
 
 	/**
-	Converts a collection of sequences of Bool values to a single final result `true` or `false`.
-	Each sequence of the collection is expected to emit at least one `true` value. If any sequence
-	does not emit anything, the outer sequence will just complete. If any sequence emits a `false`
-	value, the outer sequence will emit a `false` result. If all sequences emit at least one `true`
-	value, the outer sequence will emit a `true` result.
+	Emits a single Bool value indicating whether or not a each Bool sequence in the collection emits only `true` values.
+
+	Each sequence of the collection is expected to emit at least one `true` value.
+	If any sequence does not emit anything, the produced `Maybe` will just complete.
+	If any sequence emits a `false` value, the produiced `Maybe` will emit a `false` result.
+	If all sequences emit at least one `true` value, the produced `Maybe` will emit a `true` result.
 
 	Use `asSingle()` or `asObservable()` to convert to your requirements.
 	*/
-	public static func and<C: Collection>(_ collection: C) -> Maybe<E> where C.Iterator.Element: ObservableType, C.Iterator.Element.E == E {
+	public static func and<C: Collection>(_ collection: C) -> Maybe<E> where C.Element: ObservableType, C.Element.E == E {
 		return Maybe.create { observer in
 			var emitted = [Bool](repeating: false, count: Int(collection.count))
 			var completed = 0
@@ -65,19 +66,19 @@ extension ObservableType where E == Bool {
 						if !value {
 							// first `false` value emits false & completes
 							observer(.success(false))
+						} else {
+							emitted[item.offset] = true
 						}
-						emitted[item.offset] = true
 					case .error(let error):
 						observer(.error(error))
 					case .completed:
 						completed += 1
-						if completed == collection.count {
-							// if all emitted at least one `true`, emit true otherwise just complete
-							if emitted.reduce(true, { $0 && $1 }) {
-								observer(.success(true))
-							} else {
-								observer(.completed)
-							}
+						guard completed == collection.count else { return }
+						// if all emitted at least one `true`, emit true otherwise just complete
+						if emitted.reduce(true, { $0 && $1 }) {
+							observer(.success(true))
+						} else {
+							observer(.completed)
 						}
 					}
 
@@ -88,11 +89,12 @@ extension ObservableType where E == Bool {
 	}
 
 	/**
-	Converts a collection of sequences of Bool values to a single final result `true` or `false`.
-	Each sequence of the collection is expected to emit at least one `true` value. If any sequence
-	does not emit anything, the outer sequence will just complete. If any sequence emits a `false`
-	value, the outer sequence will emit a `false` result. If all sequences emit at least one `true`
-	value, the outer sequence will emit a `true` result.
+	Emits a single Bool value indicating whether or not a each Bool sequence in the collection emits only `true` values.
+
+	Each sequence of the collection is expected to emit at least one `true` value.
+	If any sequence does not emit anything, the produced `Maybe` will just complete.
+	If any sequence emits a `false` value, the produiced `Maybe` will emit a `false` result.
+	If all sequences emit at least one `true` value, the produced `Maybe` will emit a `true` result.
 
 	Use `asSingle()` or `asObservable()` to convert to your requirements.
 	*/
