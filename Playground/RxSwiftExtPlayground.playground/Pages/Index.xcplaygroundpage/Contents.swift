@@ -36,7 +36,7 @@
  - [pausableBuffered()](pausableBuffered) operator, pauses emission of elements unless the most recent element from the provided sequence is `true`; buffers elements that arrive while paused; emits buffered elements on resume.
  - [filterMap()](filterMap) operator, filters out some values and maps the rest (replaces `filter` + `map` combo)
  - [Observable.fromAsync()](fromAsync) constructor, translates an async function that returns data through a completionHandler in a function that returns data through an Observable
- - [and()](and) operator, combines multiple boolean observables and emits a single `bool` value.
+ - [and()](and) operator, combines Bool values from one or more sequences and emits a single `Bool` value.
 */
 
 //: [Next >>](@next)

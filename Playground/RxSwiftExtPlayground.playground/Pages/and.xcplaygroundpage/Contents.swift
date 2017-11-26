@@ -11,21 +11,35 @@
 import RxSwift
 import RxSwiftExt
 
-example("Combine observables using the .and(...) operator") {
-    
-    let bool = Observable.just(true)
-	let boolsWithFalse: [Observable<Bool>] = [.just(true), .just(true), .just(true), .just(false)]
-	let boolsWithoutFalse: [Observable<Bool>] = [.just(true), .just(true), .just(true)]
-    let outputFalse = bool.and(boolsWithFalse)
-	let outputTrue = bool.and(boolsWithoutFalse)
+example("Ensure that only `true` values are emitted") {
+	let allTrue = Observable.of(true, true ,true)
+	let allTrue2 = Observable.just(true)
+	let someFalse = Observable.of(true, false, true)
+	let empty = Observable<Bool>.empty()
 
-    outputFalse.subscribe(onNext: { value in
-        print("output when one or more is false = \(value)")
-    })
+	allTrue.and().subscribe { result in
+		print("- when all values are true, we get a Maybe result: \(result)")
+	}
 
-	outputTrue.subscribe(onNext: { value in
-		print("output when all are true = \(value)")
-	})
+	someFalse.and().subscribe { result in
+		print("- when some values are false, we get a Maybe result: \(result)")
+	}
+
+	empty.and().subscribe { result in
+		print("- when no value is emitted, we get a Maybe result: \(result)")
+	}
+
+	Observable.and(allTrue, empty).subscribe { result in
+		print("- mixing an empty sequence and a sequence of true values, we get a Maybe result: \(result)")
+	}
+
+	Observable.and(allTrue, someFalse, empty).subscribe { result in
+		print("- mixing an empty sequence and sequences of true and false values, we get a Maybe result: \(result)")
+	}
+
+	Observable.and(allTrue, allTrue2).subscribe { result in
+		print("- mixing sequences of true values, we get a Maybe result: \(result)")
+	}
 }
 
 //: [Next](@next)

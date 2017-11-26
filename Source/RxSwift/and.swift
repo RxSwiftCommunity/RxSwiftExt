@@ -2,20 +2,101 @@
 //  and.swift
 //  RxSwiftExt
 //
-//  Created by Joan Disho on 19.10.17.
+//  Created by Florent Pillet on 26/11/17
 //  Copyright © 2017 RxSwiftCommunity. All rights reserved.
 //
 import Foundation
 import RxSwift
 
-extension Observable where E == Bool {
+extension ObservableType where E == Bool {
+	/**
+	Converts a source sequence of Bool values to a single final result `true` or `false`
+	unless no value is received, in which case the resulting `Maybe` sequence will just complete.
 
-	public func and<C: Collection>(_ collection: C) -> Observable<Bool> where C.Iterator.Element: ObservableType, C.Iterator.Element.E == E {
-		return Observable.combineLatest(collection).map { $0.reduce(true, { $0 && $1 }) }
+	If a `false` value is emitted, the resulting sequence immediately completes with a `false` result.
+	If only `true` values are emitted, the resulting sequence completes with a `true` result once the
+	source sequence completes.
+	If no value is emitted, the resulting sequence completes with no value once the source sequence completes.
+
+	Use `asSingle()` or `asObservable()` to convert to your requirements.
+	*/
+	public func and() -> Maybe<E> {
+		return Maybe.create { observer in
+			var gotValue = false
+			return self.subscribe { event in
+				switch event {
+				case .next(let value):
+					if !value {
+						// first `false` value emits false & completes
+						observer(.success(false))
+					}
+					gotValue = true
+				case .error(let error):
+					observer(.error(error))
+				case .completed:
+					observer(gotValue ? .success(true) : .completed)
+				}
+			}
+		}
 	}
 
-	public func and<O: ObservableType>(_ sources: O ...) -> Observable<Bool> where O.E == Bool {
-		return self.and(sources)
+	/**
+	Converts a collection of sequences of Bool values to a single final result `true` or `false`.
+	Each sequence of the collection is expected to emit at least one `true` value. If any sequence
+	does not emit anything, the outer sequence will just complete. If any sequence emits a `false`
+	value, the outer sequence will emit a `false` result. If all sequences emit at least one `true`
+	value, the outer sequence will emit a `true` result.
+
+	Use `asSingle()` or `asObservable()` to convert to your requirements.
+	*/
+	public static func and<C: Collection>(_ collection: C) -> Maybe<E> where C.Iterator.Element: ObservableType, C.Iterator.Element.E == E {
+		return Maybe.create { observer in
+			var emitted = [Bool](repeating: false, count: Int(collection.count))
+			var completed = 0
+			let lock = NSRecursiveLock()
+			lock.lock()
+			defer { lock.unlock() }
+			let subscriptions = collection.enumerated().map { item in
+				item.element.subscribe { event in
+					lock.lock()
+					defer { lock.unlock() }
+					switch event {
+					case .next(let value):
+						if !value {
+							// first `false` value emits false & completes
+							observer(.success(false))
+						}
+						emitted[item.offset] = true
+					case .error(let error):
+						observer(.error(error))
+					case .completed:
+						completed += 1
+						if completed == collection.count {
+							// if all emitted at least one `true`, emit true otherwise just complete
+							if emitted.reduce(true, { $0 && $1 }) {
+								observer(.success(true))
+							} else {
+								observer(.completed)
+							}
+						}
+					}
+
+				}
+			}
+			return CompositeDisposable(disposables: subscriptions)
+		}
 	}
 
+	/**
+	Converts a collection of sequences of Bool values to a single final result `true` or `false`.
+	Each sequence of the collection is expected to emit at least one `true` value. If any sequence
+	does not emit anything, the outer sequence will just complete. If any sequence emits a `false`
+	value, the outer sequence will emit a `false` result. If all sequences emit at least one `true`
+	value, the outer sequence will emit a `true` result.
+
+	Use `asSingle()` or `asObservable()` to convert to your requirements.
+	*/
+	public static func and<O: ObservableType>(_ sources: O ...) -> Maybe<E> where O.E == E {
+		return and(sources)
+	}
 }
