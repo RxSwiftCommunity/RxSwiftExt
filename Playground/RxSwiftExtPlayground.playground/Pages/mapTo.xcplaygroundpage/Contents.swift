@@ -21,7 +21,7 @@ example("replace any input with a value") {
     
     let numbers = Array<Int?>([1, 2, 3])
     Observable.from(numbers)
-        .map(to: "candy")
+        .mapTo("candy")
         .toArray()
 		.subscribe(onNext: {result in
             // look types on the right panel ===>
