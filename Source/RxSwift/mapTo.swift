@@ -17,13 +17,8 @@ extension ObservableType {
 	- parameter value: A constant that each element of the input sequence is being replaced with
 	- returns: An observable sequence containing the values `value` provided as a parameter
 	*/
-  
-	@available(*, deprecated, renamed: "map(to:)")
 	public func mapTo<R>(_ value: R) -> Observable<R> {
-		return map {_ in value}
+		return map { _ in value }
 	}
-  
-	public func map<R>(to value: R) -> Observable<R> {
-		return map {_ in value}
-	}
+
 }

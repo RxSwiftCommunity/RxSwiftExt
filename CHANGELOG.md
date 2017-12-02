@@ -1,6 +1,11 @@
 Changelog
 =========
 
+3.1.0
+-----
+- added `and()` operators
+- added support for compiling in an iOS App Extension
+
 3.0.0
 -----
 - added support for Swift 4, RxSwift 4.0
