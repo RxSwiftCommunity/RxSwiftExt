@@ -18,5 +18,6 @@
         <page name='mapTo'/>
         <page name='fromAsync'/>
         <page name='and'/>
+        <page name='nwise'/>
     </pages>
 </playground>
