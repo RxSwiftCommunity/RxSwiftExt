@@ -14,10 +14,10 @@ import RxSwiftExt
 /*:
  ## nwise
 
- The `nwise` operator groups elements emitted by an Observable into arrays, where each array consists of the last N consecutive items; similar to a sliding window.
+ The `nwise` operator groups elements emitted by an Observable into arrays, where each array consists of N consecutive items; similar to a sliding window.
  */
 
-example("Grouping numbers into threes") {
+example("Grouping numbers into triples") {
     let input = [1, 2, 3, 4, 5, 6]
 
     print("Input:", input)
@@ -33,8 +33,7 @@ example("Grouping numbers into threes") {
 /*:
  ## pairwise
 
- The `pairwise` operator is a special case of `nwise` with the size of 2, which emits the last and previous items in tuples instead of arrays.
-
+ The `pairwise` operator is a special case of `nwise` with the size of 2, which emits the previous and current items in tuples instead of arrays.
  */
 
 example("Grouping numbers into pairs") {

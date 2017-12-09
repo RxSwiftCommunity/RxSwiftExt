@@ -13,9 +13,9 @@ extension ObservableType {
      Groups the elements of the source observable into arrays of N consecutive elements.
 
      The resulting observable:
-     - does not emit anything until the source emits at least N elements;
+     - does not emit anything until the source observable emits at least N elements;
      - emits an array for every element after that;
-     - and forwards any error or completed event.
+     - forwards any error or completed events.
 
      For example:
 
@@ -25,27 +25,22 @@ extension ObservableType {
            v
           ------------([1,2,3])-([2,3,4])-([3,4,5])->
 
-     Caveat: n = 0 causes the operator to collapse into: `.map { _ in [] }`.
-
-     - parameter n: size of the groups
+     - parameter n: size of the groups, must be greater than 1
     */
-    public func nwise(_ n: UInt) -> Observable<[E]> {
+    public func nwise(_ n: Int) -> Observable<[E]> {
+        assert(n > 1, "n must be greater than 1")
         return self
-            .scan([]) { acc, item in
-                // UInt->Int conversion is used to enforce a non-negative parameter at build time.
-                // Supplying a negative number to nwise would cause a fatal error at runtime.
-                Array((acc + [item]).suffix(Int(n)))
-            }
+            .scan([]) { acc, item in Array((acc + [item]).suffix(n)) }
             .filter { $0.count == n }
     }
 
     /**
-     Groups the elements of the source observable into tuples of the last and the previous elements.
+     Groups the elements of the source observable into tuples of the previous and current elements.
 
      The resulting observable:
-     - does not emit anything until the source emits at least 2 elements;
-     - emits a tuple for every element after that;
-     - and forwards any error or completed event.
+     - does not emit anything until the source observable emits at least 2 elements;
+     - emits a tuple for every element after that, consisting of the previous and the current item;
+     - forwards any error or completed events.
 
      For example:
 

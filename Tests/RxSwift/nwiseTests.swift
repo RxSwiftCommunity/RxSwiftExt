@@ -84,35 +84,6 @@ class nwiseTests: XCTestCase {
         XCTAssertEqual(observer.events, correct)
     }
 
-    func testNwiseWithZero() throws {
-        let values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-        let scheduler = TestScheduler(initialClock: 0)
-        let observer = scheduler.createObserver(EquatableArray<Int>.self)
-
-        _ = Observable.from(values)
-            .nwise(0)
-            .map(EquatableArray.init)
-            .subscribe(observer)
-
-        scheduler.start()
-
-        let correct: [Recorded<Event<EquatableArray<Int>>>] = [
-            next(0, EquatableArray([])),
-            next(0, EquatableArray([])),
-            next(0, EquatableArray([])),
-            next(0, EquatableArray([])),
-            next(0, EquatableArray([])),
-            next(0, EquatableArray([])),
-            next(0, EquatableArray([])),
-            next(0, EquatableArray([])),
-            next(0, EquatableArray([])),
-            next(0, EquatableArray([])),
-            completed(0)
-        ]
-
-        XCTAssertEqual(observer.events, correct)
-    }
-
     func testPairwise() throws {
         let values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         let scheduler = TestScheduler(initialClock: 0)
