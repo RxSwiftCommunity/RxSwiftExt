@@ -133,6 +133,12 @@
 		BF515CE91F3F3B0100492640 /* fromAsync.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF515CE11F3F371600492640 /* fromAsync.swift */; };
 		BF515CEA1F3F3B0300492640 /* curry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF515CDF1F3F370600492640 /* curry.swift */; };
 		BF515CEB1F3F3B0300492640 /* curry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF515CDF1F3F370600492640 /* curry.swift */; };
+		D7C72A3E1FDC5C5D00EAAAAB /* nwiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C72A3D1FDC5C5D00EAAAAB /* nwiseTests.swift */; };
+		D7C72A3F1FDC5C5D00EAAAAB /* nwiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C72A3D1FDC5C5D00EAAAAB /* nwiseTests.swift */; };
+		D7C72A401FDC5C5D00EAAAAB /* nwiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C72A3D1FDC5C5D00EAAAAB /* nwiseTests.swift */; };
+		D7C72A421FDC5D8F00EAAAAB /* nwise.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C72A411FDC5D8F00EAAAAB /* nwise.swift */; };
+		D7C72A431FDC5D8F00EAAAAB /* nwise.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C72A411FDC5D8F00EAAAAB /* nwise.swift */; };
+		D7C72A441FDC5D8F00EAAAAB /* nwise.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C72A411FDC5D8F00EAAAAB /* nwise.swift */; };
 		E36BDFBB1F387571008C9D56 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E36BDFB91F387571008C9D56 /* RxSwift.framework */; };
 		E36BDFBD1F387610008C9D56 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E36BDFB91F387571008C9D56 /* RxSwift.framework */; };
 		E36BDFBE1F387615008C9D56 /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E36BDFBA1F387571008C9D56 /* RxTest.framework */; };
@@ -274,6 +280,8 @@
 		BF515CDF1F3F370600492640 /* curry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = curry.swift; path = Source/Tools/curry.swift; sourceTree = SOURCE_ROOT; };
 		BF515CE11F3F371600492640 /* fromAsync.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = fromAsync.swift; path = Source/RxSwift/fromAsync.swift; sourceTree = SOURCE_ROOT; };
 		BF515CE31F3F3AC900492640 /* fromAsyncTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fromAsyncTests.swift; sourceTree = "<group>"; };
+		D7C72A3D1FDC5C5D00EAAAAB /* nwiseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = nwiseTests.swift; sourceTree = "<group>"; };
+		D7C72A411FDC5D8F00EAAAAB /* nwise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = nwise.swift; path = Source/RxSwift/nwise.swift; sourceTree = SOURCE_ROOT; };
 		E36BDFB91F387571008C9D56 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/tvOS/RxSwift.framework; sourceTree = "<group>"; };
 		E36BDFBA1F387571008C9D56 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/tvOS/RxTest.framework; sourceTree = "<group>"; };
 		E39C41D01F18AF84007F2ACD /* RxSwiftExt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxSwiftExt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -421,6 +429,7 @@
 				538607A11E6F334B000361DE /* mapTo.swift */,
 				66C663051EA0ECD9005245C4 /* materialized+elements.swift */,
 				538607A31E6F334B000361DE /* not.swift */,
+				D7C72A411FDC5D8F00EAAAAB /* nwise.swift */,
 				538607A41E6F334B000361DE /* ObservableType+Weak.swift */,
 				538607A51E6F334B000361DE /* once.swift */,
 				538607A61E6F334B000361DE /* pausable.swift */,
@@ -440,22 +449,23 @@
 				538607BC1E6F367A000361DE /* cascadeTests.swift */,
 				538607BD1E6F367A000361DE /* catchErrorJustCompleteTests.swift */,
 				538607BE1E6F367A000361DE /* DistinctTests.swift */,
+				98309EB21EDF161700BD07D9 /* filterMapTests.swift */,
+				BF515CE31F3F3AC900492640 /* fromAsyncTests.swift */,
 				538607BF1E6F367A000361DE /* ignoreErrorsTests.swift */,
 				538607C01E6F367A000361DE /* IgnoreTests.swift */,
 				538607C11E6F367A000361DE /* ignoreWhenTests.swift */,
 				538607C21E6F367A000361DE /* mapToTests.swift */,
 				6662395D1E9E0950009BB134 /* materialized+elementsTests.swift */,
 				538607C41E6F367A000361DE /* notTests.swift */,
+				D7C72A3D1FDC5C5D00EAAAAB /* nwiseTests.swift */,
 				538607C51E6F367A000361DE /* OnceTests.swift */,
-				538607C61E6F367A000361DE /* pausableTests.swift */,
 				5A1DDEB81ED58D2800F2E4B1 /* pausableBufferedTests.swift */,
+				538607C61E6F367A000361DE /* pausableTests.swift */,
 				538607C71E6F367A000361DE /* repeatWithBehaviorTests.swift */,
 				538607C81E6F367A000361DE /* retryWithBehaviorTests.swift */,
 				538607C91E6F367A000361DE /* UnwrapTests.swift */,
 				538607CA1E6F367A000361DE /* WeakTarget.swift */,
 				538607CB1E6F367A000361DE /* WeakTests.swift */,
-				98309EB21EDF161700BD07D9 /* filterMapTests.swift */,
-				BF515CE31F3F3AC900492640 /* fromAsyncTests.swift */,
 			);
 			name = RxSwift;
 			path = Tests/RxSwift;
@@ -844,6 +854,7 @@
 				3DBDE5FC1FBBAE3A00DF47F9 /* and.swift in Sources */,
 				538607B31E6F334B000361DE /* not.swift in Sources */,
 				538607AD1E6F334B000361DE /* distinct.swift in Sources */,
+				D7C72A421FDC5D8F00EAAAAB /* nwise.swift in Sources */,
 				538607B61E6F334B000361DE /* pausable.swift in Sources */,
 				98309EAF1EDF14AC00BD07D9 /* flatMapSync.swift in Sources */,
 				98309EB11EDF159500BD07D9 /* filterMap.swift in Sources */,
@@ -869,6 +880,7 @@
 				538607E81E6F36A9000361DE /* notTests.swift in Sources */,
 				BF515CE51F3F3AF400492640 /* fromAsyncTests.swift in Sources */,
 				538607EB1E6F36A9000361DE /* retryWithBehaviorTests.swift in Sources */,
+				D7C72A3E1FDC5C5D00EAAAAB /* nwiseTests.swift in Sources */,
 				538607E21E6F36A9000361DE /* DistinctTests.swift in Sources */,
 				538607EA1E6F36A9000361DE /* pausableTests.swift in Sources */,
 				538607E91E6F36A9000361DE /* OnceTests.swift in Sources */,
@@ -907,6 +919,7 @@
 				3D11958B1FCAD9AE0095134B /* and.swift in Sources */,
 				62512C781F0EAF950083A89F /* repeatWithBehavior.swift in Sources */,
 				62512C731F0EAF950083A89F /* not.swift in Sources */,
+				D7C72A431FDC5D8F00EAAAAB /* nwise.swift in Sources */,
 				62512C6D1F0EAF950083A89F /* distinct.swift in Sources */,
 				62512C7C1F0EAF950083A89F /* filterMap.swift in Sources */,
 				62512C7B1F0EAF950083A89F /* flatMapSync.swift in Sources */,
@@ -932,6 +945,7 @@
 				62512C961F0EB1850083A89F /* ignoreErrorsTests.swift in Sources */,
 				BF515CE61F3F3AF500492640 /* fromAsyncTests.swift in Sources */,
 				62512CA41F0EB1850083A89F /* filterMapTests.swift in Sources */,
+				D7C72A3F1FDC5C5D00EAAAAB /* nwiseTests.swift in Sources */,
 				62512C8F1F0EB17A0083A89F /* distinct+RxCocoa.swift in Sources */,
 				62512C951F0EB1850083A89F /* DistinctTests.swift in Sources */,
 				62512CA11F0EB1850083A89F /* UnwrapTests.swift in Sources */,
@@ -970,6 +984,7 @@
 				3D11958C1FCAD9AF0095134B /* and.swift in Sources */,
 				E39C41E91F18B08A007F2ACD /* repeatWithBehavior.swift in Sources */,
 				E39C41E41F18B08A007F2ACD /* not.swift in Sources */,
+				D7C72A441FDC5D8F00EAAAAB /* nwise.swift in Sources */,
 				E39C41DE1F18B08A007F2ACD /* distinct.swift in Sources */,
 				E39C41ED1F18B08A007F2ACD /* filterMap.swift in Sources */,
 				E39C41EC1F18B08A007F2ACD /* flatMapSync.swift in Sources */,
@@ -995,6 +1010,7 @@
 				E39C42121F18B13E007F2ACD /* filterMapTests.swift in Sources */,
 				BF515CE71F3F3AF500492640 /* fromAsyncTests.swift in Sources */,
 				E39C41FF1F18B13A007F2ACD /* notTests+RxCocoa.swift in Sources */,
+				D7C72A401FDC5C5D00EAAAAB /* nwiseTests.swift in Sources */,
 				E39C42011F18B13E007F2ACD /* cascadeTests.swift in Sources */,
 				E39C42101F18B13E007F2ACD /* WeakTarget.swift in Sources */,
 				E39C42031F18B13E007F2ACD /* DistinctTests.swift in Sources */,
