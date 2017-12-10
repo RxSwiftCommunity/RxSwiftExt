@@ -3,6 +3,7 @@ Changelog
 
 3.1.0
 -----
+- added `pairwise()` and `nwise(_:)` operators
 - added `and()` operators
 - added support for compiling in an iOS App Extension
 
