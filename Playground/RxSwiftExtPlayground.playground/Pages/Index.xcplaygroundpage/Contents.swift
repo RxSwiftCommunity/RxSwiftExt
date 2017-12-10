@@ -32,6 +32,7 @@
  - [distinct()](distinct) operator, suppress duplicate items emitted by an Observable
  - [retry()](retryWithBehavior) operator, retry on error with various delay / predicate options
  - [repeatWithBehavior()](repeatWithBehavior) operator, repeat on completion with various delay / predicate options
+ - [nwise(), pairwise()](nwise) operators, which group the items emitted by an Observable into arrays of N or pairs of consecutive items
  - [catchErrorJustComplete()](catchErrorJustComplete) ignore any error and complete the sequence instead
  - [pausable()](pausable) operator, pauses emission of elements unless the most recent element from the provided sequence is `true`
  - [pausableBuffered()](pausableBuffered) operator, pauses emission of elements unless the most recent element from the provided sequence is `true`; buffers elements that arrive while paused; emits buffered elements on resume.
