@@ -14,6 +14,11 @@ public typealias RepeatPredicate = () -> Bool
  Uses RepeatBehavior defined in retryWithBehavior
 */
 
+/** Dummy error to use with catchError to restart the observable */
+private enum RepeatError: Error {
+    case catchable
+}
+
 extension ObservableType {
 
     /**
@@ -35,31 +40,48 @@ extension ObservableType {
 	- parameter shouldRepeat: Custom optional closure for decided whether the observable should repeat another round
 	- returns: Observable sequence that will be automatically repeat when it completes
 	*/
-	internal func repeatWithBehavior(_ defaultRepeat: UInt, behavior: RepeatBehavior, scheduler : SchedulerType = MainScheduler.instance, shouldRepeat : RepeatPredicate? = nil)
+	internal func repeatWithBehavior(_ currentRepeat: UInt, behavior: RepeatBehavior, scheduler : SchedulerType = MainScheduler.instance, shouldRepeat : RepeatPredicate? = nil)
 		-> Observable<E> {
-            let repeatObserver = PublishSubject<UInt>()
-            return repeatObserver.startWith(defaultRepeat)
-                .flatMapLatest { currentRepeat -> Observable<E> in
-                    // calculate conditions for bahavior
-                    let conditions = behavior.calculateConditions(currentRepeat)
-                    
-                    //repeat
-                    guard conditions.maxCount > currentRepeat else { return Observable.empty() }
-                    
-                    if let shouldRepeat = shouldRepeat , !shouldRepeat() {
-                        // also return error if predicate says so
-                        return Observable.empty()
-                    }
-                    var observable: Observable<E> = self.asObservable() // if there is no delay, simply retry
-                    if conditions.delay > 0.0 && currentRepeat > defaultRepeat {
-                        // otherwise retry after specified delay
-                        observable = observable.delaySubscription(conditions.delay, scheduler: scheduler)
-                    }
-                    return observable.do(onCompleted: {
-                        DispatchQueue.main.async {
-                            repeatObserver.onNext(currentRepeat + 1)
+            return Observable.create { observer in
+                let defaultRepeat: UInt = 0
+                let repeatObserver = BehaviorSubject<UInt>(value: currentRepeat)
+                let observable = repeatObserver
+                    .flatMapLatest { currentRepeat -> Observable<(UInt, Event<E>)> in
+                        var observable: Observable<E> = self.asObservable() // if there is no delay, simply retry
+
+                        if currentRepeat != defaultRepeat {
+                            // calculate conditions for bahavior
+                            let conditions = behavior.calculateConditions(currentRepeat)
+                            
+                            //repeat
+                            guard conditions.maxCount > currentRepeat else { return Observable.error(RepeatError.catchable) }
+                            
+                            if let shouldRepeat = shouldRepeat , !shouldRepeat() {
+                                // also return error if predicate says so
+                                return Observable.error(RepeatError.catchable)
+                            }
+                            if conditions.delay > 0.0 {
+                                // otherwise retry after specified delay
+                                observable = observable.delaySubscription(conditions.delay, scheduler: scheduler)
+                            }
                         }
-                    })
+                        return observable.materialize().map { (currentRepeat, $0) }
                 }
+                return observable.subscribe { event in
+                    switch event {
+                    case .next(let result):
+                        switch result.1 {
+                        case .completed:
+                            repeatObserver.onNext(result.0 + 1) // repeat on completed
+                        default:
+                            observer.on(result.1) // send event
+                        }
+                    case .error:
+                        return observer.onCompleted() // complete
+                    default:
+                        break
+                    }
+                }
+            }
 	}
 }

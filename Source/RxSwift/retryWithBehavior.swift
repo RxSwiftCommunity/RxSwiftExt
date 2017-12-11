@@ -73,37 +73,48 @@ extension ObservableType {
 	- returns: Observable sequence that will be automatically repeat if error occurred
 	*/
     
-    internal func retry(_ defaultAttempt: UInt, behavior: RepeatBehavior, scheduler: SchedulerType = MainScheduler.instance, shouldRetry: RetryPredicate? = nil)
+    internal func retry(_ currentAttempt: UInt, behavior: RepeatBehavior, scheduler: SchedulerType = MainScheduler.instance, shouldRetry: RetryPredicate? = nil)
         -> Observable<E> {
-            let repeatObserver = PublishSubject<(attempt: UInt, error: Error?)>()
-            return repeatObserver.startWith((defaultAttempt, nil))
-                .flatMapLatest { currentAttempt, error -> Observable<(E?, Error?)> in
-                    var observable: Observable<E> = self.asObservable() // if there is no delay, simply retry
-                    if let error = error {
-                        // calculate conditions for bahavior
-                        let conditions = behavior.calculateConditions(currentAttempt)
-                        
-                        // return error if exceeds maximum amount of retries
-                        guard conditions.maxCount > currentAttempt else { return Observable.error(error) }
-                        
-                        if let shouldRetry = shouldRetry , !shouldRetry(error) {
-                            // also return error if predicate says so
-                            return Observable.error(error)
-                        }
-                        
-                        if conditions.delay > 0.0 && currentAttempt > defaultAttempt {
-                            // otherwise retry after specified delay
-                            observable = observable.delaySubscription(conditions.delay, scheduler: scheduler)
-                        }
-                    }
-                    return observable
-                        .map { ($0, nil) }
-                        .do(onError: { error in
-                            DispatchQueue.main.async {
-                                repeatObserver.onNext((currentAttempt + 1, error))
+            return Observable.create { observer in
+                let defaultAttempt: UInt = 0
+                let repeatObserver = BehaviorSubject<(attempt: UInt, error: Error?)>(value: (currentAttempt, nil))
+                let observable = repeatObserver
+                    .flatMapLatest { currentAttempt, error -> Observable<(UInt, Event<E>)> in
+                        var observable: Observable<E> = self.asObservable() // if there is no delay, simply retry
+                        if let error = error, currentAttempt != defaultAttempt {
+                            // calculate conditions for bahavior
+                            let conditions = behavior.calculateConditions(currentAttempt)
+                            
+                            // return error if exceeds maximum amount of retries
+                            guard conditions.maxCount > currentAttempt else { return Observable.error(error) }
+                            
+                            if let shouldRetry = shouldRetry , !shouldRetry(error) {
+                                // also return error if predicate says so
+                                return Observable.error(error)
                             }
-                        }).catchError { _ in .never() }
-                }.map { $0.0 }
-                .unwrap()
+                            
+                            if conditions.delay > 0.0 {
+                                // otherwise retry after specified delay
+                                observable = observable.delaySubscription(conditions.delay, scheduler: scheduler)
+                            }
+                        }
+                        return observable.materialize().map { (currentAttempt, $0) }
+                }
+                return observable.subscribe { event in
+                    switch event {
+                    case .next(let result):
+                        switch result.1 {
+                        case .error(let error):
+                            repeatObserver.onNext((result.0 + 1, error)) // retry
+                        default:
+                            observer.on(result.1) // send event
+                        }
+                    case .error(let error):
+                        return observer.onError(error) // return error
+                    default:
+                        break
+                    }
+                }
+            }
     }
 }
