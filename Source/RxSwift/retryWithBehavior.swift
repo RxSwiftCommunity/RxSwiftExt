@@ -61,7 +61,7 @@ extension ObservableType {
 	*/
 	
 	public func retry(_ behavior: RepeatBehavior, scheduler: SchedulerType = MainScheduler.instance, shouldRetry: RetryPredicate? = nil) -> Observable<E> {
-		return retry(1, behavior: behavior, scheduler: scheduler, shouldRetry: shouldRetry)
+		return retry(0, behavior: behavior, scheduler: scheduler, shouldRetry: shouldRetry)
 	}
 	
 	/**
@@ -72,32 +72,38 @@ extension ObservableType {
 	- parameter shouldRetry: Custom optional closure for checking error (if returns true, repeat will be performed)
 	- returns: Observable sequence that will be automatically repeat if error occurred
 	*/
-	
-	internal func retry(_ currentAttempt: UInt, behavior: RepeatBehavior, scheduler: SchedulerType = MainScheduler.instance, shouldRetry: RetryPredicate? = nil)
-		-> Observable<E> {
-			guard currentAttempt > 0 else { return Observable.empty() }
-			
-			// calculate conditions for bahavior
-			let conditions = behavior.calculateConditions(currentAttempt)
-			
-			return catchError { error -> Observable<E> in
-				// return error if exceeds maximum amount of retries
-				guard conditions.maxCount > currentAttempt else { return Observable.error(error) }
-				
-				if let shouldRetry = shouldRetry, !shouldRetry(error) {
-					// also return error if predicate says so
-					return Observable.error(error)
-				}
-
-				guard conditions.delay > 0.0 else {
-					// if there is no delay, simply retry
-					return self.retry(currentAttempt + 1, behavior: behavior, scheduler: scheduler, shouldRetry: shouldRetry)
-				}
-				
-				// otherwise retry after specified delay
-				return Observable<Void>.just(()).delaySubscription(conditions.delay, scheduler: scheduler).flatMapLatest {
-					self.retry(currentAttempt + 1, behavior: behavior, scheduler: scheduler, shouldRetry: shouldRetry)
-				}
-			}
-	}
+    
+    internal func retry(_ defaultAttempt: UInt, behavior: RepeatBehavior, scheduler: SchedulerType = MainScheduler.instance, shouldRetry: RetryPredicate? = nil)
+        -> Observable<E> {
+            let repeatObserver = PublishSubject<(attempt: UInt, error: Error?)>()
+            return repeatObserver.startWith((defaultAttempt, nil))
+                .flatMapLatest { currentAttempt, error -> Observable<(E?, Error?)> in
+                    var observable: Observable<E> = self.asObservable() // if there is no delay, simply retry
+                    if let error = error {
+                        // calculate conditions for bahavior
+                        let conditions = behavior.calculateConditions(currentAttempt)
+                        
+                        // return error if exceeds maximum amount of retries
+                        guard conditions.maxCount > currentAttempt else { return Observable.error(error) }
+                        
+                        if let shouldRetry = shouldRetry , !shouldRetry(error) {
+                            // also return error if predicate says so
+                            return Observable.error(error)
+                        }
+                        
+                        if conditions.delay > 0.0 && currentAttempt > defaultAttempt {
+                            // otherwise retry after specified delay
+                            observable = observable.delaySubscription(conditions.delay, scheduler: scheduler)
+                        }
+                    }
+                    return observable
+                        .map { ($0, nil) }
+                        .do(onError: { error in
+                            DispatchQueue.main.async {
+                                repeatObserver.onNext((currentAttempt + 1, error))
+                            }
+                        }).catchError { _ in .never() }
+                }.map { $0.0 }
+                .unwrap()
+    }
 }

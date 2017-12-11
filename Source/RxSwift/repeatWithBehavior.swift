@@ -14,11 +14,6 @@ public typealias RepeatPredicate = () -> Bool
  Uses RepeatBehavior defined in retryWithBehavior
 */
 
-/** Dummy error to use with catchError to restart the observable */
-private enum RepeatError: Error {
-    case catchable
-}
-
 extension ObservableType {
 
     /**
@@ -29,7 +24,7 @@ extension ObservableType {
 	- returns: Observable sequence that will be automatically repeat when it completes
 	*/
 	public func repeatWithBehavior(_ behavior: RepeatBehavior, scheduler : SchedulerType = MainScheduler.instance, shouldRepeat : RepeatPredicate? = nil) -> Observable<E> {
-		return repeatWithBehavior(1, behavior: behavior, scheduler: scheduler, shouldRepeat: shouldRepeat)
+		return repeatWithBehavior(0, behavior: behavior, scheduler: scheduler, shouldRepeat: shouldRepeat)
 	}
 	
 	/**
@@ -40,37 +35,31 @@ extension ObservableType {
 	- parameter shouldRepeat: Custom optional closure for decided whether the observable should repeat another round
 	- returns: Observable sequence that will be automatically repeat when it completes
 	*/
-	internal func repeatWithBehavior(_ currentRepeat: UInt, behavior: RepeatBehavior, scheduler : SchedulerType = MainScheduler.instance, shouldRepeat : RepeatPredicate? = nil)
+	internal func repeatWithBehavior(_ defaultRepeat: UInt, behavior: RepeatBehavior, scheduler : SchedulerType = MainScheduler.instance, shouldRepeat : RepeatPredicate? = nil)
 		-> Observable<E> {
-			guard currentRepeat > 0 else { return Observable.empty() }
-			
-			// calculate conditions for bahavior
-			let conditions = behavior.calculateConditions(currentRepeat)
-
-            return concat(Observable.error(RepeatError.catchable))
-                .catchError {error in
-                    //if observable errors, forward the error
-                    guard error is RepeatError else {
-                        return Observable.error(error)
-                    }
-
+            let repeatObserver = PublishSubject<UInt>()
+            return repeatObserver.startWith(defaultRepeat)
+                .flatMapLatest { currentRepeat -> Observable<E> in
+                    // calculate conditions for bahavior
+                    let conditions = behavior.calculateConditions(currentRepeat)
+                    
                     //repeat
                     guard conditions.maxCount > currentRepeat else { return Observable.empty() }
-
+                    
                     if let shouldRepeat = shouldRepeat , !shouldRepeat() {
                         // also return error if predicate says so
                         return Observable.empty()
                     }
-
-                    guard conditions.delay > 0.0 else {
-                        // if there is no delay, simply retry
-                        return self.repeatWithBehavior(currentRepeat + 1, behavior: behavior, scheduler: scheduler, shouldRepeat: shouldRepeat)
+                    var observable: Observable<E> = self.asObservable() // if there is no delay, simply retry
+                    if conditions.delay > 0.0 && currentRepeat > defaultRepeat {
+                        // otherwise retry after specified delay
+                        observable = observable.delaySubscription(conditions.delay, scheduler: scheduler)
                     }
-
-                    // otherwise retry after specified delay
-                    return Observable<Void>.just(()).delaySubscription(conditions.delay, scheduler: scheduler).flatMapLatest {
-                        self.repeatWithBehavior(currentRepeat + 1, behavior: behavior, scheduler: scheduler, shouldRepeat: shouldRepeat)
-                    }
+                    return observable.do(onCompleted: {
+                        DispatchQueue.main.async {
+                            repeatObserver.onNext(currentRepeat + 1)
+                        }
+                    })
                 }
 	}
 }
