@@ -12,6 +12,7 @@ import RxSwift
 import RxSwiftExt
 import RxTest
 
+// swiftlint:disable:next type_name
 class nwiseTests: XCTestCase {
     func testNwiseEmitsGroups() {
         let values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -173,6 +174,6 @@ private struct EquatableArray<Element: Equatable> : Equatable {
     }
 }
 
-private func ==<E>(lhs: EquatableArray<E>, rhs: EquatableArray<E>) -> Bool {
+private func == <E>(lhs: EquatableArray<E>, rhs: EquatableArray<E>) -> Bool {
     return lhs.elements == rhs.elements
 }

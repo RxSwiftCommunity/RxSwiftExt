@@ -11,7 +11,7 @@ import RxTest
 import RxSwift
 import RxSwiftExt
 
-final class materializedElementsTests: XCTestCase {
+final class MaterializedElementsTests: XCTestCase {
 	private var testScheduler: TestScheduler!
 	private var eventObservable: Observable<Event<Int>>!
 	private let dummyError = NSError(domain: "dummy", code: -102)

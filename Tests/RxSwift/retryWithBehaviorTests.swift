@@ -11,7 +11,7 @@ import RxSwift
 import RxSwiftExt
 import RxTest
 
-private enum RepeatTestErrors : Error {
+private enum RepeatTestErrors: Error {
 	case fatalError
 }
 
@@ -20,7 +20,7 @@ class RetryWithBehaviorTests: XCTestCase {
     var sampleValuesImmediateError: TestableObservable<Int>!
     var sampleValuesNeverError: TestableObservable<Int>!
 	let scheduler = TestScheduler(initialClock: 0)
-	
+
 	override func setUp() {
 		super.setUp()
 
@@ -34,11 +34,11 @@ class RetryWithBehaviorTests: XCTestCase {
 			next(270, 6),
 			completed(300)
 			])
-     
+
         sampleValuesImmediateError = scheduler.createColdObservable([
-            error(230, RepeatTestErrors.fatalError),
+            error(230, RepeatTestErrors.fatalError)
             ])
-        
+
         sampleValuesNeverError = scheduler.createColdObservable([
             next(210, 1),
             next(220, 2),
@@ -49,12 +49,7 @@ class RetryWithBehaviorTests: XCTestCase {
             completed(300)
             ])
 	}
-	
-	override func tearDown() {
-		// Put teardown code here. This method is called after the invocation of each test method in the class.
-		super.tearDown()
-	}
-	
+
 	func testImmediateRetryWithoutPredicate() {
 		let correctValues = [
 			next(210, 1),
@@ -64,23 +59,23 @@ class RetryWithBehaviorTests: XCTestCase {
 			next(670, 1),
 			next(680, 2),
 			error(690, RepeatTestErrors.fatalError)]
-		
+
         let res = scheduler.start(created: 0, subscribed: 0, disposed: 1000) {
 			self.sampleValues.asObservable().retry(.immediate(maxCount: 3), scheduler: self.scheduler)
 		}
-		
+
 		XCTAssertEqual(res.events, correctValues)
 	}
-	
+
     func testImmediateRetryWithoutPredicate_ImmediateError() {
-        let correctValues : [Recorded<Event<Int>>] = [
+        let correctValues: [Recorded<Event<Int>>] = [
             error(690, RepeatTestErrors.fatalError)
         ]
-        
+
         let res = scheduler.start(created: 0, subscribed: 0, disposed: 1000) {
             self.sampleValuesImmediateError.asObservable().retry(.immediate(maxCount: 3), scheduler: self.scheduler)
         }
-        
+
         XCTAssertEqual(res.events, correctValues)
     }
 
@@ -94,11 +89,11 @@ class RetryWithBehaviorTests: XCTestCase {
             next(270, 6),
             completed(300)
         ]
-        
+
         let res = scheduler.start(created: 0, subscribed: 0, disposed: 1000) {
             self.sampleValuesNeverError.asObservable().retry(.immediate(maxCount: 3), scheduler: self.scheduler)
         }
-        
+
         XCTAssertEqual(res.events, correctValues)
     }
 
@@ -111,14 +106,14 @@ class RetryWithBehaviorTests: XCTestCase {
 			next(670, 1),
 			next(680, 2),
 			error(690, RepeatTestErrors.fatalError)]
-		
+
 		// provide simple predicate that always return true
 		let res = scheduler.start(created: 0, subscribed: 0, disposed: 1000) {
 			self.sampleValues.asObservable().retry(.immediate(maxCount: 3), scheduler: self.scheduler) { _ in
 				true
 			}
 		}
-		
+
 		XCTAssertEqual(res.events, correctValues)
 	}
 
@@ -129,8 +124,8 @@ class RetryWithBehaviorTests: XCTestCase {
             next(440, 1),
             next(450, 2),
             error(460, RepeatTestErrors.fatalError)]
-        
-        // provide simple predicate that always return true
+
+        // provide simple predicate that always returns true
         var attempts = 0
         let res = scheduler.start(created: 0, subscribed: 0, disposed: 1000) {
             self.sampleValues.asObservable().retry(.immediate(maxCount: 3), scheduler: self.scheduler) { _ in
@@ -138,7 +133,7 @@ class RetryWithBehaviorTests: XCTestCase {
                 return attempts == 1
             }
         }
-        
+
         XCTAssertEqual(res.events, correctValues)
     }
 
@@ -147,17 +142,17 @@ class RetryWithBehaviorTests: XCTestCase {
 			next(210, 1),
 			next(220, 2),
 			error(230, RepeatTestErrors.fatalError)]
-		
+
 		// provide simple predicate that always return false (so, sequence will not repeated)
 		let res = scheduler.start(created: 0, subscribed: 0, disposed: 1000) {
 			self.sampleValues.asObservable().retry(.immediate(maxCount: 3), scheduler: self.scheduler) { _ in
 				false
 			}
 		}
-		
+
 		XCTAssertEqual(res.events, correctValues)
 	}
-	
+
 	func testDelayedRetryWithoutPredicate() {
 		let correctValues = [
 			next(210, 1),
@@ -167,11 +162,11 @@ class RetryWithBehaviorTests: XCTestCase {
 			next(680, 1),
 			next(690, 2),
 			error(700, RepeatTestErrors.fatalError)]
-		
+
 		let res = scheduler.start(created: 0, subscribed: 0, disposed: 1000) {
 			self.sampleValues.asObservable().retry(.delayed(maxCount: 3, time: 5.0), scheduler: self.scheduler)
 		}
-		
+
 		XCTAssertEqual(res.events, correctValues)
 	}
 
@@ -184,31 +179,31 @@ class RetryWithBehaviorTests: XCTestCase {
 			next(680, 1),
 			next(690, 2),
 			error(700, RepeatTestErrors.fatalError)]
-		
+
 		let res = scheduler.start(created: 0, subscribed: 0, disposed: 1000) {
 			self.sampleValues.asObservable().retry(.delayed(maxCount: 3, time: 5.0), scheduler: self.scheduler) { _ in
 				true
 			}
 		}
-		
+
 		XCTAssertEqual(res.events, correctValues)
 	}
-	
+
 	func testDelayedNotRetryWithPredicate() {
 		let correctValues = [
 			next(210, 1),
 			next(220, 2),
 			error(230, RepeatTestErrors.fatalError)]
-		
+
 		let res = scheduler.start(created: 0, subscribed: 0, disposed: 1000) {
 			self.sampleValues.asObservable().retry(.delayed(maxCount: 3, time: 5.0), scheduler: self.scheduler) { _ in
 				false
 			}
 		}
-		
+
 		XCTAssertEqual(res.events, correctValues)
 	}
-	
+
 	func testExponentialRetryWithoutPredicate() {
 		let correctValues = [
 			next(210, 1),
@@ -220,14 +215,14 @@ class RetryWithBehaviorTests: XCTestCase {
 			next(935, 1),
 			next(945, 2),
 			error(955, RepeatTestErrors.fatalError)]
-		
+
 		let res = scheduler.start(created: 0, subscribed: 0, disposed: 1000) {
 			self.sampleValues.asObservable().retry(.exponentialDelayed(maxCount: 4, initial: 5.0, multiplier: 1.0), scheduler: self.scheduler)
 		}
-		
+
 		XCTAssertEqual(res.events, correctValues)
 	}
-	
+
 	func testExponentialRetryWithPredicate() {
 		let correctValues = [
 			next(210, 1),
@@ -239,31 +234,31 @@ class RetryWithBehaviorTests: XCTestCase {
 			next(935, 1),
 			next(945, 2),
 			error(955, RepeatTestErrors.fatalError)]
-		
+
 		let res = scheduler.start(created: 0, subscribed: 0, disposed: 1000) {
 			self.sampleValues.asObservable().retry(.exponentialDelayed(maxCount: 4, initial: 5.0, multiplier: 1.0), scheduler: self.scheduler) { _ in
 				true
 			}
 		}
-		
+
 		XCTAssertEqual(res.events, correctValues)
 	}
-	
+
 	func testExponentialNotRetryWithPredicate() {
 		let correctValues = [
 			next(210, 1),
 			next(220, 2),
 			error(230, RepeatTestErrors.fatalError)]
-		
+
 		let res = scheduler.start(created: 0, subscribed: 0, disposed: 1000) {
 			self.sampleValues.asObservable().retry(.exponentialDelayed(maxCount: 4, initial: 5.0, multiplier: 1.0), scheduler: self.scheduler) { _ in
 				false
 			}
 		}
-		
+
 		XCTAssertEqual(res.events, correctValues)
 	}
-	
+
 	func testCustomTimerRetryWithoutPredicate() {
 		let correctValues = [
 			next(210, 1),
@@ -277,9 +272,9 @@ class RetryWithBehaviorTests: XCTestCase {
 			next(1300, 1),
 			next(1310, 2),
 			error(1320, RepeatTestErrors.fatalError)]
-		
+
 		// custom delay calculator
-		let customCalculator : (UInt) -> Double = { attempt in
+		let customCalculator: (UInt) -> Double = { attempt in
 			switch attempt {
 			case 1: return 10.0
 			case 2: return 30.0
@@ -291,10 +286,10 @@ class RetryWithBehaviorTests: XCTestCase {
 		let res = scheduler.start(created: 0, subscribed: 0, disposed: 2000) {
 			self.sampleValues.asObservable().retry(.customTimerDelayed(maxCount: 5, delayCalculator: customCalculator), scheduler: self.scheduler)
 		}
-		
+
 		XCTAssertEqual(res.events, correctValues)
 	}
-	
+
 	func testCustomTimerRetryWithPredicate() {
 		let correctValues = [
 			next(210, 1),
@@ -308,7 +303,7 @@ class RetryWithBehaviorTests: XCTestCase {
 			next(1300, 1),
 			next(1310, 2),
 			error(1320, RepeatTestErrors.fatalError)]
-		
+
 		// custom delay calculator
 		let customCalculator: (UInt) -> Double = { attempt in
 			switch attempt {
@@ -324,16 +319,16 @@ class RetryWithBehaviorTests: XCTestCase {
 				true
 			}
 		}
-		
+
 		XCTAssertEqual(res.events, correctValues)
 	}
-	
+
 	func testCustomTimerNotRetryWithPredicate() {
 		let correctValues = [
 			next(210, 1),
 			next(220, 2),
 			error(230, RepeatTestErrors.fatalError)]
-		
+
 		// custom delay calculator
 		let customCalculator: ((UInt) -> Double) = { attempt in
 			switch attempt {
@@ -349,7 +344,7 @@ class RetryWithBehaviorTests: XCTestCase {
 				false
 			}
 		}
-		
+
 		XCTAssertEqual(res.events, correctValues)
 	}
 }

@@ -15,7 +15,7 @@ import RxTest
 
 class MapToCocoaTests: XCTestCase {
 
-    let numbers: Array<Int?> = [1, nil, Int?(3)]
+    let numbers: [Int?] = [1, nil, Int?(3)]
     fileprivate var observer: TestableObserver<String>!
 
     override func setUp() {

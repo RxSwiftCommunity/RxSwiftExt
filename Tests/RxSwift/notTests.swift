@@ -36,4 +36,3 @@ class NotTests: XCTestCase {
         XCTAssertEqual(observer.events, correct)
     }
 }
-
