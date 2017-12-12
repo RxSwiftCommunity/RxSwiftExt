@@ -3,7 +3,7 @@
 //  RxSwiftExt
 //
 //  Created by Rafael Ferreira on 3/8/17.
-//  Copyright © 2017 RxSwiftCommunity. All rights reserved.
+//  Copyright © 2017 RxSwift Community. All rights reserved.
 //
 
 import RxCocoa

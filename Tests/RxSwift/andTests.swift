@@ -2,20 +2,19 @@
 //  andTests.swift
 //  RxSwiftExt
 //
-//  Created by Florent Pillet on 26/11/17
-//  Copyright © 2017 RxSwiftCommunity. All rights reserved.
+//  Created by Florent Pillet on 26/11/17.
+//  Copyright © 2017 RxSwift Community. All rights reserved.
 //
 
 import XCTest
 import RxSwift
 import RxTest
 
-fileprivate enum AndTestsError: Error {
+private enum AndTestsError: Error {
 	case anyError
 }
 
-class andTests: XCTestCase {
-
+class AndTests: XCTestCase {
 	fileprivate func runAndObserve(_ sequence: Maybe<Bool>) -> TestableObserver<Bool> {
 		let scheduler = TestScheduler(initialClock: 0)
 		let observer = scheduler.createObserver(Bool.self)

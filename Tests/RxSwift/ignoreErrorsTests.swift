@@ -1,6 +1,6 @@
 //
-//  ignoreErrorsTests.swift
-//  RxSwiftExtDemo
+//  IgnoreErrorsTests.swift
+//  RxSwiftExt
 //
 //  Created by Florent Pillet on 18/05/16.
 //  Copyright © 2016 RxSwift Community. All rights reserved.
@@ -51,7 +51,7 @@ class IgnoreErrorsTests: XCTestCase {
         let xs = scheduler.createColdObservable([
             next(100, 1),
             next(150, 2),
-            next(200, 3),
+            next(200, 3)
             ])
 
         let res = scheduler.start {
@@ -61,7 +61,7 @@ class IgnoreErrorsTests: XCTestCase {
         XCTAssertEqual(res.events, [
             next(300, 1),
             next(350, 2),
-            next(400, 3),
+            next(400, 3)
             ])
 
         XCTAssertEqual(xs.subscriptions, [
@@ -76,7 +76,7 @@ class IgnoreErrorsTests: XCTestCase {
             next(100, 1),
             next(150, 2),
             next(200, 3),
-            error(250, testError),
+            error(250, testError)
             ])
 
         let res = scheduler.start(disposed: 1100) {
@@ -107,7 +107,7 @@ class IgnoreErrorsTests: XCTestCase {
     func testIgnoreErrors_PredicateBasic() {
         let scheduler = TestScheduler(initialClock: 0)
         var counter = 0
-        
+
         let xs = scheduler.createColdObservable([
             next(5, 1),
             next(10, 2),
@@ -116,7 +116,7 @@ class IgnoreErrorsTests: XCTestCase {
             ])
 
         let res = scheduler.start {
-            xs.ignoreErrors { error -> Bool in
+            xs.ignoreErrors { _ -> Bool in
                 counter += 1
                 return counter < 3
             }
@@ -153,7 +153,7 @@ class IgnoreErrorsTests: XCTestCase {
             ])
 
         let res = scheduler.start(disposed: 231) {
-            xs.ignoreErrors { error -> Bool in
+            xs.ignoreErrors { _ -> Bool in
                 return true
             }
         }
@@ -163,12 +163,12 @@ class IgnoreErrorsTests: XCTestCase {
             next(210, 2),
             next(215, 3),
             next(225, 1),
-            next(230, 2),
+            next(230, 2)
             ])
 
         XCTAssertEqual(xs.subscriptions, [
             Subscription(200, 220),
-            Subscription(220, 231),
+            Subscription(220, 231)
             ])
     }
 
@@ -183,7 +183,7 @@ class IgnoreErrorsTests: XCTestCase {
             ])
 
         let res = scheduler.start {
-            xs.ignoreErrors { error -> Bool in
+            xs.ignoreErrors { _ -> Bool in
                 return true
             }
         }
@@ -196,7 +196,7 @@ class IgnoreErrorsTests: XCTestCase {
             ])
 
         XCTAssertEqual(xs.subscriptions, [
-            Subscription(200, 450),
+            Subscription(200, 450)
             ])
     }
 }

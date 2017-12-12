@@ -1,7 +1,9 @@
 //
-// Created by Adam Borek on 12.04.2017.
-// Originally created by Andy Chou on 1/5/17
-// Copyright (c) 2017 RxSwiftCommunity. All rights reserved.
+//  materialized+elements.swift
+//  RxSwiftExt
+//
+//  Created by Andy Chou on 1/5/17.
+//  Copyright © 2017 RxSwift Community. All rights reserved.
 //
 
 import Foundation

@@ -1,9 +1,9 @@
 //
-//  distinct+RxCocoa.swift
+//  DistinctTests+RxCocoa.swift
 //  RxSwiftExt
 //
 //  Created by Rafael Ferreira on 3/8/17.
-//  Copyright © 2017 RxSwiftCommunity. All rights reserved.
+//  Copyright © 2017 RxSwift Community. All rights reserved.
 //
 
 import XCTest
@@ -30,7 +30,7 @@ class DistinctCocoaTests: XCTestCase {
                 next(0, DummyHashable(id: 1, name: "SomeName")),
                 completed(0)
             ]
-            
+
             XCTAssertEqual(observer.events, correct)
         }
     }
@@ -75,7 +75,7 @@ class DistinctCocoaTests: XCTestCase {
             let correct: [Recorded<Event<DummyHashable>>] = [
                 completed(0)
             ]
-            
+
             XCTAssertEqual(observer.events, correct)
         }
     }
@@ -97,7 +97,7 @@ class DistinctCocoaTests: XCTestCase {
                 next(0, DummyEquatable(id: 1, name: "SomeName")),
                 completed(0)
             ]
-            
+
             XCTAssertEqual(observer.events, correct)
         }
     }
@@ -122,7 +122,7 @@ class DistinctCocoaTests: XCTestCase {
                 next(0, DummyEquatable(id: 2, name: "SomeName2")),
                 completed(0)
             ]
-            
+
             XCTAssertEqual(observer.events, correct)
         }
     }
@@ -141,7 +141,7 @@ class DistinctCocoaTests: XCTestCase {
             let correct: [Recorded<Event<DummyEquatable>>] = [
                 completed(0)
             ]
-            
+
             XCTAssertEqual(observer.events, correct)
         }
     }
@@ -168,7 +168,7 @@ class DistinctCocoaTests: XCTestCase {
                 next(0, DummyEquatable(id: 1, name: "SomeName1")),
                 completed(0)
             ]
-            
+
             XCTAssertEqual(observer.events, correct)
         }
     }
@@ -176,7 +176,7 @@ class DistinctCocoaTests: XCTestCase {
     func testDistinctPredicateAll() {
         let scheduler = TestScheduler(initialClock: 0, simulateProcessingDelay: false)
 
-        SharingScheduler.mock(scheduler: scheduler) { 
+        SharingScheduler.mock(scheduler: scheduler) {
             let values = [DummyEquatable(id: 1, name: "SomeName1"),
                           DummyEquatable(id: 2, name: "SomeName2"),
                           DummyEquatable(id: 3, name: "SomeName3")]
@@ -197,7 +197,7 @@ class DistinctCocoaTests: XCTestCase {
                 next(0, DummyEquatable(id: 3, name: "SomeName3")),
                 completed(0)
             ]
-            
+
             XCTAssertEqual(observer.events, correct)
         }
     }
@@ -220,7 +220,7 @@ class DistinctCocoaTests: XCTestCase {
             let correct: [Recorded<Event<DummyEquatable>>] = [
                 completed(0)
             ]
-            
+
             XCTAssertEqual(observer.events, correct)
         }
     }
@@ -228,7 +228,7 @@ class DistinctCocoaTests: XCTestCase {
     func testDistinctPredicateFirst() {
         let scheduler = TestScheduler(initialClock: 0, simulateProcessingDelay: false)
 
-        SharingScheduler.mock(scheduler: scheduler) { 
+        SharingScheduler.mock(scheduler: scheduler) {
             let values = [DummyEquatable(id: 1, name: "SomeName1"),
                           DummyEquatable(id: 2, name: "SomeName2"),
                           DummyEquatable(id: 3, name: "SomeName3")]
@@ -247,7 +247,7 @@ class DistinctCocoaTests: XCTestCase {
                 next(0, DummyEquatable(id: 1, name: "SomeName1")),
                 completed(0)
             ]
-            
+
             XCTAssertEqual(observer.events, correct)
         }
     }
@@ -255,7 +255,7 @@ class DistinctCocoaTests: XCTestCase {
     func testDistinctPredicateTwo() {
         let scheduler = TestScheduler(initialClock: 0, simulateProcessingDelay: false)
 
-        SharingScheduler.mock(scheduler: scheduler) { 
+        SharingScheduler.mock(scheduler: scheduler) {
             let values = [DummyEquatable(id: 1, name: "SomeName1"),
                           DummyEquatable(id: 2, name: "SomeName2"),
                           DummyEquatable(id: 3, name: "SomeName3")]
@@ -275,7 +275,7 @@ class DistinctCocoaTests: XCTestCase {
                 next(0, DummyEquatable(id: 2, name: "SomeName2")),
                 completed(0)
             ]
-            
+
             XCTAssertEqual(observer.events, correct)
         }
     }

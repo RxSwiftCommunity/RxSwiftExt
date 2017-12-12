@@ -1,6 +1,6 @@
 //
 //  WeakTarget.swift
-//  RxSwiftExtDemo
+//  RxSwiftExt
 //
 //  Created by Ian Keen on 17/04/2016.
 //  Copyright © 2016 RxSwift Community. All rights reserved.
@@ -16,14 +16,14 @@ enum RxEvent {
     case next, error, completed, disposed
     init<T>(event: Event<T>) {
         switch event {
-        case .next(_): self = .next
-        case .error(_): self = .error
+        case .next: self = .next
+        case .error: self = .error
         case .completed: self = .completed
         }
     }
 }
 
-var WeakTargetReferenceCount: Int = 0
+var weakTargetReferenceCount: Int = 0
 
 class WeakTarget<Type> {
     let listener: ([RxEvent: Int]) -> Void
@@ -34,22 +34,22 @@ class WeakTarget<Type> {
         self.events[event] = (self.events[event] ?? 0) + 1
         self.listener(self.events)
     }
-    
+
     init(obs: Observable<Type>, listener: @escaping ([RxEvent: Int]) -> Void) {
-        WeakTargetReferenceCount += 1
+        weakTargetReferenceCount += 1
         self.listener = listener
         self.observable = obs
     }
-    deinit { WeakTargetReferenceCount -= 1 }
-    
-    //MARK: - Subscribers
+    deinit { weakTargetReferenceCount -= 1 }
+
+    // MARK: - Subscribers
     fileprivate func subscriber_on(_ event: Event<Type>) { self.updateEvents(RxEvent(event: event)) }
     fileprivate func subscriber_onNext(_ element: Type) { self.updateEvents(.next) }
     fileprivate func subscriber_onError(_ error: Error) { self.updateEvents(.error) }
     fileprivate func subscriber_onComplete() { self.updateEvents(.completed) }
     fileprivate func subscriber_onDisposed() { self.updateEvents(.disposed) }
-    
-    //MARK: - Subscription Setup
+
+    // MARK: - Subscription Setup
     func useSubscribe() {
         self.observable.subscribe(weak: self, WeakTarget.subscriber_on).disposed(by: self.disposeBag)
     }
@@ -74,7 +74,7 @@ class WeakTarget<Type> {
             )
             .disposed(by: self.disposeBag)
     }
-    
+
     func dispose() {
         self.disposeBag = DisposeBag()
     }

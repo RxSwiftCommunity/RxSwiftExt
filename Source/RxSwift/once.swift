@@ -3,7 +3,7 @@
 //  RxSwiftExt
 //
 //  Created by Florent Pillet on 12/04/16.
-//  Copyright (c) 2016 RxSwiftCommunity https://github.com/RxSwiftCommunity
+//  Copyright © 2016 RxSwift Community. All rights reserved.
 //
 
 import Foundation
@@ -23,9 +23,9 @@ extension Observable {
 	 - parameter element: Single element in the resulting observable sequence.
 	 - returns: An observable sequence containing the single specified element delivered once.
 	*/
-	
+
 	public static func once(_ element: E) -> Observable<E> {
-		var delivered : UInt32 = 0
+		var delivered: UInt32 = 0
 		return create { observer in
 			let wasDelivered = OSAtomicOr32OrigBarrier(1, &delivered)
 			if wasDelivered == 0 {
@@ -37,4 +37,3 @@ extension Observable {
 	}
 
 }
-

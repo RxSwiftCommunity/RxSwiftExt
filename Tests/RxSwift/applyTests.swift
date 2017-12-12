@@ -3,7 +3,7 @@
 //  RxSwiftExt
 //
 //  Created by Andy Chou on 2/22/17.
-//  Copyright © 2017 RxSwiftCommunity. All rights reserved.
+//  Copyright © 2017 RxSwift Community. All rights reserved.
 //
 
 import XCTest
@@ -12,13 +12,13 @@ import RxSwift
 import RxSwiftExt
 import RxTest
 
-class applyTests: XCTestCase {
-    
+class ApplyTests: XCTestCase {
+
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-    
+
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()

@@ -1,8 +1,8 @@
 //
 //  RetryWithBehaviorTests.swift
-//  RxSwiftExtDemo
+//  RxSwiftExt
 //
-//  Created by Anton Efimenko on 17.07.16.
+//  Created by Anton Efimenko on 17/07/16.
 //  Copyright © 2016 RxSwift Community. All rights reserved.
 //
 
@@ -11,7 +11,7 @@ import RxSwift
 import RxSwiftExt
 import RxTest
 
-private enum RepeatTestErrors : Error {
+private enum RepeatTestErrors: Error {
 	case fatalError
 }
 
@@ -21,7 +21,7 @@ class RepeatWithBehaviorTests: XCTestCase {
 	let scheduler = TestScheduler(initialClock: 0)
     let predicateFalse: RepeatPredicate = { false }
     let predicateTrue: RepeatPredicate = { true }
-	
+
 	override func setUp() {
 		super.setUp()
 
@@ -30,14 +30,14 @@ class RepeatWithBehaviorTests: XCTestCase {
 			next(220, 2),
 			completed(300)
 			])
-     
+
         sampleValuesWithError = scheduler.createColdObservable([
             next(210, 1),
-            error(220, RepeatTestErrors.fatalError),
+            error(220, RepeatTestErrors.fatalError)
             ])
 	}
 
-    //MARK: correct event values
+    // MARK: - Valid events
     let immediateCorrectValues = [
         next(210, 1),
         next(220, 2),
@@ -63,12 +63,12 @@ class RepeatWithBehaviorTests: XCTestCase {
         next(828, 2),
         completed(908)]
 
-    let erroredCorrectValues : [Recorded<Event<Int>>] = [
+    let erroredCorrectValues: [Recorded<Event<Int>>] = [
         next(210, 1),
         error(220, RepeatTestErrors.fatalError)
     ]
 
-    //MARK: immediate repeats
+    // MARK: - Immediate repeats
 
 	func testImmediateRepeatWithoutPredicate() {
 		let res = scheduler.start(created: 0, subscribed: 0, disposed: 1000) {
@@ -76,7 +76,7 @@ class RepeatWithBehaviorTests: XCTestCase {
 		}
 		XCTAssertEqual(res.events, immediateCorrectValues)
 	}
-	
+
     func testImmediateRepeatWithError() {
 		let res = scheduler.start(created: 0, subscribed: 0, disposed: 1000) {
             self.sampleValuesWithError.asObservable().repeatWithBehavior(.immediate(maxCount: 3), scheduler: self.scheduler)
@@ -97,7 +97,7 @@ class RepeatWithBehaviorTests: XCTestCase {
                 .asObservable()
                 .repeatWithBehavior(.immediate(maxCount: 3), scheduler: self.scheduler, shouldRepeat: predicate)
 		}
-		
+
 		XCTAssertEqual(res.events, immediateCorrectValues)
 	}
 
@@ -106,14 +106,14 @@ class RepeatWithBehaviorTests: XCTestCase {
 			next(210, 1),
 			next(220, 2),
             completed(300)]
-		
+
 		// provide simple predicate that always return false (so, sequence will not repeated)
 		let res = scheduler.start(created: 0, subscribed: 0, disposed: 1000) {
 			self.sampleValues
                 .asObservable()
                 .repeatWithBehavior(.immediate(maxCount: 3), scheduler: self.scheduler, shouldRepeat: self.predicateFalse)
 		}
-		
+
 		XCTAssertEqual(res.events, correctValues)
 	}
 
@@ -126,7 +126,7 @@ class RepeatWithBehaviorTests: XCTestCase {
         XCTAssertEqual(res.events, erroredCorrectValues)
     }
 
-    //MARK: delayed repeats
+    // MARK: - Delayed repeats
 
 	func testDelayedRepeatWithoutPredicate() {
 		let correctValues = [
@@ -137,11 +137,11 @@ class RepeatWithBehaviorTests: XCTestCase {
 			next(812, 1),
 			next(822, 2),
 			completed(902)]
-		
+
 		let res = scheduler.start(created: 0, subscribed: 0, disposed: 1000) {
 			self.sampleValues.asObservable().repeatWithBehavior(.delayed(maxCount: 3, time: 1.0), scheduler: self.scheduler)
 		}
-		
+
 		XCTAssertEqual(res.events, correctValues)
 	}
 
@@ -160,7 +160,7 @@ class RepeatWithBehaviorTests: XCTestCase {
                 .asObservable()
                 .repeatWithBehavior(.delayed(maxCount: 3, time: 1.0), scheduler: self.scheduler, shouldRepeat: self.predicateTrue)
 		}
-		
+
 		XCTAssertEqual(res.events, correctValues)
 	}
 
@@ -174,7 +174,7 @@ class RepeatWithBehaviorTests: XCTestCase {
                 .asObservable()
                 .repeatWithBehavior(.delayed(maxCount: 3, time: 5.0), scheduler: self.scheduler, shouldRepeat: self.predicateFalse)
 		}
-		
+
 		XCTAssertEqual(res.events, correctValues)
 	}
 
@@ -187,7 +187,7 @@ class RepeatWithBehaviorTests: XCTestCase {
         XCTAssertEqual(res.events, erroredCorrectValues)
     }
 
-    //MARK: exponential delay repeats
+    // MARK: - Exponential delay repeats
 
 	func testExponentialRepeatWithoutPredicate() {
 		let res = scheduler.start(created: 0, subscribed: 0, disposed: 1000) {
@@ -216,7 +216,7 @@ class RepeatWithBehaviorTests: XCTestCase {
                 .asObservable()
                 .repeatWithBehavior(.exponentialDelayed(maxCount: 3, initial: 2.0, multiplier: 2.0), scheduler: self.scheduler, shouldRepeat: self.predicateFalse)
 		}
-		
+
 		XCTAssertEqual(res.events, correctValues)
 	}
 
@@ -229,7 +229,7 @@ class RepeatWithBehaviorTests: XCTestCase {
         XCTAssertEqual(res.events, erroredCorrectValues)
     }
 
-    //MARK: custom delay repeats
+    // MARK: - Custom delay repeats
 
     // custom delay calculator
     let customCalculator: (UInt) -> Double = { attempt in
@@ -260,7 +260,7 @@ class RepeatWithBehaviorTests: XCTestCase {
 		let res = scheduler.start(created: 0, subscribed: 0, disposed: 1000) {
             self.sampleValuesWithError
                 .asObservable()
-                .repeatWithBehavior(.customTimerDelayed(maxCount: 3, delayCalculator: self.customCalculator), scheduler: self.scheduler, shouldRepeat: self.predicateFalse) 
+                .repeatWithBehavior(.customTimerDelayed(maxCount: 3, delayCalculator: self.customCalculator), scheduler: self.scheduler, shouldRepeat: self.predicateFalse)
         }
         XCTAssertEqual(res.events, erroredCorrectValues)
     }

@@ -1,7 +1,8 @@
 //
 //  repeatWithBehavior.swift
+//  RxSwiftExt
 //
-//  Created by Marin Todorov
+//  Created by Marin Todorov on 05/08/2017.
 //  Copyright © 2016 RxSwift Community. All rights reserved.
 //
 
@@ -28,10 +29,10 @@ extension ObservableType {
 	- parameter shouldRepeat: Custom optional closure for decided whether the observable should repeat another round
 	- returns: Observable sequence that will be automatically repeat when it completes
 	*/
-	public func repeatWithBehavior(_ behavior: RepeatBehavior, scheduler : SchedulerType = MainScheduler.instance, shouldRepeat : RepeatPredicate? = nil) -> Observable<E> {
+	public func repeatWithBehavior(_ behavior: RepeatBehavior, scheduler: SchedulerType = MainScheduler.instance, shouldRepeat: RepeatPredicate? = nil) -> Observable<E> {
 		return repeatWithBehavior(1, behavior: behavior, scheduler: scheduler, shouldRepeat: shouldRepeat)
 	}
-	
+
 	/**
 	Repeats the source observable sequence using given behavior when it completes
 	- parameter currentRepeat: Number of the current repetition
@@ -40,10 +41,10 @@ extension ObservableType {
 	- parameter shouldRepeat: Custom optional closure for decided whether the observable should repeat another round
 	- returns: Observable sequence that will be automatically repeat when it completes
 	*/
-	internal func repeatWithBehavior(_ currentRepeat: UInt, behavior: RepeatBehavior, scheduler : SchedulerType = MainScheduler.instance, shouldRepeat : RepeatPredicate? = nil)
+	internal func repeatWithBehavior(_ currentRepeat: UInt, behavior: RepeatBehavior, scheduler: SchedulerType = MainScheduler.instance, shouldRepeat: RepeatPredicate? = nil)
 		-> Observable<E> {
 			guard currentRepeat > 0 else { return Observable.empty() }
-			
+
 			// calculate conditions for bahavior
 			let conditions = behavior.calculateConditions(currentRepeat)
 
@@ -57,7 +58,7 @@ extension ObservableType {
                     //repeat
                     guard conditions.maxCount > currentRepeat else { return Observable.empty() }
 
-                    if let shouldRepeat = shouldRepeat , !shouldRepeat() {
+                    if let shouldRepeat = shouldRepeat, !shouldRepeat() {
                         // also return error if predicate says so
                         return Observable.empty()
                     }

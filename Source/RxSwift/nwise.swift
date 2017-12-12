@@ -2,8 +2,8 @@
 //  nwise.swift
 //  RxSwiftExt
 //
-//  Created by Zsolt Váradi on 2017. 12. 09..
-//  Copyright © 2017. RxSwiftCommunity. All rights reserved.
+//  Created by Zsolt Váradi on 09/12/2017.
+//  Copyright © 2017 RxSwift Community. All rights reserved.
 //
 
 import RxSwift

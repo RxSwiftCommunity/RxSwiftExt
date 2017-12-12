@@ -1,6 +1,6 @@
 //
 //  mapTo+RxCocoa.swift
-//  RxSwiftExtDemo
+//  RxSwiftExt
 //
 //  Created by Rafael Ferreira on 3/7/17.
 //  Copyright © 2017 RxSwift Community. All rights reserved.
@@ -19,7 +19,7 @@ extension SharedSequenceConvertibleType {
     public func mapTo<R>(_ value: R) -> SharedSequence<SharingStrategy, R> {
         return map { _ in value }
     }
-  
+
     public func map<R>(to value: R) -> SharedSequence<SharingStrategy, R> {
         return map { _ in value }
     }

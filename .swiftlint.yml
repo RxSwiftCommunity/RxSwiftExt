@@ -1,0 +1,26 @@
+included:
+  - Source
+  - Tests
+disabled_rules:
+  - line_length
+  - trailing_comma
+identifier_name:
+  min_length: 1
+opt_in_rules:
+  - file_header
+type_name:
+  excluded: T
+function_body_length: 100
+type_body_length: 500
+cyclomatic_complexity:
+  warning: 15
+  error: 25
+file_header:
+  required_pattern: |
+                    \/\/
+                    \/\/  .*?\.swift
+                    \/\/  RxSwiftExt
+                    \/\/
+                    \/\/  Created by .*? on \d{1,2}\/\d{1,2}\/(\d{2}|\d{4})\.
+                    \/\/  Copyright © \d{4} RxSwift Community\. All rights reserved\.
+                    \/\/

@@ -2,9 +2,10 @@
 //  and.swift
 //  RxSwiftExt
 //
-//  Created by Florent Pillet on 26/11/17
-//  Copyright © 2017 RxSwiftCommunity. All rights reserved.
+//  Created by Florent Pillet on 26/11/17.
+//  Copyright © 2017 RxSwift Community. All rights reserved.
 //
+
 import Foundation
 import RxSwift
 

@@ -1,9 +1,9 @@
 //
 //  distinct.swift
-//  Pods
+//  RxSwiftExt
 //
 //  Created by Segii Shulga on 5/4/16.
-//
+//  Copyright © 2017 RxSwift Community. All rights reserved.
 //
 
 import Foundation

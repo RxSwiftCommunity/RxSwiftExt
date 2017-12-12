@@ -21,14 +21,11 @@ extension ObservableType {
 	- returns: The observable sequence which is paused based upon the pauser observable sequence.
 	*/
 
-    public func pausable<P : ObservableType> (_ pauser: P) -> Observable<E> where P.E == Bool {
+    public func pausable<P: ObservableType> (_ pauser: P) -> Observable<E> where P.E == Bool {
 		return withLatestFrom(pauser) { element, paused in
 				(element, paused)
-			}.filter { element, paused in
-				paused
-			}.map { element, paused in
-				element
-		}
+			}
+            .filter { _, paused in paused }
+            .map { element, _ in element }
     }
-
 }

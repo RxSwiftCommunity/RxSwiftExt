@@ -1,9 +1,9 @@
 //
-//  RxSwiftExtDemoTests.swift
-//  RxSwiftExtDemoTests
+//  UnwrapTests.swift
+//  RxSwiftExt
 //
 //  Created by Marin Todorov on 4/7/16.
-//  Copyright © 2016 Underplot. All rights reserved.
+//  Copyright © 2016 RxSwift Community. All rights reserved.
 //
 
 import XCTest
@@ -13,23 +13,22 @@ import RxSwiftExt
 import RxTest
 
 class UnwrapTests: XCTestCase {
-
-    let numbers: Array<Int?> = [1, nil, Int?(3), 4]
+    let numbers: [Int?] = [1, nil, Int?(3), 4]
     fileprivate var observer: TestableObserver<Int>!
-    
+
     override func setUp() {
         super.setUp()
-        
+
         let scheduler = TestScheduler(initialClock: 0)
         observer = scheduler.createObserver(Int.self)
-        
+
         _ = Observable.from(numbers)
             .unwrap()
             .subscribe(observer)
-        
+
         scheduler.start()
     }
-    
+
     func testUnwrapFilterNil() {
         //test results count
         XCTAssertEqual(
@@ -37,7 +36,7 @@ class UnwrapTests: XCTestCase {
             numbers.count - 1/* the nr. of nil elements*/ + 1 /* complete event*/
         )
     }
-    
+
     func testUnwrapResultValues() {
         //test elements values and type
         let correctValues = [
@@ -47,5 +46,5 @@ class UnwrapTests: XCTestCase {
             completed(0)
         ]
         XCTAssertEqual(observer.events, correctValues)
-    }    
+    }
 }

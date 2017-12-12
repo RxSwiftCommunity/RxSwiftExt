@@ -1,9 +1,9 @@
 //
-//  nwiseTests.swift
+//  NwiseTests.swift
 //  RxSwiftExt
 //
-//  Created by Zsolt Váradi on 2017. 12. 09..
-//  Copyright © 2017. RxSwiftCommunity. All rights reserved.
+//  Created by Zsolt Váradi on 09/12/2017.
+//  Copyright © 2017 RxSwift Community. All rights reserved.
 //
 
 import XCTest
@@ -12,7 +12,7 @@ import RxSwift
 import RxSwiftExt
 import RxTest
 
-class nwiseTests: XCTestCase {
+class NwiseTests: XCTestCase {
     func testNwiseEmitsGroups() {
         let values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         let scheduler = TestScheduler(initialClock: 0)
@@ -173,6 +173,6 @@ private struct EquatableArray<Element: Equatable> : Equatable {
     }
 }
 
-private func ==<E>(lhs: EquatableArray<E>, rhs: EquatableArray<E>) -> Bool {
+private func == <E>(lhs: EquatableArray<E>, rhs: EquatableArray<E>) -> Bool {
     return lhs.elements == rhs.elements
 }

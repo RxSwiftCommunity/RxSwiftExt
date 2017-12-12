@@ -2,8 +2,8 @@
 //  ignore.swift
 //  RxSwiftExt
 //
-//  Created by Thane Gill 18/04/16.
-//  Copyright (c) 2016 RxSwiftCommunity https://github.com/RxSwiftCommunity
+//  Created by Thane Gill on 18/04/16.
+//  Copyright © 2016 RxSwift Community. All rights reserved.
 //
 
 import Foundation

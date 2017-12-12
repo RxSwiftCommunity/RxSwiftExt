@@ -1,6 +1,6 @@
 //
 //  OnceTests.swift
-//  RxSwiftExtDemo
+//  RxSwiftExt
 //
 //  Created by Florent Pillet on 12/04/16.
 //  Copyright © 2016 RxSwift Community. All rights reserved.
@@ -13,9 +13,7 @@ import RxSwiftExt
 import RxTest
 
 class OnceTests: XCTestCase {
-    
     func testOnce() {
-        
         let onceObservable = Observable.once("Hello")
         let scheduler = TestScheduler(initialClock: 0)
 
@@ -24,24 +22,24 @@ class OnceTests: XCTestCase {
 
         let observer2 = scheduler.createObserver(String.self)
         _ = onceObservable.subscribe(observer2)
-        
+
         scheduler.start()
-        
+
         let correct1 = [
             next(0, "Hello"),
             completed(0)
         ]
-        let correct2 : [Recorded<Event<String>>] = [
+
+        let correct2: [Recorded<Event<String>>] = [
             completed(0)
         ]
-        
+
         XCTAssertEqual(observer1.events, correct1)
         XCTAssertEqual(observer2.events, correct2)
 
     }
-    
+
     func testMultipleOnce() {
-        
         let onceObservable1 = Observable.once("Hello")
         let onceObservable2 = Observable.once("world")
         let scheduler = TestScheduler(initialClock: 0)
@@ -57,19 +55,22 @@ class OnceTests: XCTestCase {
         _ = onceObservable2.subscribe(observer4)
 
         scheduler.start()
-        
+
         let correct1 = [
             next(0, "Hello"),
             completed(0)
         ]
-        let correct2 : [Recorded<Event<String>>] = [
+
+        let correct2: [Recorded<Event<String>>] = [
             completed(0)
         ]
+
         let correct3 = [
             next(0, "world"),
             completed(0)
         ]
-        let correct4 : [Recorded<Event<String>>] = [
+
+        let correct4: [Recorded<Event<String>>] = [
             completed(0)
         ]
 
