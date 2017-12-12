@@ -1,7 +1,8 @@
 //
 //  repeatWithBehavior.swift
+//  RxSwiftExt
 //
-//  Created by Marin Todorov
+//  Created by Marin Todorov on 05/08/2017.
 //  Copyright © 2016 RxSwift Community. All rights reserved.
 //
 

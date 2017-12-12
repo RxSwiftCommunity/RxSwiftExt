@@ -1,6 +1,6 @@
 //
 //  DistinctTests.swift
-//  RxSwiftExtDemo
+//  RxSwiftExt
 //
 //  Created by Segii Shulga on 5/4/16.
 //  Copyright © 2016 RxSwift Community. All rights reserved.

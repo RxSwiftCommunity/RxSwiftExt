@@ -1,9 +1,9 @@
 //
-//  IgnoreTests.swift
-//  RxSwiftExtDemo
+//  NotTests.swift
+//  RxSwiftExt
 //
 //  Created by Thane Gill on 10/18/16.
-//  Copyright (c) 2016 RxSwiftCommunity https://github.com/RxSwiftCommunity
+//  Copyright © 2016 RxSwift Community. All rights reserved.
 //
 
 import XCTest

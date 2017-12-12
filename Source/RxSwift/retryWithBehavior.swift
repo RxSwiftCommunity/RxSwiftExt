@@ -1,8 +1,8 @@
 //
 //  retryWithBehavior.swift
-//  Pods
+//  RxSwiftExt
 //
-//  Created by Anton Efimenko on 17.07.16.
+//  Created by Anton Efimenko on 17/07/16.
 //  Copyright © 2016 RxSwift Community. All rights reserved.
 //
 

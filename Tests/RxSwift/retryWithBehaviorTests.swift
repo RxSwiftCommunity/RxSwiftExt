@@ -1,8 +1,8 @@
 //
 //  RetryWithBehaviorTests.swift
-//  RxSwiftExtDemo
+//  RxSwiftExt
 //
-//  Created by Anton Efimenko on 17.07.16.
+//  Created by Anton Efimenko on 17/07/16.
 //  Copyright © 2016 RxSwift Community. All rights reserved.
 //
 
@@ -107,7 +107,7 @@ class RetryWithBehaviorTests: XCTestCase {
 			next(680, 2),
 			error(690, RepeatTestErrors.fatalError)]
 
-		// provide simple predicate that always return true
+		// Provide simple predicate that always return true
 		let res = scheduler.start(created: 0, subscribed: 0, disposed: 1000) {
 			self.sampleValues.asObservable().retry(.immediate(maxCount: 3), scheduler: self.scheduler) { _ in
 				true
@@ -125,7 +125,7 @@ class RetryWithBehaviorTests: XCTestCase {
             next(450, 2),
             error(460, RepeatTestErrors.fatalError)]
 
-        // provide simple predicate that always returns true
+        // Provide simple predicate that always returns true
         var attempts = 0
         let res = scheduler.start(created: 0, subscribed: 0, disposed: 1000) {
             self.sampleValues.asObservable().retry(.immediate(maxCount: 3), scheduler: self.scheduler) { _ in
@@ -143,7 +143,7 @@ class RetryWithBehaviorTests: XCTestCase {
 			next(220, 2),
 			error(230, RepeatTestErrors.fatalError)]
 
-		// provide simple predicate that always return false (so, sequence will not repeated)
+		// Provide simple predicate that always return false (so, sequence will not repeated)
 		let res = scheduler.start(created: 0, subscribed: 0, disposed: 1000) {
 			self.sampleValues.asObservable().retry(.immediate(maxCount: 3), scheduler: self.scheduler) { _ in
 				false
@@ -273,7 +273,7 @@ class RetryWithBehaviorTests: XCTestCase {
 			next(1310, 2),
 			error(1320, RepeatTestErrors.fatalError)]
 
-		// custom delay calculator
+		// Custom delay calculator
 		let customCalculator: (UInt) -> Double = { attempt in
 			switch attempt {
 			case 1: return 10.0
@@ -304,7 +304,7 @@ class RetryWithBehaviorTests: XCTestCase {
 			next(1310, 2),
 			error(1320, RepeatTestErrors.fatalError)]
 
-		// custom delay calculator
+		// Custom delay calculator
 		let customCalculator: (UInt) -> Double = { attempt in
 			switch attempt {
 			case 1: return 10.0
@@ -329,7 +329,7 @@ class RetryWithBehaviorTests: XCTestCase {
 			next(220, 2),
 			error(230, RepeatTestErrors.fatalError)]
 
-		// custom delay calculator
+		// Custom delay calculator
 		let customCalculator: ((UInt) -> Double) = { attempt in
 			switch attempt {
 			case 1: return 10.0

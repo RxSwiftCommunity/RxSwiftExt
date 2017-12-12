@@ -1,13 +1,12 @@
 //
-//  MapToCocoaTests.swift
-//  RxSwiftExtDemo
+//  MapToTests+RxCocoa.swift
+//  RxSwiftExt
 //
 //  Created by Rafael Ferreira on 3/7/17.
 //  Copyright © 2016 RxSwift Community. All rights reserved.
 //
 
 import XCTest
-
 import RxCocoa
 import RxSwift
 import RxSwiftExt

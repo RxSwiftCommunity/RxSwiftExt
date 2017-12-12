@@ -1,6 +1,6 @@
 //
-//  ignoreErrorsTests.swift
-//  RxSwiftExtDemo
+//  IgnoreErrorsTests.swift
+//  RxSwiftExt
 //
 //  Created by Florent Pillet on 18/05/16.
 //  Copyright © 2016 RxSwift Community. All rights reserved.

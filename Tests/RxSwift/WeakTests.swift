@@ -1,6 +1,6 @@
 //
 //  WeakTests.swift
-//  RxSwiftExtDemo
+//  RxSwiftExt
 //
 //  Created by Ian Keen on 17/04/2016.
 //  Copyright © 2016 RxSwift Community. All rights reserved.

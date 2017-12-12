@@ -1,6 +1,6 @@
 //
-//  ignoreWhenTests.swift
-//  RxSwiftExtDemo
+//  IgnoreWhenTests.swift
+//  RxSwiftExt
 //
 //  Created by Florent Pillet on 14/04/16.
 //  Copyright © 2016 RxSwift Community. All rights reserved.

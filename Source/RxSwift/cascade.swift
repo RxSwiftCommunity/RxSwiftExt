@@ -1,6 +1,6 @@
 //
 //  cascade.swift
-//  RxSwiftExtDemo
+//  RxSwiftExt
 //
 //  Created by Florent Pillet on 17/04/16.
 //  Copyright © 2016 RxSwift Community. All rights reserved.

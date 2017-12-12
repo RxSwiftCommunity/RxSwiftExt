@@ -1,6 +1,6 @@
 //
-//  catchErrorJustCompleteTests.swift
-//  RxSwiftExtDemo
+//  CatchErrorJustCompleteTests.swift
+//  RxSwiftExt
 //
 //  Created by Florent Pillet on 31/07/16.
 //  Copyright © 2016 RxSwift Community. All rights reserved.

@@ -1,6 +1,6 @@
 //
-//  pausableTests.swift
-//  RxSwiftExtDemo
+//  PausableTests.swift
+//  RxSwiftExt
 //
 //  Created by Jesse Farless on 12/09/16.
 //  Copyright © 2016 RxSwift Community. All rights reserved.

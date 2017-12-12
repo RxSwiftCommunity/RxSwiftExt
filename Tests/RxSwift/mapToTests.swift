@@ -1,6 +1,6 @@
 //
-//  ReplaceWithTests.swift
-//  RxSwiftExtDemo
+//  MapToTests.swift
+//  RxSwiftExt
 //
 //  Created by Marin Todorov on 4/12/16.
 //  Copyright © 2016 RxSwift Community. All rights reserved.

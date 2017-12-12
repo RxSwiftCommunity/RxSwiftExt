@@ -1,9 +1,9 @@
 //
-//  RxSwiftExtDemoTests.swift
-//  RxSwiftExtDemoTests
+//  UnwrapTests.swift
+//  RxSwiftExt
 //
 //  Created by Marin Todorov on 4/7/16.
-//  Copyright © 2016 Underplot. All rights reserved.
+//  Copyright © 2016 RxSwift Community. All rights reserved.
 //
 
 import XCTest

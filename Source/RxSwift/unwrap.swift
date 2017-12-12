@@ -3,7 +3,7 @@
 //  RxSwiftExt
 //
 //  Created by Marin Todorov on 4/7/16.
-//  Copyright (c) 2016 RxSwiftCommunity https://github.com/RxSwiftCommunity
+//  Copyright © 2016 RxSwift Community. All rights reserved.
 //
 
 import Foundation
