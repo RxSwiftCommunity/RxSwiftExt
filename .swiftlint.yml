@@ -1,0 +1,14 @@
+included:
+  - Source
+  - Tests
+disabled_rules:
+  - line_length
+identifier_name:
+  min_length: 1
+type_name:
+  excluded: T
+function_body_length: 100
+type_body_length: 500
+cyclomatic_complexity:
+  warning: 15
+  error: 25
