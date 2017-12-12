@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 
 extension ObservableType {
-	
+
 	/**
 	Returns an observable sequence containing as many elements as its input but all of them are the constant provided as a parameter
 	
@@ -20,5 +20,4 @@ extension ObservableType {
 	public func mapTo<R>(_ value: R) -> Observable<R> {
 		return map { _ in value }
 	}
-
 }

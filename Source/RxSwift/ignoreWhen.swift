@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 
 extension ObservableType {
-	
+
 	/**
 	Ignores the elements of an observable sequence based on a predicate.
 	
@@ -20,7 +20,6 @@ extension ObservableType {
 	- parameter predicate: A function to test each source element for a condition.
 	- returns: An observable sequence that contains elements from the input sequence except those that satisfy the condition.
 	*/
-	
 	public func ignoreWhen(_ predicate: @escaping (E) throws -> Bool) -> Observable<E> {
 		return self.asObservable().filter { try !predicate($0) }
 	}
