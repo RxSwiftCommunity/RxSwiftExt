@@ -68,6 +68,7 @@ RxSwiftExt is all about adding operators to [RxSwift](https://github.com/Reactiv
 * [apply](#apply)
 * [filterMap](#filtermap)
 * [Observable.fromAsync](#fromasync)
+* [Observable.zip(with:)](#zipwith)
 
 Two additional operators are available for `materialize()`'d sequences:
 
@@ -441,6 +442,22 @@ observableService("Foo", 0)
         print(result)
     })
     .disposed(by: disposeBag)
+```
+
+#### zipWith
+
+Convenience operator for writing:
+
+```
+Observable.just(something)
+    .flatMap { Observable.zip(Observable.just($0), Observable.create { ... }) { join($0, $1) }
+```
+
+Like this:
+
+```
+Observable.just(something)
+    .zip(with: Observable.create { ... }) { join($0, $1) }
 ```
 
 ## License
