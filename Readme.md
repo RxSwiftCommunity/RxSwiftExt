@@ -490,6 +490,27 @@ next("b2")
 next("c3")
 ```
 
+#### ofType
+
+The ofType operator filters the elements of an observable sequence, if that is an instance of the supplied type.
+
+```swift
+Observable.of(NSNumber(value: 1),
+                  NSDecimalNumber(string: "2"),
+                  NSNumber(value: 3),
+                  NSNumber(value: 4),
+                  NSDecimalNumber(string: "5"),
+                  NSNumber(value: 6))
+        .ofType(NSDecimalNumber.self)
+        .subscribe { print($0) }
+```
+```
+next(2)
+next(5)
+completed
+```
+This example emits 2, 5 (`NSDecimalNumber` Type).
+
 ## License
 
 This library belongs to _RxSwiftCommunity_.
