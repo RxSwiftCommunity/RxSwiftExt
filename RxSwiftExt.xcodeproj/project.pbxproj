@@ -143,6 +143,12 @@
 		BF515CE91F3F3B0100492640 /* fromAsync.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF515CE11F3F371600492640 /* fromAsync.swift */; };
 		BF515CEA1F3F3B0300492640 /* curry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF515CDF1F3F370600492640 /* curry.swift */; };
 		BF515CEB1F3F3B0300492640 /* curry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF515CDF1F3F370600492640 /* curry.swift */; };
+		C4D2153F20118A81009804AE /* ofType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D2153E20118A81009804AE /* ofType.swift */; };
+		C4D2154220118FB9009804AE /* Observable+OfTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D2154020118F8B009804AE /* Observable+OfTypeTests.swift */; };
+		C4D2154320118FB9009804AE /* Observable+OfTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D2154020118F8B009804AE /* Observable+OfTypeTests.swift */; };
+		C4D2154420118FBA009804AE /* Observable+OfTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D2154020118F8B009804AE /* Observable+OfTypeTests.swift */; };
+		C4D2154520118FC1009804AE /* ofType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D2153E20118A81009804AE /* ofType.swift */; };
+		C4D2154620118FC1009804AE /* ofType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D2153E20118A81009804AE /* ofType.swift */; };
 		D7C72A3E1FDC5C5D00EAAAAB /* NwiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C72A3D1FDC5C5D00EAAAAB /* NwiseTests.swift */; };
 		D7C72A3F1FDC5C5D00EAAAAB /* NwiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C72A3D1FDC5C5D00EAAAAB /* NwiseTests.swift */; };
 		D7C72A401FDC5C5D00EAAAAB /* NwiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C72A3D1FDC5C5D00EAAAAB /* NwiseTests.swift */; };
@@ -294,6 +300,8 @@
 		BF515CDF1F3F370600492640 /* curry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = curry.swift; path = Source/Tools/curry.swift; sourceTree = SOURCE_ROOT; };
 		BF515CE11F3F371600492640 /* fromAsync.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = fromAsync.swift; path = Source/RxSwift/fromAsync.swift; sourceTree = SOURCE_ROOT; };
 		BF515CE31F3F3AC900492640 /* FromAsyncTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FromAsyncTests.swift; sourceTree = "<group>"; };
+		C4D2153E20118A81009804AE /* ofType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ofType.swift; sourceTree = "<group>"; };
+		C4D2154020118F8B009804AE /* Observable+OfTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+OfTypeTests.swift"; sourceTree = "<group>"; };
 		D7C72A3D1FDC5C5D00EAAAAB /* NwiseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NwiseTests.swift; sourceTree = "<group>"; };
 		D7C72A411FDC5D8F00EAAAAB /* nwise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = nwise.swift; path = Source/RxSwift/nwise.swift; sourceTree = SOURCE_ROOT; };
 		E36BDFB91F387571008C9D56 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/tvOS/RxSwift.framework; sourceTree = "<group>"; };
@@ -453,6 +461,7 @@
 				538607A81E6F334B000361DE /* retryWithBehavior.swift */,
 				538607A91E6F334B000361DE /* unwrap.swift */,
 				58C54402C636BC3C2F36A4ED /* zipWith.swift */,
+				C4D2153E20118A81009804AE /* ofType.swift */,
 			);
 			path = RxSwift;
 			sourceTree = "<group>";
@@ -460,6 +469,7 @@
 		538607BA1E6F362B000361DE /* RxSwift */ = {
 			isa = PBXGroup;
 			children = (
+				C4D2154020118F8B009804AE /* Observable+OfTypeTests.swift */,
 				3DBDE5FD1FBBB05400DF47F9 /* AndTests.swift */,
 				538607BB1E6F367A000361DE /* ApplyTests.swift */,
 				538607BC1E6F367A000361DE /* CascadeTests.swift */,
@@ -913,6 +923,7 @@
 				538607B51E6F334B000361DE /* once.swift in Sources */,
 				538607B11E6F334B000361DE /* mapTo.swift in Sources */,
 				538607AA1E6F334B000361DE /* apply.swift in Sources */,
+				C4D2153F20118A81009804AE /* ofType.swift in Sources */,
 				538607B41E6F334B000361DE /* ObservableType+Weak.swift in Sources */,
 				3DBDE5FC1FBBAE3A00DF47F9 /* and.swift in Sources */,
 				8CF5F8B3202D6C5F00C1BA97 /* mapAt.swift in Sources */,
@@ -954,6 +965,7 @@
 				538607E51E6F36A9000361DE /* IgnoreWhenTests.swift in Sources */,
 				538607E11E6F36A9000361DE /* CatchErrorJustCompleteTests.swift in Sources */,
 				538607ED1E6F36A9000361DE /* WeakTarget.swift in Sources */,
+				C4D2154220118FB9009804AE /* Observable+OfTypeTests.swift in Sources */,
 				538607E41E6F36A9000361DE /* IgnoreTests.swift in Sources */,
 				538607E31E6F36A9000361DE /* IgnoreErrorsTests.swift in Sources */,
 				53C79D621E6F5B3900CD9B6A /* NotTests+RxCocoa.swift in Sources */,
@@ -982,6 +994,7 @@
 				62512C771F0EAF950083A89F /* pausableBuffered.swift in Sources */,
 				62512C761F0EAF950083A89F /* pausable.swift in Sources */,
 				62512C721F0EAF950083A89F /* materialized+elements.swift in Sources */,
+				C4D2154520118FC1009804AE /* ofType.swift in Sources */,
 				62512C6E1F0EAF950083A89F /* ignore.swift in Sources */,
 				3D11958B1FCAD9AE0095134B /* and.swift in Sources */,
 				62512C781F0EAF950083A89F /* repeatWithBehavior.swift in Sources */,
@@ -1022,6 +1035,7 @@
 				62512C981F0EB1850083A89F /* IgnoreWhenTests.swift in Sources */,
 				62512C9E1F0EB1850083A89F /* PausableBufferedTests.swift in Sources */,
 				62512CA01F0EB1850083A89F /* RetryWithBehaviorTests.swift in Sources */,
+				C4D2154320118FB9009804AE /* Observable+OfTypeTests.swift in Sources */,
 				62512C911F0EB17F0083A89F /* NotTests+RxCocoa.swift in Sources */,
 				62512C9A1F0EB1850083A89F /* Materialized+elementsTests.swift in Sources */,
 				62512C931F0EB1850083A89F /* CascadeTests.swift in Sources */,
@@ -1050,6 +1064,7 @@
 				E39C41E81F18B08A007F2ACD /* pausableBuffered.swift in Sources */,
 				E39C41E71F18B08A007F2ACD /* pausable.swift in Sources */,
 				E39C41E31F18B08A007F2ACD /* materialized+elements.swift in Sources */,
+				C4D2154620118FC1009804AE /* ofType.swift in Sources */,
 				E39C41DF1F18B08A007F2ACD /* ignore.swift in Sources */,
 				3D11958C1FCAD9AF0095134B /* and.swift in Sources */,
 				E39C41E91F18B08A007F2ACD /* repeatWithBehavior.swift in Sources */,
@@ -1090,6 +1105,7 @@
 				E39C42051F18B13E007F2ACD /* IgnoreTests.swift in Sources */,
 				E39C420E1F18B13E007F2ACD /* RetryWithBehaviorTests.swift in Sources */,
 				E39C42061F18B13E007F2ACD /* IgnoreWhenTests.swift in Sources */,
+				C4D2154420118FBA009804AE /* Observable+OfTypeTests.swift in Sources */,
 				E39C420C1F18B13E007F2ACD /* PausableBufferedTests.swift in Sources */,
 				E39C42041F18B13E007F2ACD /* IgnoreErrorsTests.swift in Sources */,
 				E39C41FE1F18B13A007F2ACD /* MapToTests+RxCocoa.swift in Sources */,
