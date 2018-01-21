@@ -10,6 +10,7 @@ Changelog
 - added `apply` for `Completable` and `Maybe` 
 - added `mapTo` for `Single` and `Maybe`
 - added SPM support
+- added `pausable(afterCount:)` operator
 
 5.0.0
 -----
