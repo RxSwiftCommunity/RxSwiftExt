@@ -14,24 +14,24 @@ import RxSwiftExt
 
 /*:
  ## zip(with:)
-
  Merges the specified observable sequences into one observable sequence by using the selector function whenever all
  of the observable sequences have produced an element at a corresponding index.
 
  */
 example("zip values") {
+	let numbers = [1,2,3]
+	let strings = ["a", "b", "c"]
 
-    let numbers = [1,2,3]
-    let strings = ["a", "b", "c"]
-    Observable.from(numbers)
-            .zip(with: Observable.from(strings)) { i, s in
-                s + String(i)
-            }
-            .toArray()
-            .subscribe(onNext: { result in
-                // look types on the right panel ===>
-                print("zip(with:) merged \(numbers) with \(strings) to \(result)")
-            })
+	let first = Observable.from(numbers)
+	let second = Observable.from(strings)
+
+	first.zip(with: second) { i, s in
+		s + String(i)
+	}
+		.toArray()
+		.subscribe(onNext: { result in
+			print("zip(with:) merged \(numbers) with \(strings) to \(result)")
+		})
 }
 
 //: [Next](@next)
