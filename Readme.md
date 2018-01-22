@@ -446,18 +446,24 @@ observableService("Foo", 0)
 
 #### zipWith
 
-Convenience operator for writing:
+Convenience version of `Observable.zip(_:)`. Merges the specified observable sequences into one observable sequence by using the selector function whenever all
+ of the observable sequences have produced an element at a corresponding index.
 
 ```
-Observable.just(something)
-    .flatMap { Observable.zip(Observable.just($0), Observable.create { ... }) { join($0, $1) }
+let first = Observable.from(numbers)
+let second = Observable.from(strings)
+
+first.zip(with: second) { i, s in
+        s + String(i)
+    }.subscribe(onNext: { (result) in
+        print(result)
+    })
 ```
 
-Like this:
-
 ```
-Observable.just(something)
-    .zip(with: Observable.create { ... }) { join($0, $1) }
+next("a1")
+next("b2")
+next("c3")
 ```
 
 ## License
