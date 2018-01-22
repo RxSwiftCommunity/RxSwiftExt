@@ -21,8 +21,8 @@ import RxSwiftExt
  */
 example("zip values") {
 
-    let numbers = Array<Int>([1, 2, 3])
-    let strings = Array<String>(["a", "b", "c"])
+    let numbers = [1,2,3]
+    let strings = ["a", "b", "c"]
     Observable.from(numbers)
             .zip(with: Observable.from(strings)) { i, s in
                 s + String(i)
@@ -30,7 +30,7 @@ example("zip values") {
             .toArray()
             .subscribe(onNext: { result in
                 // look types on the right panel ===>
-                print("zip2(with:) merged \(numbers) with \(strings) to \(result)")
+                print("zip(with:) merged \(numbers) with \(strings) to \(result)")
             })
 }
 
