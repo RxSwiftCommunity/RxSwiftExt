@@ -1,4 +1,6 @@
-[![Build Status](https://travis-ci.org/RxSwiftCommunity/RxSwiftExt.svg?branch=master)](https://travis-ci.org/RxSwiftCommunity/RxSwiftExt) ![pod](https://img.shields.io/cocoapods/v/RxSwiftExt.svg) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![CircleCI](https://img.shields.io/circleci/project/github/RxSwiftCommunity/RxSwiftExt/master.svg)](https://circleci.com/gh/RxSwiftCommunity/RxSwiftExt/tree/master)
+![pod](https://img.shields.io/cocoapods/v/RxSwiftExt.svg)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 RxSwiftExt
 ===========
@@ -66,6 +68,7 @@ RxSwiftExt is all about adding operators to [RxSwift](https://github.com/Reactiv
 * [apply](#apply)
 * [filterMap](#filtermap)
 * [Observable.fromAsync](#fromasync)
+* [Observable.zip(with:)](#zipwith)
 
 Two additional operators are available for `materialize()`'d sequences:
 
@@ -439,6 +442,22 @@ observableService("Foo", 0)
         print(result)
     })
     .disposed(by: disposeBag)
+```
+
+#### zipWith
+
+Convenience operator for writing:
+
+```
+Observable.just(something)
+    .flatMap { Observable.zip(Observable.just($0), Observable.create { ... }) { join($0, $1) }
+```
+
+Like this:
+
+```
+Observable.just(something)
+    .zip(with: Observable.create { ... }) { join($0, $1) }
 ```
 
 ## License

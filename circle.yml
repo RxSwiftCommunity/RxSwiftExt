@@ -1,0 +1,22 @@
+machine:
+  xcode:
+    version: 9.1
+  environment:
+    LANG: en_US.UTF-8
+
+dependencies:
+  override:
+    - brew update; brew update # Due to a problem with Homebrew, see: https://github.com/Homebrew/brew/issues/991
+    - brew install swiftlint
+    - carthage bootstrap
+  cache_directories:
+    - "Carthage" # Cache carthage to speed up builds.
+
+test:
+  pre:
+    - set -o pipefail
+    - swiftlint
+  override:
+    - xcodebuild test -scheme RxSwiftExt-macOS -workspace RxSwiftExt.xcworkspace  -sdk macosx -destination "arch=x86_64" | xcpretty -c 
+    - xcodebuild test -scheme RxSwiftExt-iOS -workspace RxSwiftExt.xcworkspace -sdk iphonesimulator -destination "name=iPhone X" | xcpretty -c
+    - xcodebuild test -scheme RxSwiftExt-tvOS -workspace RxSwiftExt.xcworkspace -sdk appletvsimulator -destination "name=Apple TV 1080p" | xcpretty -c

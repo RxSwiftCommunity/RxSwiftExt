@@ -1,6 +1,8 @@
 Changelog
 =========
 
+- added `zip(with:)` operator
+
 3.1.0
 -----
 - added `pairwise()` and `nwise(_:)` operators
