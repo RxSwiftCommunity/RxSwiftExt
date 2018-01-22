@@ -13,7 +13,7 @@ extension ObservableConvertibleType {
      - seealso: [zip operator on reactivex.io](http://reactivex.io/documentation/operators/zip.html)
 
      - Parameters:
-        - second: A second Observable<T> to zip with `self`
+        - with: A second Observable<T> to zip with `self`
         - resultSelector: Function to invoke for each series of elements at corresponding indexes in the sources.
 
      - Returns: An observable sequence containing the result of combining elements of the sources using the specified result selector function.
