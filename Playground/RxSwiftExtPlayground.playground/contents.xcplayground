@@ -16,8 +16,10 @@
         <page name='unwrap'/>
         <page name='filterMap'/>
         <page name='mapTo'/>
+        <page name='mapToKeyPath'/>
         <page name='fromAsync'/>
         <page name='and'/>
         <page name='nwise'/>
+        <page name='zipWith'/>
     </pages>
 </playground>

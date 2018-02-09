@@ -26,6 +26,7 @@
  - [ignore(Any...)](ignore) operator, filters out any of the elements passed in parameters
  - [Observable.once(Element)](once) contructor, creates a sequence that delivers an element *once* to the first subscriber then completes. The same sequence will complete immediately without delivering any element to all further subscribers.
  - [mapTo(Any)](mapTo) operator, takes a sequence of elements and returns a sequence of the same constant provided as a parameter
+ - [mapTo(KeyPath)](mapToKeyPath) operator, takes a sequence of elements and returns a sequence of those elements mapped to their values at the given key path
  - [not()](not) operator, applies a the boolean not (!) to a `Bool`
  - [and()](and) operator, combines Bool values from one or more sequences and emits a single `Bool` value.
  - [Observable.cascade([Observable])](cascade) contructor, takes a ordinary sequence (i.e. Array) of observables and cascades through them
