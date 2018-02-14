@@ -1,7 +1,7 @@
 Changelog
 =========
 
-- added `mapTo(keyPath:)` operator
+- added `mapAt(keyPath:)` operator
 - added `zip(with:)` operator
 
 3.1.0

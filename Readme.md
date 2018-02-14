@@ -181,7 +181,7 @@ next(Nope.)
 completed
 ```
 
-#### mapTo
+#### mapAt
 
 Replace every element with its value at the given key path.
 
@@ -196,7 +196,7 @@ Observable
         Person(name: "Lisa"),
         Person(name: "Maggie")
     )
-    .mapTo(\.name)
+    .mapAt(\.name)
     .subscribe { print($0) }
 ```
 ```

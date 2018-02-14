@@ -16,7 +16,7 @@
         <page name='unwrap'/>
         <page name='filterMap'/>
         <page name='mapTo'/>
-        <page name='mapToKeyPath'/>
+        <page name='mapAt'/>
         <page name='fromAsync'/>
         <page name='and'/>
         <page name='nwise'/>

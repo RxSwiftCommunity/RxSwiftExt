@@ -13,9 +13,9 @@ import RxSwift
 import RxSwiftExt
 
 /*:
- ## mapTo(KeyPath)
+ ## mapAt(KeyPath)
 
- The `mapTo` operator takes a sequence of elements and returns a sequence where each element is mapped to its value at the given key path
+ The `mapAt` operator takes a sequence of elements and returns a sequence where each element is mapped to its value at the given key path
  */
 example("replace any input with the value at key path") {
     struct Person {
@@ -29,13 +29,13 @@ example("replace any input with the value at key path") {
     ]
 
     Observable.from(people)
-        .mapTo(\.name)
+        .mapAt(\.name)
         .toArray()
         .subscribe(onNext: {result in
             // look types on the right panel ===>
             people
             result
-            print("mapTo() transformed \(people) to \(result)")
+            print("mapAt() transformed \(people) to \(result)")
         })
 }
 

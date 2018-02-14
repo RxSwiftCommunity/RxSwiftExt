@@ -16,7 +16,7 @@ struct Person {
     let name: String
 }
 
-class MapToKeyPathTests: XCTestCase {
+class MapAtTests: XCTestCase {
 
     let people: [Person] = [
         Person(name: "Bart"),
@@ -31,7 +31,7 @@ class MapToKeyPathTests: XCTestCase {
         observer = scheduler.createObserver(String.self)
 
         _ = Observable.from(people)
-            .mapTo(\.name)
+            .mapAt(\.name)
             .subscribe(observer)
 
         scheduler.start()
