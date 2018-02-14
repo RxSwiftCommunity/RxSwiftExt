@@ -181,6 +181,30 @@ next(Nope.)
 completed
 ```
 
+#### mapAt
+
+Transform every element to the value at the provided key path.
+
+```swift
+struct Person {
+    let name: String
+}
+
+Observable
+    .of(
+        Person(name: "Bart"),
+        Person(name: "Lisa"),
+        Person(name: "Maggie")
+    )
+    .mapAt(\.name)
+    .subscribe { print($0) }
+```
+```
+next(Bart)
+next(Lisa)
+next(Maggie)
+completed
+```
 #### not
 
 Negate booleans.
