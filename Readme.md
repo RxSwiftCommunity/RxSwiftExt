@@ -183,7 +183,7 @@ completed
 
 #### mapAt
 
-Replace every element with its value at the given key path.
+Transform every element to the value at the provided key path.
 
 ```swift
 struct Person {

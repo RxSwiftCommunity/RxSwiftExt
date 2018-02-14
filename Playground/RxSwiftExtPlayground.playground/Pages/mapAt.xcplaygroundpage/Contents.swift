@@ -15,9 +15,9 @@ import RxSwiftExt
 /*:
  ## mapAt(KeyPath)
 
- The `mapAt` operator takes a sequence of elements and returns a sequence where each element is mapped to its value at the given key path
+ The `mapAt` operator transforms a sequence of elements where each element is mapped to its value at the provided key path
  */
-example("replace any input with the value at key path") {
+example("map input to the value at provided key path") {
     struct Person {
         let name: String
     }

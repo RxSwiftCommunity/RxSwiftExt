@@ -12,11 +12,10 @@ import RxSwift
 import RxSwiftExt
 import RxTest
 
-struct Person {
-    let name: String
-}
-
 class MapAtTests: XCTestCase {
+    struct Person {
+        let name: String
+    }
 
     let people: [Person] = [
         Person(name: "Bart"),
@@ -37,14 +36,14 @@ class MapAtTests: XCTestCase {
         scheduler.start()
     }
 
-    func testReplaceWithResultCount() {
+    func testResultSequenceHasSameNumberOfItemsAsSourceSequence() {
         XCTAssertEqual(
             observer.events.count - 1, // completed event
             people.count
         )
     }
 
-    func testReplaceWithResultValues() {
+    func testResultSequenceHasValuesAtProvidedKeypath() {
         //test elements values and type
         let correctValues = [
             next(0, "Bart"),

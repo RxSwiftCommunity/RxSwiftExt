@@ -25,8 +25,8 @@
  - [unwrap()](unwrap) operator, takes a sequence of optional elements and returns a sequence of non-optional elements, filtering out any `nil` values
  - [ignore(Any...)](ignore) operator, filters out any of the elements passed in parameters
  - [Observable.once(Element)](once) contructor, creates a sequence that delivers an element *once* to the first subscriber then completes. The same sequence will complete immediately without delivering any element to all further subscribers.
+ - [mapAt(KeyPath)](mapAt) operator transforms a sequence of elements where each element is mapped to its value at the provided key path
  - [mapTo(Any)](mapTo) operator, takes a sequence of elements and returns a sequence of the same constant provided as a parameter
- - [mapAt(KeyPath)](mapAt) operator, takes a sequence of elements and returns a sequence of those elements mapped to their values at the given key path
  - [not()](not) operator, applies a the boolean not (!) to a `Bool`
  - [and()](and) operator, combines Bool values from one or more sequences and emits a single `Bool` value.
  - [Observable.cascade([Observable])](cascade) contructor, takes a ordinary sequence (i.e. Array) of observables and cascades through them
