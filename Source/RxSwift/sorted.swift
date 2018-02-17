@@ -1,5 +1,5 @@
 //
-//  Sorted.swift
+//  sorted.swift
 //  RxSwiftExt
 //
 //  Created by Joan Disho on 17.02.18.

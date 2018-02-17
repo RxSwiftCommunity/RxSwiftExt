@@ -21,6 +21,7 @@
         <page name='and'/>
         <page name='nwise'/>
         <page name='zipWith'/>
+        <page name='sorted'/>
         <page name='ofType'/>
         <page name='withUnretained'/>
         <page name='UIViewPropertyAnimator.animate'/>
