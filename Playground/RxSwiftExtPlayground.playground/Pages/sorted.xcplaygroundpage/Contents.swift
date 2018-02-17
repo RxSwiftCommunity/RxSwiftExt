@@ -20,7 +20,6 @@ import RxSwiftExt
 example("Ensure that only a sorted array is emitted") {
     let array1 = Observable.of([5, 4, 7, 8, 2, 6, 9, 0, 10])
     let array2 = Observable.of([10, 9, 12, 8, 4, 1, 1, 8, 14])
-    let empty = Observable<Bool>.empty()
     
     array1.sorted()
         .subscribe(onNext: { result in
