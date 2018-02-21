@@ -24,7 +24,7 @@ class MapToTests: XCTestCase {
         observer = scheduler.createObserver(String.self)
 
 		_ = Observable.from(numbers)
-            .mapTo("candy")
+            .map(to: "candy")
             .subscribe(observer)
 
         scheduler.start()
