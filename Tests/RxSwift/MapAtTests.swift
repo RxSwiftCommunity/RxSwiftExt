@@ -1,5 +1,5 @@
 //
-//  MapToKeyPath.swift
+//  MapAtPath.swift
 //  RxSwiftExt-iOS
 //
 //  Created by Michael Avila on 2/8/18.
@@ -30,7 +30,7 @@ class MapAtTests: XCTestCase {
         observer = scheduler.createObserver(String.self)
 
         _ = Observable.from(people)
-            .mapAt(\.name)
+            .map(at: \.name)
             .subscribe(observer)
 
         scheduler.start()

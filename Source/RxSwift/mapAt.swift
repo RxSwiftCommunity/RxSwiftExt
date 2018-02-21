@@ -16,7 +16,19 @@ extension ObservableType {
      - parameter keyPath: A key path whose root type matches the element type of the input sequence
      - returns: An observable squence containing the values pointed to by the key path
      */
+    @available(*, deprecated, renamed: "map(at:)")
     public func mapAt<R>(_ keyPath: KeyPath<E, R>) -> Observable<R> {
+        return self.map(at: keyPath)
+    }
+
+    /**
+     Returns an observable sequence containing as many elements as its input but all of them are mapped to the result at the given keyPath
+
+     - parameter keyPath: A key path whose root type matches the element type of the input sequence
+     - returns: An observable squence containing the values pointed to by the key path
+     */
+    public func map<R>(at keyPath: KeyPath<E, R>) -> Observable<R> {
         return self.map { $0[keyPath: keyPath] }
     }
+
 }

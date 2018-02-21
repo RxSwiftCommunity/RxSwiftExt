@@ -13,9 +13,9 @@ import RxSwift
 import RxSwiftExt
 
 /*:
- ## mapAt(KeyPath)
+ ## map(at: KeyPath)
 
- The `mapAt` operator transforms a sequence of elements where each element is mapped to its value at the provided key path
+ The `map(at:)` operator transforms a sequence of elements where each element is mapped to its value at the provided key path
  */
 example("map input to the value at provided key path") {
     struct Person {
@@ -29,7 +29,7 @@ example("map input to the value at provided key path") {
     ]
 
     Observable.from(people)
-        .mapAt(\.name)
+        .map(at: \.name)
         .toArray()
         .subscribe(onNext: {result in
             // look types on the right panel ===>
