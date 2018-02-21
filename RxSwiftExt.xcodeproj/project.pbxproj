@@ -127,6 +127,14 @@
 		62512CA71F0EB1BD0083A89F /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62512CA61F0EB1BD0083A89F /* RxTest.framework */; };
 		6662395E1E9E0950009BB134 /* Materialized+elementsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6662395D1E9E0950009BB134 /* Materialized+elementsTests.swift */; };
 		66C663061EA0ECD9005245C4 /* materialized+elements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C663051EA0ECD9005245C4 /* materialized+elements.swift */; };
+		876FE344203DCF8600000559 /* filterMapAs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876FE343203DCF8600000559 /* filterMapAs.swift */; };
+		876FE345203DCF8600000559 /* filterMapAs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876FE343203DCF8600000559 /* filterMapAs.swift */; };
+		876FE346203DCF8600000559 /* filterMapAs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876FE343203DCF8600000559 /* filterMapAs.swift */; };
+		876FE347203DCF8B00000559 /* mapAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF5F8B2202D6C5F00C1BA97 /* mapAt.swift */; };
+		876FE348203DCF8B00000559 /* mapAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF5F8B2202D6C5F00C1BA97 /* mapAt.swift */; };
+		876FE34A203DD7B500000559 /* FilterMapAsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876FE349203DD7B500000559 /* FilterMapAsTests.swift */; };
+		876FE34B203DD7B500000559 /* FilterMapAsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876FE349203DD7B500000559 /* FilterMapAsTests.swift */; };
+		876FE34C203DD7B500000559 /* FilterMapAsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876FE349203DD7B500000559 /* FilterMapAsTests.swift */; };
 		8CF5F8AF202D62AB00C1BA97 /* MapAtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF5F8AD202D622000C1BA97 /* MapAtTests.swift */; };
 		8CF5F8B0202D62AD00C1BA97 /* MapAtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF5F8AD202D622000C1BA97 /* MapAtTests.swift */; };
 		8CF5F8B1202D62AE00C1BA97 /* MapAtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF5F8AD202D622000C1BA97 /* MapAtTests.swift */; };
@@ -285,6 +293,8 @@
 		62512CA61F0EB1BD0083A89F /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/Mac/RxTest.framework; sourceTree = "<group>"; };
 		6662395D1E9E0950009BB134 /* Materialized+elementsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Materialized+elementsTests.swift"; sourceTree = "<group>"; };
 		66C663051EA0ECD9005245C4 /* materialized+elements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "materialized+elements.swift"; path = "Source/RxSwift/materialized+elements.swift"; sourceTree = SOURCE_ROOT; };
+		876FE343203DCF8600000559 /* filterMapAs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = filterMapAs.swift; sourceTree = "<group>"; };
+		876FE349203DD7B500000559 /* FilterMapAsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMapAsTests.swift; sourceTree = "<group>"; };
 		8CF5F8AD202D622000C1BA97 /* MapAtTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAtTests.swift; sourceTree = "<group>"; };
 		8CF5F8B2202D6C5F00C1BA97 /* mapAt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapAt.swift; sourceTree = "<group>"; };
 		98309EAE1EDF14AC00BD07D9 /* flatMapSync.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = flatMapSync.swift; path = Source/RxSwift/flatMapSync.swift; sourceTree = SOURCE_ROOT; };
@@ -435,6 +445,7 @@
 				5386079C1E6F334B000361DE /* catchErrorJustComplete.swift */,
 				5386079D1E6F334B000361DE /* distinct.swift */,
 				98309EB01EDF159500BD07D9 /* filterMap.swift */,
+				876FE343203DCF8600000559 /* filterMapAs.swift */,
 				98309EAE1EDF14AC00BD07D9 /* flatMapSync.swift */,
 				BF515CE11F3F371600492640 /* fromAsync.swift */,
 				5386079E1E6F334B000361DE /* ignore.swift */,
@@ -466,6 +477,7 @@
 				538607BD1E6F367A000361DE /* CatchErrorJustCompleteTests.swift */,
 				538607BE1E6F367A000361DE /* DistinctTests.swift */,
 				98309EB21EDF161700BD07D9 /* FilterMapTests.swift */,
+				876FE349203DD7B500000559 /* FilterMapAsTests.swift */,
 				BF515CE31F3F3AC900492640 /* FromAsyncTests.swift */,
 				538607BF1E6F367A000361DE /* IgnoreErrorsTests.swift */,
 				538607C01E6F367A000361DE /* IgnoreTests.swift */,
@@ -874,6 +886,7 @@
 				538607B31E6F334B000361DE /* not.swift in Sources */,
 				538607AD1E6F334B000361DE /* distinct.swift in Sources */,
 				D7C72A421FDC5D8F00EAAAAB /* nwise.swift in Sources */,
+				876FE344203DCF8600000559 /* filterMapAs.swift in Sources */,
 				538607B61E6F334B000361DE /* pausable.swift in Sources */,
 				98309EAF1EDF14AC00BD07D9 /* flatMapSync.swift in Sources */,
 				98309EB11EDF159500BD07D9 /* filterMap.swift in Sources */,
@@ -905,6 +918,7 @@
 				538607E21E6F36A9000361DE /* DistinctTests.swift in Sources */,
 				538607EA1E6F36A9000361DE /* PausableTests.swift in Sources */,
 				538607E91E6F36A9000361DE /* OnceTests.swift in Sources */,
+				876FE34A203DD7B500000559 /* FilterMapAsTests.swift in Sources */,
 				538607EE1E6F36A9000361DE /* WeakTests.swift in Sources */,
 				538607E51E6F36A9000361DE /* IgnoreWhenTests.swift in Sources */,
 				538607E11E6F36A9000361DE /* CatchErrorJustCompleteTests.swift in Sources */,
@@ -931,6 +945,7 @@
 				62512C741F0EAF950083A89F /* ObservableType+Weak.swift in Sources */,
 				62512C6F1F0EAF950083A89F /* ignoreErrors.swift in Sources */,
 				62512C701F0EAF950083A89F /* ignoreWhen.swift in Sources */,
+				876FE347203DCF8B00000559 /* mapAt.swift in Sources */,
 				62512C6A1F0EAF950083A89F /* apply.swift in Sources */,
 				62512C6B1F0EAF950083A89F /* cascade.swift in Sources */,
 				62512C671F0EAF820083A89F /* distinct+RxCocoa.swift in Sources */,
@@ -947,6 +962,7 @@
 				62512C7B1F0EAF950083A89F /* flatMapSync.swift in Sources */,
 				62512C681F0EAF850083A89F /* mapTo+RxCocoa.swift in Sources */,
 				62512C791F0EAF950083A89F /* retryWithBehavior.swift in Sources */,
+				876FE345203DCF8600000559 /* filterMapAs.swift in Sources */,
 				BF515CE81F3F3B0000492640 /* fromAsync.swift in Sources */,
 				BF515CEA1F3F3B0300492640 /* curry.swift in Sources */,
 				62512C691F0EAF850083A89F /* not+RxCocoa.swift in Sources */,
@@ -973,6 +989,7 @@
 				62512C8F1F0EB17A0083A89F /* DistinctTests+RxCocoa.swift in Sources */,
 				62512C951F0EB1850083A89F /* DistinctTests.swift in Sources */,
 				62512CA11F0EB1850083A89F /* UnwrapTests.swift in Sources */,
+				876FE34B203DD7B500000559 /* FilterMapAsTests.swift in Sources */,
 				62512CA31F0EB1850083A89F /* WeakTests.swift in Sources */,
 				62512C981F0EB1850083A89F /* IgnoreWhenTests.swift in Sources */,
 				62512C9E1F0EB1850083A89F /* PausableBufferedTests.swift in Sources */,
@@ -999,6 +1016,7 @@
 				E39C41E51F18B08A007F2ACD /* ObservableType+Weak.swift in Sources */,
 				E39C41E01F18B08A007F2ACD /* ignoreErrors.swift in Sources */,
 				E39C41E11F18B08A007F2ACD /* ignoreWhen.swift in Sources */,
+				876FE348203DCF8B00000559 /* mapAt.swift in Sources */,
 				E39C41DB1F18B08A007F2ACD /* apply.swift in Sources */,
 				E39C41DC1F18B08A007F2ACD /* cascade.swift in Sources */,
 				E39C41D81F18B086007F2ACD /* distinct+RxCocoa.swift in Sources */,
@@ -1015,6 +1033,7 @@
 				E39C41EC1F18B08A007F2ACD /* flatMapSync.swift in Sources */,
 				E39C41D91F18B086007F2ACD /* mapTo+RxCocoa.swift in Sources */,
 				E39C41EA1F18B08A007F2ACD /* retryWithBehavior.swift in Sources */,
+				876FE346203DCF8600000559 /* filterMapAs.swift in Sources */,
 				BF515CE91F3F3B0100492640 /* fromAsync.swift in Sources */,
 				BF515CEB1F3F3B0300492640 /* curry.swift in Sources */,
 				E39C41DA1F18B086007F2ACD /* not+RxCocoa.swift in Sources */,
@@ -1041,6 +1060,7 @@
 				E39C42011F18B13E007F2ACD /* CascadeTests.swift in Sources */,
 				E39C42101F18B13E007F2ACD /* WeakTarget.swift in Sources */,
 				E39C42031F18B13E007F2ACD /* DistinctTests.swift in Sources */,
+				876FE34C203DD7B500000559 /* FilterMapAsTests.swift in Sources */,
 				E39C41FD1F18B13A007F2ACD /* DistinctTests+RxCocoa.swift in Sources */,
 				E39C42051F18B13E007F2ACD /* IgnoreTests.swift in Sources */,
 				E39C420E1F18B13E007F2ACD /* RetryWithBehaviorTests.swift in Sources */,

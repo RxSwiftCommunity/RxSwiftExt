@@ -15,6 +15,7 @@
         <page name='retryWithBehavior'/>
         <page name='unwrap'/>
         <page name='filterMap'/>
+        <page name='filterMapAs'/>
         <page name='mapAt'/>
         <page name='mapTo'/>
         <page name='fromAsync'/>
