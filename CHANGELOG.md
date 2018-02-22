@@ -1,6 +1,7 @@
 Changelog
 =========
 
+- deprecated `mapTo()` and `mapAt()` in favor of `map(to:)` and `map(at:)`
 - added `mapAt(keyPath:)` operator
 - added `zip(with:)` operator
 
