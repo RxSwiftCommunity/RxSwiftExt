@@ -1,6 +1,9 @@
 //
-// Created by Arjan Duijzer on 26/12/2017.
-// Copyright (c) 2017 RxSwiftCommunity. All rights reserved.
+//  ZipWithTest.swift
+//  RxSwiftExt
+//
+//  Created by Arjan Duijzer on 26/12/2017.
+//  Copyright © 2017 RxSwift Community. All rights reserved.
 //
 
 import XCTest
@@ -26,8 +29,8 @@ func ==<F, S>(lhs: Pair<F, S>, rhs: Pair<F, S>) -> Bool {
 class ZipWithTest: XCTestCase {
     func testZipWith_SourcesNotEmpty_ZipCompletes() {
         let scheduler = TestScheduler(initialClock: 0)
-        let source1 = Observable.from([1,2,3])
-        let source2 = Observable.from(["a","b"])
+        let source1 = Observable.from([1, 2, 3])
+        let source2 = Observable.from(["a", "b"])
 
         let res = scheduler.start {
             source1.zip(with: source2) {
@@ -45,7 +48,7 @@ class ZipWithTest: XCTestCase {
 
     func testZipWith_SourceEmpty_ZipCompletesEmpty() {
         let scheduler = TestScheduler(initialClock: 0)
-        let source1 = Observable.from([1,2,3])
+        let source1 = Observable.from([1, 2, 3])
         let source2 = Observable<Int>.empty()
 
         let res = scheduler.start {
@@ -76,7 +79,7 @@ class ZipWithTest: XCTestCase {
     func testMaybeZipWith_SourcesNotEmpty_ZipCompletes() {
         let scheduler = TestScheduler(initialClock: 0)
         let source1 = Maybe.just(1)
-        let source2 = Observable.from(["a","b","c"])
+        let source2 = Observable.from(["a", "b", "c"])
 
         let res = scheduler.start {
             source1.zip(with: source2) {
