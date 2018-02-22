@@ -15,9 +15,9 @@ import RxSwiftExt
 /*:
  ## filterMap(as:)
 
- The `filterMap(as:)` operator takes a sequence of elements and returns a filtered sequence of elements casted as given type.
+ The `filterMap(as:)` operator filters the items emitted by the source observable, only emitting those of the given type.
  */
-example("map input as the given type and filter other types") {
+example("filters the items, only emitting those of the given type") {
 
     let values: [Any] = ["Hello", 12, "World", true]
 

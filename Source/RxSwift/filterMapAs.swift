@@ -11,16 +11,23 @@ import RxSwift
 extension ObservableType {
 
     /**
-     Takes a sequence of elements and returns a sequence of elements casted as given type, filtering out any non castable values.
+     Filters the items emitted by the source observable, only emitting those of the given type.
 
      - parameter type: A type whose matches the element type of the input sequence
      - returns: An observable sequence containing the elements 
      */
     public func filterMap<R>(as type: R.Type) -> Observable<R> {
-        return self.filterMap {
-            guard let result = $0 as? R else { return .ignore }
-            return .map(result)
-        }
+        return filter { $0 is R }.map { $0 as! R }
+    }
+
+    /**
+     Filters the items emitted by the source observable, only emitting those of the given type.
+
+     - parameter type: A type whose matches the element type of the input sequence
+     - returns: An observable sequence containing the elements
+     */
+    public func ofType<R>(_ type: R.Type) -> Observable<R> {
+        return filterMap(as: type)
     }
 
 }

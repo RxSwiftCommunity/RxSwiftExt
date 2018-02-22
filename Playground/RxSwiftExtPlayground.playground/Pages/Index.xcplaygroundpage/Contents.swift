@@ -24,7 +24,7 @@
  - [apply()](apply) operator, allows for factoring out repeated Observable chain transformations
  - [unwrap()](unwrap) operator, takes a sequence of optional elements and returns a sequence of non-optional elements, filtering out any `nil` values
  - [ignore(Any...)](ignore) operator, filters out any of the elements passed in parameters
- - [Observable.once(Element)](once) contructor, creates a sequence that delivers an element *once* to the first subscriber then completes. The same sequence will complete immediately without delivering any element to all further subscribers.
+ - [Observable.once(Element)](once) contructor, creates a sequence that delivers an element *once* to the first subscriber then completes. The same sequence will complete immediately without delivering any element to all further subscribers
  - [mapAt(KeyPath)](mapAt) operator transforms a sequence of elements where each element is mapped to its value at the provided key path
  - [mapTo(Any)](mapTo) operator, takes a sequence of elements and returns a sequence of the same constant provided as a parameter
  - [not()](not) operator, applies a the boolean not (!) to a `Bool`
@@ -36,8 +36,9 @@
  - [nwise(), pairwise()](nwise) operators, which group the items emitted by an Observable into arrays of N or pairs of consecutive items
  - [catchErrorJustComplete()](catchErrorJustComplete) ignore any error and complete the sequence instead
  - [pausable()](pausable) operator, pauses emission of elements unless the most recent element from the provided sequence is `true`
- - [pausableBuffered()](pausableBuffered) operator, pauses emission of elements unless the most recent element from the provided sequence is `true`; buffers elements that arrive while paused; emits buffered elements on resume.
+ - [pausableBuffered()](pausableBuffered) operator, pauses emission of elements unless the most recent element from the provided sequence is `true`; buffers elements that arrive while paused; emits buffered elements on resume
  - [filterMap()](filterMap) operator, filters out some values and maps the rest (replaces `filter` + `map` combo)
+ - [filterMap(as:)](filterMapAs) operator, filters the items emitted by the source observable, only emitting those of the given type
  - [Observable.fromAsync()](fromAsync) constructor, translates an async function that returns data through a completionHandler in a function that returns data through an Observable
 */
 
