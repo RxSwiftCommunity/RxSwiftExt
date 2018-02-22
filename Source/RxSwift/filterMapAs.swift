@@ -3,7 +3,7 @@
 //  RxSwiftExt
 //
 //  Created by Jérôme Alves on 21/02/2018.
-//  Copyright © 2018 RxSwiftCommunity. All rights reserved.
+//  Copyright © 2018 RxSwift Community. All rights reserved.
 //
 
 import RxSwift
@@ -17,7 +17,13 @@ extension ObservableType {
      - returns: An observable sequence containing the elements 
      */
     public func filterMap<R>(as type: R.Type) -> Observable<R> {
-        return filter { $0 is R }.map { $0 as! R }
+        return self.filterMap {
+            if let result = $0 as? R {
+                return .map(result)
+            } else {
+              return .ignore
+            }
+        }
     }
 
     /**
