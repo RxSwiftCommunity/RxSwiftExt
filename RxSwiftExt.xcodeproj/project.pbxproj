@@ -565,6 +565,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 188C6D9A1C47B2B20092101A /* Build configuration list for PBXNativeTarget "RxSwiftExt-iOS" */;
 			buildPhases = (
+				87B3D2C1203EB014001327A4 /* Swiftlint */,
 				188C6D8C1C47B2B20092101A /* Sources */,
 				188C6D8D1C47B2B20092101A /* Frameworks */,
 				188C6D8E1C47B2B20092101A /* Headers */,
@@ -602,6 +603,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 62512C631F0EAF200083A89F /* Build configuration list for PBXNativeTarget "RxSwiftExt-macOS" */;
 			buildPhases = (
+				87B3D2C2203EB02B001327A4 /* Swiftlint */,
 				62512C591F0EAF200083A89F /* Sources */,
 				62512C5A1F0EAF200083A89F /* Frameworks */,
 				62512C5B1F0EAF200083A89F /* Headers */,
@@ -639,6 +641,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E39C41D71F18AF84007F2ACD /* Build configuration list for PBXNativeTarget "RxSwiftExt-tvOS" */;
 			buildPhases = (
+				87B3D2C3203EB040001327A4 /* Swiftlint */,
 				E39C41CB1F18AF84007F2ACD /* Sources */,
 				E39C41CC1F18AF84007F2ACD /* Frameworks */,
 				E39C41CD1F18AF84007F2ACD /* Headers */,
@@ -820,6 +823,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		87B3D2C1203EB014001327A4 /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		87B3D2C2203EB02B001327A4 /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		87B3D2C3203EB040001327A4 /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		988839551EFEC2390012DF6E /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
