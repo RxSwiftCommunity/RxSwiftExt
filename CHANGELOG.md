@@ -1,6 +1,7 @@
 Changelog
 =========
 
+- added `filterMap(as:)` operator (and its alias `ofType()`)
 - added `mapAt(keyPath:)` operator
 - added `zip(with:)` operator
 
