@@ -127,6 +127,8 @@
 		62512CA71F0EB1BD0083A89F /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62512CA61F0EB1BD0083A89F /* RxTest.framework */; };
 		6662395E1E9E0950009BB134 /* Materialized+elementsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6662395D1E9E0950009BB134 /* Materialized+elementsTests.swift */; };
 		66C663061EA0ECD9005245C4 /* materialized+elements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C663051EA0ECD9005245C4 /* materialized+elements.swift */; };
+		789682E720408A7500545396 /* mapAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF5F8B2202D6C5F00C1BA97 /* mapAt.swift */; };
+		789682E820408A7700545396 /* mapAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF5F8B2202D6C5F00C1BA97 /* mapAt.swift */; };
 		8CF5F8AF202D62AB00C1BA97 /* MapAtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF5F8AD202D622000C1BA97 /* MapAtTests.swift */; };
 		8CF5F8B0202D62AD00C1BA97 /* MapAtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF5F8AD202D622000C1BA97 /* MapAtTests.swift */; };
 		8CF5F8B1202D62AE00C1BA97 /* MapAtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF5F8AD202D622000C1BA97 /* MapAtTests.swift */; };
@@ -988,6 +990,7 @@
 				62512C741F0EAF950083A89F /* ObservableType+Weak.swift in Sources */,
 				62512C6F1F0EAF950083A89F /* ignoreErrors.swift in Sources */,
 				62512C701F0EAF950083A89F /* ignoreWhen.swift in Sources */,
+				789682E720408A7500545396 /* mapAt.swift in Sources */,
 				62512C6A1F0EAF950083A89F /* apply.swift in Sources */,
 				62512C6B1F0EAF950083A89F /* cascade.swift in Sources */,
 				62512C671F0EAF820083A89F /* distinct+RxCocoa.swift in Sources */,
@@ -1058,6 +1061,7 @@
 				E39C41E51F18B08A007F2ACD /* ObservableType+Weak.swift in Sources */,
 				E39C41E01F18B08A007F2ACD /* ignoreErrors.swift in Sources */,
 				E39C41E11F18B08A007F2ACD /* ignoreWhen.swift in Sources */,
+				789682E820408A7700545396 /* mapAt.swift in Sources */,
 				E39C41DB1F18B08A007F2ACD /* apply.swift in Sources */,
 				E39C41DC1F18B08A007F2ACD /* cascade.swift in Sources */,
 				E39C41D81F18B086007F2ACD /* distinct+RxCocoa.swift in Sources */,
