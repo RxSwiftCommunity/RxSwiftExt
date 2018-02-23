@@ -1,9 +1,9 @@
 //
 //  Observable+OfTypeTests.swift
-//  Tests
+//  RxSwiftExt
 //
 //  Created by Nate Kim on 18/12/2017.
-//  Copyright © 2017 Krunoslav Zaher. All rights reserved.
+//  Copyright © 2017 RxSwift Community. All rights reserved.
 //
 
 import XCTest
@@ -13,7 +13,7 @@ import RxTest
 #if os(Linux)
     import Glibc
 #endif
-class ObservableOfTypeTest : XCTestCase {
+class ObservableOfTypeTest: XCTestCase {
     enum TestError: Error {
         case dummyError
     }
@@ -23,7 +23,7 @@ class ObservableOfTypeTest : XCTestCase {
 extension ObservableOfTypeTest {
     func test_ofTypeComplete() {
         let scheduler = TestScheduler(initialClock: 0)
-        
+
         let xs = scheduler.createHotObservable([
             next(110, NSNumber(value: 1)),
             next(180, NSDecimalNumber(string: "2") as NSNumber),
@@ -37,25 +37,25 @@ extension ObservableOfTypeTest {
             error(430, testError),
             completed(440)
         ])
-        
+
         let res = scheduler.start { () -> Observable<NSDecimalNumber> in
             return xs.ofType(NSDecimalNumber.self)
         }
-        
+
         XCTAssertEqual(res.events, [
             next(340, NSDecimalNumber(string: "5")),
             next(380, NSDecimalNumber(string: "6")),
             completed(400)
         ])
-        
+
         XCTAssertEqual(xs.subscriptions, [
             Subscription(TestScheduler.Defaults.subscribed, 400)
         ])
     }
-    
+
     func test_ofTypeDowncastComplete() {
         let scheduler = TestScheduler(initialClock: 0)
-        
+
         let xs: TestableObservable<NSNumber> = scheduler.createHotObservable([
             next(110, NSNumber(value: 1)),
             next(180, NSDecimalNumber(string: "2") as NSNumber),
@@ -69,11 +69,11 @@ extension ObservableOfTypeTest {
             error(430, testError),
             completed(440)
         ])
-        
+
         let res = scheduler.start { () -> Observable<NSNumber> in
             return xs.ofType(NSNumber.self)
         }
-        
+
         XCTAssertEqual(res.events, [
             next(230, NSNumber(value: 3)),
             next(270, NSNumber(value: 4)),
@@ -81,15 +81,15 @@ extension ObservableOfTypeTest {
             next(380, NSDecimalNumber(string: "6")),
             completed(400)
         ])
-        
+
         XCTAssertEqual(xs.subscriptions, [
             Subscription(TestScheduler.Defaults.subscribed, 400)
         ])
     }
-    
+
     func test_ofTypeNoInstanceComplete() {
         let scheduler = TestScheduler(initialClock: 0)
-        
+
         let xs: TestableObservable<NSNumber> = scheduler.createHotObservable([
             next(110, NSNumber(value: 1)),
             next(180, NSDecimalNumber(string: "2") as NSNumber),
@@ -103,18 +103,18 @@ extension ObservableOfTypeTest {
             error(430, testError),
             completed(440)
         ])
-        
+
         let res = scheduler.start { () -> Observable<String> in
             return xs.ofType(String.self)
         }
-        
+
         XCTAssertEqual(res.events, [completed(400)])
-        
+
         XCTAssertEqual(xs.subscriptions, [
             Subscription(TestScheduler.Defaults.subscribed, 400)
         ])
     }
-    
+
     func test_ofTypeDisposed() {
         let scheduler = TestScheduler(initialClock: 0)
 
@@ -147,12 +147,12 @@ extension ObservableOfTypeTest {
             Subscription(TestScheduler.Defaults.subscribed, 400)
         ])
     }
-    
+
     #if TRACE_RESOURCES
     func testOfTypeReleasesResourcesOnComplete() {
         _ = Observable<Int>.just(1).ofType(Int.self).subscribe()
     }
-    
+
     func testOfTypeReleasesResourcesOnError() {
         _ = Observable<Int>.error(testError).ofType(Int.self).subscribe()
     }
