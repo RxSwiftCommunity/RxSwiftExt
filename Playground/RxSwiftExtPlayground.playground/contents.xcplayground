@@ -21,5 +21,6 @@
         <page name='and'/>
         <page name='nwise'/>
         <page name='zipWith'/>
+        <page name='ofType'/>
     </pages>
 </playground>

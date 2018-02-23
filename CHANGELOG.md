@@ -3,6 +3,7 @@ Changelog
 
 - added `mapAt(keyPath:)` operator
 - added `zip(with:)` operator
+- added `ofType(_:)` operator
 
 3.1.0
 -----
