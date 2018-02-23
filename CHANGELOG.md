@@ -1,6 +1,11 @@
 Changelog
 =========
 
+master
+-----
+
+3.2.0
+-----
 - added `mapAt(keyPath:)` operator
 - added `zip(with:)` operator
 - added `ofType(_:)` operator
