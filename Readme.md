@@ -69,6 +69,7 @@ RxSwiftExt is all about adding operators to [RxSwift](https://github.com/Reactiv
 * [filterMap](#filtermap)
 * [Observable.fromAsync](#fromasync)
 * [Observable.zip(with:)](#zipwith)
+* [weak](#weak)
 
 Two additional operators are available for `materialize()`'d sequences:
 
@@ -510,6 +511,49 @@ next(5)
 completed
 ```
 This example emits 2, 5 (`NSDecimalNumber` Type).
+
+#### weak
+
+Convenience versions of `subscribe` and `flatMap` that provide a safe unretained reference to a specific object as an argument of their respective closures.
+
+```swift
+private class Tool {
+    
+    deinit {
+        print("deinit")
+    }
+    
+    func display(_ value: Any) {
+        print(value)
+    }
+    
+    func produce(_ value: Int) -> Observable<Int> {
+        return Observable.of(value * 2, value * 3)
+    }
+}
+
+let observable = Observable.of(2, 5, 7)
+
+var tool: Tool? = Tool()
+    
+observable.flatMap(weak: tool!) { (strongTool, value) in
+    strongTool.produce(value)
+}.subscribe(weak: tool!, onNext: { (strongTool, value) in
+    strongTool.display(value)
+})
+    
+tool = nil
+```
+
+```
+4
+6
+10
+15
+14
+21
+deinit
+```
 
 ## License
 

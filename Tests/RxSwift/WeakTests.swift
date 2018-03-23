@@ -133,4 +133,40 @@ class WeakTests: XCTestCase {
         let expected: [RxEvent: Int] = [.next: 0, .error: 0, .completed: 0, .disposed: 1]
         XCTAssertTrue(events == expected)
     }
+    
+    private class Wrapper<T> {
+        let value: T
+        
+        init(value: T) {
+            self.value = value
+        }
+    }
+    
+    private var wrapped: Wrapper<Int>? = nil
+    
+    func testFlatMap() {
+        self.wrapped = Wrapper(value: 3)
+        
+        let flatMappedSource = self.source.flatMap(weak: wrapped!) { (strongWrapped, value) -> Observable<Int> in
+            return Observable.of(value * strongWrapped.value, value * (strongWrapped.value + 1))
+        }
+        
+        self.target = WeakTarget<Int>(obs: flatMappedSource) {
+            self.events = $0
+        }
+        XCTAssertTrue(weakTargetReferenceCount == 1)
+        
+        self.target?.useSubscribeNext()
+        
+        self.source.onNext(0)
+        self.source.onNext(0)
+        self.wrapped = nil
+        self.source.onNext(0)
+        self.target = nil
+        self.source.onNext(0)
+        
+        // If a retain cycle was present, the .next count would be 3
+        let expected: [RxEvent: Int] = [.next: 4, .error: 0, .completed: 0, .disposed: 0]
+        XCTAssertEqual(events, expected)
+    }
 }
