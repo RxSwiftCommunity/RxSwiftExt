@@ -1,6 +1,9 @@
 //
-// Created by Arjan Duijzer on 26/12/2017.
-// Copyright (c) 2017 RxSwiftCommunity. All rights reserved.
+//  zipWith.swift
+//  RxSwiftExt
+//
+//  Created by Arjan Duijzer on 26/12/2017.
+//  Copyright © 2017 RxSwift Community. All rights reserved.
 //
 
 import RxSwift

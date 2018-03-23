@@ -1,9 +1,9 @@
 //
 //  mapAt.swift
-//  RxSwiftExt-iOS
+//  RxSwiftExt
 //
 //  Created by Michael Avila on 2/8/18.
-//  Copyright © 2018 RxSwiftCommunity. All rights reserved.
+//  Copyright © 2018 RxSwift Community. All rights reserved.
 //
 
 import RxSwift

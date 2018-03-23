@@ -22,5 +22,6 @@
         <page name='nwise'/>
         <page name='zipWith'/>
         <page name='toggle'/>
+        <page name='ofType'/>
     </pages>
 </playground>
