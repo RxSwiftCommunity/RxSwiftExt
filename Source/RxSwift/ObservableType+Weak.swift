@@ -38,6 +38,8 @@ extension ObservableType {
      - returns: An observable sequence whose elements are the result of invoking the one-to-many transform function on each element of the input sequence.
      */
     public func flatMap<A: AnyObject, O: ObservableConvertibleType>(weak obj: A, _ selector: @escaping (A, Self.E) throws -> O) -> Observable<O.E> {
+        // swiftlint:disable force_cast
+        // Force casts are unavoidable here, because of Swift's type system limitation
         return flatMap { [weak obj] value -> O in
             guard let strongObj = obj else { return Observable<O.E>.empty() as! O }
             
@@ -47,6 +49,7 @@ extension ObservableType {
                 return Observable<O.E>.error(error)  as! O
             }
         }
+        // swiftlint:enable force_cast
     }
 
 	/**
