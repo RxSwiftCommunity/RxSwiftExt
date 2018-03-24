@@ -31,7 +31,7 @@ extension ObservableType {
     }
     
     /**
-     Performs a flatMap providing a safe unretained reference to `obj` as an argument of the flatMap closure
+     Projects each element of an observable sequence to an observable sequence and merges the resulting observable sequences into one observable sequence, while providing a safe & unretained reference to the provided object.
      
      - parameter weak: The object that we want to have a safe and unretained reference on.
      - parameter selector: A function that produces a new ObservableConvertibleType.
@@ -46,7 +46,7 @@ extension ObservableType {
             do {
                 return try selector(strongObj, value)
             } catch {
-                return Observable<O.E>.error(error)  as! O
+                return Observable<O.E>.error(error) as! O
             }
         }
         // swiftlint:enable force_cast
@@ -66,7 +66,7 @@ extension ObservableType {
     /**
      Subscribes an event handler to an observable sequence.
      
-     - parameter weak: The object that we want to have a safe and unretained reference on.
+     - parameter weak: The object that we want to have a safe and unretained reference to.
      - parameter on: Handler function that takes both a safe unretained reference to `obj` and the `event` as arguments.
      - returns: Subscription object used to unsubscribe from the observable sequence.
      */
@@ -121,13 +121,14 @@ extension ObservableType {
 	}
     
     /**
-     Subscribes an element handler, an error handler, a completion handler and disposed handler to an observable sequence.
+     Subscribes an element handler, an error handler, a completion handler and disposed handler to an observable sequence while providing a safe, unretained reference to `obj`.
      
-     - parameter weak: The object that we want to have a safe and unretained reference on.
-     - parameter onNext: Action to invoke for each element in the observable sequence.
-     - parameter onError: Action to invoke upon errored termination of the observable sequence..
-     - parameter onCompleted: Action to invoke upon graceful termination of the observable sequence..
-     - parameter onDisposed: FAction to invoke upon any type of termination of sequence (if the sequence has gracefully completed, errored, or if the generation is canceled by disposing subscription).
+     - parameter weak: The object that we want to have a safe and unretained reference to.
+     - parameter onNext: Function to invoke on `weak` for each element in the observable sequence.
+     - parameter onError: Function to invoke on `weak` upon errored termination of the observable sequence.
+     - parameter onCompleted: Function to invoke on `weak` upon graceful termination of the observable sequence.
+     - parameter onDisposed: Function to invoke on `weak` upon any type of termination of sequence (if the sequence has
+     gracefully completed, errored, or if the generation is cancelled by disposing subscription)
      - returns: Subscription object used to unsubscribe from the observable sequence.
      */
     public func subscribe<A: AnyObject>(weak obj: A,

@@ -517,41 +517,57 @@ This example emits 2, 5 (`NSDecimalNumber` Type).
 Convenience versions of `subscribe` and `flatMap` that provide a safe unretained reference to a specific object as an argument of their respective closures.
 
 ```swift
-private class Tool {
-    
-    deinit {
-        print("deinit")
+enum SampleError: Error {
+    case fatalError
+}
+
+class Foo {
+    let obs1 = Observable.of(3, 4, 6, 7)
+    let obs2 = { (value: Int) in Observable.of(value * 2, value * 3, value * 4) }
+    let obs3 = Observable<String>.create { observer in
+        observer.onNext("First")
+        observer.onError(SampleError.fatalError)
+        observer.onNext("Second")
+        observer.onCompleted()
+        return Disposables.create()
     }
+    
+    let disposeBag = DisposeBag()
+    
+    init() { }
+    
+    deinit { print("deinit") }
     
     func display(_ value: Any) {
         print(value)
     }
     
-    func produce(_ value: Int) -> Observable<Int> {
-        return Observable.of(value * 2, value * 3)
+    func work() {
+        obs1.flatMap(weak: self) { (strongSelf, value) in
+            return strongSelf.obs2(value)
+            }.subscribe(weak: self) { strongSelf, event in
+                strongSelf.display(event)
+            }.disposed(by: disposeBag)
     }
 }
 
-let observable = Observable.of(2, 5, 7)
-
-var tool: Tool? = Tool()
-    
-observable.flatMap(weak: tool!) { (strongTool, value) in
-    strongTool.produce(value)
-}.subscribe(weak: tool!, onNext: { (strongTool, value) in
-    strongTool.display(value)
-})
-    
-tool = nil
+Foo().work()
 ```
 
 ```
-4
-6
-10
-15
-14
-21
+next(6)
+next(9)
+next(8)
+next(12)
+next(12)
+next(12)
+next(16)
+next(18)
+next(14)
+next(24)
+next(21)
+next(28)
+completed
 deinit
 ```
 
