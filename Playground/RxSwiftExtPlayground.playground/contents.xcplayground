@@ -22,5 +22,6 @@
         <page name='nwise'/>
         <page name='zipWith'/>
         <page name='ofType'/>
+        <page name='flatMapWeak'/>
     </pages>
 </playground>

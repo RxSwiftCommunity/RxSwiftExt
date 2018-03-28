@@ -29,6 +29,28 @@ extension ObservableType {
             method?(obj)()
         }
     }
+    
+    /**
+     Projects each element of an observable sequence to an observable sequence and merges the resulting observable sequences into one observable sequence, while providing a safe & unretained reference to the provided object.
+     
+     - parameter weak: The object that we want to have a safe and unretained reference on.
+     - parameter selector: A function that produces a new ObservableConvertibleType.
+     - returns: An observable sequence whose elements are the result of invoking the one-to-many transform function on each element of the input sequence.
+     */
+    public func flatMap<A: AnyObject, O: ObservableConvertibleType>(weak obj: A, _ selector: @escaping (A, Self.E) throws -> O) -> Observable<O.E> {
+        // swiftlint:disable force_cast
+        // Force casts are unavoidable here, because of Swift's type system limitation
+        return flatMap { [weak obj] value -> O in
+            guard let strongObj = obj else { return Observable<O.E>.empty() as! O }
+            
+            do {
+                return try selector(strongObj, value)
+            } catch {
+                return Observable<O.E>.error(error) as! O
+            }
+        }
+        // swiftlint:enable force_cast
+    }
 
 	/**
 	Subscribes an event handler to an observable sequence.
@@ -40,6 +62,20 @@ extension ObservableType {
 	public func subscribe<A: AnyObject>(weak obj: A, _ on: @escaping (A) -> (RxSwift.Event<Self.E>) -> Void) -> Disposable {
 		return self.subscribe(weakify(obj, method: on))
 	}
+    
+    /**
+     Subscribes an event handler to an observable sequence.
+     
+     - parameter weak: The object that we want to have a safe and unretained reference to.
+     - parameter on: Handler function that takes both a safe unretained reference to `obj` and the `event` as arguments.
+     - returns: Subscription object used to unsubscribe from the observable sequence.
+     */
+    public func subscribe<A: AnyObject>(weak obj: A, _ on: @escaping (A, Event<Self.E>) -> Void) -> Disposable {
+        let curriedOn: (A) -> (RxSwift.Event<Self.E>) -> Void = { (strongObj: A) in { (event: Event<Self.E>) in on(strongObj, event) } }
+        
+        return subscribe(weak: obj, curriedOn)
+    }
+
 
 	/**
 	Subscribes an element handler, an error handler, a completion handler and disposed handler to an observable sequence.
@@ -83,6 +119,34 @@ extension ObservableType {
 
 		return Disposables.create(self.asObservable().subscribe(observer), disposable)
 	}
+    
+    /**
+     Subscribes an element handler, an error handler, a completion handler and disposed handler to an observable sequence while providing a safe, unretained reference to `obj`.
+     
+     - parameter weak: The object that we want to have a safe and unretained reference to.
+     - parameter onNext: Function to invoke on `weak` for each element in the observable sequence.
+     - parameter onError: Function to invoke on `weak` upon errored termination of the observable sequence.
+     - parameter onCompleted: Function to invoke on `weak` upon graceful termination of the observable sequence.
+     - parameter onDisposed: Function to invoke on `weak` upon any type of termination of sequence (if the sequence has
+     gracefully completed, errored, or if the generation is cancelled by disposing subscription)
+     - returns: Subscription object used to unsubscribe from the observable sequence.
+     */
+    public func subscribe<A: AnyObject>(weak obj: A,
+                                        onNext: ((A, E) -> Void)? = nil,
+                                        onError: ((A, Error) -> Void)? = nil,
+                                        onCompleted: ((A) -> Void)? = nil,
+                                        onDisposed: ((A) -> Void)? = nil) -> Disposable {
+        let curriedOnNext: ((A) -> (Self.E) -> Void) = { (strongObj: A) in { (value: E) in onNext?(strongObj, value) } }
+        let curriedOnError: ((A) -> (Error) -> Void) = { (strongObj: A) in { (error: Error) in onError?(strongObj, error) } }
+        let curriedOnCompleted: ((A) -> () -> Void) = { (strongObj: A) in { onCompleted?(strongObj) } }
+        let curriedOnDisposed: ((A) -> () -> Void) = { (strongObj: A) in { onDisposed?(strongObj) } }
+        
+        return subscribe(weak: obj,
+                         onNext: curriedOnNext,
+                         onError: curriedOnError,
+                         onCompleted: curriedOnCompleted,
+                         onDisposed: curriedOnDisposed)
+    }
 
 	/**
 	Subscribes an element handler to an observable sequence.

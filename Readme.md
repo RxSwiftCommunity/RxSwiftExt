@@ -69,6 +69,7 @@ RxSwiftExt is all about adding operators to [RxSwift](https://github.com/Reactiv
 * [filterMap](#filtermap)
 * [Observable.fromAsync](#fromasync)
 * [Observable.zip(with:)](#zipwith)
+* [weak](#weak)
 
 Two additional operators are available for `materialize()`'d sequences:
 
@@ -510,6 +511,65 @@ next(5)
 completed
 ```
 This example emits 2, 5 (`NSDecimalNumber` Type).
+
+#### weak
+
+Convenience versions of `subscribe` and `flatMap` that provide a safe unretained reference to a specific object as an argument of their respective closures.
+
+```swift
+enum SampleError: Error {
+    case fatalError
+}
+
+class Foo {
+    let obs1 = Observable.of(3, 4, 6, 7)
+    let obs2 = { (value: Int) in Observable.of(value * 2, value * 3, value * 4) }
+    let obs3 = Observable<String>.create { observer in
+        observer.onNext("First")
+        observer.onError(SampleError.fatalError)
+        observer.onNext("Second")
+        observer.onCompleted()
+        return Disposables.create()
+    }
+    
+    let disposeBag = DisposeBag()
+    
+    init() { }
+    
+    deinit { print("deinit") }
+    
+    func display(_ value: Any) {
+        print(value)
+    }
+    
+    func work() {
+        obs1.flatMap(weak: self) { (strongSelf, value) in
+            return strongSelf.obs2(value)
+            }.subscribe(weak: self) { strongSelf, event in
+                strongSelf.display(event)
+            }.disposed(by: disposeBag)
+    }
+}
+
+Foo().work()
+```
+
+```
+next(6)
+next(9)
+next(8)
+next(12)
+next(12)
+next(12)
+next(16)
+next(18)
+next(14)
+next(24)
+next(21)
+next(28)
+completed
+deinit
+```
 
 ## License
 
