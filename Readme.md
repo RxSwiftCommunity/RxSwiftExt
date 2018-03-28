@@ -69,6 +69,7 @@ RxSwiftExt is all about adding operators to [RxSwift](https://github.com/Reactiv
 * [filterMap](#filtermap)
 * [Observable.fromAsync](#fromasync)
 * [Observable.zip(with:)](#zipwith)
+* [withUnretained](#withunretained)
 
 Two additional operators are available for `materialize()`'d sequences:
 
@@ -510,6 +511,54 @@ next(5)
 completed
 ```
 This example emits 2, 5 (`NSDecimalNumber` Type).
+
+### withUnretained
+
+The `withUnretained(_:)` operator provides an unretained, safe to use (i.e. not implicitly unwrapped), reference to an object along with the values of the sequence.
+
+```swift
+class Displayer {
+    init() { }
+    
+    deinit {
+        print("deinit")
+    }
+    
+    func display(_ value: Any) {
+        print(value)
+    }
+}
+
+let publishSubject = PublishSubject<Int>()
+var displayer: Displayer? = Displayer()
+
+if let displayer = displayer {
+    _ = publishSubject
+        .withUnretained(displayer) // -> Observable<(Displayer, Int)>
+        .subscribe(onNext: { displayer, i in
+            displayer.display(i)
+        })
+}
+
+publishSubject.onNext(1)
+publishSubject.onNext(2)
+publishSubject.onNext(3)
+publishSubject.onNext(5)
+publishSubject.onNext(8)
+displayer = nil // the object referenced by `displayer` gets deallocated
+publishSubject.onNext(13)
+publishSubject.onNext(21)
+publishSubject.onCompleted()
+```
+
+```
+1
+2
+3
+5
+8
+deinit
+```
 
 ## License
 
