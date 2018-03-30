@@ -23,5 +23,6 @@
         <page name='zipWith'/>
         <page name='ofType'/>
         <page name='withUnretained'/>
+        <page name='UIViewProperty+Rx'/>
     </pages>
 </playground>

@@ -5,6 +5,10 @@ master
 -----
 - added `withUnretained(_:)` operator
 
+3.3.0
+-----
+- added `animate(afterDelay:)` operator UIViewPropertyAnimator
+
 3.2.0
 -----
 - added `mapAt(keyPath:)` operator

@@ -41,6 +41,7 @@
  - [filterMap()](filterMap) operator, filters out some values and maps the rest (replaces `filter` + `map` combo)
  - [Observable.fromAsync()](fromAsync) constructor, translates an async function that returns data through a completionHandler in a function that returns data through an Observable
  - [ofType()](ofType) operator, filters the elements of an observable sequence, if that is an instance of the supplied type.
+ - [UIViewPropertyAnimator.rx.animate](animate) operator, returns a Completable that completes as soon as the animation ends.
 */
 
 //: [Next >>](@next)

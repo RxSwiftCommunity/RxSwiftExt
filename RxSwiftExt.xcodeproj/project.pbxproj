@@ -23,6 +23,10 @@
 
 /* Begin PBXBuildFile section */
 		188C6DA31C47B4240092101A /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188C6DA21C47B4240092101A /* RxSwift.framework */; };
+		1A8741AC20745A91004BB762 /* UIViewPropertyAnimatorTests+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8741AB20745A91004BB762 /* UIViewPropertyAnimatorTests+Rx.swift */; };
+		1A8741AD20745A96004BB762 /* UIViewPropertyAnimatorTests+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8741AB20745A91004BB762 /* UIViewPropertyAnimatorTests+Rx.swift */; };
+		1A8741AE20745A97004BB762 /* UIViewPropertyAnimatorTests+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8741AB20745A91004BB762 /* UIViewPropertyAnimatorTests+Rx.swift */; };
+		1AA8395B207451D6001C49ED /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA8395A207451D5001C49ED /* RxCocoa.framework */; };
 		3D11958B1FCAD9AE0095134B /* and.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBDE5FB1FBBAE3900DF47F9 /* and.swift */; };
 		3D11958C1FCAD9AF0095134B /* and.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBDE5FB1FBBAE3900DF47F9 /* and.swift */; };
 		3D638DEC1DC2B2D50089A590 /* RxSwiftExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188C6D911C47B2B20092101A /* RxSwiftExt.framework */; };
@@ -32,6 +36,7 @@
 		3DBDE5FF1FBBB09900DF47F9 /* AndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBDE5FD1FBBB05400DF47F9 /* AndTests.swift */; };
 		3DBDE6001FBBB09A00DF47F9 /* AndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBDE5FD1FBBB05400DF47F9 /* AndTests.swift */; };
 		3DBDE6011FBBB09A00DF47F9 /* AndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBDE5FD1FBBB05400DF47F9 /* AndTests.swift */; };
+		4A73956C206D501300E2BE2D /* UIViewPropertyAnimator+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A73956B206D501300E2BE2D /* UIViewPropertyAnimator+Rx.swift */; };
 		5386076F1E6F1C0A000361DE /* mapTo+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386076E1E6F1C0A000361DE /* mapTo+RxCocoa.swift */; };
 		538607731E6F1D51000361DE /* MapToTests+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538607711E6F1CFB000361DE /* MapToTests+RxCocoa.swift */; };
 		538607AA1E6F334B000361DE /* apply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386079A1E6F334B000361DE /* apply.swift */; };
@@ -247,11 +252,14 @@
 /* Begin PBXFileReference section */
 		188C6D911C47B2B20092101A /* RxSwiftExt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxSwiftExt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		188C6DA21C47B4240092101A /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = SOURCE_ROOT; };
+		1A8741AB20745A91004BB762 /* UIViewPropertyAnimatorTests+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewPropertyAnimatorTests+Rx.swift"; sourceTree = "<group>"; };
+		1AA8395A207451D5001C49ED /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		3D638DE71DC2B2D40089A590 /* RxSwiftExtTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RxSwiftExtTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D638E1E1DC2B3A40089A590 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
 		3DB034F61DC376D9002C6A26 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = "<group>"; };
 		3DBDE5FB1FBBAE3900DF47F9 /* and.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = and.swift; sourceTree = "<group>"; };
 		3DBDE5FD1FBBB05400DF47F9 /* AndTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AndTests.swift; sourceTree = "<group>"; };
+		4A73956B206D501300E2BE2D /* UIViewPropertyAnimator+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewPropertyAnimator+Rx.swift"; sourceTree = "<group>"; };
 		5386076E1E6F1C0A000361DE /* mapTo+RxCocoa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "mapTo+RxCocoa.swift"; path = "Source/RxCocoa/mapTo+RxCocoa.swift"; sourceTree = SOURCE_ROOT; };
 		538607711E6F1CFB000361DE /* MapToTests+RxCocoa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MapToTests+RxCocoa.swift"; sourceTree = "<group>"; };
 		5386079A1E6F334B000361DE /* apply.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = apply.swift; path = Source/RxSwift/apply.swift; sourceTree = SOURCE_ROOT; };
@@ -325,6 +333,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AA8395B207451D6001C49ED /* RxCocoa.framework in Frameworks */,
 				188C6DA31C47B4240092101A /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -429,6 +438,7 @@
 				53F336E71E70CBF700D35D38 /* distinct+RxCocoa.swift */,
 				5386076E1E6F1C0A000361DE /* mapTo+RxCocoa.swift */,
 				538607EF1E6F589E000361DE /* not+RxCocoa.swift */,
+				4A73956B206D501300E2BE2D /* UIViewPropertyAnimator+Rx.swift */,
 			);
 			path = RxCocoa;
 			sourceTree = "<group>";
@@ -439,6 +449,7 @@
 				53F336E91E70D59000D35D38 /* DistinctTests+RxCocoa.swift */,
 				538607711E6F1CFB000361DE /* MapToTests+RxCocoa.swift */,
 				53C79D5F1E6F5AAB00CD9B6A /* NotTests+RxCocoa.swift */,
+				1A8741AB20745A91004BB762 /* UIViewPropertyAnimatorTests+Rx.swift */,
 			);
 			name = RxCocoa;
 			path = Tests/RxCocoa;
@@ -532,6 +543,7 @@
 		9DAB77991D6763AC007E85BC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1AA8395A207451D5001C49ED /* RxCocoa.framework */,
 				E36BDFB81F38755F008C9D56 /* tvOS */,
 				62512C561F0EAEB90083A89F /* macOS */,
 				62512C551F0EAEB20083A89F /* iOS */,
@@ -933,6 +945,7 @@
 				538607B81E6F334B000361DE /* retryWithBehavior.swift in Sources */,
 				66C663061EA0ECD9005245C4 /* materialized+elements.swift in Sources */,
 				538607B51E6F334B000361DE /* once.swift in Sources */,
+				4A73956C206D501300E2BE2D /* UIViewPropertyAnimator+Rx.swift in Sources */,
 				538607B11E6F334B000361DE /* mapTo.swift in Sources */,
 				538607AA1E6F334B000361DE /* apply.swift in Sources */,
 				C4D2153F20118A81009804AE /* ofType.swift in Sources */,
@@ -989,6 +1002,7 @@
 				538607731E6F1D51000361DE /* MapToTests+RxCocoa.swift in Sources */,
 				538607E61E6F36A9000361DE /* MapToTests.swift in Sources */,
 				5A5FCE411ED5AEC60052A9B5 /* PausableBufferedTests.swift in Sources */,
+				1A8741AC20745A91004BB762 /* UIViewPropertyAnimatorTests+Rx.swift in Sources */,
 				3DBDE5FF1FBBB09900DF47F9 /* AndTests.swift in Sources */,
 				58C545FD1AE234C7F290334F /* ZipWithTest.swift in Sources */,
 			);
@@ -1062,6 +1076,7 @@
 				62512CA21F0EB1850083A89F /* WeakTarget.swift in Sources */,
 				62512C9D1F0EB1850083A89F /* PausableTests.swift in Sources */,
 				62512C991F0EB1850083A89F /* MapToTests.swift in Sources */,
+				1A8741AE20745A97004BB762 /* UIViewPropertyAnimatorTests+Rx.swift in Sources */,
 				3DBDE6001FBBB09A00DF47F9 /* AndTests.swift in Sources */,
 				58C54302EC14B6FF2034BAF6 /* ZipWithTest.swift in Sources */,
 			);
@@ -1135,6 +1150,7 @@
 				E39C42091F18B13E007F2ACD /* NotTests.swift in Sources */,
 				E39C42081F18B13E007F2ACD /* Materialized+elementsTests.swift in Sources */,
 				E39C42071F18B13E007F2ACD /* MapToTests.swift in Sources */,
+				1A8741AD20745A96004BB762 /* UIViewPropertyAnimatorTests+Rx.swift in Sources */,
 				3DBDE6011FBBB09A00DF47F9 /* AndTests.swift in Sources */,
 				58C54B6E1B4C678DE2378145 /* ZipWithTest.swift in Sources */,
 			);
