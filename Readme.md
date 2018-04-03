@@ -514,50 +514,36 @@ This example emits 2, 5 (`NSDecimalNumber` Type).
 
 ### withUnretained
 
-The `withUnretained(_:)` operator provides an unretained, safe to use (i.e. not implicitly unwrapped), reference to an object along with the values of the sequence.
+The `withUnretained(_:)` operator provides an unretained, safe to use (i.e. not implicitly unwrapped), reference to an object along with the events emitted by the sequence.
+In the case the provided object cannot be retained successfully, the seqeunce will complete.
 
 ```swift
-class Displayer {
-    init() { }
-    
-    deinit {
-        print("deinit")
-    }
-    
-    func display(_ value: Any) {
-        print(value)
-    }
+class TestClass: CustomStringConvertible {
+    var description: String { return "Test Class" }
 }
 
-let publishSubject = PublishSubject<Int>()
-var displayer: Displayer? = Displayer()
-
-if let displayer = displayer {
-    _ = publishSubject
-        .withUnretained(displayer) // -> Observable<(Displayer, Int)>
-        .subscribe(onNext: { displayer, i in
-            displayer.display(i)
-        })
-}
-
-publishSubject.onNext(1)
-publishSubject.onNext(2)
-publishSubject.onNext(3)
-publishSubject.onNext(5)
-publishSubject.onNext(8)
-displayer = nil // the object referenced by `displayer` gets deallocated
-publishSubject.onNext(13)
-publishSubject.onNext(21)
-publishSubject.onCompleted()
+Observable
+    .of(1, 2, 3, 5, 8, 13, 18, 21, 23)
+    .withUnretained(testClass)
+    .do(onNext: { _, value in
+        if value == 13 {
+            // When testClass becomes nil, the next emission of the original
+            // sequence will try to retain it and fail. As soon as it fails,
+            // the sequence will complete.
+            testClass = nil
+        }
+    })
+    .subscribe()
 ```
 
 ```
-1
-2
-3
-5
-8
-deinit
+next((testClass, 1))
+next((testClass, 2))
+next((testClass, 3))
+next((testClass, 5))
+next((testClass, 8))
+next((testClass, 13))
+completed
 ```
 
 ## License
