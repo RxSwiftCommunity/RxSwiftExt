@@ -12,40 +12,26 @@
 import RxSwift
 import RxSwiftExt
 
-class Displayer {
-    init() { }
-    
-    deinit {
-        print("deinit")
-    }
-    
-    func display(_ value: Any) {
-        print(value)
-    }
+class TestClass: CustomStringConvertible {
+    var description: String { return "Test Class" }
 }
 
 example("withUnretained") {
-    let publishSubject = PublishSubject<Int>()
-    var displayer: Displayer? = Displayer()
-    
-    if let displayer = displayer {
-        _ = publishSubject
-            .withUnretained(displayer) // -> Observable<(Displayer, Int)>
-            .subscribe(onNext: { displayer, i in
-                displayer.display(i)
-            })
-    }
-    
-    publishSubject.onNext(1)
-    publishSubject.onNext(2)
-    publishSubject.onNext(3)
-    publishSubject.onNext(5)
-    publishSubject.onNext(8)
-    displayer = nil // the object referenced by `displayer` gets deallocated
-    publishSubject.onNext(13)
-    publishSubject.onNext(21)
-    publishSubject.onCompleted()
-}
+    var testClass: TestClass! = TestClass()
 
+    _ = Observable
+        .of(1, 2, 3, 5, 8, 13, 18, 21, 23)
+        .withUnretained(testClass)
+        .debug("Combined Object with Emitted Events")
+        .do(onNext: { _, value in
+            if value == 13 {
+                // When testClass becomes nil, the next emission of the original
+                // sequence will try to retain it and fail. As soon as it fails,
+                // the sequence will complete.
+                testClass = nil
+            }
+        })
+        .subscribe()
+}
 //: [Next](@next)
 
