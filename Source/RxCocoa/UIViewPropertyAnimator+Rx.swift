@@ -11,22 +11,20 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-@available(iOSApplicationExtension 10.0, *)
-extension Reactive where Base == UIViewPropertyAnimator {
-
-    /// Completable that when subscribed to, starts the animation after a delay
-    /// and completes once the animation is ended
+@available(iOS 10.0, *)
+public extension Reactive where Base: UIViewPropertyAnimator {
+    /// Provides a Completable that triggers the UIViewPropertyAnimator upon subscription
+    /// and completes once the animation ends.
     ///
-    /// - Parameter delay: the delay to apply to the animation start
-    /// - Returns: the Completable that will send .completed once the animation is ended
-    public func animate(afterDelay delay: Double = 0) -> Completable {
-
+    /// - Parameter afterDelay: the delay to apply to the animation start
+    ///
+    /// - Returns: Completable
+    func animate(afterDelay delay: TimeInterval = 0) -> Completable {
         return Completable.create { [base] completable in
-
-            base.addCompletion({ (position) in
+            base.addCompletion { position in
                 guard position == .end else { return }
                 completable(.completed)
-            })
+            }
 
             base.startAnimation(afterDelay: delay)
 
