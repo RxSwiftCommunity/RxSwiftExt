@@ -1,0 +1,78 @@
+version: 2
+jobs:
+  "RxSwiftExt Tests":
+    working_directory: ~/RxSwiftCommunity/RxSwiftExt
+    parallelism: 1
+    shell: /bin/bash --login
+    environment:
+      XCODE_TEST_REPORTS: /tmp/xcode-test-results
+      LANG: en_US.UTF-8
+    macos:
+      xcode: '9.2.0'
+    steps:
+      - checkout
+      - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS $XCODE_TEST_REPORTS
+      - restore_cache:
+          keys:
+            - v1-dep-{{ .Branch }}-
+            - v1-dep-master-
+            - v1-dep-
+      - run:
+          name: Update Homebrew
+          command: brew update
+      - run:
+          name: Install Swiftlint
+          command: brew install swiftlint
+      - run: 
+          name: Bootstrap Carthage
+          command: scripts/bootstrap-if-needed.sh
+      - save_cache:
+          key: v1-dep-{{ .Branch }}-{{ epoch }}
+          paths:
+            - Carthage
+      - run:
+          name: Test macOS
+          command: xcodebuild test -scheme RxSwiftExt-macOS -workspace RxSwiftExt.xcworkspace -sdk macosx -destination "arch=x86_64" | xcpretty -c -r html --output $XCODE_TEST_REPORTS/macOS.html
+      - run:
+          name: Test iOS
+          command: xcodebuild test -scheme RxSwiftExt-iOS -workspace RxSwiftExt.xcworkspace -sdk iphonesimulator -destination "name=iPhone X" | xcpretty -c -r html --output $XCODE_TEST_REPORTS/iOS.html
+      - run:
+          name: Test tvOS
+          command: xcodebuild test -scheme RxSwiftExt-tvOS -workspace RxSwiftExt.xcworkspace -sdk appletvsimulator -destination "name=Apple TV 4K (at 1080p)" | xcpretty -c -r html --output $XCODE_TEST_REPORTS/tvOS.html
+      - store_artifacts:
+          path: /tmp/xcode-test-results
+  "RxSwiftExt Release":
+    working_directory: ~/RxSwiftCommunity/RxSwiftExt
+    parallelism: 1
+    shell: /bin/bash --login
+    environment:
+      LANG: en_US.UTF-8
+    macos:
+      xcode: '9.2.0'
+    steps:
+      - checkout
+      - run:
+          name: Setup CocoaPods
+          command: pod setup
+      - run:
+          name: Override Circle CI Config
+          command: rm ~/.cocoapods/config.yaml # This hack is needed since CircleCI forces --verbose
+      - run:
+          name: Push Podspec to Trunk
+          command: pod trunk push --skip-tests --allow-warnings
+workflows:
+  version: 2
+  build:
+    jobs:
+      - "RxSwiftExt Tests":
+          filters:
+            tags:
+              ignore: /[0-9]+(\.[0-9]+)*/
+  release:
+    jobs:
+      - "RxSwiftExt Release":
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /[0-9]+(\.[0-9]+)*/

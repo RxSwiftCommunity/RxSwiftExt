@@ -23,6 +23,7 @@
  
  - [apply()](apply) operator, allows for factoring out repeated Observable chain transformations
  - [unwrap()](unwrap) operator, takes a sequence of optional elements and returns a sequence of non-optional elements, filtering out any `nil` values
+ - [withUnretained(_:)](withUnretained) operator provides an unretained, safe to use (i.e. not implicitly unwrapped), reference to an object along with the events emitted by the sequence.
  - [ignore(Any...)](ignore) operator, filters out any of the elements passed in parameters
  - [Observable.once(Element)](once) contructor, creates a sequence that delivers an element *once* to the first subscriber then completes. The same sequence will complete immediately without delivering any element to all further subscribers.
  - [mapAt(KeyPath)](mapAt) operator transforms a sequence of elements where each element is mapped to its value at the provided key path
@@ -40,6 +41,8 @@
  - [filterMap()](filterMap) operator, filters out some values and maps the rest (replaces `filter` + `map` combo)
  - [Observable.fromAsync()](fromAsync) constructor, translates an async function that returns data through a completionHandler in a function that returns data through an Observable
  - [ofType()](ofType) operator, filters the elements of an observable sequence, if that is an instance of the supplied type.
+ - [toggleBool(initial:)](toggleBool) operator, returns an observable sequence of booleans, starting with `initial` and toggling its value
+ at each `.next` event
 */
 
 //: [Next >>](@next)

@@ -14,17 +14,17 @@ import RxSwiftExt
 /*:
  ## toggle
  
- The `toggle` starts with an initial boolean value, and then toggles it at each .next event
+ The `toggleBool` starts with an initial boolean value, and then toggles it at each .next event
  */
 
-example("Grouping numbers into triples") {
+example("toggleBool") {
     let input = [1, 2, 3, 4]
     
     print("Input:", input)
     print("Output:")
     
     Observable.from(input)
-        .toggle(initial: false)
+        .toggleBool(initial: false)
         .subscribe(onNext: { result in
             print(result)
         })

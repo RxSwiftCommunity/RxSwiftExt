@@ -21,7 +21,8 @@
         <page name='and'/>
         <page name='nwise'/>
         <page name='zipWith'/>
-        <page name='toggle'/>
+        <page name='toggleBool'/>
         <page name='ofType'/>
+        <page name='withUnretained'/>
     </pages>
 </playground>

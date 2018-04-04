@@ -69,6 +69,8 @@ RxSwiftExt is all about adding operators to [RxSwift](https://github.com/Reactiv
 * [filterMap](#filtermap)
 * [Observable.fromAsync](#fromasync)
 * [Observable.zip(with:)](#zipwith)
+* [withUnretained](#withunretained)
+* [toggleBool](#toggleBool)
 
 Two additional operators are available for `materialize()`'d sequences:
 
@@ -510,6 +512,61 @@ next(5)
 completed
 ```
 This example emits 2, 5 (`NSDecimalNumber` Type).
+
+### withUnretained
+
+The `withUnretained(_:)` operator provides an unretained, safe to use (i.e. not implicitly unwrapped), reference to an object along with the events emitted by the sequence.
+In the case the provided object cannot be retained successfully, the seqeunce will complete.
+
+```swift
+class TestClass: CustomStringConvertible {
+    var description: String { return "Test Class" }
+}
+
+Observable
+    .of(1, 2, 3, 5, 8, 13, 18, 21, 23)
+    .withUnretained(testClass)
+    .do(onNext: { _, value in
+        if value == 13 {
+            // When testClass becomes nil, the next emission of the original
+            // sequence will try to retain it and fail. As soon as it fails,
+            // the sequence will complete.
+            testClass = nil
+        }
+    })
+    .subscribe()
+```
+
+```
+next((Test Class, 1))
+next((Test Class, 2))
+next((Test Class, 3))
+next((Test Class, 5))
+next((Test Class, 8))
+next((Test Class, 13))
+completed
+```
+
+### toggleBool
+
+The `toggleBool(initial:)` operator returns an observable sequence of booleans, starting with `initial` and toggling its value.
+
+```swift
+let input = [1, 2, 3, 4]
+
+Observable.from(input)
+    .toggleBool(initial: false)
+    .subscribe { print($0) }
+```
+
+```
+next(false)
+next(true)
+next(false)
+next(true)
+next(false)
+completed
+```
 
 ## License
 
