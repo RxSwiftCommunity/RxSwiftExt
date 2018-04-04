@@ -3,6 +3,7 @@ Changelog
 
 master
 -----
+- added `withUnretained(_:)` operator
 
 3.2.0
 -----
