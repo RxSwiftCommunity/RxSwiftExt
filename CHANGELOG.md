@@ -7,7 +7,7 @@ master
 
 3.3.0
 -----
-- added `animate(afterDelay:)` operator UIViewPropertyAnimator
+- Added UIViewPropertyAnimator Reactive Extensions (`animate()` operator)
 
 3.2.0
 -----
