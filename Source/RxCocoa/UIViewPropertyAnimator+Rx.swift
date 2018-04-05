@@ -26,7 +26,11 @@ public extension Reactive where Base: UIViewPropertyAnimator {
                 completable(.completed)
             }
 
-            base.startAnimation(afterDelay: delay)
+            if delay != 0 {
+                base.startAnimation(afterDelay: delay)
+            } else {
+                base.startAnimation()
+            }
 
             return Disposables.create {
                 base.stopAnimation(true)
