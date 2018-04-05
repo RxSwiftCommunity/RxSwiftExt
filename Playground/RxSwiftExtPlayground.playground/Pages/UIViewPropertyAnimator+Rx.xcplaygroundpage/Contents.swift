@@ -56,25 +56,30 @@ class AnimateViewController: UIViewController {
         return button
     }()
 
-    lazy var animator1 = {
-        UIViewPropertyAnimator(duration: 0.3, curve: .easeInOut) { [unowned self] in
-            self.box1.transform = CGAffineTransform(translationX: 0, y: -100)
-        }
-    }()
+    var animator1: UIViewPropertyAnimator!
+    var animator2: UIViewPropertyAnimator!
+    var animator3: UIViewPropertyAnimator!
 
-    lazy var animator2 = {
-        UIViewPropertyAnimator(duration: 0.25, curve: .easeInOut) { [unowned self] in
-            self.box2.transform = CGAffineTransform(translationX: 0, y: -100)
-                                    .scaledBy(x: 1.2, y: 1.2)
+    private func makeAnimators() {
+        animator1 = UIViewPropertyAnimator(duration: 0.3, curve: .easeInOut) { [unowned self] in
+            self.box1.transform = self.box1.transform != .identity ? .identity
+                                                                   : self.box1.transform.translatedBy(x: 0, y: -100)
         }
-    }()
 
-    lazy var animator3 = {
-        UIViewPropertyAnimator(duration: 0.15, curve: .easeInOut) { [unowned self] in
-            self.box3.transform = CGAffineTransform(translationX: 0, y: -100)
-                                    .rotated(by: CGFloat(M_PI))
+        animator2 = UIViewPropertyAnimator(duration: 0.25, curve: .easeInOut) { [unowned self] in
+            self.box2.transform = self.box2.transform != .identity ? .identity
+                                                                   : self.box2.transform
+                                                                         .translatedBy(x: 0, y: -100)
+                                                                         .scaledBy(x: 1.2, y: 1.2)
         }
-    }()
+
+        animator3 = UIViewPropertyAnimator(duration: 0.15, curve: .easeInOut) { [unowned self] in
+            self.box3.transform = self.box3.transform != .identity ? .identity
+                                                                   : self.box3.transform
+                                                                         .translatedBy(x: 0, y: -100)
+                                                                         .rotated(by: .pi)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,12 +92,17 @@ class AnimateViewController: UIViewController {
             view.addSubview($0)
         }
 
+        makeAnimators()
+
         // Trigger chained animations after a button tap
         button.rx.tap
             .flatMap { [unowned self] in
                 self.animator1.rx.animate()
-                    .andThen(self.animator2.rx.animate(afterDelay: 0.2))
+                    .andThen(self.animator2.rx.animate(afterDelay: 0.15))
                     .andThen(self.animator3.rx.animate(afterDelay: 0.1))
+                    .do(onCompleted: {
+                        self.makeAnimators()
+                    })
                     .debug("animation sequence")
             }
             .subscribe()
