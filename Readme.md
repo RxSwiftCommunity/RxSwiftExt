@@ -5,7 +5,7 @@
 RxSwiftExt
 ===========
 
-If you're using [RxSwift](https://github.com/ReactiveX/RxSwift), you may have encountered situations where the built-in operators do not bring the exact functionality you want. The RxSwift core is being intentionally kept as compact as possible to avoid bloat. This repository's purpose is to provide additional convenience operators.
+If you're using [RxSwift](https://github.com/ReactiveX/RxSwift), you may have encountered situations where the built-in operators do not bring the exact functionality you want. The RxSwift core is being intentionally kept as compact as possible to avoid bloat. This repository's purpose is to provide additional convenience operators and Reactive Extensions.
 
 Installation
 ===========
@@ -14,7 +14,6 @@ This branch of RxSwiftExt targets Swift 4.x and RxSwift 4.0.0 or later.
 
 * If you're looking for the Swift 3 version of RxSwiftExt, please use version `2.5.1` of the framework.
 * If your project is running on Swift 2.x, please use version `1.2` of the framework.
-
 
 #### CocoaPods
 
@@ -44,11 +43,14 @@ Add this to your `Cartfile`
 github "RxSwiftCommunity/RxSwiftExt"
 ```
 
-
 Operators
 ===========
 
-RxSwiftExt is all about adding operators to [RxSwift](https://github.com/ReactiveX/RxSwift)! Currently available operators:
+RxSwiftExt is all about adding operators and Reactive Extensions to [RxSwift](https://github.com/ReactiveX/RxSwift)!
+
+## Operators
+
+These operators are much like the RxSwift & RxCocoa core operators, but provide additional useful abilities to your Rx arsenal.
 
 * [unwrap](#unwrap)
 * [ignore](#ignore)
@@ -71,12 +73,20 @@ RxSwiftExt is all about adding operators to [RxSwift](https://github.com/Reactiv
 * [Observable.zip(with:)](#zipwith)
 * [withUnretained](#withunretained)
 
-Two additional operators are available for `materialize()`'d sequences:
+There are two more available operators for `materialize()`'d sequences:
 
 * [errors](#errors-elements)
 * [elements](#errors-elements)
 
 Read below for details about each operator.
+
+## Reactive Extensions
+
+RxSwift/RxCocoa Reactive Extensions are provided to enhance existing objects and classes from the Apple-ecosystem with Reactive abilities.
+
+* [UIViewPropertyAnimator.animate](#uiviewpropertyanimatoranimate)
+
+--------
 
 Operator details
 ===========
@@ -154,7 +164,7 @@ completed
 Pass elements through only if they were never seen before in the sequence.
 
 ```swift
-    Observable.of("a","b","a","c","b","a","d")
+Observable.of("a","b","a","c","b","a","d")
     .distinct()
     .subscribe { print($0) }
 ```
@@ -512,9 +522,9 @@ completed
 ```
 This example emits 2, 5 (`NSDecimalNumber` Type).
 
-### withUnretained
+#### withUnretained
 
-The `withUnretained(_:)` operator provides an unretained, safe to use (i.e. not implicitly unwrapped), reference to an object along with the events emitted by the sequence.
+The `withUnretained(_:resultSelector:)` operator provides an unretained, safe to use (i.e. not implicitly unwrapped), reference to an object along with the events emitted by the sequence.
 In the case the provided object cannot be retained successfully, the seqeunce will complete.
 
 ```swift
@@ -546,6 +556,21 @@ next((Test Class, 13))
 completed
 ```
 
+Reactive Extensions details
+===========
+
+#### UIViewPropertyAnimator.animate
+
+The `animate(afterDelay:)` operator provides a Completable that triggers the animation upon subscription and completes when the animation ends.
+
+```swift
+button.rx.tap
+      .flatMap { 
+          animator1.rx.animate()
+            .andThen(animator2.rx.animate(afterDelay: 0.15))
+            .andThen(animator3.rx.animate(afterDelay: 0.1))
+      }
+```
 ## License
 
 This library belongs to _RxSwiftCommunity_.
