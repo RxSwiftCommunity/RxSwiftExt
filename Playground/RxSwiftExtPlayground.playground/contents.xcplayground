@@ -23,6 +23,7 @@
         <page name='zipWith'/>
         <page name='ofType'/>
         <page name='withUnretained'/>
-        <page name='UIViewProperty+Rx'/>
+        <page name='UIViewPropertyAnimator.animate'/>
+        <page name='UIViewPropertyAnimator.fractionComplete'/>
     </pages>
 </playground>
