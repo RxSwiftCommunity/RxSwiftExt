@@ -10,10 +10,16 @@ import XCTest
 import RxSwift
 import RxCocoa
 import RxSwiftExt
+import RxTest
 import UIKit
 
 class UIViewPropertyAnimatorTests: XCTestCase {
-    let disposeBag = DisposeBag()
+    
+    var disposeBag: DisposeBag!
+    
+    override func setUp() {
+        disposeBag = DisposeBag()
+    }
 
     @available(iOS 10.0, *)
     func testAnimationCompleted() {
@@ -31,8 +37,27 @@ class UIViewPropertyAnimatorTests: XCTestCase {
                 XCTAssertEqual(100, view.frame.origin.y)
                 expectations.fulfill()
             })
-            .disposed(by: self.disposeBag)
+            .disposed(by: disposeBag)
 
         waitForExpectations(timeout: 1)
+    }
+    
+    @available(iOS 10.0, *)
+    func testBindToFractionCompleted() {
+        let animator = UIViewPropertyAnimator(
+            duration: 0, curve: .linear, animations: { }
+        )
+        
+        let subject = PublishSubject<CGFloat>()
+        
+        subject
+            .bind(to: animator.rx.fractionComplete)
+            .disposed(by: disposeBag)
+        
+        subject.onNext(0.3)
+        XCTAssertEqual(animator.fractionComplete, 0.3)
+        
+        subject.onNext(0.5)
+        XCTAssertEqual(animator.fractionComplete, 0.5)
     }
 }
