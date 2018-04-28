@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-extension Observable where Element : ObservableType {
+extension Observable where Element: ObservableType {
 
 	public typealias T = Element.E
 
