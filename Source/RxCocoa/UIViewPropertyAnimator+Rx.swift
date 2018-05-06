@@ -13,7 +13,6 @@ import RxCocoa
 
 @available(iOS 10.0, *)
 public extension Reactive where Base: UIViewPropertyAnimator {
-    
     /**
      Bindable extension for `fractionComplete` property.
      */
@@ -22,7 +21,7 @@ public extension Reactive where Base: UIViewPropertyAnimator {
             propertyAnimator.fractionComplete = fractionComplete
         }
     }
-    
+
     /// Provides a Completable that triggers the UIViewPropertyAnimator upon subscription
     /// and completes once the animation ends.
     ///

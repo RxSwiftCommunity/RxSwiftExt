@@ -2,8 +2,8 @@
 //  ToSortedArrayTests.swift
 //  RxSwiftExt
 //
-//  Created by Joan Disho on 28.04.18.
-//  Copyright © 2018 RxSwiftCommunity. All rights reserved.
+//  Created by Joan Disho on 28/04/18.
+//  Copyright © 2018 RxSwift Community. All rights reserved.
 //
 
 import XCTest
