@@ -25,7 +25,7 @@ public extension ObservableType where E: Comparable {
     /**
      Converts an Observable into another Observable that emits the whole sequence as a single array, sorts it using the provided closure and then terminates.
 
-     - parameter ascending: Should the emitted items be ascendign or descending.
+     - parameter ascending: Should the emitted items be ascending or descending.
      - returns: An observable sequence containing all the sorted emitted elements as an array.
     */
     func toSortedArray(ascending: Bool = true) -> Observable<[E]> {
