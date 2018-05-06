@@ -11,6 +11,15 @@
 import RxSwift
 import RxSwiftExt
 
+fileprivate struct SomeModel: CustomStringConvertible {
+    let number: Int
+    var description: String { return "#\(number)" }
+
+    init(_ number: Int) {
+        self.number = number
+    }
+}
+
 example("mapMany") {
     let ints = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     let intsStream = Observable.just(ints)
@@ -22,6 +31,12 @@ example("mapMany") {
         .subscribe(onNext: { result in
             print(result)
         })
+
+    intsStream.mapMany(SomeModel.init)
+        .subscribe(onNext: { result in
+            print(result)
+        })
+
 
     stringsStream.mapMany { $0.lowercased() }
         .subscribe(onNext: { result in

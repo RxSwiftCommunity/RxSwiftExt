@@ -10,6 +10,15 @@ import XCTest
 import RxSwift
 import RxTest
 
+fileprivate struct SomeModel: CustomStringConvertible {
+    let number: Int
+    var description: String { return "#\(number)" }
+
+    init(_ number: Int) {
+        self.number = number
+    }
+}
+
 class MapManyTests: XCTestCase {
     fileprivate func runAndObserve<C: Collection>(_ sequence: Observable<C>) -> TestableObserver<C> {
         let scheduler = TestScheduler(initialClock: 0)
@@ -17,6 +26,18 @@ class MapManyTests: XCTestCase {
         _ = sequence.asObservable().subscribe(observer)
         scheduler.start()
         return observer
+    }
+
+    func testMapManyWithModel() {
+        let sourceArray = Observable.just([1, 2, 3, 4])
+
+        let observer = runAndObserve(sourceArray.mapMany(SomeModel.init))
+        let correct = [
+            next(0, [SomeModel(1), SomeModel(2), SomeModel(3), SomeModel(4)]),
+            completed(0)
+        ]
+
+        XCTAssertEqual(observer.events.description, correct.description)
     }
 
     func testMapManyWithInts() {
