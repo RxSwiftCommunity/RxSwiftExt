@@ -168,12 +168,18 @@
 		D7C72A421FDC5D8F00EAAAAB /* nwise.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C72A411FDC5D8F00EAAAAB /* nwise.swift */; };
 		D7C72A431FDC5D8F00EAAAAB /* nwise.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C72A411FDC5D8F00EAAAAB /* nwise.swift */; };
 		D7C72A441FDC5D8F00EAAAAB /* nwise.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C72A411FDC5D8F00EAAAAB /* nwise.swift */; };
+<<<<<<< HEAD
 		DC4A51B3209492BA00955B9D /* ToSortedArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4A51B2209492BA00955B9D /* ToSortedArrayTests.swift */; };
 		DC4A51B4209492BA00955B9D /* ToSortedArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4A51B2209492BA00955B9D /* ToSortedArrayTests.swift */; };
 		DC4A51B5209492BA00955B9D /* ToSortedArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4A51B2209492BA00955B9D /* ToSortedArrayTests.swift */; };
 		DC729EC42037B2740017370A /* toSortedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC729EC32037B2740017370A /* toSortedArray.swift */; };
 		DC729EC52037B2740017370A /* toSortedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC729EC32037B2740017370A /* toSortedArray.swift */; };
 		DC729EC62037B2740017370A /* toSortedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC729EC32037B2740017370A /* toSortedArray.swift */; };
+=======
+		DC30E359209E857600C26F34 /* MapManyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC30E358209E857600C26F34 /* MapManyTests.swift */; };
+		DC30E35A209E857600C26F34 /* MapManyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC30E358209E857600C26F34 /* MapManyTests.swift */; };
+		DC30E35B209E857600C26F34 /* MapManyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC30E358209E857600C26F34 /* MapManyTests.swift */; };
+>>>>>>> add tests
 		DC612872209E80810053CBB7 /* mapMany.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC612871209E80810053CBB7 /* mapMany.swift */; };
 		DC612873209E80810053CBB7 /* mapMany.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC612871209E80810053CBB7 /* mapMany.swift */; };
 		DC612874209E80810053CBB7 /* mapMany.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC612871209E80810053CBB7 /* mapMany.swift */; };
@@ -331,8 +337,12 @@
 		C4D2154020118F8B009804AE /* Observable+OfTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+OfTypeTests.swift"; sourceTree = "<group>"; };
 		D7C72A3D1FDC5C5D00EAAAAB /* NwiseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NwiseTests.swift; sourceTree = "<group>"; };
 		D7C72A411FDC5D8F00EAAAAB /* nwise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = nwise.swift; path = Source/RxSwift/nwise.swift; sourceTree = SOURCE_ROOT; };
+<<<<<<< HEAD
 		DC4A51B2209492BA00955B9D /* ToSortedArrayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToSortedArrayTests.swift; sourceTree = "<group>"; };
 		DC729EC32037B2740017370A /* toSortedArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = toSortedArray.swift; sourceTree = "<group>"; };
+=======
+		DC30E358209E857600C26F34 /* MapManyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapManyTests.swift; sourceTree = "<group>"; };
+>>>>>>> add tests
 		DC612871209E80810053CBB7 /* mapMany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapMany.swift; sourceTree = "<group>"; };
 		E36BDFB91F387571008C9D56 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/tvOS/RxSwift.framework; sourceTree = "<group>"; };
 		E36BDFBA1F387571008C9D56 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/tvOS/RxTest.framework; sourceTree = "<group>"; };
@@ -532,6 +542,7 @@
 				538607CB1E6F367A000361DE /* WeakTests.swift */,
 				58C54E184069446EDEE748F9 /* ZipWithTest.swift */,
 				BF79DA0D206C185B008AA708 /* WithUnretainedTests.swift */,
+				DC30E358209E857600C26F34 /* MapManyTests.swift */,
 			);
 			name = RxSwift;
 			path = Tests/RxSwift;
@@ -1003,6 +1014,7 @@
 				8CF5F8AF202D62AB00C1BA97 /* MapAtTests.swift in Sources */,
 				538607E21E6F36A9000361DE /* DistinctTests.swift in Sources */,
 				538607EA1E6F36A9000361DE /* PausableTests.swift in Sources */,
+				DC30E359209E857600C26F34 /* MapManyTests.swift in Sources */,
 				538607E91E6F36A9000361DE /* OnceTests.swift in Sources */,
 				BF79DA0E206C185B008AA708 /* WithUnretainedTests.swift in Sources */,
 				538607EE1E6F36A9000361DE /* WeakTests.swift in Sources */,
@@ -1080,6 +1092,7 @@
 				8CF5F8B0202D62AD00C1BA97 /* MapAtTests.swift in Sources */,
 				62512C8F1F0EB17A0083A89F /* DistinctTests+RxCocoa.swift in Sources */,
 				62512C951F0EB1850083A89F /* DistinctTests.swift in Sources */,
+				DC30E35A209E857600C26F34 /* MapManyTests.swift in Sources */,
 				62512CA11F0EB1850083A89F /* UnwrapTests.swift in Sources */,
 				BF79DA0F206C185B008AA708 /* WithUnretainedTests.swift in Sources */,
 				62512CA31F0EB1850083A89F /* WeakTests.swift in Sources */,
@@ -1157,6 +1170,7 @@
 				8CF5F8B1202D62AE00C1BA97 /* MapAtTests.swift in Sources */,
 				E39C42011F18B13E007F2ACD /* CascadeTests.swift in Sources */,
 				E39C42101F18B13E007F2ACD /* WeakTarget.swift in Sources */,
+				DC30E35B209E857600C26F34 /* MapManyTests.swift in Sources */,
 				E39C42031F18B13E007F2ACD /* DistinctTests.swift in Sources */,
 				BF79DA10206C185B008AA708 /* WithUnretainedTests.swift in Sources */,
 				E39C41FD1F18B13A007F2ACD /* DistinctTests+RxCocoa.swift in Sources */,
