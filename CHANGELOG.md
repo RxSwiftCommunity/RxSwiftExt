@@ -3,11 +3,12 @@ Changelog
 
 master
 -----
+- added UIViewPropertyAnimator `fractionComplete` reactive binder
 - added `withUnretained(_:)` operator
 
 3.3.0
 -----
-- Added UIViewPropertyAnimator Reactive Extensions (`animate()` operator)
+- added UIViewPropertyAnimator Reactive Extensions (`animate()` operator)
 
 3.2.0
 -----

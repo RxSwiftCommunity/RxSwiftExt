@@ -239,11 +239,11 @@ Verifies that every value emitted is `true`
 Observable.of(true, true)
 	.and()
 	.subscribe { print($0) }
-	
+
 Observable.of(true, false)
 	.and()
 	.subscribe { print($0) }
-	
+
 Observable<Bool>.empty()
 	.and()
 	.subscribe { print($0) }
@@ -306,8 +306,8 @@ completed
 
 #### retry
 
-Repeats the source observable sequence using given behavior in case of an error or until it successfully terminated. 
-There are four behaviors with various predicate and delay options: `immediate`, `delayed`, `exponentialDelayed` and 
+Repeats the source observable sequence using given behavior in case of an error or until it successfully terminated.
+There are four behaviors with various predicate and delay options: `immediate`, `delayed`, `exponentialDelayed` and
 `customTimerDelayed`.
 
 ```swift
@@ -565,11 +565,18 @@ The `animate(afterDelay:)` operator provides a Completable that triggers the ani
 
 ```swift
 button.rx.tap
-      .flatMap { 
-          animator1.rx.animate()
+    .flatMap {
+        animator1.rx.animate()
             .andThen(animator2.rx.animate(afterDelay: 0.15))
             .andThen(animator3.rx.animate(afterDelay: 0.1))
-      }
+    }
+```
+
+#### UIViewPropertyAnimator.fractionComplete
+The `fractionComplete` binder provides a reactive way to bind to `UIViewPropertyAnimator.fractionComplete`.
+```swift
+slider.rx.value.map(CGFloat.init)
+    .bind(to: animator.rx.fractionComplete)
 ```
 ## License
 
