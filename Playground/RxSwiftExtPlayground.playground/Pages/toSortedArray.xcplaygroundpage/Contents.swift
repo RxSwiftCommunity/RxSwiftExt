@@ -18,22 +18,27 @@ import RxSwiftExt
  */
 
 example("Ensure that only a sorted array is emitted") {
-    let array1 = Observable.of([5, 4, 7, 8, 2, 6, 9, 0, 10])
-    let array2 = Observable.of([10, 9, 12, 8, 4, 1, 1, 8, 14])
-    
-    array1.toSortedArray()
+    let sequenceStream = Observable.of(1...12)
+    let array = Observable.of([10, 9, 12, 8, 4, 1, 1, 8, 14])
+
+    // Ascending order
+    array.toSortedArray()
         .subscribe(onNext: { result in
             print(result)
         })
     
-    // Ascending order
-    array2.toSortedArray(<)
+    array.toSortedArray(<)
         .subscribe(onNext: { result in
             print(result)
         })
     
     // Descending order
-    array2.toSortedArray(>)
+    sequenceStream.toSortedArray(>)
+        .subscribe(onNext: { result in
+            print(result)
+        })
+
+    array.toSortedArray(>)
         .subscribe(onNext: { result in
             print(result)
         })

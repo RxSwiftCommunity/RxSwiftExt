@@ -17,11 +17,10 @@ extension Observable where E: Sequence, E.Element: Comparable {
      - returns: The sorted observable.
     */
     public func toSortedArray<T>(ascending: Bool = true)
-        -> Observable<[T]> where E.Iterator.Element == T {
-        return map {
-            $0.sorted(by: { ascending ? $0 < $1 : $0 > $1 })
-        }
+        -> Observable<[T]> where E.Element == T {
+        return toSortedArray({ ascending ? $0 < $1 : $0 > $1 })
     }
+
     /**
      Transforms an observable of comparables into an observable of ordered arrays by using the function passed in.
      
@@ -29,7 +28,11 @@ extension Observable where E: Sequence, E.Element: Comparable {
      - returns: The sorted observable.
      */
     public func toSortedArray<T>(_ areInIncreasingOrder: @escaping (T, T) -> Bool)
-        -> Observable<[T]> where E.Iterator.Element == T {
-        return map { $0.sorted(by: areInIncreasingOrder) }
+        -> Observable<[T]> where E.Element == T {
+            return toArray().map { elements in
+                elements.flatMap { element in
+                    element.sorted(by: areInIncreasingOrder)
+                }
+            }
     }
 }
