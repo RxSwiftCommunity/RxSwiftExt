@@ -16,10 +16,9 @@ extension ObservableType where E: Collection {
      - returns: An observable collection whose elements are the result of invoking the transform function on each element of source.
      */
 
-    func mapMany<T>(_ transform: @escaping (E.Element) -> T) -> Observable<[T]> {
+    public func mapMany<T>(_ transform: @escaping (E.Element) -> T) -> Observable<[T]> {
         return map { collection -> [T] in
             collection.map(transform)
         }
     }
-
 }

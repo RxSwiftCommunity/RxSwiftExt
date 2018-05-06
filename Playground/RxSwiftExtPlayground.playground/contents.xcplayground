@@ -24,6 +24,7 @@
         <page name='toSortedArray'/>
         <page name='ofType'/>
         <page name='withUnretained'/>
+        <page name='mapMany'/>
         <page name='UIViewPropertyAnimator.animate'/>
         <page name='UIViewPropertyAnimator.fractionComplete'/>
     </pages>
