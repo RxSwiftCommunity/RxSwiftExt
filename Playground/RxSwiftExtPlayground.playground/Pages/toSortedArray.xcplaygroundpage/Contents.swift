@@ -18,8 +18,8 @@ import RxSwiftExt
  */
 
 example("Ensure that only a sorted array is emitted") {
-    let sequenceStream = Observable.of(1...12)
-    let array = Observable.of([10, 9, 12, 8, 4, 1, 1, 8, 14])
+    let sequenceStream = Observable.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)
+    let array = Observable.of(10, 9, 12, 8, 4, 1, 1, 8, 14)
 
     // Ascending order
     array.toSortedArray()
@@ -27,18 +27,18 @@ example("Ensure that only a sorted array is emitted") {
             print(result)
         })
     
-    array.toSortedArray(<)
+    array.toSortedArray(ascending: true)
         .subscribe(onNext: { result in
             print(result)
         })
     
     // Descending order
-    sequenceStream.toSortedArray(>)
+    sequenceStream.toSortedArray(by: >)
         .subscribe(onNext: { result in
             print(result)
         })
 
-    array.toSortedArray(>)
+    array.toSortedArray(ascending: false)
         .subscribe(onNext: { result in
             print(result)
         })

@@ -11,7 +11,7 @@ import RxSwift
 import RxTest
 
 class ToSortedArrayTests: XCTestCase {
-    fileprivate func runAndObserve<T: Sequence>(_ sequence: Observable<T>) -> TestableObserver<T> {
+    func runAndObserve<T: Sequence>(_ sequence: Observable<T>) -> TestableObserver<T> {
         let scheduler = TestScheduler(initialClock: 0)
         let observer = scheduler.createObserver(T.self)
         _ = sequence.asObservable().subscribe(observer)
