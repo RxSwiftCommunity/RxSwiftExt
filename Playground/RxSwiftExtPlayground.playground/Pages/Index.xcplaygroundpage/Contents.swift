@@ -27,6 +27,7 @@
  - [ignore(Any...)](ignore) operator, filters out any of the elements passed in parameters
  - [Observable.once(Element)](once) contructor, creates a sequence that delivers an element *once* to the first subscriber then completes. The same sequence will complete immediately without delivering any element to all further subscribers.
  - [mapAt(KeyPath)](mapAt) operator transforms a sequence of elements where each element is mapped to its value at the provided key path
+ - [mapMany()](mapMany) operator, projects each element of an observable collection into a new form.
  - [mapTo(Any)](mapTo) operator, takes a sequence of elements and returns a sequence of the same constant provided as a parameter
  - [not()](not) operator, applies a the boolean not (!) to a `Bool`
  - [and()](and) operator, combines Bool values from one or more sequences and emits a single `Bool` value.
@@ -41,6 +42,7 @@
  - [filterMap()](filterMap) operator, filters out some values and maps the rest (replaces `filter` + `map` combo)
  - [Observable.fromAsync()](fromAsync) constructor, translates an async function that returns data through a completionHandler in a function that returns data through an Observable
  - [ofType()](ofType) operator, filters the elements of an observable sequence, if that is an instance of the supplied type.
+ - [toSortedArray()](mapMany) operator, converts an Observable into another Observable that emits the whole sequence as a single array sorted using the provided closure and then terminates.
  - **UIViewPropertyAnimator** [animate()](UIViewPropertyAnimator.animate) operator, returns a Completable that completes as soon as the animation ends.
  - **UIViewPropertyAnimator** [fractionComplete](UIViewPropertyAnimator.fractionComplete) binder, provides a reactive way to bind to `UIViewPropertyAnimator.fractionComplete`.
 */

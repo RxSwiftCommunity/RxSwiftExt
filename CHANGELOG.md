@@ -3,6 +3,8 @@ Changelog
 
 master
 -----
+- added `mapMany` operator
+- added `toSortedArray` operator
 - added UIViewPropertyAnimator `fractionComplete` reactive binder
 - added `withUnretained(_:)` operator
 
