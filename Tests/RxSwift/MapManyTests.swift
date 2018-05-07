@@ -10,15 +10,6 @@ import XCTest
 import RxSwift
 import RxTest
 
-struct SomeModel: CustomStringConvertible {
-    let number: Int
-    var description: String { return "#\(number)" }
-
-    init(_ number: Int) {
-        self.number = number
-    }
-}
-
 class MapManyTests: XCTestCase {
     func runAndObserve<C: Collection>(_ sequence: Observable<C>) -> TestableObserver<C> {
         let scheduler = TestScheduler(initialClock: 0)
@@ -29,7 +20,17 @@ class MapManyTests: XCTestCase {
     }
 
     func testMapManyWithModel() {
-        let sourceArray = Observable.just([1, 2, 3, 4])
+        // swiftlint:disable:next nesting
+        struct SomeModel: CustomStringConvertible {
+            let number: Int
+            var description: String { return "#\(number)" }
+
+            init(_ number: Int) {
+                self.number = number
+            }
+        }
+
+        let sourceArray = Observable.of(1...4)
 
         let observer = runAndObserve(sourceArray.mapMany(SomeModel.init))
         let correct = [
@@ -41,7 +42,7 @@ class MapManyTests: XCTestCase {
     }
 
     func testMapManyWithInts() {
-        let sourceArray = Observable.just([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+        let sourceArray = Observable.of(1...10)
 
         let observer = runAndObserve(sourceArray.mapMany { $0 + 1 })
         let correct = [
