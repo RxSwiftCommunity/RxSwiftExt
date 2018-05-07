@@ -11,7 +11,7 @@ import RxSwift
 
 public extension ObservableType {
     /**
-     Converts an Observable into another Observable that emits the whole sequence as a single array, sorts it using the provided closure and then terminates.
+     Converts an Observable into another Observable that emits the whole sequence as a single array sorted using the provided closure and then terminates.
 
      - parameter by: A comparator closure to sort emitted elements.
      - returns: An observable sequence containing all the sorted emitted elements as an array.
@@ -23,7 +23,7 @@ public extension ObservableType {
 
 public extension ObservableType where E: Comparable {
     /**
-     Converts an Observable into another Observable that emits the whole sequence as a single array, sorts it using the provided closure and then terminates.
+     Converts an Observable into another Observable that emits the whole sequence as a single sorted array and then terminates.
 
      - parameter ascending: Should the emitted items be ascending or descending.
      - returns: An observable sequence containing all the sorted emitted elements as an array.
