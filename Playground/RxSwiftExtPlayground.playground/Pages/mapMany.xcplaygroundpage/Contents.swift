@@ -11,7 +11,7 @@
 import RxSwift
 import RxSwiftExt
 
-fileprivate struct SomeModel: CustomStringConvertible {
+struct SomeModel: CustomStringConvertible {
     let number: Int
     var description: String { return "#\(number)" }
 

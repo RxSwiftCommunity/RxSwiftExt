@@ -10,7 +10,7 @@ import XCTest
 import RxSwift
 import RxTest
 
-fileprivate struct SomeModel: CustomStringConvertible {
+struct SomeModel: CustomStringConvertible {
     let number: Int
     var description: String { return "#\(number)" }
 
@@ -20,7 +20,7 @@ fileprivate struct SomeModel: CustomStringConvertible {
 }
 
 class MapManyTests: XCTestCase {
-    fileprivate func runAndObserve<C: Collection>(_ sequence: Observable<C>) -> TestableObserver<C> {
+    func runAndObserve<C: Collection>(_ sequence: Observable<C>) -> TestableObserver<C> {
         let scheduler = TestScheduler(initialClock: 0)
         let observer = scheduler.createObserver(C.self)
         _ = sequence.asObservable().subscribe(observer)
