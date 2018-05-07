@@ -2,8 +2,8 @@
 //  MapManyTests.swift
 //  RxSwiftExt
 //
-//  Created by Joan Disho on 06.05.18.
-//  Copyright © 2018 RxSwiftCommunity. All rights reserved.
+//  Created by Joan Disho on 06/05/18.
+//  Copyright © 2018 RxSwift Community. All rights reserved.
 //
 
 import XCTest
@@ -48,7 +48,7 @@ class MapManyTests: XCTestCase {
             next(0, [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]),
             completed(0)
         ]
-        
+
         XCTAssertEqual(observer.events, correct)
     }
 
