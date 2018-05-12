@@ -23,6 +23,7 @@
         <page name='and'/>
         <page name='nwise'/>
         <page name='zipWith'/>
+        <page name='mergeWith'/>
         <page name='ofType'/>
         <page name='mapMany'/>
         <page name='toSortedArray'/>

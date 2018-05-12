@@ -72,6 +72,7 @@ These operators are much like the RxSwift & RxCocoa core operators, but provide 
 * [filterMap](#filtermap)
 * [Observable.fromAsync](#fromasync)
 * [Observable.zip(with:)](#zipwith)
+* [Observable.merge(with:)](#mergewith)
 * [withUnretained](#withunretained)
 * [count](#count)
 * [partition](#partition)
@@ -502,7 +503,7 @@ observableService("Foo", 0)
     .disposed(by: disposeBag)
 ```
 
-#### zipWith
+#### zip(with:)
 
 Convenience version of `Observable.zip(_:)`. Merges the specified observable sequences into one observable sequence by using the selector function whenever all
  of the observable sequences have produced an element at a corresponding index.
@@ -522,6 +523,25 @@ first.zip(with: second) { i, s in
 next("a1")
 next("b2")
 next("c3")
+```
+
+#### merge(with:)
+
+Convenience version of `Observable.merge(_:)`. Merges elements from the observable sequence with those of a different observable sequences into a single observable sequence.
+
+```swift
+let oddStream = Observable.of(1, 3, 5)
+let evenStream = Observable.of(2, 4, 6)
+let otherStream = Observable.of(1, 5, 6)
+
+oddStream.merge(with: evenStream, otherStream)
+    .subscribe(onNext: { result in
+        print(result)
+    })
+```
+
+```
+1 2 1 3 4 5 5 6 6
 ```
 
 #### ofType
