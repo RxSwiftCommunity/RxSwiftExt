@@ -174,6 +174,9 @@
 		DC729EC42037B2740017370A /* toSortedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC729EC32037B2740017370A /* toSortedArray.swift */; };
 		DC729EC52037B2740017370A /* toSortedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC729EC32037B2740017370A /* toSortedArray.swift */; };
 		DC729EC62037B2740017370A /* toSortedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC729EC32037B2740017370A /* toSortedArray.swift */; };
+		DCF11D2020A6D70E00130827 /* enumerated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF11D1F20A6D70E00130827 /* enumerated.swift */; };
+		DCF11D2120A6D70E00130827 /* enumerated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF11D1F20A6D70E00130827 /* enumerated.swift */; };
+		DCF11D2220A6D70E00130827 /* enumerated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF11D1F20A6D70E00130827 /* enumerated.swift */; };
 		E36BDFBB1F387571008C9D56 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E36BDFB91F387571008C9D56 /* RxSwift.framework */; };
 		E36BDFBD1F387610008C9D56 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E36BDFB91F387571008C9D56 /* RxSwift.framework */; };
 		E36BDFBE1F387615008C9D56 /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E36BDFBA1F387571008C9D56 /* RxTest.framework */; };
@@ -330,6 +333,7 @@
 		D7C72A411FDC5D8F00EAAAAB /* nwise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = nwise.swift; path = Source/RxSwift/nwise.swift; sourceTree = SOURCE_ROOT; };
 		DC4A51B2209492BA00955B9D /* ToSortedArrayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToSortedArrayTests.swift; sourceTree = "<group>"; };
 		DC729EC32037B2740017370A /* toSortedArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = toSortedArray.swift; sourceTree = "<group>"; };
+		DCF11D1F20A6D70E00130827 /* enumerated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enumerated.swift; sourceTree = "<group>"; };
 		E36BDFB91F387571008C9D56 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/tvOS/RxSwift.framework; sourceTree = "<group>"; };
 		E36BDFBA1F387571008C9D56 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/tvOS/RxTest.framework; sourceTree = "<group>"; };
 		E39C41D01F18AF84007F2ACD /* RxSwiftExt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxSwiftExt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -493,6 +497,7 @@
 				58C54402C636BC3C2F36A4ED /* zipWith.swift */,
 				C4D2153E20118A81009804AE /* ofType.swift */,
 				BF79DA09206C145D008AA708 /* withUnretained.swift */,
+				DCF11D1F20A6D70E00130827 /* enumerated.swift */,
 			);
 			path = RxSwift;
 			sourceTree = "<group>";
@@ -967,6 +972,7 @@
 				D7C72A421FDC5D8F00EAAAAB /* nwise.swift in Sources */,
 				538607B61E6F334B000361DE /* pausable.swift in Sources */,
 				98309EAF1EDF14AC00BD07D9 /* flatMapSync.swift in Sources */,
+				DCF11D2020A6D70E00130827 /* enumerated.swift in Sources */,
 				98309EB11EDF159500BD07D9 /* filterMap.swift in Sources */,
 				53F336E81E70CBF700D35D38 /* distinct+RxCocoa.swift in Sources */,
 				538607AE1E6F334B000361DE /* ignore.swift in Sources */,
@@ -1045,6 +1051,7 @@
 				62512C7C1F0EAF950083A89F /* filterMap.swift in Sources */,
 				62512C7B1F0EAF950083A89F /* flatMapSync.swift in Sources */,
 				62512C681F0EAF850083A89F /* mapTo+RxCocoa.swift in Sources */,
+				DCF11D2120A6D70E00130827 /* enumerated.swift in Sources */,
 				62512C791F0EAF950083A89F /* retryWithBehavior.swift in Sources */,
 				BF79DA0B206C145D008AA708 /* withUnretained.swift in Sources */,
 				BF515CE81F3F3B0000492640 /* fromAsync.swift in Sources */,
@@ -1121,6 +1128,7 @@
 				E39C41ED1F18B08A007F2ACD /* filterMap.swift in Sources */,
 				E39C41EC1F18B08A007F2ACD /* flatMapSync.swift in Sources */,
 				E39C41D91F18B086007F2ACD /* mapTo+RxCocoa.swift in Sources */,
+				DCF11D2220A6D70E00130827 /* enumerated.swift in Sources */,
 				E39C41EA1F18B08A007F2ACD /* retryWithBehavior.swift in Sources */,
 				BF79DA0C206C145D008AA708 /* withUnretained.swift in Sources */,
 				BF515CE91F3F3B0100492640 /* fromAsync.swift in Sources */,
