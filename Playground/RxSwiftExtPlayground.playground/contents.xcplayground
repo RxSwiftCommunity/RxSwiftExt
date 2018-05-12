@@ -21,10 +21,11 @@
         <page name='and'/>
         <page name='nwise'/>
         <page name='zipWith'/>
-        <page name='toSortedArray'/>
         <page name='ofType'/>
         <page name='withUnretained'/>
         <page name='UIViewPropertyAnimator.animate'/>
         <page name='UIViewPropertyAnimator.fractionComplete'/>
+        <page name='toSortedArray'/>
+        <page name='enumerated'/>
     </pages>
 </playground>
