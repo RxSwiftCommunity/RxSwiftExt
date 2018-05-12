@@ -15,7 +15,7 @@ extension Observable {
 
      - returns: An enumerated Observable.
      */
-    func enumerated() -> Observable<(index: Int, element: E)> {
+    public func enumerated() -> Observable<(index: Int, element: E)> {
         let initial: (index: Int, element: E?) = (-1, nil)
         return scan(initial) { accumulator, element in
             return (accumulator.index + 1, element)
