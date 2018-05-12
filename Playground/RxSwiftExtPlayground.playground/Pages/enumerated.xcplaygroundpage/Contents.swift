@@ -27,7 +27,7 @@ example("Ensure that only an enumerated element is emitted") {
         })
 
     print("-----------")
-    
+
     chars.enumerated()
         .subscribe(onNext: { result in
             print(result)
