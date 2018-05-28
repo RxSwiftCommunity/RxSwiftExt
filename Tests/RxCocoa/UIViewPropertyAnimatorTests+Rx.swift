@@ -13,6 +13,7 @@ import RxSwiftExt
 import RxTest
 import UIKit
 
+@available(iOS 10.0, *)
 class UIViewPropertyAnimatorTests: XCTestCase {
     var disposeBag: DisposeBag!
 
@@ -20,7 +21,6 @@ class UIViewPropertyAnimatorTests: XCTestCase {
         disposeBag = DisposeBag()
     }
 
-    @available(iOS 10.0, *)
     func testAnimationCompleted() {
         let expectations = expectation(description: "Animation completed")
 
@@ -41,7 +41,6 @@ class UIViewPropertyAnimatorTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    @available(iOS 10.0, *)
     func testBindToFractionCompleted() {
         let animator = UIViewPropertyAnimator(
             duration: 0, curve: .linear, animations: { }
