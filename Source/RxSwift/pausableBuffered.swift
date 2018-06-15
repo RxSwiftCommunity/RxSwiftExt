@@ -35,24 +35,29 @@ extension ObservableType {
             }
 
             var paused = true
+            var flushIndex = 0
             let lock = NSRecursiveLock()
 
             let flush = {
-                for value in buffer {
-                    observer.onNext(value)
+                while flushIndex < buffer.count {
+                    flushIndex += 1
+                    observer.onNext(buffer[flushIndex - 1])
                 }
-                buffer.removeAll(keepingCapacity: limit != nil)
+                if buffer.count > 0 {
+                    flushIndex = 0
+                    buffer.removeAll(keepingCapacity: limit != nil)
+                }
             }
 
-            let boundaryDisposable = pauser.subscribe { event in
+            let boundaryDisposable = pauser.distinctUntilChanged(==).subscribe { event in
                 lock.lock(); defer { lock.unlock() }
                 switch event {
                 case .next(let resume):
-                    paused = !resume
-
                     if resume && buffer.count > 0 {
                         flush()
                     }
+                    paused = !resume
+
                 case .completed:
                     observer.onCompleted()
                 case .error(let error):
