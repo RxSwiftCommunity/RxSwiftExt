@@ -5,11 +5,11 @@ master
 -----
 - added `mapMany` operator
 - added `toSortedArray` operator
-- added UIViewPropertyAnimator `fractionComplete` reactive binder
-- added `withUnretained(_:)` operator
 
 3.3.0
 -----
+- added UIViewPropertyAnimator `fractionComplete` reactive binder
+- added `withUnretained(_:)` operator
 - added UIViewPropertyAnimator Reactive Extensions (`animate()` operator)
 
 3.2.0

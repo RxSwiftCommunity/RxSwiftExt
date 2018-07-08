@@ -6,6 +6,7 @@
 //  Copyright © 2017 RxSwift Community. All rights reserved.
 //
 
+#if os(iOS)
 import Foundation
 import UIKit
 import RxSwift
@@ -47,3 +48,4 @@ public extension Reactive where Base: UIViewPropertyAnimator {
         }
     }
 }
+#endif
