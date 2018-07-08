@@ -3,7 +3,8 @@ Changelog
 
 master
 -----
-
+- added `mapMany` operator
+- added `toSortedArray` operator
 
 3.3.0
 -----
