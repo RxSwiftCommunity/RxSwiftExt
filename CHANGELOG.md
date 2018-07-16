@@ -5,6 +5,7 @@ master
 -----
 - added `mapMany` operator
 - added `toSortedArray` operator
+- added `bind(to:)` operator overload for observer collections
 
 3.3.0
 -----
