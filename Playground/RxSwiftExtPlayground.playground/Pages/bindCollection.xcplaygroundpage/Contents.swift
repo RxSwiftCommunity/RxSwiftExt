@@ -33,9 +33,9 @@ example("Bind an observable to a collection of observers") {
                                textField2.rx.isEnabled,
                                textField3.rx.isEnabled])
 
-
-
-
+    isEditableStream.bind(to: textField1.rx.isEnabled,
+                              textField2.rx.isEnabled,
+                              textField3.rx.isEnabled)
 }
 
 //: [Next](@next)
