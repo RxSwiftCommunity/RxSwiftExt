@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/RxSwiftCommunity/RxSwiftExt.git", :tag => s.version }
 
   s.subspec "Core" do |cs|
-    cs.source_files  = "Source/RxSwift"
+    cs.source_files  = "Source/RxSwift", "Source/Tools"
     cs.frameworks  = "Foundation"
     cs.dependency "RxSwift", '~> 3.4'
   end
