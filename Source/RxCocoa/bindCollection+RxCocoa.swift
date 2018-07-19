@@ -20,4 +20,14 @@ public extension ObservableType {
         let disposables = observers.map(shared.bind(to:))
         return CompositeDisposable(disposables: disposables)
     }
+
+    /**
+     Creates new shared subscriptions and sends elements to collection of observers.
+
+     - parameter to: Collection of observers that receives events.
+     - returns: Disposable object that can be used to unsubscribe the observers.
+     */
+    func bind<O>(to observers: O...) -> Disposable where O: ObserverType, Self.E == O.E {
+        return bind(to: observers)
+    }
 }
