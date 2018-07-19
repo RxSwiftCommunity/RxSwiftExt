@@ -25,12 +25,18 @@
 		188C6DA31C47B4240092101A /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188C6DA21C47B4240092101A /* RxSwift.framework */; };
 		1A8741AC20745A91004BB762 /* UIViewPropertyAnimatorTests+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8741AB20745A91004BB762 /* UIViewPropertyAnimatorTests+Rx.swift */; };
 		1AA8395B207451D6001C49ED /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA8395A207451D5001C49ED /* RxCocoa.framework */; };
-		29E5ADB520FCFFB7007384C2 /* bindCollection+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E5ADB420FCFFB7007384C2 /* bindCollection+RxCocoa.swift */; };
-		29E5ADB720FD03AE007384C2 /* BindCollectionTests+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E5ADB620FD03AE007384C2 /* BindCollectionTests+RxCocoa.swift */; };
-		29E5ADB820FD03AE007384C2 /* BindCollectionTests+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E5ADB620FD03AE007384C2 /* BindCollectionTests+RxCocoa.swift */; };
-		29E5ADB920FD03AE007384C2 /* BindCollectionTests+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E5ADB620FD03AE007384C2 /* BindCollectionTests+RxCocoa.swift */; };
-		29E5ADBA20FD03B9007384C2 /* bindCollection+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E5ADB420FCFFB7007384C2 /* bindCollection+RxCocoa.swift */; };
-		29E5ADBB20FD03B9007384C2 /* bindCollection+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E5ADB420FCFFB7007384C2 /* bindCollection+RxCocoa.swift */; };
+		29BE2679210104E500DB76FE /* driveMany+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE2678210104E500DB76FE /* driveMany+RxCocoa.swift */; };
+		29BE267A210104E500DB76FE /* driveMany+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE2678210104E500DB76FE /* driveMany+RxCocoa.swift */; };
+		29BE267B210104E500DB76FE /* driveMany+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE2678210104E500DB76FE /* driveMany+RxCocoa.swift */; };
+		29BE26802101059200DB76FE /* DriveManyTests+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE267C2101058D00DB76FE /* DriveManyTests+RxCocoa.swift */; };
+		29BE26812101059200DB76FE /* DriveManyTests+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE267C2101058D00DB76FE /* DriveManyTests+RxCocoa.swift */; };
+		29BE26822101059300DB76FE /* DriveManyTests+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE267C2101058D00DB76FE /* DriveManyTests+RxCocoa.swift */; };
+		29E5ADB520FCFFB7007384C2 /* bindMany+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E5ADB420FCFFB7007384C2 /* bindMany+RxCocoa.swift */; };
+		29E5ADB720FD03AE007384C2 /* BindManyTests+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E5ADB620FD03AE007384C2 /* BindManyTests+RxCocoa.swift */; };
+		29E5ADB820FD03AE007384C2 /* BindManyTests+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E5ADB620FD03AE007384C2 /* BindManyTests+RxCocoa.swift */; };
+		29E5ADB920FD03AE007384C2 /* BindManyTests+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E5ADB620FD03AE007384C2 /* BindManyTests+RxCocoa.swift */; };
+		29E5ADBA20FD03B9007384C2 /* bindMany+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E5ADB420FCFFB7007384C2 /* bindMany+RxCocoa.swift */; };
+		29E5ADBB20FD03B9007384C2 /* bindMany+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E5ADB420FCFFB7007384C2 /* bindMany+RxCocoa.swift */; };
 		3D11958B1FCAD9AE0095134B /* and.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBDE5FB1FBBAE3900DF47F9 /* and.swift */; };
 		3D11958C1FCAD9AF0095134B /* and.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBDE5FB1FBBAE3900DF47F9 /* and.swift */; };
 		3D638DEC1DC2B2D50089A590 /* RxSwiftExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188C6D911C47B2B20092101A /* RxSwiftExt.framework */; };
@@ -270,8 +276,10 @@
 		188C6DA21C47B4240092101A /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = SOURCE_ROOT; };
 		1A8741AB20745A91004BB762 /* UIViewPropertyAnimatorTests+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewPropertyAnimatorTests+Rx.swift"; sourceTree = "<group>"; };
 		1AA8395A207451D5001C49ED /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
-		29E5ADB420FCFFB7007384C2 /* bindCollection+RxCocoa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "bindCollection+RxCocoa.swift"; sourceTree = "<group>"; };
-		29E5ADB620FD03AE007384C2 /* BindCollectionTests+RxCocoa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BindCollectionTests+RxCocoa.swift"; sourceTree = "<group>"; };
+		29BE2678210104E500DB76FE /* driveMany+RxCocoa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "driveMany+RxCocoa.swift"; sourceTree = "<group>"; };
+		29BE267C2101058D00DB76FE /* DriveManyTests+RxCocoa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DriveManyTests+RxCocoa.swift"; sourceTree = "<group>"; };
+		29E5ADB420FCFFB7007384C2 /* bindMany+RxCocoa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "bindMany+RxCocoa.swift"; sourceTree = "<group>"; };
+		29E5ADB620FD03AE007384C2 /* BindManyTests+RxCocoa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BindManyTests+RxCocoa.swift"; sourceTree = "<group>"; };
 		3D638DE71DC2B2D40089A590 /* RxSwiftExtTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RxSwiftExtTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D638E1E1DC2B3A40089A590 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
 		3DB034F61DC376D9002C6A26 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = "<group>"; };
@@ -461,7 +469,8 @@
 				5386076E1E6F1C0A000361DE /* mapTo+RxCocoa.swift */,
 				538607EF1E6F589E000361DE /* not+RxCocoa.swift */,
 				4A73956B206D501300E2BE2D /* UIViewPropertyAnimator+Rx.swift */,
-				29E5ADB420FCFFB7007384C2 /* bindCollection+RxCocoa.swift */,
+				29E5ADB420FCFFB7007384C2 /* bindMany+RxCocoa.swift */,
+				29BE2678210104E500DB76FE /* driveMany+RxCocoa.swift */,
 			);
 			path = RxCocoa;
 			sourceTree = "<group>";
@@ -473,7 +482,8 @@
 				538607711E6F1CFB000361DE /* MapToTests+RxCocoa.swift */,
 				53C79D5F1E6F5AAB00CD9B6A /* NotTests+RxCocoa.swift */,
 				1A8741AB20745A91004BB762 /* UIViewPropertyAnimatorTests+Rx.swift */,
-				29E5ADB620FD03AE007384C2 /* BindCollectionTests+RxCocoa.swift */,
+				29E5ADB620FD03AE007384C2 /* BindManyTests+RxCocoa.swift */,
+				29BE267C2101058D00DB76FE /* DriveManyTests+RxCocoa.swift */,
 			);
 			name = RxCocoa;
 			path = Tests/RxCocoa;
@@ -977,7 +987,7 @@
 				538607B11E6F334B000361DE /* mapTo.swift in Sources */,
 				538607AA1E6F334B000361DE /* apply.swift in Sources */,
 				C4D2153F20118A81009804AE /* ofType.swift in Sources */,
-				29E5ADB520FCFFB7007384C2 /* bindCollection+RxCocoa.swift in Sources */,
+				29E5ADB520FCFFB7007384C2 /* bindMany+RxCocoa.swift in Sources */,
 				538607B41E6F334B000361DE /* ObservableType+Weak.swift in Sources */,
 				3DBDE5FC1FBBAE3A00DF47F9 /* and.swift in Sources */,
 				8CF5F8B3202D6C5F00C1BA97 /* mapAt.swift in Sources */,
@@ -996,6 +1006,7 @@
 				BF515CE21F3F371600492640 /* fromAsync.swift in Sources */,
 				DC612872209E80810053CBB7 /* mapMany.swift in Sources */,
 				5386076F1E6F1C0A000361DE /* mapTo+RxCocoa.swift in Sources */,
+				29BE2679210104E500DB76FE /* driveMany+RxCocoa.swift in Sources */,
 				538607B71E6F334B000361DE /* repeatWithBehavior.swift in Sources */,
 				538607AC1E6F334B000361DE /* catchErrorJustComplete.swift in Sources */,
 				58C5450451345D65DF48F6C5 /* zipWith.swift in Sources */,
@@ -1032,9 +1043,10 @@
 				538607DD1E6F3692000361DE /* RepeatWithBehaviorTests.swift in Sources */,
 				538607EC1E6F36A9000361DE /* UnwrapTests.swift in Sources */,
 				538607DF1E6F36A9000361DE /* ApplyTests.swift in Sources */,
-				29E5ADB720FD03AE007384C2 /* BindCollectionTests+RxCocoa.swift in Sources */,
+				29E5ADB720FD03AE007384C2 /* BindManyTests+RxCocoa.swift in Sources */,
 				538607731E6F1D51000361DE /* MapToTests+RxCocoa.swift in Sources */,
 				538607E61E6F36A9000361DE /* MapToTests.swift in Sources */,
+				29BE26822101059300DB76FE /* DriveManyTests+RxCocoa.swift in Sources */,
 				5A5FCE411ED5AEC60052A9B5 /* PausableBufferedTests.swift in Sources */,
 				1A8741AC20745A91004BB762 /* UIViewPropertyAnimatorTests+Rx.swift in Sources */,
 				3DBDE5FF1FBBB09900DF47F9 /* AndTests.swift in Sources */,
@@ -1063,6 +1075,7 @@
 				3D11958B1FCAD9AE0095134B /* and.swift in Sources */,
 				62512C781F0EAF950083A89F /* repeatWithBehavior.swift in Sources */,
 				62512C731F0EAF950083A89F /* not.swift in Sources */,
+				29BE267A210104E500DB76FE /* driveMany+RxCocoa.swift in Sources */,
 				D7C72A431FDC5D8F00EAAAAB /* nwise.swift in Sources */,
 				62512C6D1F0EAF950083A89F /* distinct.swift in Sources */,
 				62512C7C1F0EAF950083A89F /* filterMap.swift in Sources */,
@@ -1074,7 +1087,7 @@
 				BF515CE81F3F3B0000492640 /* fromAsync.swift in Sources */,
 				BF515CEA1F3F3B0300492640 /* curry.swift in Sources */,
 				62512C691F0EAF850083A89F /* not+RxCocoa.swift in Sources */,
-				29E5ADBB20FD03B9007384C2 /* bindCollection+RxCocoa.swift in Sources */,
+				29E5ADBB20FD03B9007384C2 /* bindMany+RxCocoa.swift in Sources */,
 				62512C6C1F0EAF950083A89F /* catchErrorJustComplete.swift in Sources */,
 				62512C751F0EAF950083A89F /* once.swift in Sources */,
 				62512C711F0EAF950083A89F /* mapTo.swift in Sources */,
@@ -1087,6 +1100,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				62512C9F1F0EB1850083A89F /* RepeatWithBehaviorTests.swift in Sources */,
+				29BE26812101059200DB76FE /* DriveManyTests+RxCocoa.swift in Sources */,
 				62512C9C1F0EB1850083A89F /* OnceTests.swift in Sources */,
 				62512C9B1F0EB1850083A89F /* NotTests.swift in Sources */,
 				62512C901F0EB17D0083A89F /* MapToTests+RxCocoa.swift in Sources */,
@@ -1108,7 +1122,7 @@
 				780CB21E20A0EE8300FD3F39 /* MapManyTests.swift in Sources */,
 				62512C911F0EB17F0083A89F /* NotTests+RxCocoa.swift in Sources */,
 				62512C9A1F0EB1850083A89F /* Materialized+elementsTests.swift in Sources */,
-				29E5ADB820FD03AE007384C2 /* BindCollectionTests+RxCocoa.swift in Sources */,
+				29E5ADB820FD03AE007384C2 /* BindManyTests+RxCocoa.swift in Sources */,
 				62512C931F0EB1850083A89F /* CascadeTests.swift in Sources */,
 				62512C971F0EB1850083A89F /* IgnoreTests.swift in Sources */,
 				62512C941F0EB1850083A89F /* CatchErrorJustCompleteTests.swift in Sources */,
@@ -1142,6 +1156,7 @@
 				3D11958C1FCAD9AF0095134B /* and.swift in Sources */,
 				E39C41E91F18B08A007F2ACD /* repeatWithBehavior.swift in Sources */,
 				E39C41E41F18B08A007F2ACD /* not.swift in Sources */,
+				29BE267B210104E500DB76FE /* driveMany+RxCocoa.swift in Sources */,
 				D7C72A441FDC5D8F00EAAAAB /* nwise.swift in Sources */,
 				E39C41DE1F18B08A007F2ACD /* distinct.swift in Sources */,
 				E39C41ED1F18B08A007F2ACD /* filterMap.swift in Sources */,
@@ -1153,7 +1168,7 @@
 				BF515CE91F3F3B0100492640 /* fromAsync.swift in Sources */,
 				BF515CEB1F3F3B0300492640 /* curry.swift in Sources */,
 				E39C41DA1F18B086007F2ACD /* not+RxCocoa.swift in Sources */,
-				29E5ADBA20FD03B9007384C2 /* bindCollection+RxCocoa.swift in Sources */,
+				29E5ADBA20FD03B9007384C2 /* bindMany+RxCocoa.swift in Sources */,
 				E39C41DD1F18B08A007F2ACD /* catchErrorJustComplete.swift in Sources */,
 				E39C41E61F18B08A007F2ACD /* once.swift in Sources */,
 				E39C41E21F18B08A007F2ACD /* mapTo.swift in Sources */,
@@ -1166,6 +1181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E39C42001F18B13E007F2ACD /* ApplyTests.swift in Sources */,
+				29BE26802101059200DB76FE /* DriveManyTests+RxCocoa.swift in Sources */,
 				E39C420B1F18B13E007F2ACD /* PausableTests.swift in Sources */,
 				E39C42021F18B13E007F2ACD /* CatchErrorJustCompleteTests.swift in Sources */,
 				E39C420F1F18B13E007F2ACD /* UnwrapTests.swift in Sources */,
@@ -1187,7 +1203,7 @@
 				780CB21F20A0EE8300FD3F39 /* MapManyTests.swift in Sources */,
 				E39C420C1F18B13E007F2ACD /* PausableBufferedTests.swift in Sources */,
 				E39C42041F18B13E007F2ACD /* IgnoreErrorsTests.swift in Sources */,
-				29E5ADB920FD03AE007384C2 /* BindCollectionTests+RxCocoa.swift in Sources */,
+				29E5ADB920FD03AE007384C2 /* BindManyTests+RxCocoa.swift in Sources */,
 				E39C41FE1F18B13A007F2ACD /* MapToTests+RxCocoa.swift in Sources */,
 				E39C420A1F18B13E007F2ACD /* OnceTests.swift in Sources */,
 				E39C42111F18B13E007F2ACD /* WeakTests.swift in Sources */,

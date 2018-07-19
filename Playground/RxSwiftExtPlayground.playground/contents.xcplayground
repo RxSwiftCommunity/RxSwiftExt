@@ -26,7 +26,8 @@
         <page name='toSortedArray'/>
         <page name='UIViewPropertyAnimator.animate'/>
         <page name='UIViewPropertyAnimator.fractionComplete'/>
-        <page name='bindCollection'/>
         <page name='withUnretained'/>
+        <page name='bindMany'/>
+        <page name='driveMany'/>
     </pages>
 </playground>

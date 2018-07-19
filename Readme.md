@@ -72,6 +72,7 @@ These operators are much like the RxSwift & RxCocoa core operators, but provide 
 * [Observable.fromAsync](#fromasync)
 * [Observable.zip(with:)](#zipwith)
 * [withUnretained](#withunretained)
+* [bind(to:), drive(_:)](#bindcollection)
 
 There are two more available operators for `materialize()`'d sequences:
 
@@ -554,6 +555,28 @@ next((Test Class, 5))
 next((Test Class, 8))
 next((Test Class, 13))
 completed
+```
+
+#### bindCollection
+
+The `bind(to:)` operator overloads RxSwift's `bind(to:)` to allow binding to collections of observers.
+
+```swift
+isEditableStream.bind(to: [textField1.rx.isEnabled,
+                           textField2.rx.isEnabled,
+                           textField3.rx.isEnabled])
+
+isEditableStream.bind(to: textField1.rx.isEnabled,
+                          textField2.rx.isEnabled,
+                          textField3.rx.isEnabled)
+
+isEditableStream.drive([textField1.rx.isEnabled,
+                        textField2.rx.isEnabled,
+                        textField3.rx.isEnabled])
+
+isEditableStream.drive(textField1.rx.isEnabled,
+                       textField2.rx.isEnabled,
+                       textField3.rx.isEnabled)
 ```
 
 Reactive Extensions details

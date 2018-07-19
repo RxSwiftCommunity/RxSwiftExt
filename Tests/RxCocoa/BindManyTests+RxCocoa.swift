@@ -1,18 +1,17 @@
 //
-//  BindCollectionTests+RxCocoa.swift
+//  BindManyTests+RxCocoa.swift
 //  RxSwiftExt
 //
 //  Created by Matthew Crenshaw on 7/16/18.
 //  Copyright © 2018 RxSwift Community. All rights reserved.
 //
 
-@testable import RxSwiftExt
-
 import XCTest
 import RxSwift
 import RxTest
+import RxSwiftExt
 
-class BindCollectionTests: XCTestCase {
+class BindManyTests: XCTestCase {
     func testBindCollection() {
         let values = ["one", "two", "three", "four"]
 
