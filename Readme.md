@@ -72,7 +72,7 @@ These operators are much like the RxSwift & RxCocoa core operators, but provide 
 * [Observable.fromAsync](#fromasync)
 * [Observable.zip(with:)](#zipwith)
 * [withUnretained](#withunretained)
-* [bind(to:), drive(_:)](#bindcollection)
+* [bind(to:), drive(_:)](#bindmany)
 
 There are two more available operators for `materialize()`'d sequences:
 
@@ -557,7 +557,7 @@ next((Test Class, 13))
 completed
 ```
 
-#### bindCollection
+#### bindMany
 
 The `bind(to:)` operator overloads RxSwift's `bind(to:)` to allow binding to collections of observers.
 

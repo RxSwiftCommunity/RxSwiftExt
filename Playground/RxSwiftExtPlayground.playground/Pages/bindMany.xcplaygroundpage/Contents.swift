@@ -25,9 +25,9 @@ example("Bind an observable to a collection of observers") {
     let textField3 = UITextField()
     let isEditableStream = Observable.of(true, false, false, true)
 
-    textField1.rx.observeWeakly(Bool.self, "enabled").debug("textField1").subscribe()
-    textField2.rx.observeWeakly(Bool.self, "enabled").debug("textField2").subscribe()
-    textField3.rx.observeWeakly(Bool.self, "enabled").debug("textField3").subscribe()
+    textField1.rx.observe(Bool.self, "enabled").debug("textField1").subscribe()
+    textField2.rx.observe(Bool.self, "enabled").debug("textField2").subscribe()
+    textField3.rx.observe(Bool.self, "enabled").debug("textField3").subscribe()
 
     isEditableStream.bind(to: [textField1.rx.isEnabled,
                                textField2.rx.isEnabled,

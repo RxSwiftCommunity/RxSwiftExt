@@ -13,6 +13,8 @@ import RxSwift
 import RxCocoa
 import RxSwiftExt
 
+playgroundShouldContinueIndefinitely()
+
 /*:
  ## drive(_: Collection)
 
@@ -20,22 +22,23 @@ import RxSwiftExt
  */
 
 example("Drive a collection of observers") {
+
     let textField1 = UITextField()
     let textField2 = UITextField()
     let textField3 = UITextField()
     let isEditableStream = Driver.of(true, false, false, true)
 
-    textField1.rx.observeWeakly(Bool.self, "enabled").debug("textField1").subscribe()
-    textField2.rx.observeWeakly(Bool.self, "enabled").debug("textField2").subscribe()
-    textField3.rx.observeWeakly(Bool.self, "enabled").debug("textField3").subscribe()
+    textField1.rx.observe(Bool.self, "enabled").debug("textField1").subscribe()
+    textField2.rx.observe(Bool.self, "enabled").debug("textField2").subscribe()
+    textField3.rx.observe(Bool.self, "enabled").debug("textField3").subscribe()
 
-    isEditableStream.debug().drive([textField1.rx.isEnabled,
-                                    textField2.rx.isEnabled,
-                                    textField3.rx.isEnabled])
-    
-    isEditableStream.debug().drive(textField1.rx.isEnabled,
-                                   textField2.rx.isEnabled,
-                                   textField3.rx.isEnabled)
+    isEditableStream.drive([textField1.rx.isEnabled,
+                            textField2.rx.isEnabled,
+                            textField3.rx.isEnabled])
+
+    isEditableStream.drive(textField1.rx.isEnabled,
+                           textField2.rx.isEnabled,
+                           textField3.rx.isEnabled)
 }
 
 //: [Next](@next)

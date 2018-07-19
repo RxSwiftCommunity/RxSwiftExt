@@ -21,7 +21,12 @@ class BindManyTests: XCTestCase {
                          scheduler.createObserver(String.self),
                          scheduler.createObserver(String.self)]
 
-        _ = Observable.from(values).bind(to: observers)
+        guard let disposable = Observable.from(values).bind(to: observers) as? CompositeDisposable else {
+            XCTFail("expected CompositeDisposable")
+            return
+        }
+
+        XCTAssertEqual(observers.count, disposable.count)
 
         scheduler.start()
 
@@ -34,5 +39,8 @@ class BindManyTests: XCTestCase {
         for observer in observers {
             XCTAssertEqual(observer.events, correct)
         }
+
+        disposable.dispose()
+        XCTAssertTrue(disposable.isDisposed)
     }
 }

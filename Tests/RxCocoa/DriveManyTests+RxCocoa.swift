@@ -25,7 +25,12 @@ class DriveManyTests: XCTestCase {
                              scheduler.createObserver(String.self),
                              scheduler.createObserver(String.self)]
 
-            _ = Driver.from(values).drive(observers)
+            guard let disposable = Driver.from(values).drive(observers) as? CompositeDisposable else {
+                XCTFail("expected CompositeDisposable")
+                return
+            }
+
+            XCTAssertEqual(observers.count, disposable.count)
 
             scheduler.start()
 
@@ -38,6 +43,9 @@ class DriveManyTests: XCTestCase {
             for observer in observers {
                 XCTAssertEqual(observer.events, correct)
             }
+
+            disposable.dispose()
+            XCTAssertTrue(disposable.isDisposed)
         }
     }
 }
