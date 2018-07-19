@@ -8,7 +8,7 @@
 
 import RxSwift
 
-extension ObservableType {
+public extension ObservableType {
     /**
      Creates new shared subscriptions and sends elements to collection of observers.
 
