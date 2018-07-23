@@ -176,13 +176,13 @@ next(d)
 completed
 ```
 
-#### map
+#### mapTo
 
 Replace every element with the provided value.
 
 ```swift
 Observable.of(1,2,3)
-    .map(to: "Nope.")
+    .mapTo("Nope.")
     .subscribe { print($0) }
 ```
 ```
