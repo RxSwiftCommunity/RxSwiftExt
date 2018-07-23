@@ -13,9 +13,9 @@ import RxSwift
 import RxSwiftExt
 
 /*:
- ## map(to: Any)
+ ## mapTo( Any)
  
- The `map` operator takes a sequence of elements and returns a sequence of the same constant provided as a parameter. In effect it ignores its input and replaces it with a constant
+ The `mapTo` operator takes a sequence of elements and returns a sequence of the same constant provided as a parameter. In effect it ignores its input and replaces it with a constant
  */
 example("replace any input with a value") {
     
@@ -27,7 +27,7 @@ example("replace any input with a value") {
             // look types on the right panel ===>
             numbers
             result
-            print("map(to:) transformed \(numbers) to \(result)")
+            print("mapTo() transformed \(numbers) to \(result)")
     })
 }
 
