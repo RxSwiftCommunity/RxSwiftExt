@@ -3,6 +3,7 @@ Changelog
 
 master
 -----
+- Fix `withUnretained` so it allows proper destructuring
 - added `mapMany` operator
 - added `toSortedArray` operator
 
