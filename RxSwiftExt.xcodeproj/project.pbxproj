@@ -169,6 +169,12 @@
 		C4D2154420118FBA009804AE /* Observable+OfTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D2154020118F8B009804AE /* Observable+OfTypeTests.swift */; };
 		C4D2154520118FC1009804AE /* ofType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D2153E20118A81009804AE /* ofType.swift */; };
 		C4D2154620118FC1009804AE /* ofType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D2153E20118A81009804AE /* ofType.swift */; };
+		D38E81022110CB42000AA0B3 /* NonPollingBufferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38E81012110CB42000AA0B3 /* NonPollingBufferTests.swift */; };
+		D38E81032110CB42000AA0B3 /* NonPollingBufferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38E81012110CB42000AA0B3 /* NonPollingBufferTests.swift */; };
+		D38E81042110CB42000AA0B3 /* NonPollingBufferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38E81012110CB42000AA0B3 /* NonPollingBufferTests.swift */; };
+		D3C80FB4210FD35600D19B68 /* nonPollingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C80FB3210FD35600D19B68 /* nonPollingBuffer.swift */; };
+		D3C80FB5210FD35600D19B68 /* nonPollingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C80FB3210FD35600D19B68 /* nonPollingBuffer.swift */; };
+		D3C80FB6210FD35600D19B68 /* nonPollingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C80FB3210FD35600D19B68 /* nonPollingBuffer.swift */; };
 		D7C72A3E1FDC5C5D00EAAAAB /* NwiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C72A3D1FDC5C5D00EAAAAB /* NwiseTests.swift */; };
 		D7C72A3F1FDC5C5D00EAAAAB /* NwiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C72A3D1FDC5C5D00EAAAAB /* NwiseTests.swift */; };
 		D7C72A401FDC5C5D00EAAAAB /* NwiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C72A3D1FDC5C5D00EAAAAB /* NwiseTests.swift */; };
@@ -333,6 +339,8 @@
 		BF79DA0D206C185B008AA708 /* WithUnretainedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithUnretainedTests.swift; sourceTree = "<group>"; };
 		C4D2153E20118A81009804AE /* ofType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ofType.swift; sourceTree = "<group>"; };
 		C4D2154020118F8B009804AE /* Observable+OfTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+OfTypeTests.swift"; sourceTree = "<group>"; };
+		D38E81012110CB42000AA0B3 /* NonPollingBufferTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonPollingBufferTests.swift; sourceTree = "<group>"; };
+		D3C80FB3210FD35600D19B68 /* nonPollingBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nonPollingBuffer.swift; sourceTree = "<group>"; };
 		D7C72A3D1FDC5C5D00EAAAAB /* NwiseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NwiseTests.swift; sourceTree = "<group>"; };
 		D7C72A411FDC5D8F00EAAAAB /* nwise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = nwise.swift; path = Source/RxSwift/nwise.swift; sourceTree = SOURCE_ROOT; };
 		DC612871209E80810053CBB7 /* mapMany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapMany.swift; sourceTree = "<group>"; };
@@ -486,6 +494,7 @@
 				538607A11E6F334B000361DE /* mapTo.swift */,
 				8CF5F8B2202D6C5F00C1BA97 /* mapAt.swift */,
 				66C663051EA0ECD9005245C4 /* materialized+elements.swift */,
+				D3C80FB3210FD35600D19B68 /* nonPollingBuffer.swift */,
 				538607A31E6F334B000361DE /* not.swift */,
 				D7C72A411FDC5D8F00EAAAAB /* nwise.swift */,
 				538607A41E6F334B000361DE /* ObservableType+Weak.swift */,
@@ -523,6 +532,7 @@
 				780CB21C20A0EE8300FD3F39 /* MapManyTests.swift */,
 				6662395D1E9E0950009BB134 /* Materialized+elementsTests.swift */,
 				538607C41E6F367A000361DE /* NotTests.swift */,
+				D38E81012110CB42000AA0B3 /* NonPollingBufferTests.swift */,
 				D7C72A3D1FDC5C5D00EAAAAB /* NwiseTests.swift */,
 				538607C51E6F367A000361DE /* OnceTests.swift */,
 				5A1DDEB81ED58D2800F2E4B1 /* PausableBufferedTests.swift */,
@@ -972,6 +982,7 @@
 				8CF5F8B3202D6C5F00C1BA97 /* mapAt.swift in Sources */,
 				538607B31E6F334B000361DE /* not.swift in Sources */,
 				538607AD1E6F334B000361DE /* distinct.swift in Sources */,
+				D3C80FB4210FD35600D19B68 /* nonPollingBuffer.swift in Sources */,
 				D7C72A421FDC5D8F00EAAAAB /* nwise.swift in Sources */,
 				538607B61E6F334B000361DE /* pausable.swift in Sources */,
 				98309EAF1EDF14AC00BD07D9 /* flatMapSync.swift in Sources */,
@@ -1027,6 +1038,7 @@
 				1A8741AC20745A91004BB762 /* UIViewPropertyAnimatorTests+Rx.swift in Sources */,
 				3DBDE5FF1FBBB09900DF47F9 /* AndTests.swift in Sources */,
 				58C545FD1AE234C7F290334F /* ZipWithTest.swift in Sources */,
+				D38E81022110CB42000AA0B3 /* NonPollingBufferTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1062,6 +1074,7 @@
 				BF515CE81F3F3B0000492640 /* fromAsync.swift in Sources */,
 				BF515CEA1F3F3B0300492640 /* curry.swift in Sources */,
 				62512C691F0EAF850083A89F /* not+RxCocoa.swift in Sources */,
+				D3C80FB5210FD35600D19B68 /* nonPollingBuffer.swift in Sources */,
 				62512C6C1F0EAF950083A89F /* catchErrorJustComplete.swift in Sources */,
 				62512C751F0EAF950083A89F /* once.swift in Sources */,
 				62512C711F0EAF950083A89F /* mapTo.swift in Sources */,
@@ -1076,6 +1089,7 @@
 				62512C9F1F0EB1850083A89F /* RepeatWithBehaviorTests.swift in Sources */,
 				62512C9C1F0EB1850083A89F /* OnceTests.swift in Sources */,
 				62512C9B1F0EB1850083A89F /* NotTests.swift in Sources */,
+				D38E81032110CB42000AA0B3 /* NonPollingBufferTests.swift in Sources */,
 				62512C901F0EB17D0083A89F /* MapToTests+RxCocoa.swift in Sources */,
 				62512C961F0EB1850083A89F /* IgnoreErrorsTests.swift in Sources */,
 				BF515CE61F3F3AF500492640 /* FromAsyncTests.swift in Sources */,
@@ -1139,6 +1153,7 @@
 				BF515CE91F3F3B0100492640 /* fromAsync.swift in Sources */,
 				BF515CEB1F3F3B0300492640 /* curry.swift in Sources */,
 				E39C41DA1F18B086007F2ACD /* not+RxCocoa.swift in Sources */,
+				D3C80FB6210FD35600D19B68 /* nonPollingBuffer.swift in Sources */,
 				E39C41DD1F18B08A007F2ACD /* catchErrorJustComplete.swift in Sources */,
 				E39C41E61F18B08A007F2ACD /* once.swift in Sources */,
 				E39C41E21F18B08A007F2ACD /* mapTo.swift in Sources */,
@@ -1153,6 +1168,7 @@
 				E39C42001F18B13E007F2ACD /* ApplyTests.swift in Sources */,
 				E39C420B1F18B13E007F2ACD /* PausableTests.swift in Sources */,
 				E39C42021F18B13E007F2ACD /* CatchErrorJustCompleteTests.swift in Sources */,
+				D38E81042110CB42000AA0B3 /* NonPollingBufferTests.swift in Sources */,
 				E39C420F1F18B13E007F2ACD /* UnwrapTests.swift in Sources */,
 				E39C42121F18B13E007F2ACD /* FilterMapTests.swift in Sources */,
 				BF515CE71F3F3AF500492640 /* FromAsyncTests.swift in Sources */,

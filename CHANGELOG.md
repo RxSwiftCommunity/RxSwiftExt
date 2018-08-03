@@ -3,6 +3,7 @@ Changelog
 
 master
 -----
+- added `nonPollingBuffer` operator
 - added `mapMany` operator
 - added `toSortedArray` operator
 
