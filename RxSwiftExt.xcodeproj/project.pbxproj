@@ -75,6 +75,7 @@
 		5648C9892121832700CD0B64 /* UIPopoverPresentationController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5648C9882121832700CD0B64 /* UIPopoverPresentationController+Rx.swift */; };
 		5648C98B2121834600CD0B64 /* RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5648C98A2121834600CD0B64 /* RxCocoa.swift */; };
 		5648C98F2121840100CD0B64 /* RxPopoverPresentationControllerProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5648C98E2121840100CD0B64 /* RxPopoverPresentationControllerProxy.swift */; };
+		5648C99321218A3E00CD0B64 /* UIPopoverPresentationController+RxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5648C991212189B700CD0B64 /* UIPopoverPresentationController+RxTests.swift */; };
 		58C540CAF254B6B381721654 /* zipWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C54402C636BC3C2F36A4ED /* zipWith.swift */; };
 		58C54302EC14B6FF2034BAF6 /* ZipWithTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C54E184069446EDEE748F9 /* ZipWithTest.swift */; };
 		58C5450451345D65DF48F6C5 /* zipWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C54402C636BC3C2F36A4ED /* zipWith.swift */; };
@@ -313,6 +314,7 @@
 		5648C9882121832700CD0B64 /* UIPopoverPresentationController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPopoverPresentationController+Rx.swift"; sourceTree = "<group>"; };
 		5648C98A2121834600CD0B64 /* RxCocoa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxCocoa.swift; sourceTree = "<group>"; };
 		5648C98E2121840100CD0B64 /* RxPopoverPresentationControllerProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxPopoverPresentationControllerProxy.swift; sourceTree = "<group>"; };
+		5648C991212189B700CD0B64 /* UIPopoverPresentationController+RxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPopoverPresentationController+RxTests.swift"; sourceTree = "<group>"; };
 		58C54402C636BC3C2F36A4ED /* zipWith.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = zipWith.swift; sourceTree = "<group>"; };
 		58C54E184069446EDEE748F9 /* ZipWithTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZipWithTest.swift; sourceTree = "<group>"; };
 		5A1DDEB81ED58D2800F2E4B1 /* PausableBufferedTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PausableBufferedTests.swift; sourceTree = "<group>"; };
@@ -473,6 +475,7 @@
 				538607711E6F1CFB000361DE /* MapToTests+RxCocoa.swift */,
 				53C79D5F1E6F5AAB00CD9B6A /* NotTests+RxCocoa.swift */,
 				1A8741AB20745A91004BB762 /* UIViewPropertyAnimatorTests+Rx.swift */,
+				5648C991212189B700CD0B64 /* UIPopoverPresentationController+RxTests.swift */,
 			);
 			name = RxCocoa;
 			path = Tests/RxCocoa;
@@ -1029,6 +1032,7 @@
 				6662395E1E9E0950009BB134 /* Materialized+elementsTests.swift in Sources */,
 				538607E81E6F36A9000361DE /* NotTests.swift in Sources */,
 				BF515CE51F3F3AF400492640 /* FromAsyncTests.swift in Sources */,
+				5648C99321218A3E00CD0B64 /* UIPopoverPresentationController+RxTests.swift in Sources */,
 				538607EB1E6F36A9000361DE /* RetryWithBehaviorTests.swift in Sources */,
 				D7C72A3E1FDC5C5D00EAAAAB /* NwiseTests.swift in Sources */,
 				8CF5F8AF202D62AB00C1BA97 /* MapAtTests.swift in Sources */,
