@@ -5,6 +5,10 @@ master
 -----
 - added `mapMany` operator
 - added `toSortedArray` operator
+- added `UIPopoverPresentationController` extensions:
+    * `prepareForPresentation`
+    * `willReposition`
+    * `didDismiss`
 
 3.3.0
 -----
