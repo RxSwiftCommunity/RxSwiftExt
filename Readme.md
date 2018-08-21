@@ -35,7 +35,8 @@ If you use Swift 2.x:
 pod "RxSwiftExt", '1.2'
 ```
 
-Support for `RxCocoa` types is available for Swift 3 and newer. To install, add the `RxSwiftExt/RxCocoa` pod
+
+##### Support for `RxCocoa` types is available for Swift 3 and newer. To install, add the `RxSwiftExt/RxCocoa` pod
 
 Using Swift 4:
 ```
