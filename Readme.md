@@ -35,6 +35,18 @@ If you use Swift 2.x:
 pod "RxSwiftExt", '1.2'
 ```
 
+Support for `RxCocoa` types is available for Swift 3 and newer. To install, add the `RxSwiftExt/RxCocoa` pod
+
+Using Swift 4:
+```
+pod "RxSwiftExt/RxCocoa"
+```
+
+Using Swift 3:
+```
+pod "RxSwiftExt/RxCocoa", '2.5.1'
+```
+
 #### Carthage
 
 Add this to your `Cartfile`
