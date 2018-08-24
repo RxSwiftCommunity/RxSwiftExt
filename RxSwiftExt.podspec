@@ -29,6 +29,4 @@ Pod::Spec.new do |s|
     co.dependency "RxCocoa", '~> 4.0'
     co.dependency "RxSwiftExt/Core"
   end
-
-  s.default_subspecs = "Core"
 end

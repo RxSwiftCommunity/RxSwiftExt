@@ -19,20 +19,27 @@ This branch of RxSwiftExt targets Swift 4.x and RxSwift 4.0.0 or later.
 
 Using Swift 4:
 
+```ruby
+pod 'RxSwiftExt'
 ```
-pod "RxSwiftExt"
+
+This will install both the `RxSwift` and `RxCocoa` extensions.
+If you're interested in only installing the `RxSwift` extensions, without the `RxCocoa` extensions, simply use:
+
+```ruby
+pod 'RxSwiftExt/Core'
 ```
 
 Using Swift 3:
 
-```
-pod "RxSwiftExt", '2.5.1'
+```ruby
+pod 'RxSwiftExt', '2.5.1'
 ```
 
 If you use Swift 2.x:
 
-```
-pod "RxSwiftExt", '1.2'
+```ruby
+pod 'RxSwiftExt', '1.2'
 ```
 
 #### Carthage
