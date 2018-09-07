@@ -54,7 +54,7 @@ class WithUnretainedTests: XCTestCase {
         let res = scheduler.start {
             self.values
                 .withUnretained(self.testClass)
-                .map { "\($0.0.id), \($0.1)" }
+                .map { "\($0.id), \($1)" }
         }
 
         XCTAssertEqual(res.events, correctValues)
@@ -91,7 +91,7 @@ class WithUnretainedTests: XCTestCase {
                         self.testClass = nil
                     }
                 })
-                .map { "\($0.0.id), \($0.1)" }
+                .map { "\($0.id), \($1)" }
         }
 
         XCTAssertEqual(res.events, correctValues)
@@ -112,7 +112,7 @@ class WithUnretainedTests: XCTestCase {
         let res = scheduler.start {
             self.tupleValues
                 .withUnretained(self.testClass) { ($0, $1.0, $1.1) }
-                .map { "\($0.0.id), \($0.1), \($0.2)" }
+                .map { "\($0.id), \($1), \($2)" }
         }
 
         XCTAssertEqual(res.events, correctValues)
