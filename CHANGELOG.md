@@ -6,6 +6,7 @@ master
 - Fix `withUnretained` so it allows proper destructuring
 - added `mapMany` operator
 - added `toSortedArray` operator
+- rolled `map(to:)` back to `mapTo(_:)` for `SharedSequenceConvertibleType`
 
 3.3.0
 -----
