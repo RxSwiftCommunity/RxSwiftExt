@@ -18,4 +18,9 @@ extension SharedSequenceConvertibleType {
     public func mapTo<R>(_ value: R) -> SharedSequence<SharingStrategy, R> {
         return map { _ in value }
     }
+    
+    @available(*, deprecated, renamed: "mapTo(_:)")
+    public func map<R>(to value: R) -> SharedSequence<SharingStrategy, R> {
+        return map { _ in value }
+    }
 }
