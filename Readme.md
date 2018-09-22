@@ -79,6 +79,7 @@ These operators are much like the RxSwift & RxCocoa core operators, but provide 
 * [Observable.fromAsync](#fromasync)
 * [Observable.zip(with:)](#zipwith)
 * [withUnretained](#withunretained)
+* [ifEmpty(switchToSingleWithError:)](#ifempty)
 
 There are two more available operators for `materialize()`'d sequences:
 
@@ -561,6 +562,24 @@ next((Test Class, 5))
 next((Test Class, 8))
 next((Test Class, 13))
 completed
+```
+
+#### ifEmpty
+
+The `ifEmpty(switchToSingleWithError:)` operator transforms a Maybe into a Single in case the Maybe completes without success (ie if it is empty).
+In that case the Single will immediately emit the specified Error. It allows to consider the absence of value for the Maybe as an applicative error for instance.
+
+```swift
+Maybe<Bool>.create(subscribe: { (observer) -> Disposable in
+    observer(.completed)
+    return Disposables.create()
+})
+    .ifEmpty(switchToSingleWithError: SwitchToSingleWithError.completedError)
+    .subscribe(onSuccess: { (value) in
+        print ("The value will never be emitted since the Maybe is empty")
+    }, onError: { (error) in
+        print ("The completed event is transformed into this error: \(error)")
+    })
 ```
 
 Reactive Extensions details

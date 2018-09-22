@@ -7,6 +7,7 @@ master
 - added `mapMany` operator
 - added `toSortedArray` operator
 - rolled `map(to:)` back to `mapTo(_:)` for `SharedSequenceConvertibleType`
+- added `ifEmpty(switchToSingleWithError:)` to the trait `Maybe`
 
 3.3.0
 -----

@@ -23,6 +23,8 @@
 
 /* Begin PBXBuildFile section */
 		188C6DA31C47B4240092101A /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188C6DA21C47B4240092101A /* RxSwift.framework */; };
+		1A7865832155DA8A008AB973 /* ifEmptySwitchToError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7865822155DA8A008AB973 /* ifEmptySwitchToError.swift */; };
+		1A7865852155DBAD008AB973 /* IfEmptySwitchToErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7865842155DBAD008AB973 /* IfEmptySwitchToErrorTests.swift */; };
 		1A8741AC20745A91004BB762 /* UIViewPropertyAnimatorTests+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8741AB20745A91004BB762 /* UIViewPropertyAnimatorTests+Rx.swift */; };
 		1AA8395B207451D6001C49ED /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA8395A207451D5001C49ED /* RxCocoa.framework */; };
 		3D11958B1FCAD9AE0095134B /* and.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBDE5FB1FBBAE3900DF47F9 /* and.swift */; };
@@ -262,6 +264,8 @@
 /* Begin PBXFileReference section */
 		188C6D911C47B2B20092101A /* RxSwiftExt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxSwiftExt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		188C6DA21C47B4240092101A /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = SOURCE_ROOT; };
+		1A7865822155DA8A008AB973 /* ifEmptySwitchToError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ifEmptySwitchToError.swift; sourceTree = "<group>"; };
+		1A7865842155DBAD008AB973 /* IfEmptySwitchToErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IfEmptySwitchToErrorTests.swift; sourceTree = "<group>"; };
 		1A8741AB20745A91004BB762 /* UIViewPropertyAnimatorTests+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewPropertyAnimatorTests+Rx.swift"; sourceTree = "<group>"; };
 		1AA8395A207451D5001C49ED /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		3D638DE71DC2B2D40089A590 /* RxSwiftExtTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RxSwiftExtTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -500,6 +504,7 @@
 				C4D2153E20118A81009804AE /* ofType.swift */,
 				BF79DA09206C145D008AA708 /* withUnretained.swift */,
 				DC612871209E80810053CBB7 /* mapMany.swift */,
+				1A7865822155DA8A008AB973 /* ifEmptySwitchToError.swift */,
 			);
 			path = RxSwift;
 			sourceTree = "<group>";
@@ -535,6 +540,7 @@
 				538607CB1E6F367A000361DE /* WeakTests.swift */,
 				58C54E184069446EDEE748F9 /* ZipWithTest.swift */,
 				BF79DA0D206C185B008AA708 /* WithUnretainedTests.swift */,
+				1A7865842155DBAD008AB973 /* IfEmptySwitchToErrorTests.swift */,
 			);
 			name = RxSwift;
 			path = Tests/RxSwift;
@@ -868,13 +874,14 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxTest.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
 			);
 			name = "Copy carthage frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 		87B3D2C1203EB014001327A4 /* Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -929,7 +936,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "for framework in \"${PROJECT_DIR}\"/Carthage/Build/iOS/*.framework; do\nfile=`basename \"$framework\"`\nditto \"$framework\" \"${BUILT_PRODUCTS_DIR}/$file\"\ndone";
+			shellScript = "for framework in \"${PROJECT_DIR}\"/Carthage/Build/iOS/*.framework; do\nfile=`basename \"$framework\"`\nditto \"$framework\" \"${BUILT_PRODUCTS_DIR}/$file\"\ndone\n";
 		};
 		E36BDFBF1F38772F008C9D56 /* Copy carthage frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -981,6 +988,7 @@
 				538607AE1E6F334B000361DE /* ignore.swift in Sources */,
 				BF79DA0A206C145D008AA708 /* withUnretained.swift in Sources */,
 				BF515CE01F3F370600492640 /* curry.swift in Sources */,
+				1A7865832155DA8A008AB973 /* ifEmptySwitchToError.swift in Sources */,
 				5A1DDEBF1ED58F8600F2E4B1 /* pausableBuffered.swift in Sources */,
 				BF515CE21F3F371600492640 /* fromAsync.swift in Sources */,
 				DC612872209E80810053CBB7 /* mapMany.swift in Sources */,
@@ -1018,6 +1026,7 @@
 				538607E41E6F36A9000361DE /* IgnoreTests.swift in Sources */,
 				538607E31E6F36A9000361DE /* IgnoreErrorsTests.swift in Sources */,
 				53C79D621E6F5B3900CD9B6A /* NotTests+RxCocoa.swift in Sources */,
+				1A7865852155DBAD008AB973 /* IfEmptySwitchToErrorTests.swift in Sources */,
 				538607DD1E6F3692000361DE /* RepeatWithBehaviorTests.swift in Sources */,
 				538607EC1E6F36A9000361DE /* UnwrapTests.swift in Sources */,
 				538607DF1E6F36A9000361DE /* ApplyTests.swift in Sources */,
