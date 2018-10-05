@@ -23,6 +23,8 @@
 
 /* Begin PBXBuildFile section */
 		188C6DA31C47B4240092101A /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188C6DA21C47B4240092101A /* RxSwift.framework */; };
+		1958B5F1216768D900CAF1D3 /* unwrap+SharedSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1958B5F0216768D900CAF1D3 /* unwrap+SharedSequence.swift */; };
+		1958B5F621676ECB00CAF1D3 /* unrwapTests+SharedSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1958B5F521676ECB00CAF1D3 /* unrwapTests+SharedSequence.swift */; };
 		1A8741AC20745A91004BB762 /* UIViewPropertyAnimatorTests+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8741AB20745A91004BB762 /* UIViewPropertyAnimatorTests+Rx.swift */; };
 		1AA8395B207451D6001C49ED /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA8395A207451D5001C49ED /* RxCocoa.framework */; };
 		3D11958B1FCAD9AE0095134B /* and.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBDE5FB1FBBAE3900DF47F9 /* and.swift */; };
@@ -262,6 +264,8 @@
 /* Begin PBXFileReference section */
 		188C6D911C47B2B20092101A /* RxSwiftExt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxSwiftExt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		188C6DA21C47B4240092101A /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = SOURCE_ROOT; };
+		1958B5F0216768D900CAF1D3 /* unwrap+SharedSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "unwrap+SharedSequence.swift"; sourceTree = "<group>"; };
+		1958B5F521676ECB00CAF1D3 /* unrwapTests+SharedSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "unrwapTests+SharedSequence.swift"; sourceTree = "<group>"; };
 		1A8741AB20745A91004BB762 /* UIViewPropertyAnimatorTests+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewPropertyAnimatorTests+Rx.swift"; sourceTree = "<group>"; };
 		1AA8395A207451D5001C49ED /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		3D638DE71DC2B2D40089A590 /* RxSwiftExtTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RxSwiftExtTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -453,6 +457,7 @@
 				5386076E1E6F1C0A000361DE /* mapTo+RxCocoa.swift */,
 				538607EF1E6F589E000361DE /* not+RxCocoa.swift */,
 				4A73956B206D501300E2BE2D /* UIViewPropertyAnimator+Rx.swift */,
+				1958B5F0216768D900CAF1D3 /* unwrap+SharedSequence.swift */,
 			);
 			path = RxCocoa;
 			sourceTree = "<group>";
@@ -464,6 +469,7 @@
 				538607711E6F1CFB000361DE /* MapToTests+RxCocoa.swift */,
 				53C79D5F1E6F5AAB00CD9B6A /* NotTests+RxCocoa.swift */,
 				1A8741AB20745A91004BB762 /* UIViewPropertyAnimatorTests+Rx.swift */,
+				1958B5F521676ECB00CAF1D3 /* unrwapTests+SharedSequence.swift */,
 			);
 			name = RxCocoa;
 			path = Tests/RxCocoa;
@@ -981,6 +987,7 @@
 				538607AE1E6F334B000361DE /* ignore.swift in Sources */,
 				BF79DA0A206C145D008AA708 /* withUnretained.swift in Sources */,
 				BF515CE01F3F370600492640 /* curry.swift in Sources */,
+				1958B5F1216768D900CAF1D3 /* unwrap+SharedSequence.swift in Sources */,
 				5A1DDEBF1ED58F8600F2E4B1 /* pausableBuffered.swift in Sources */,
 				BF515CE21F3F371600492640 /* fromAsync.swift in Sources */,
 				DC612872209E80810053CBB7 /* mapMany.swift in Sources */,
@@ -1013,6 +1020,7 @@
 				538607E51E6F36A9000361DE /* IgnoreWhenTests.swift in Sources */,
 				538607E11E6F36A9000361DE /* CatchErrorJustCompleteTests.swift in Sources */,
 				538607ED1E6F36A9000361DE /* WeakTarget.swift in Sources */,
+				1958B5F621676ECB00CAF1D3 /* unrwapTests+SharedSequence.swift in Sources */,
 				C4D2154220118FB9009804AE /* Observable+OfTypeTests.swift in Sources */,
 				780CB21D20A0EE8300FD3F39 /* MapManyTests.swift in Sources */,
 				538607E41E6F36A9000361DE /* IgnoreTests.swift in Sources */,

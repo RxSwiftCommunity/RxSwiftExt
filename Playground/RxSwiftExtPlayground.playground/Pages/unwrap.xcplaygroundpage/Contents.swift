@@ -50,4 +50,25 @@ example("unwrap and filter out nil values") {
     })
 }
 
+example("unwrap and filter out nil values for a Variable") {
+
+    let numbers = [1, 2, nil, Int?(4)]
+    let numbersVariable = Variable<Int?>(nil)
+
+    numbersVariable
+        .asDriver()
+        .unwrap()
+        .asObservable()
+        .toArray()
+        .subscribe(onNext: { result in
+            // look types on the right panel ===>
+            numbers
+            result
+            print("unwrap() transformed \(numbers) to \(result)")
+        })
+
+    Observable.from(numbers)
+        .bind(to: numbersVariable)
+}
+
 //: [Next](@next)
