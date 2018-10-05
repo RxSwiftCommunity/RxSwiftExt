@@ -44,7 +44,7 @@ class MapAtTests: XCTestCase {
     }
 
     func testResultSequenceHasValuesAtProvidedKeypath() {
-        //test elements values and type
+        // test elements values and type
         let correctValues = [
             next(0, "Bart"),
             next(0, "Lisa"),

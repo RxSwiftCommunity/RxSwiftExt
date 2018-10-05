@@ -14,8 +14,8 @@ import RxTest
 
 class UnwrapSharedStrategyTests: XCTestCase {
     let numbers: [Int?] = [1, nil, Int?(3), 4]
-    fileprivate var observer: TestableObserver<Int>!
-    fileprivate let numbersVariable = Variable<Int?>(nil)
+    private var observer: TestableObserver<Int>!
+    private let numbersSubject = BehaviorSubject<Int?>(value: nil)
 
     override func setUp() {
         super.setUp()
@@ -23,33 +23,35 @@ class UnwrapSharedStrategyTests: XCTestCase {
         let scheduler = TestScheduler(initialClock: 0)
         observer = scheduler.createObserver(Int.self)
 
-        _ =  numbersVariable
-                .asDriver()
+        _ = numbersSubject
+                .asDriver(onErrorJustReturn: nil)
                 .unwrap()
                 .asObservable()
                 .subscribe(observer)
 
         _ = Observable.from(numbers)
-            .bind(to: numbersVariable)
+            .bind(to: numbersSubject)
 
         scheduler.start()
     }
 
     func testUnwrapFilterNil() {
         //test results count
+        print(observer.events)
         XCTAssertEqual(
             observer.events.count,
-            numbers.count - 1/* the nr. of nil elements*/
+            numbers.count
         )
     }
 
     func testUnwrapResultValues() {
-        //test elements values and type
-        let correctValues = [
-            next(0, 1),
-            next(0, 3),
-            next(0, 4)
-        ]
+        // test elements values and type
+        let correctValues = Recorded.events(
+            .next(0, 1),
+            .next(0, 3),
+            .next(0, 4),
+            .completed(0)
+        )
         XCTAssertEqual(observer.events, correctValues)
     }
 }

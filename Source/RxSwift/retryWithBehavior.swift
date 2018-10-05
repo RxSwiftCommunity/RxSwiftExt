@@ -17,6 +17,7 @@ Specifies how observable sequence will be repeated in case of an error
 Delay will be incremented by multiplier after each iteration (multiplier = 0.5 means 50% increment)
 - CustomTimerDelayed: Will be repeated specified number of times. Delay will be calculated by custom closure
 */
+
 public enum RepeatBehavior {
 	case immediate (maxCount: UInt)
 	case delayed (maxCount: UInt, time: Double)

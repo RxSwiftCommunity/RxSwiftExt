@@ -7,6 +7,7 @@ master
 - added `mapMany` operator
 - added `toSortedArray` operator
 - rolled `map(to:)` back to `mapTo(_:)` for `SharedSequenceConvertibleType`
+- added `unwrap()` operator for SharedSequence
 
 3.3.0
 -----

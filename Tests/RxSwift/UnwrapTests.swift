@@ -38,7 +38,7 @@ class UnwrapTests: XCTestCase {
     }
 
     func testUnwrapResultValues() {
-        //test elements values and type
+        // test elements values and type
         let correctValues = [
             next(0, 1),
             next(0, 3),
