@@ -1,12 +1,13 @@
 Changelog
 =========
 
-master
+3.4.0
 -----
 - Fix `withUnretained` so it allows proper destructuring
 - added `mapMany` operator
 - added `toSortedArray` operator
 - rolled `map(to:)` back to `mapTo(_:)` for `SharedSequenceConvertibleType`
+- added `filterMap` and `flatMapSync` overloads for throwable transforms
 
 3.3.0
 -----
