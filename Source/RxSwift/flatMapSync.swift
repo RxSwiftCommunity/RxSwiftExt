@@ -58,6 +58,25 @@ extension ObservableType {
 
      see filterMap for an example of a custom operator
      */
+    public func flatMapSync<O: CustomOperator>(_ transform: @escaping (E) -> O) -> Observable<O.Result> {
+        return Observable.create { observer in
+            return self.subscribe { event in
+                switch event {
+                case .next(let element): transform(element).apply { observer.onNext($0) }
+                case .completed: observer.onCompleted()
+                case .error(let error): observer.onError(error)
+                }
+            }
+        }
+    }
+
+    /**
+     FlatMaps values from a stream synchronously using CustomOperator type.
+     - The returned Observable will error and complete with the source.
+     - `next` values will be transformed by according to the CustomOperator application rules.
+
+     see filterMap for an example of a custom operator
+     */
     public func flatMapSync<O: CustomOperator>(_ transform: @escaping (E) throws -> O) -> Observable<O.Result> {
         return Observable.create { observer in
             return self.subscribe { event in
