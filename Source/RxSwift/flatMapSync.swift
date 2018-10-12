@@ -58,13 +58,20 @@ extension ObservableType {
 
      see filterMap for an example of a custom operator
      */
-    public func flatMapSync<O: CustomOperator>(_ transform: @escaping (E) -> O) -> Observable<O.Result> {
+    public func flatMapSync<O: CustomOperator>(_ transform: @escaping (E) throws -> O) -> Observable<O.Result> {
         return Observable.create { observer in
             return self.subscribe { event in
                 switch event {
-                case .next(let element): transform(element).apply { observer.onNext($0) }
-                case .completed: observer.onCompleted()
-                case .error(let error): observer.onError(error)
+                case .next(let element):
+                    do {
+                        try transform(element).apply { observer.onNext($0) }
+                    } catch {
+                        observer.onError(error)
+                    }
+                case .completed:
+                    observer.onCompleted()
+                case .error(let error):
+                    observer.onError(error)
                 }
             }
         }

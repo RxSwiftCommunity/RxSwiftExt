@@ -63,4 +63,38 @@ class FilterMapTests: XCTestCase {
 
         XCTAssertEqual(observer.events, correct)
     }
+
+    func testThrownError() {
+        let scheduler = TestScheduler(initialClock: 0)
+        let observer = scheduler.createObserver(Int.self)
+
+        let subject = PublishSubject<Int>()
+        _ = subject
+            .filterMap { element in
+                if element % 2 == 0 {
+                    return .ignore
+                }
+                if element == 3 {
+                    throw FilterMapTestError.error
+                }
+                return .map(2*element)
+            }
+            .subscribe(observer)
+
+        subject.on(.next(1))
+        subject.on(.next(2))
+        subject.on(.next(3))
+        subject.on(.next(4))    // should not fire due to error on 3
+
+        scheduler.start()
+
+        let correct = [
+            next(0, 2),
+            error(0, FilterMapTestError.error)
+        ]
+
+        print(observer.events)
+
+        XCTAssertEqual(observer.events, correct)
+    }
 }
