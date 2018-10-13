@@ -68,7 +68,8 @@ These operators are much like the RxSwift & RxCocoa core operators, but provide 
 * [not](#not)
 * [and](#and)
 * [Observable.cascade](#cascade)
-* [pairwise, nwise](#pairwise-nwise)
+* [pairwise](#pairwise)
+* [nwise](#nwise)
 * [retry](#retry)
 * [repeatWithBehavior](#repeatwithbehavior)
 * [catchErrorJustComplete](#catcherrorjustcomplete)
@@ -292,9 +293,9 @@ next(c:1)
 next(c:2)
 ```
 
-#### pairwise, nwise
+#### pairwise
 
-Groups elements emitted by an Observable into arrays, where each array consists of the last N consecutive items; similar to a sliding window.
+Groups elements emitted by an Observable into arrays, where each array consists of the last 2 consecutive items; similar to a sliding window.
 
 ```swift
 Observable.from([1, 2, 3, 4, 5, 6])
@@ -308,6 +309,24 @@ next((2, 3))
 next((3, 4))
 next((4, 5))
 next((5, 6))
+completed
+```
+
+#### nwise
+
+Groups elements emitted by an Observable into arrays, where each array consists of the last N consecutive items; similar to a sliding window.
+
+```swift
+Observable.from([1, 2, 3, 4, 5, 6])
+    .nwise(3)
+    .subscribe { print($0) }
+```
+
+```
+next((1, 2, 3))
+next((2, 3, 4))
+next((3, 4, 5))
+next((4, 5, 6))
 completed
 ```
 
