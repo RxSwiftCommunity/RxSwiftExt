@@ -323,10 +323,10 @@ Observable.from([1, 2, 3, 4, 5, 6])
 ```
 
 ```
-next((1, 2, 3))
-next((2, 3, 4))
-next((3, 4, 5))
-next((4, 5, 6))
+next([1, 2, 3])
+next([2, 3, 4])
+next([3, 4, 5])
+next([4, 5, 6])
 completed
 ```
 
