@@ -50,4 +50,25 @@ example("unwrap and filter out nil values") {
     })
 }
 
+example("unwrap and filter out nil values for a Driver") {
+
+    let numbers = [1, 2, nil, Int?(4)]
+    let numbersSubject = BehaviorSubject<Int?>(value: nil)
+
+    numbersSubject
+        .asDriver(onErrorJustReturn: nil)
+        .unwrap()
+        .asObservable()
+        .toArray()
+        .subscribe(onNext: { result in
+            // look types on the right panel ===>
+            numbers
+            result
+            print("unwrap() transformed \(numbers) to \(result)")
+        })
+
+    Observable.from(numbers)
+        .bind(to: numbersSubject)
+}
+
 //: [Next](@next)
