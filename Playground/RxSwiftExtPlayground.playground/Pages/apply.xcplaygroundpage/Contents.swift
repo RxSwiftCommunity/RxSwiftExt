@@ -44,4 +44,36 @@ example("apply a transformation") {
     })
 }
 
+/*:
+ ## apply
+
+ The `apply` operator takes a transformation function `(Single) -> Single` and applies it to the stream. The purpose of this operator is to provide syntactic sugar for applying multiple operators to the stream, while preserving the chaining operator structure of Rx.
+
+ */
+
+func addOne(input: Single<Int>) -> Single<String> {
+    return input
+        .map { $0 + 1 }
+        .map { "The next number is \($0)" }
+}
+
+example("apply a transformation to single") {
+    let number1 = Single.just(1)
+    let number2 = Single.just(100)
+    
+    print("apply() calls the transform function on the Single: ")
+    
+    let transformed1 = number1.apply(addOne)
+    let transformed2 = number2.apply(addOne)
+    
+    transformed1.subscribe(onSuccess: { result in
+        print(result)
+    })
+    
+    transformed2.subscribe(onSuccess: { result in
+        print(result)
+    })
+}
+
+
 //: [Next](@next)
