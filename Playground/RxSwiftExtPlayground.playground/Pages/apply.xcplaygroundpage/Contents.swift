@@ -26,14 +26,24 @@ func addOne(input: Observable<Int>) -> Observable<String> {
         .map { "The next number is \($0)" }
 }
 
+func addOne(input: Single<Int>) -> Single<String> {
+    return input
+        .map { $0 + 1 }
+        .map { "The next number is \($0)" }
+}
+
 example("apply a transformation") {
     let numbers1 = Observable.from([1, 2, 3])
     let numbers2 = Observable.from([100, 101, 102])
+    let number3 = Single.just(1)
+    let number4 = Single.just(100)
 
     print("apply() calls the transform function on the Observable sequence: ")
 
     let transformed1 = numbers1.apply(addOne)
     let transformed2 = numbers2.apply(addOne)
+    let transformed3 = number3.apply(addOne)
+    let transformed4 = number4.apply(addOne)
 
     transformed1.subscribe(onNext: { result in
         print(result)
@@ -42,38 +52,14 @@ example("apply a transformation") {
     transformed2.subscribe(onNext: { result in
         print(result)
     })
-}
-
-/*:
- ## apply
-
- The `apply` operator takes a transformation function `(Single) -> Single` and applies it to the stream. The purpose of this operator is to provide syntactic sugar for applying multiple operators to the stream, while preserving the chaining operator structure of Rx.
-
- */
-
-func addOne(input: Single<Int>) -> Single<String> {
-    return input
-        .map { $0 + 1 }
-        .map { "The next number is \($0)" }
-}
-
-example("apply a transformation to single") {
-    let number1 = Single.just(1)
-    let number2 = Single.just(100)
     
-    print("apply() calls the transform function on the Single: ")
-    
-    let transformed1 = number1.apply(addOne)
-    let transformed2 = number2.apply(addOne)
-    
-    transformed1.subscribe(onSuccess: { result in
+    transformed3.subscribe(onSuccess: { result in
         print(result)
     })
     
-    transformed2.subscribe(onSuccess: { result in
+    transformed4.subscribe(onSuccess: { result in
         print(result)
     })
 }
-
 
 //: [Next](@next)
