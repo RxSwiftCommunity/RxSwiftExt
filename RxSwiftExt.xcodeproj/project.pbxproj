@@ -172,6 +172,9 @@
 		C4D2154520118FC1009804AE /* ofType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D2153E20118A81009804AE /* ofType.swift */; };
 		C4D2154620118FC1009804AE /* ofType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D2153E20118A81009804AE /* ofType.swift */; };
 		D1EB19E1218DB892008FC64A /* flatMapMany.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EB19E0218DB892008FC64A /* flatMapMany.swift */; };
+		D1EB19E4218DBED4008FC64A /* FlatMapManyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EB19E2218DBE68008FC64A /* FlatMapManyTests.swift */; };
+		D1EB19E5218DBED5008FC64A /* FlatMapManyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EB19E2218DBE68008FC64A /* FlatMapManyTests.swift */; };
+		D1EB19E6218DBED5008FC64A /* FlatMapManyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EB19E2218DBE68008FC64A /* FlatMapManyTests.swift */; };
 		D7C72A3E1FDC5C5D00EAAAAB /* NwiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C72A3D1FDC5C5D00EAAAAB /* NwiseTests.swift */; };
 		D7C72A3F1FDC5C5D00EAAAAB /* NwiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C72A3D1FDC5C5D00EAAAAB /* NwiseTests.swift */; };
 		D7C72A401FDC5C5D00EAAAAB /* NwiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C72A3D1FDC5C5D00EAAAAB /* NwiseTests.swift */; };
@@ -339,6 +342,7 @@
 		C4D2153E20118A81009804AE /* ofType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ofType.swift; sourceTree = "<group>"; };
 		C4D2154020118F8B009804AE /* Observable+OfTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+OfTypeTests.swift"; sourceTree = "<group>"; };
 		D1EB19E0218DB892008FC64A /* flatMapMany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flatMapMany.swift; sourceTree = "<group>"; };
+		D1EB19E2218DBE68008FC64A /* FlatMapManyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatMapManyTests.swift; sourceTree = "<group>"; };
 		D7C72A3D1FDC5C5D00EAAAAB /* NwiseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NwiseTests.swift; sourceTree = "<group>"; };
 		D7C72A411FDC5D8F00EAAAAB /* nwise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = nwise.swift; path = Source/RxSwift/nwise.swift; sourceTree = SOURCE_ROOT; };
 		DC612871209E80810053CBB7 /* mapMany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapMany.swift; sourceTree = "<group>"; };
@@ -544,6 +548,7 @@
 				538607CB1E6F367A000361DE /* WeakTests.swift */,
 				58C54E184069446EDEE748F9 /* ZipWithTest.swift */,
 				BF79DA0D206C185B008AA708 /* WithUnretainedTests.swift */,
+				D1EB19E2218DBE68008FC64A /* FlatMapManyTests.swift */,
 			);
 			name = RxSwift;
 			path = Tests/RxSwift;
@@ -1016,6 +1021,7 @@
 				D7C72A3E1FDC5C5D00EAAAAB /* NwiseTests.swift in Sources */,
 				8CF5F8AF202D62AB00C1BA97 /* MapAtTests.swift in Sources */,
 				538607E21E6F36A9000361DE /* DistinctTests.swift in Sources */,
+				D1EB19E6218DBED5008FC64A /* FlatMapManyTests.swift in Sources */,
 				538607EA1E6F36A9000361DE /* PausableTests.swift in Sources */,
 				538607E91E6F36A9000361DE /* OnceTests.swift in Sources */,
 				BF79DA0E206C185B008AA708 /* WithUnretainedTests.swift in Sources */,
@@ -1115,6 +1121,7 @@
 				62512C9D1F0EB1850083A89F /* PausableTests.swift in Sources */,
 				62512C991F0EB1850083A89F /* MapToTests.swift in Sources */,
 				3DBDE6001FBBB09A00DF47F9 /* AndTests.swift in Sources */,
+				D1EB19E5218DBED5008FC64A /* FlatMapManyTests.swift in Sources */,
 				58C54302EC14B6FF2034BAF6 /* ZipWithTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1192,6 +1199,7 @@
 				E39C42081F18B13E007F2ACD /* Materialized+elementsTests.swift in Sources */,
 				E39C42071F18B13E007F2ACD /* MapToTests.swift in Sources */,
 				3DBDE6011FBBB09A00DF47F9 /* AndTests.swift in Sources */,
+				D1EB19E4218DBED4008FC64A /* FlatMapManyTests.swift in Sources */,
 				58C54B6E1B4C678DE2378145 /* ZipWithTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
