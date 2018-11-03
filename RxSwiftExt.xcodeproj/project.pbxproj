@@ -175,6 +175,8 @@
 		D1EB19E4218DBED4008FC64A /* FlatMapManyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EB19E2218DBE68008FC64A /* FlatMapManyTests.swift */; };
 		D1EB19E5218DBED5008FC64A /* FlatMapManyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EB19E2218DBE68008FC64A /* FlatMapManyTests.swift */; };
 		D1EB19E6218DBED5008FC64A /* FlatMapManyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EB19E2218DBE68008FC64A /* FlatMapManyTests.swift */; };
+		D1EB19E7218DCB13008FC64A /* flatMapMany.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EB19E0218DB892008FC64A /* flatMapMany.swift */; };
+		D1EB19E8218DCB17008FC64A /* flatMapMany.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EB19E0218DB892008FC64A /* flatMapMany.swift */; };
 		D7C72A3E1FDC5C5D00EAAAAB /* NwiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C72A3D1FDC5C5D00EAAAAB /* NwiseTests.swift */; };
 		D7C72A3F1FDC5C5D00EAAAAB /* NwiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C72A3D1FDC5C5D00EAAAAB /* NwiseTests.swift */; };
 		D7C72A401FDC5C5D00EAAAAB /* NwiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C72A3D1FDC5C5D00EAAAAB /* NwiseTests.swift */; };
@@ -1084,6 +1086,7 @@
 				62512C751F0EAF950083A89F /* once.swift in Sources */,
 				62512C711F0EAF950083A89F /* mapTo.swift in Sources */,
 				58C54AED13DBD3CA11D3D772 /* zipWith.swift in Sources */,
+				D1EB19E7218DCB13008FC64A /* flatMapMany.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1162,6 +1165,7 @@
 				E39C41E61F18B08A007F2ACD /* once.swift in Sources */,
 				E39C41E21F18B08A007F2ACD /* mapTo.swift in Sources */,
 				58C540CAF254B6B381721654 /* zipWith.swift in Sources */,
+				D1EB19E8218DCB17008FC64A /* flatMapMany.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
