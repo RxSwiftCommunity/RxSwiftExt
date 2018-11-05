@@ -5,6 +5,7 @@
         <page name='apply'/>
         <page name='cascade'/>
         <page name='catchErrorJustComplete'/>
+        <page name='count'/>
         <page name='distinct'/>
         <page name='ignore'/>
         <page name='not'/>
@@ -22,5 +23,10 @@
         <page name='nwise'/>
         <page name='zipWith'/>
         <page name='ofType'/>
+        <page name='mapMany'/>
+        <page name='toSortedArray'/>
+        <page name='UIViewPropertyAnimator.animate'/>
+        <page name='UIViewPropertyAnimator.fractionComplete'/>
+        <page name='withUnretained'/>
     </pages>
 </playground>
