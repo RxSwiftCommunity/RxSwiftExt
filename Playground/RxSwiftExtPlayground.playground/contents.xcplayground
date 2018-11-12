@@ -2,6 +2,7 @@
 <playground version='6.0' target-platform='ios' display-mode='rendered' last-migration='0900'>
     <pages>
         <page name='Index'/>
+        <page name='accumulatingBuffer'/>
         <page name='apply'/>
         <page name='cascade'/>
         <page name='catchErrorJustComplete'/>
