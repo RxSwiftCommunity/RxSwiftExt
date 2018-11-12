@@ -11,7 +11,7 @@ import RxSwift
 
 extension ObservableType {
     /**
-     Collects the elements of the source observable, and emits them as an array when the boundry emits.
+     Collects the elements of the source observable, and emits them as an array when the boundary emits.
 
      - parameter boundary: The observable sequence used to signal the emission of the buffered items.
      - returns: The buffered observable from elements of the source sequence.

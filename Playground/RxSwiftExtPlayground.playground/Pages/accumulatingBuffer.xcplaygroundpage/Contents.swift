@@ -13,7 +13,7 @@ import RxSwiftExt
 /*:
  ## accumulatingBuffer
 
- Collects the elements of the source observable, and emits them as an array when the boundry emits.
+ Collects the elements of the source observable, and emits them as an array when the boundary emits.
  */
 
 example("pausableBuffered") {
