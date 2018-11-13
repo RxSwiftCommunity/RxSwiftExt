@@ -16,7 +16,7 @@ extension Observable {
      - returns: An Observable sequence containing a value that represents how many elements in the specified observable sequence satisfy a condition if provided, else the count of items.
      */
     public func count() -> Observable<Int> {
-        return reduce(0, accumulator: { cnt, _ in cnt + 1 })
+        return reduce(0) { count, _ in count + 1 }
     }
     /**
      Count the number of items emitted by an Observable

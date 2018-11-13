@@ -583,13 +583,13 @@ next((Test Class, 13))
 completed
 ```
 
-#### count
+#### [count](http://reactivex.io/documentation/operators/count.html)
 
-The `count` operator counts the number of items emitted by an Observable. If predicate exists, then counts the number of items satisfying it.
+Emits the number of items emitted by an Observable once it terminates with no errors. If a predicate is given, only elements matching the predicate will be counted.
 
 ```swift
 Observable.from([1, 2, 3, 4, 5, 6])
-    .count { $0 % 2 == 0}
+    .count { $0 % 2 == 0 }
     .subscribe()
 ```
 

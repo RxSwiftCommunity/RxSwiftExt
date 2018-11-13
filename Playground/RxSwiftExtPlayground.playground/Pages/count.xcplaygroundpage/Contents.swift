@@ -27,9 +27,9 @@ example("count") {
 
     // count even number in the sequence
     let _ = Observable.from([1...10])
-        .count { $0 % 2 == 0}
+        .count { $0 % 2 == 0 }
         .subscribe(onNext: {
-            print ("\($0)")
+            print ($0)
         })
 
 }
