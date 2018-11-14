@@ -9,6 +9,7 @@ master
 - rolled `map(to:)` back to `mapTo(_:)` for `SharedSequenceConvertibleType`
 - added `unwrap()` operator for SharedSequence
 - added `apply(_:)` for `Single`
+- added `count` operator
 
 3.3.0
 -----

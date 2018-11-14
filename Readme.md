@@ -80,6 +80,7 @@ These operators are much like the RxSwift & RxCocoa core operators, but provide 
 * [Observable.fromAsync](#fromasync)
 * [Observable.zip(with:)](#zipwith)
 * [withUnretained](#withunretained)
+* [count](#count)
 
 There are two more available operators for `materialize()`'d sequences:
 
@@ -128,7 +129,7 @@ Ignore specific elements.
 ```
 next(One)
 next(Three)
-completed  
+completed
 ```
 
 #### ignoreWhen
@@ -510,7 +511,7 @@ observableService("Foo", 0)
 Convenience version of `Observable.zip(_:)`. Merges the specified observable sequences into one observable sequence by using the selector function whenever all
  of the observable sequences have produced an element at a corresponding index.
 
-```
+```swift
 let first = Observable.from(numbers)
 let second = Observable.from(strings)
 
@@ -579,6 +580,21 @@ next((Test Class, 3))
 next((Test Class, 5))
 next((Test Class, 8))
 next((Test Class, 13))
+completed
+```
+
+#### [count](http://reactivex.io/documentation/operators/count.html)
+
+Emits the number of items emitted by an Observable once it terminates with no errors. If a predicate is given, only elements matching the predicate will be counted.
+
+```swift
+Observable.from([1, 2, 3, 4, 5, 6])
+    .count { $0 % 2 == 0 }
+    .subscribe()
+```
+
+```
+next(3)
 completed
 ```
 
