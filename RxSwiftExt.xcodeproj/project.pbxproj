@@ -565,6 +565,7 @@
 				538607CB1E6F367A000361DE /* WeakTests.swift */,
 				58C54E184069446EDEE748F9 /* ZipWithTest.swift */,
 				BF79DA0D206C185B008AA708 /* WithUnretainedTests.swift */,
+				A23E148E21A9F10D00CD5B2F /* PartitionTests.swift */,
 			);
 			name = RxSwift;
 			path = Tests/RxSwift;
@@ -1030,6 +1031,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				538607E01E6F36A9000361DE /* CascadeTests.swift in Sources */,
+				A23E148F21A9F10D00CD5B2F /* PartitionTests.swift in Sources */,
 				53F336EA1E70D59000D35D38 /* DistinctTests+RxCocoa.swift in Sources */,
 				98309EB41EDF167300BD07D9 /* FilterMapTests.swift in Sources */,
 				B69B454E2190C3CC00F30418 /* CountTests.swift in Sources */,
@@ -1132,6 +1134,7 @@
 				62512C9E1F0EB1850083A89F /* PausableBufferedTests.swift in Sources */,
 				62512CA01F0EB1850083A89F /* RetryWithBehaviorTests.swift in Sources */,
 				C4D2154320118FB9009804AE /* Observable+OfTypeTests.swift in Sources */,
+				A23E149021A9F10D00CD5B2F /* PartitionTests.swift in Sources */,
 				780CB21E20A0EE8300FD3F39 /* MapManyTests.swift in Sources */,
 				62512C911F0EB17F0083A89F /* NotTests+RxCocoa.swift in Sources */,
 				62512C9A1F0EB1850083A89F /* Materialized+elementsTests.swift in Sources */,
@@ -1213,6 +1216,7 @@
 				E39C420E1F18B13E007F2ACD /* RetryWithBehaviorTests.swift in Sources */,
 				E39C42061F18B13E007F2ACD /* IgnoreWhenTests.swift in Sources */,
 				C4D2154420118FBA009804AE /* Observable+OfTypeTests.swift in Sources */,
+				A23E149121A9F10D00CD5B2F /* PartitionTests.swift in Sources */,
 				780CB21F20A0EE8300FD3F39 /* MapManyTests.swift in Sources */,
 				E39C420C1F18B13E007F2ACD /* PausableBufferedTests.swift in Sources */,
 				E39C42041F18B13E007F2ACD /* IgnoreErrorsTests.swift in Sources */,
