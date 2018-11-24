@@ -150,6 +150,12 @@
 		98309EAF1EDF14AC00BD07D9 /* flatMapSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98309EAE1EDF14AC00BD07D9 /* flatMapSync.swift */; };
 		98309EB11EDF159500BD07D9 /* filterMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98309EB01EDF159500BD07D9 /* filterMap.swift */; };
 		98309EB41EDF167300BD07D9 /* FilterMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98309EB21EDF161700BD07D9 /* FilterMapTests.swift */; };
+		A23E148721A9EFC000CD5B2F /* partition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E148621A9EFC000CD5B2F /* partition.swift */; };
+		A23E148821A9EFC000CD5B2F /* partition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E148621A9EFC000CD5B2F /* partition.swift */; };
+		A23E148921A9EFC000CD5B2F /* partition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E148621A9EFC000CD5B2F /* partition.swift */; };
+		A23E148F21A9F10D00CD5B2F /* PartitionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E148E21A9F10D00CD5B2F /* PartitionTests.swift */; };
+		A23E149021A9F10D00CD5B2F /* PartitionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E148E21A9F10D00CD5B2F /* PartitionTests.swift */; };
+		A23E149121A9F10D00CD5B2F /* PartitionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E148E21A9F10D00CD5B2F /* PartitionTests.swift */; };
 		B69B45492190C27D00F30418 /* count.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B45482190C27D00F30418 /* count.swift */; };
 		B69B454A2190C3AE00F30418 /* count.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B45482190C27D00F30418 /* count.swift */; };
 		B69B454B2190C3AF00F30418 /* count.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B45482190C27D00F30418 /* count.swift */; };
@@ -336,6 +342,8 @@
 		98309EB01EDF159500BD07D9 /* filterMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = filterMap.swift; path = Source/RxSwift/filterMap.swift; sourceTree = SOURCE_ROOT; };
 		98309EB21EDF161700BD07D9 /* FilterMapTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterMapTests.swift; sourceTree = "<group>"; };
 		9DAB77851D67639C007E85BC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Source/Info.plist; sourceTree = SOURCE_ROOT; };
+		A23E148621A9EFC000CD5B2F /* partition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = partition.swift; sourceTree = "<group>"; };
+		A23E148E21A9F10D00CD5B2F /* PartitionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartitionTests.swift; sourceTree = "<group>"; };
 		B69B45482190C27D00F30418 /* count.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = count.swift; sourceTree = "<group>"; };
 		B69B454C2190C3BC00F30418 /* CountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountTests.swift; sourceTree = "<group>"; };
 		BF515CDF1F3F370600492640 /* curry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = curry.swift; path = Source/Tools/curry.swift; sourceTree = SOURCE_ROOT; };
@@ -515,6 +523,7 @@
 				C4D2153E20118A81009804AE /* ofType.swift */,
 				BF79DA09206C145D008AA708 /* withUnretained.swift */,
 				DC612871209E80810053CBB7 /* mapMany.swift */,
+				A23E148621A9EFC000CD5B2F /* partition.swift */,
 			);
 			path = RxSwift;
 			sourceTree = "<group>";
@@ -995,6 +1004,7 @@
 				780CB21520A0ED1C00FD3F39 /* toSortedArray.swift in Sources */,
 				98309EB11EDF159500BD07D9 /* filterMap.swift in Sources */,
 				53F336E81E70CBF700D35D38 /* distinct+RxCocoa.swift in Sources */,
+				A23E148721A9EFC000CD5B2F /* partition.swift in Sources */,
 				538607AE1E6F334B000361DE /* ignore.swift in Sources */,
 				BF79DA0A206C145D008AA708 /* withUnretained.swift in Sources */,
 				BF515CE01F3F370600492640 /* curry.swift in Sources */,
@@ -1080,6 +1090,7 @@
 				62512C791F0EAF950083A89F /* retryWithBehavior.swift in Sources */,
 				DC612873209E80810053CBB7 /* mapMany.swift in Sources */,
 				BF79DA0B206C145D008AA708 /* withUnretained.swift in Sources */,
+				A23E148821A9EFC000CD5B2F /* partition.swift in Sources */,
 				BF515CE81F3F3B0000492640 /* fromAsync.swift in Sources */,
 				BF515CEA1F3F3B0300492640 /* curry.swift in Sources */,
 				62512C691F0EAF850083A89F /* not+RxCocoa.swift in Sources */,
@@ -1159,6 +1170,7 @@
 				E39C41EA1F18B08A007F2ACD /* retryWithBehavior.swift in Sources */,
 				DC612874209E80810053CBB7 /* mapMany.swift in Sources */,
 				BF79DA0C206C145D008AA708 /* withUnretained.swift in Sources */,
+				A23E148921A9EFC000CD5B2F /* partition.swift in Sources */,
 				BF515CE91F3F3B0100492640 /* fromAsync.swift in Sources */,
 				BF515CEB1F3F3B0300492640 /* curry.swift in Sources */,
 				E39C41DA1F18B086007F2ACD /* not+RxCocoa.swift in Sources */,
