@@ -153,6 +153,9 @@
 		A23E148721A9EFC000CD5B2F /* partition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E148621A9EFC000CD5B2F /* partition.swift */; };
 		A23E148821A9EFC000CD5B2F /* partition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E148621A9EFC000CD5B2F /* partition.swift */; };
 		A23E148921A9EFC000CD5B2F /* partition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E148621A9EFC000CD5B2F /* partition.swift */; };
+		A23E148B21A9F03600CD5B2F /* partition+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E148A21A9F03600CD5B2F /* partition+RxCocoa.swift */; };
+		A23E148C21A9F03600CD5B2F /* partition+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E148A21A9F03600CD5B2F /* partition+RxCocoa.swift */; };
+		A23E148D21A9F03600CD5B2F /* partition+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E148A21A9F03600CD5B2F /* partition+RxCocoa.swift */; };
 		A23E148F21A9F10D00CD5B2F /* PartitionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E148E21A9F10D00CD5B2F /* PartitionTests.swift */; };
 		A23E149021A9F10D00CD5B2F /* PartitionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E148E21A9F10D00CD5B2F /* PartitionTests.swift */; };
 		A23E149121A9F10D00CD5B2F /* PartitionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E148E21A9F10D00CD5B2F /* PartitionTests.swift */; };
@@ -343,6 +346,7 @@
 		98309EB21EDF161700BD07D9 /* FilterMapTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterMapTests.swift; sourceTree = "<group>"; };
 		9DAB77851D67639C007E85BC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Source/Info.plist; sourceTree = SOURCE_ROOT; };
 		A23E148621A9EFC000CD5B2F /* partition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = partition.swift; sourceTree = "<group>"; };
+		A23E148A21A9F03600CD5B2F /* partition+RxCocoa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "partition+RxCocoa.swift"; sourceTree = "<group>"; };
 		A23E148E21A9F10D00CD5B2F /* PartitionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartitionTests.swift; sourceTree = "<group>"; };
 		B69B45482190C27D00F30418 /* count.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = count.swift; sourceTree = "<group>"; };
 		B69B454C2190C3BC00F30418 /* CountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountTests.swift; sourceTree = "<group>"; };
@@ -474,6 +478,7 @@
 				538607EF1E6F589E000361DE /* not+RxCocoa.swift */,
 				4A73956B206D501300E2BE2D /* UIViewPropertyAnimator+Rx.swift */,
 				1958B5F0216768D900CAF1D3 /* unwrap+SharedSequence.swift */,
+				A23E148A21A9F03600CD5B2F /* partition+RxCocoa.swift */,
 			);
 			path = RxCocoa;
 			sourceTree = "<group>";
@@ -1013,6 +1018,7 @@
 				BF515CE21F3F371600492640 /* fromAsync.swift in Sources */,
 				DC612872209E80810053CBB7 /* mapMany.swift in Sources */,
 				5386076F1E6F1C0A000361DE /* mapTo+RxCocoa.swift in Sources */,
+				A23E148B21A9F03600CD5B2F /* partition+RxCocoa.swift in Sources */,
 				538607B71E6F334B000361DE /* repeatWithBehavior.swift in Sources */,
 				538607AC1E6F334B000361DE /* catchErrorJustComplete.swift in Sources */,
 				58C5450451345D65DF48F6C5 /* zipWith.swift in Sources */,
@@ -1091,6 +1097,7 @@
 				DC612873209E80810053CBB7 /* mapMany.swift in Sources */,
 				BF79DA0B206C145D008AA708 /* withUnretained.swift in Sources */,
 				A23E148821A9EFC000CD5B2F /* partition.swift in Sources */,
+				A23E148C21A9F03600CD5B2F /* partition+RxCocoa.swift in Sources */,
 				BF515CE81F3F3B0000492640 /* fromAsync.swift in Sources */,
 				BF515CEA1F3F3B0300492640 /* curry.swift in Sources */,
 				62512C691F0EAF850083A89F /* not+RxCocoa.swift in Sources */,
@@ -1171,6 +1178,7 @@
 				DC612874209E80810053CBB7 /* mapMany.swift in Sources */,
 				BF79DA0C206C145D008AA708 /* withUnretained.swift in Sources */,
 				A23E148921A9EFC000CD5B2F /* partition.swift in Sources */,
+				A23E148D21A9F03600CD5B2F /* partition+RxCocoa.swift in Sources */,
 				BF515CE91F3F3B0100492640 /* fromAsync.swift in Sources */,
 				BF515CEB1F3F3B0300492640 /* curry.swift in Sources */,
 				E39C41DA1F18B086007F2ACD /* not+RxCocoa.swift in Sources */,
