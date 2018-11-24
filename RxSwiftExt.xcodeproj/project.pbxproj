@@ -159,6 +159,9 @@
 		A23E148F21A9F10D00CD5B2F /* PartitionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E148E21A9F10D00CD5B2F /* PartitionTests.swift */; };
 		A23E149021A9F10D00CD5B2F /* PartitionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E148E21A9F10D00CD5B2F /* PartitionTests.swift */; };
 		A23E149121A9F10D00CD5B2F /* PartitionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E148E21A9F10D00CD5B2F /* PartitionTests.swift */; };
+		A23E149321A9F73500CD5B2F /* PartitionTests+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E149221A9F73500CD5B2F /* PartitionTests+RxCocoa.swift */; };
+		A23E149421A9F73500CD5B2F /* PartitionTests+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E149221A9F73500CD5B2F /* PartitionTests+RxCocoa.swift */; };
+		A23E149521A9F73500CD5B2F /* PartitionTests+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E149221A9F73500CD5B2F /* PartitionTests+RxCocoa.swift */; };
 		B69B45492190C27D00F30418 /* count.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B45482190C27D00F30418 /* count.swift */; };
 		B69B454A2190C3AE00F30418 /* count.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B45482190C27D00F30418 /* count.swift */; };
 		B69B454B2190C3AF00F30418 /* count.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B45482190C27D00F30418 /* count.swift */; };
@@ -348,6 +351,7 @@
 		A23E148621A9EFC000CD5B2F /* partition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = partition.swift; sourceTree = "<group>"; };
 		A23E148A21A9F03600CD5B2F /* partition+RxCocoa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "partition+RxCocoa.swift"; sourceTree = "<group>"; };
 		A23E148E21A9F10D00CD5B2F /* PartitionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartitionTests.swift; sourceTree = "<group>"; };
+		A23E149221A9F73500CD5B2F /* PartitionTests+RxCocoa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PartitionTests+RxCocoa.swift"; sourceTree = "<group>"; };
 		B69B45482190C27D00F30418 /* count.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = count.swift; sourceTree = "<group>"; };
 		B69B454C2190C3BC00F30418 /* CountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountTests.swift; sourceTree = "<group>"; };
 		BF515CDF1F3F370600492640 /* curry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = curry.swift; path = Source/Tools/curry.swift; sourceTree = SOURCE_ROOT; };
@@ -491,6 +495,7 @@
 				53C79D5F1E6F5AAB00CD9B6A /* NotTests+RxCocoa.swift */,
 				1A8741AB20745A91004BB762 /* UIViewPropertyAnimatorTests+Rx.swift */,
 				1958B5F521676ECB00CAF1D3 /* unrwapTests+SharedSequence.swift */,
+				A23E149221A9F73500CD5B2F /* PartitionTests+RxCocoa.swift */,
 			);
 			name = RxCocoa;
 			path = Tests/RxCocoa;
@@ -1044,6 +1049,7 @@
 				538607E21E6F36A9000361DE /* DistinctTests.swift in Sources */,
 				538607EA1E6F36A9000361DE /* PausableTests.swift in Sources */,
 				538607E91E6F36A9000361DE /* OnceTests.swift in Sources */,
+				A23E149321A9F73500CD5B2F /* PartitionTests+RxCocoa.swift in Sources */,
 				BF79DA0E206C185B008AA708 /* WithUnretainedTests.swift in Sources */,
 				538607EE1E6F36A9000361DE /* WeakTests.swift in Sources */,
 				780CB21920A0ED3B00FD3F39 /* ToSortedArrayTests.swift in Sources */,
@@ -1120,6 +1126,7 @@
 				62512C901F0EB17D0083A89F /* MapToTests+RxCocoa.swift in Sources */,
 				62512C961F0EB1850083A89F /* IgnoreErrorsTests.swift in Sources */,
 				BF515CE61F3F3AF500492640 /* FromAsyncTests.swift in Sources */,
+				A23E149421A9F73500CD5B2F /* PartitionTests+RxCocoa.swift in Sources */,
 				62512CA41F0EB1850083A89F /* FilterMapTests.swift in Sources */,
 				B69B454F2190C3CC00F30418 /* CountTests.swift in Sources */,
 				D7C72A3F1FDC5C5D00EAAAAB /* NwiseTests.swift in Sources */,
@@ -1202,6 +1209,7 @@
 				E39C420F1F18B13E007F2ACD /* UnwrapTests.swift in Sources */,
 				E39C42121F18B13E007F2ACD /* FilterMapTests.swift in Sources */,
 				BF515CE71F3F3AF500492640 /* FromAsyncTests.swift in Sources */,
+				A23E149521A9F73500CD5B2F /* PartitionTests+RxCocoa.swift in Sources */,
 				E39C41FF1F18B13A007F2ACD /* NotTests+RxCocoa.swift in Sources */,
 				B69B45502190C3CD00F30418 /* CountTests.swift in Sources */,
 				D7C72A401FDC5C5D00EAAAAB /* NwiseTests.swift in Sources */,
