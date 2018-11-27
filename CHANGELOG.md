@@ -4,7 +4,7 @@ Changelog
 master
 -----
 
-Nothing yet!
+- added `partition(_:)` operator
 
 3.4.0
 -----
