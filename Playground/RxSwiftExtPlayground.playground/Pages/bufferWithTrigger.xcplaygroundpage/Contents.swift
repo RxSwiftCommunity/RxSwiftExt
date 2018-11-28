@@ -23,7 +23,7 @@ example("bufferWithTrigger") {
     let signalAtFiveSeconds = Observable<Int>.timer(5, scheduler: MainScheduler.instance).map { _ in () }
     let trigger = Observable.of(signalAtThreeSeconds, signalAtFiveSeconds).merge()
 
-    observable.bufferWithTrigger(trigger).subscribe { print($0) }
+    observable.bufferWithTrigger(trigger).debug("buffer").subscribe()
 
     playgroundShouldContinueIndefinitely()
 }
