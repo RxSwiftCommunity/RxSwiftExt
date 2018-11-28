@@ -17,11 +17,11 @@ public extension ObservableType {
      - returns: A tuple of two streams of elements that match, and don't match, the provided predicate.
     */
     func partition(_ predicate: @escaping (E) throws -> Bool) -> (matches: Observable<E>, nonMatches: Observable<E>) {
-        let stream = self.share()
-        let hits = stream.filter(predicate)
-        let misses = stream.filter {
-            return !(try predicate($0))
-        }
+        let stream = self.map{ ($0, try predicate($0)) }.share()
+
+        let hits = stream.filter { $0.1 }.map { $0.0 }
+        let misses = stream.filter { !$0.1 }.map { $0.0 }
+
         return (hits, misses)
     }
 }

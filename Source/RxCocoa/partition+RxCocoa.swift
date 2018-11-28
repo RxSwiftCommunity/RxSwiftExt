@@ -19,8 +19,10 @@ public extension SharedSequence {
      */
     func partition(_ predicate: @escaping (E) -> Bool) -> (matches: SharedSequence<S, E>,
                                                            nonMatches: SharedSequence<S, E>) {
-        let hits = self.filter(predicate)
-        let misses = self.filter { !predicate($0) }
+        let stream = self.map { ($0, predicate($0)) }
+
+        let hits = stream.filter { $0.1 }.map { $0.0 }
+        let misses = stream.filter { !$0.1 }.map { $0.0 }
 
         return (hits, misses)
     }
