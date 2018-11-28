@@ -13,7 +13,7 @@ import RxSwiftExt
 /*:
  ## bufferWithTrigger
 
- Collects the elements of the source observable, and emits them as an array when the boundary emits.
+ Collects the elements of the source observable, and emits them as an array when the trigger emits.
  */
 
 example("bufferWithTrigger") {
@@ -23,10 +23,7 @@ example("bufferWithTrigger") {
     let signalAtFiveSeconds = Observable<Int>.timer(5, scheduler: MainScheduler.instance).map { _ in () }
     let trigger = Observable.of(signalAtThreeSeconds, signalAtFiveSeconds).merge()
 
-    // unlimited buffering of values received while paused
-    let buffered = observable.bufferWithTrigger(trigger)
-
-    buffered.subscribe { print($0) }
+    observable.bufferWithTrigger(trigger).debug("buffer").subscribe()
 
     playgroundShouldContinueIndefinitely()
 }
