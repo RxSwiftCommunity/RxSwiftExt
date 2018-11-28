@@ -3,8 +3,8 @@ Changelog
 
 master
 -----
-
 - added `partition(_:)` operator
+- added `bufferWithTrigger` operator
 
 3.4.0
 -----
@@ -14,11 +14,7 @@ master
 - rolled `map(to:)` back to `mapTo(_:)` for `SharedSequenceConvertibleType`
 - added `unwrap()` operator for SharedSequence
 - added `apply(_:)` for `Single`
-<<<<<<< HEAD
 - added `count` operator
-=======
-- added `accumulatingBuffer` operator
->>>>>>> Updated Chagelog and Readme
 
 3.3.0
 -----
