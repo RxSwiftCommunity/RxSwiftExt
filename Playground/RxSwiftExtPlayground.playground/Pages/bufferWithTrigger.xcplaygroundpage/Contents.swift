@@ -13,7 +13,7 @@ import RxSwiftExt
 /*:
  ## bufferWithTrigger
 
- Collects the elements of the source observable, and emits them as an array when the boundary emits.
+ Collects the elements of the source observable, and emits them as an array when the trigger emits.
  */
 
 example("bufferWithTrigger") {
