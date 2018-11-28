@@ -1,5 +1,5 @@
 //
-//  buffer.swift
+//  bufferWithTrigger.swift
 //  RxSwiftExt-iOS
 //
 //  Created by Patrick Maltagliati on 11/12/18.
