@@ -44,6 +44,7 @@
  - [ofType()](ofType) operator, filters the elements of an observable sequence, if that is an instance of the supplied type.
  - [toSortedArray()](mapMany) operator, converts an Observable into another Observable that emits the whole sequence as a single array sorted using the provided closure and then terminates.
  - [count(predicate)](count) operator, counts the number of items emitted by an Observable. If predicate exists, then counts the number of items satisfying it.
+ - [partition](partition) operator, partition a stream into two separate streams of elements that match, and don't match, the provided predicate.
  - **UIViewPropertyAnimator** [animate()](UIViewPropertyAnimator.animate) operator, returns a Completable that completes as soon as the animation ends.
  - **UIViewPropertyAnimator** [fractionComplete](UIViewPropertyAnimator.fractionComplete) binder, provides a reactive way to bind to `UIViewPropertyAnimator.fractionComplete`.
 */

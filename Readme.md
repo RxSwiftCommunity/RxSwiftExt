@@ -81,6 +81,7 @@ These operators are much like the RxSwift & RxCocoa core operators, but provide 
 * [Observable.zip(with:)](#zipwith)
 * [withUnretained](#withunretained)
 * [count](#count)
+* [partition](#partition)
 
 There are two more available operators for `materialize()`'d sequences:
 
@@ -596,6 +597,20 @@ Observable.from([1, 2, 3, 4, 5, 6])
 ```
 next(3)
 completed
+```
+
+#### partition
+
+Partition a stream into two separate streams of elements that match, and don't match, the provided predicate.
+
+```swift
+let numbers = Observable
+        .of(1, 2, 3, 4, 5, 6)
+
+    let (evens, odds) = numbers.partition { $0 % 2 == 0 }
+
+    _ = evens.debug("even").subscribe() // emits 2, 4, 6
+    _ = odds.debug("odds").subscribe() // emits 1, 3, 5
 ```
 
 Reactive Extensions details
