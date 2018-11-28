@@ -43,17 +43,16 @@ class BufferWithTriggerTests: XCTestCase {
             underlying.bufferWithTrigger(boundary.asObservable())
         }
 
-        XCTAssertEqual(res.events, [
+        let expected = [
             next(201, [2]),
             next(301, [3, 4]),
             next(401, [5, 6, 7]),
             next(500, [8]),
             completed(500)
-            ])
+        ]
+        XCTAssertEqual(res.events, expected)
 
-        XCTAssertEqual(underlying.subscriptions, [
-            Subscription(200, 500)
-            ])
+        XCTAssertEqual(underlying.subscriptions, [Subscription(200, 500)])
     }
 
     func testPausedError() {
@@ -77,16 +76,13 @@ class BufferWithTriggerTests: XCTestCase {
             underlying.bufferWithTrigger(boundary.asObservable())
         }
 
-        XCTAssertEqual(res.events, [
+        let expected = [
             next(201, []),
             next(211, [2]),
             error(230, testError)
-            ]
-        )
+        ]
+        XCTAssertEqual(res.events, expected)
 
-        XCTAssertEqual(underlying.subscriptions, [
-            Subscription(200, 230)
-            ]
-        )
+        XCTAssertEqual(underlying.subscriptions, [Subscription(200, 230)])
     }
 }
