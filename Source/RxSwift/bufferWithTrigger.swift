@@ -13,14 +13,14 @@ extension ObservableType {
     /**
      Collects the elements of the source observable, and emits them as an array when the boundary emits.
 
-     - parameter boundary: The observable sequence used to signal the emission of the buffered items.
+     - parameter trigger: The observable sequence used to signal the emission of the buffered items.
      - returns: The buffered observable from elements of the source sequence.
      */
-    public func accumulatingBuffer<U>(_ boundary: Observable<U>) -> Observable<[E]> {
+    public func bufferWithTrigger<U>(_ trigger: Observable<U>) -> Observable<[E]> {
         return Observable<[E]>.create { observer in
             var buffer: [E] = []
             let lock = NSRecursiveLock()
-            let boundaryDisposable = boundary.subscribe { event in
+            let triggerDisposable = trigger.subscribe { event in
                 lock.lock(); defer { lock.unlock() }
                 switch event {
                 case .next:
@@ -43,7 +43,7 @@ extension ObservableType {
                     buffer = []
                 }
             }
-            return Disposables.create([disposable, boundaryDisposable])
+            return Disposables.create([disposable, triggerDisposable])
         }
     }
 }

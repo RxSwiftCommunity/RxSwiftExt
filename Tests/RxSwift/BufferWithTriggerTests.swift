@@ -12,7 +12,7 @@ import RxSwift
 import RxSwiftExt
 import RxTest
 
-class AccumulatingBufferTests: XCTestCase {
+class BufferWithTriggerTests: XCTestCase {
     let testError = NSError(domain: "dummyError", code: -232, userInfo: nil)
     let scheduler = TestScheduler(initialClock: 0)
 
@@ -40,7 +40,7 @@ class AccumulatingBufferTests: XCTestCase {
         )
 
         let res = scheduler.start(disposed: 1000) {
-            underlying.accumulatingBuffer(boundary.asObservable())
+            underlying.bufferWithTrigger(boundary.asObservable())
         }
 
         XCTAssertEqual(res.events, [
@@ -74,7 +74,7 @@ class AccumulatingBufferTests: XCTestCase {
         )
 
         let res = scheduler.start(disposed: 1000) {
-            underlying.accumulatingBuffer(boundary.asObservable())
+            underlying.bufferWithTrigger(boundary.asObservable())
         }
 
         XCTAssertEqual(res.events, [
