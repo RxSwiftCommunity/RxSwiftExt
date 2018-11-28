@@ -82,6 +82,7 @@ These operators are much like the RxSwift & RxCocoa core operators, but provide 
 * [withUnretained](#withunretained)
 * [count](#count)
 * [partition](#partition)
+* [bufferWithTrigger](#bufferWithTrigger)
 
 There are two more available operators for `materialize()`'d sequences:
 
@@ -612,6 +613,11 @@ let numbers = Observable
     _ = evens.debug("even").subscribe() // emits 2, 4, 6
     _ = odds.debug("odds").subscribe() // emits 1, 3, 5
 ```
+
+#### bufferWithTrigger
+Collects the elements of the source observable, and emits them as an array when the trigger emits.
+
+Examples are available in the project's Playground.
 
 Reactive Extensions details
 ===========

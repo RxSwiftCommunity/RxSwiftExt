@@ -3,6 +3,7 @@
     <pages>
         <page name='Index'/>
         <page name='apply'/>
+        <page name='bufferWithTrigger'/>
         <page name='cascade'/>
         <page name='catchErrorJustComplete'/>
         <page name='count'/>

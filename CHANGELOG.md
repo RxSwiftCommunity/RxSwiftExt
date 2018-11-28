@@ -3,8 +3,8 @@ Changelog
 
 master
 -----
-
 - added `partition(_:)` operator
+- added `bufferWithTrigger` operator
 
 3.4.0
 -----
