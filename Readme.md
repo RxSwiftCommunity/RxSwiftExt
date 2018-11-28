@@ -617,7 +617,17 @@ let numbers = Observable
 #### bufferWithTrigger
 Collects the elements of the source observable, and emits them as an array when the trigger emits.
 
-Examples are available in the project's Playground.
+```swift
+let observable = Observable<Int>.interval(1, scheduler: MainScheduler.instance)
+let signalAtThreeSeconds = Observable<Int>.timer(3, scheduler: MainScheduler.instance).map { _ in () }
+let signalAtFiveSeconds = Observable<Int>.timer(5, scheduler: MainScheduler.instance).map { _ in () }
+let trigger = Observable.of(signalAtThreeSeconds, signalAtFiveSeconds).merge()
+let buffered = observable.bufferWithTrigger(trigger)
+buffered.subscribe { print($0) }
+// prints next([0, 1, 2]) @ 3, next([3, 4]) @ 5
+```
+
+A live demonstration is available in the Playground.
 
 Reactive Extensions details
 ===========
