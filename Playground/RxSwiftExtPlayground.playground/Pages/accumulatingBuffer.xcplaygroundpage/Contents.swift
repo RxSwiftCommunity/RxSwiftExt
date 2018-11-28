@@ -16,7 +16,7 @@ import RxSwiftExt
  Collects the elements of the source observable, and emits them as an array when the boundary emits.
  */
 
-example("pausableBuffered") {
+example("accumulatingBuffer") {
     let observable = Observable<Int>.interval(1, scheduler: MainScheduler.instance)
 
     let signalAtThreeSeconds = Observable<Void>.timer(3, scheduler: MainScheduler.instance).map { _ in () }
