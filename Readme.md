@@ -80,12 +80,9 @@ These operators are much like the RxSwift & RxCocoa core operators, but provide 
 * [Observable.fromAsync](#fromasync)
 * [Observable.zip(with:)](#zipwith)
 * [withUnretained](#withunretained)
-<<<<<<< HEAD
 * [count](#count)
 * [partition](#partition)
-=======
-* [accumulatingBuffer](#accumulatingBuffer)
->>>>>>> Updated Chagelog and Readme
+* [bufferWithTrigger](#bufferWithTrigger)
 
 There are two more available operators for `materialize()`'d sequences:
 
@@ -588,7 +585,6 @@ next((Test Class, 13))
 completed
 ```
 
-<<<<<<< HEAD
 #### [count](http://reactivex.io/documentation/operators/count.html)
 
 Emits the number of items emitted by an Observable once it terminates with no errors. If a predicate is given, only elements matching the predicate will be counted.
@@ -617,12 +613,11 @@ let numbers = Observable
     _ = evens.debug("even").subscribe() // emits 2, 4, 6
     _ = odds.debug("odds").subscribe() // emits 1, 3, 5
 ```
-=======
-#### accumulatingBuffer
-Collects the elements of the source observable, and emits them as an array when the boundry emits.
+
+#### bufferWithTrigger
+Collects the elements of the source observable, and emits them as an array when the trigger emits.
 
 Examples are available in the project's Playground.
->>>>>>> Updated Chagelog and Readme
 
 Reactive Extensions details
 ===========
