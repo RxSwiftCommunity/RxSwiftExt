@@ -23,7 +23,7 @@ jobs:
       - run:
           name: Install Swiftlint
           command: brew install swiftlint
-      - run: 
+      - run:
           name: Bootstrap Carthage
           command: scripts/bootstrap-if-needed.sh
       - save_cache:
@@ -60,7 +60,7 @@ jobs:
       - run:
           name: Push Podspec to Trunk
           command: pod trunk push --skip-tests --allow-warnings
-  "RxSwiftExt SPM"
+  "RxSwiftExt SPM":
     working_directory: ~/RxSwiftCommunity/RxSwiftExt
     parallelism: 1
     shell: /bin/bash --login
@@ -72,7 +72,6 @@ jobs:
       - checkout
       - run: swift build
       - run: swift test
-
 workflows:
   version: 2
   build:
