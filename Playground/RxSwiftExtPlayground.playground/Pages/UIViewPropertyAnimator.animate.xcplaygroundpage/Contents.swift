@@ -16,15 +16,12 @@ import PlaygroundSupport
 import UIKit
 
 /*:
- ## animate
+ ## UIViewPropertyAnimator.animate
 
  The `animate` operator provides a Completable that triggers the animation upon subscription and completes when the animation ends.
-
- Please open the Assistant Editor (⌘⌥⏎) to see the Interactive Live View example.
  */
 
 class AnimateViewController: UIViewController {
-
     let disposeBag = DisposeBag()
 
     lazy var box1: UIView = {

@@ -3,7 +3,7 @@
 
  1. Make sure you have [Carthage](https://github.com/Carthage/Carthage) installed
  1. Fetch Carthage dependencies from shell: `carthage bootstrap --platform ios`
-1. Build scheme `RxSwiftExtPlayground` scheme for a simulator target
+ 1. Build scheme `RxSwiftExtPlayground` scheme for a simulator target
  1. Choose `View > Show Debug Area`
  */
 
@@ -17,22 +17,21 @@ import RxSwiftExt
  ## apply
 
  The `apply` operator takes a transformation function `(Observable) -> Observable` and applies it to the stream. The purpose of this operator is to provide syntactic sugar for applying multiple operators to the stream, while preserving the chaining operator structure of Rx.
-
  */
 
-func addOne(input: Observable<Int>) -> Observable<String> {
-    return input
-        .map { $0 + 1 }
-        .map { "The next number is \($0)" }
-}
-
-func addOne(input: Single<Int>) -> Single<String> {
-    return input
-        .map { $0 + 1 }
-        .map { "The next number is \($0)" }
-}
-
 example("apply a transformation") {
+    func addOne(input: Observable<Int>) -> Observable<String> {
+        return input
+            .map { $0 + 1 }
+            .map { "The next number is \($0)" }
+    }
+
+    func addOne(input: Single<Int>) -> Single<String> {
+        return input
+            .map { $0 + 1 }
+            .map { "The next number is \($0)" }
+    }
+
     let numbers1 = Observable.from([1, 2, 3])
     let numbers2 = Observable.from([100, 101, 102])
     let number3 = Single.just(1)
