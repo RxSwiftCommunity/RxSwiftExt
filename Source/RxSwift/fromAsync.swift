@@ -66,3 +66,70 @@ extension Observable {
         return { (a: A, b: B, c: C, d: D, e: E, f: F, g: G, h: H, i: I, j: J) in Observable.fromAsync(curry(asyncRequest)(a)(b)(c)(d)(e)(f)(g)(h)(i)(j)) }
     }
 }
+
+public enum FromAsyncError: Error {
+    /// Both result & error can't be nil
+    case inconsistentCompletionResult
+}
+
+public extension PrimitiveSequenceType where TraitType == SingleTrait {
+    /**
+     Transforms an async function that returns data or error through a completionHandler in a function that returns data through a Single
+     - The returned function will thake the same arguments than asyncRequest, minus the last one
+     */
+    static func fromAsync<Er: Error>(_ asyncRequest: @escaping (@escaping (ElementType?, Er?) -> Void) -> Void) -> Single<ElementType> {
+        return .create { single in
+            asyncRequest { result, error in
+                switch (result, error) {
+                case let (.some(result), nil):
+                    single(.success(result))
+                case let (nil, .some(error)):
+                    single(.error(error))
+                default:
+                    single(.error(FromAsyncError.inconsistentCompletionResult))
+                }
+            }
+            return Disposables.create()
+        }
+    }
+
+    static func fromAsync<A, Er: Error>(_ asyncRequest: @escaping (A, @escaping (ElementType?, Er?) -> Void) -> Void) -> (A) -> Single<ElementType> {
+        return { (a: A) in Single.fromAsync(curry(asyncRequest)(a)) }
+    }
+
+    static func fromAsync<A, B, Er: Error>(_ asyncRequest: @escaping (A, B, @escaping (ElementType?, Er?) -> Void) -> Void) -> (A, B) -> Single<ElementType> {
+        return { (a: A, b: B) in Single.fromAsync(curry(asyncRequest)(a)(b)) }
+    }
+
+    static func fromAsync<A, B, C, Er: Error>(_ asyncRequest: @escaping (A, B, C, @escaping (ElementType?, Er?) -> Void) -> Void) -> (A, B, C) -> Single<ElementType> {
+        return { (a: A, b: B, c: C) in Single.fromAsync(curry(asyncRequest)(a)(b)(c)) }
+    }
+
+    static func fromAsync<A, B, C, D, Er: Error>(_ asyncRequest: @escaping (A, B, C, D, @escaping (ElementType?, Er?) -> Void) -> Void) -> (A, B, C, D) -> Single<ElementType> {
+        return { (a: A, b: B, c: C, d: D) in Single.fromAsync(curry(asyncRequest)(a)(b)(c)(d)) }
+    }
+
+    static func fromAsync<A, B, C, D, E, Er: Error>(_ asyncRequest: @escaping (A, B, C, D, E, @escaping (ElementType?, Er?) -> Void) -> Void) -> (A, B, C, D, E) -> Single<ElementType> {
+        return { (a: A, b: B, c: C, d: D, e: E) in Single.fromAsync(curry(asyncRequest)(a)(b)(c)(d)(e)) }
+    }
+
+    static func fromAsync<A, B, C, D, E, F, Er: Error>(_ asyncRequest: @escaping (A, B, C, D, E, F, @escaping (ElementType?, Er?) -> Void) -> Void) -> (A, B, C, D, E, F) -> Single<ElementType> {
+        return { (a: A, b: B, c: C, d: D, e: E, f: F) in Single.fromAsync(curry(asyncRequest)(a)(b)(c)(d)(e)(f)) }
+    }
+    
+    static func fromAsync<A, B, C, D, E, F, G, Er: Error>(_ asyncRequest: @escaping (A, B, C, D, E, F, G, @escaping (ElementType?, Er?) -> Void) -> Void) -> (A, B, C, D, E, F, G) -> Single<ElementType> {
+        return { (a: A, b: B, c: C, d: D, e: E, f: F, g: G) in Single.fromAsync(curry(asyncRequest)(a)(b)(c)(d)(e)(f)(g)) }
+    }
+
+    static func fromAsync<A, B, C, D, E, F, G, H, Er: Error>(_ asyncRequest: @escaping (A, B, C, D, E, F, G, H, @escaping (ElementType?, Er?) -> Void) -> Void) -> (A, B, C, D, E, F, G, H) -> Single<ElementType> {
+        return { (a: A, b: B, c: C, d: D, e: E, f: F, g: G, h: H) in Single.fromAsync(curry(asyncRequest)(a)(b)(c)(d)(e)(f)(g)(h)) }
+    }
+
+    static func fromAsync<A, B, C, D, E, F, G, H, I, Er: Error>(_ asyncRequest: @escaping (A, B, C, D, E, F, G, H, I, @escaping (ElementType?, Er?) -> Void) -> Void) -> (A, B, C, D, E, F, G, H, I) -> Single<ElementType> {
+        return { (a: A, b: B, c: C, d: D, e: E, f: F, g: G, h: H, i: I) in Single.fromAsync(curry(asyncRequest)(a)(b)(c)(d)(e)(f)(g)(h)(i)) }
+    }
+
+    static func fromAsync<A, B, C, D, E, F, G, H, I, J, Er: Error>(_ asyncRequest: @escaping (A, B, C, D, E, F, G, H, I, J, @escaping (ElementType?, Er?) -> Void) -> Void) -> (A, B, C, D, E, F, G, H, I, J) -> Single<ElementType> {
+        return { (a: A, b: B, c: C, d: D, e: E, f: F, g: G, h: H, i: I, j: J) in Single.fromAsync(curry(asyncRequest)(a)(b)(c)(d)(e)(f)(g)(h)(i)(j)) }
+    }
+}
