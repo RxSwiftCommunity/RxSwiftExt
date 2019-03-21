@@ -13,8 +13,19 @@ import RxSwiftExt
 import RxTest
 
 class FromAsyncTests: XCTestCase {
-    private func service(arg1: String, arg2: Int, completionHandler: (String) -> Void) {
-        completionHandler("Result")
+    private var scheduler: TestScheduler!
+    private var observer: TestableObserver<String>!
+    
+    override func setUp() {
+        super.setUp()
+        scheduler = TestScheduler(initialClock: 0)
+        observer = scheduler.createObserver(String.self)
+    }
+    
+    override func tearDown() {
+        scheduler = nil
+        observer = nil
+        super.tearDown()
     }
 
     func testResultEquality() {
@@ -25,9 +36,6 @@ class FromAsyncTests: XCTestCase {
             correct.append(completed(0))
         }
 
-        let scheduler = TestScheduler(initialClock: 0)
-        let observer = scheduler.createObserver(String.self)
-
         _ = Observable
             .fromAsync(service(arg1:arg2:completionHandler:))("Foo", 2)
             .subscribe(observer)
@@ -35,5 +43,71 @@ class FromAsyncTests: XCTestCase {
         scheduler.start()
 
         XCTAssertEqual(observer.events, correct)
+    }
+    
+    func testSingleResultEqualitySuccessCase() {
+        // given
+        let result = "result"
+        let expectedEvents: [Recorded<Event<String>>] = [.next(0, result), .completed(0)]
+        // when
+        _ = Single<String>
+            .fromAsync(serviceWithError)(result)
+            .asObservable()
+            .subscribe(observer)
+        scheduler.start()
+        // then
+        XCTAssertEqual(observer.events, expectedEvents)
+    }
+    
+    func testSingleOptionalResultEqualitySuccessCase() {
+        // given
+        let result: String? = nil
+        let expectedEvents: [Recorded<Event<String?>>] = [.next(0, result), .completed(0)]
+        let observer = scheduler.createObserver(Optional<String>.self)
+        // when
+        _ = Single<String?>
+            .fromAsync(serviceWithOptionalResult)(result)
+            .asObservable()
+            .subscribe(observer)
+        scheduler.start()
+        // then
+        XCTAssertEqual(observer.events, expectedEvents)
+    }
+    
+    func testSingleResultEqualityErrorCase() {
+        // given
+        let expectedEvents: [Recorded<Event<String>>] = [.error(0, TestError())]
+        // when
+        _ = Single<String>
+            .fromAsync(serviceThrowingError)
+            .asObservable()
+            .subscribe(observer)
+        scheduler.start()
+        // then
+        XCTAssertEqual(observer.events, expectedEvents)
+    }
+    
+    // MARK: - Private utils
+    private struct TestError: Error {
+    }
+    
+    private func service(arg1: String, arg2: Int, completionHandler: (String) -> Void) {
+        completionHandler("Result")
+    }
+    
+    private func serviceWithError(result: String, completionHandler: (String?, TestError?) -> Void) {
+        completionHandler(result, nil)
+    }
+    
+    private func serviceWithOptionalResult(result: String?, completionHandler: (String??, TestError?) -> Void) {
+        completionHandler(result, nil)
+    }
+    
+    private func serviceThrowingError(completionHandler: (String?, TestError?) -> Void) {
+        completionHandler(nil, TestError())
+    }
+    
+    private func serviceWithOptionalResult(completionHandler: (String??, TestError?) -> Void) {
+        completionHandler(.some(nil), nil)
     }
 }

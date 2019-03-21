@@ -5,6 +5,7 @@ master
 -----
 - added `partition(_:)` operator
 - added `bufferWithTrigger` operator
+- added `fromAsync` operator for `Single`
 
 3.4.0
 -----
