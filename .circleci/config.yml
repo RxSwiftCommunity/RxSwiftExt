@@ -17,12 +17,6 @@ jobs:
             - v1-dep-{{ .Branch }}-
             - v1-dep-master-
             - v1-dep-
-      - run:
-          name: Update Homebrew
-          command: brew update
-      - run:
-          name: Install Swiftlint
-          command: brew install swiftlint
       - run: 
           name: Bootstrap Carthage
           command: scripts/bootstrap-if-needed.sh
