@@ -17,7 +17,7 @@ public extension Reactive where Base: UIViewPropertyAnimator {
     /**
      Bindable extension for `fractionComplete` property.
      */
-    public var fractionComplete: Binder<CGFloat> {
+    var fractionComplete: Binder<CGFloat> {
         return Binder(base) { propertyAnimator, fractionComplete in
             propertyAnimator.fractionComplete = fractionComplete
         }
