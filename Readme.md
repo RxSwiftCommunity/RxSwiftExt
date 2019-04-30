@@ -10,17 +10,16 @@ If you're using [RxSwift](https://github.com/ReactiveX/RxSwift), you may have en
 Installation
 ===========
 
-This branch of RxSwiftExt targets Swift 4.x and RxSwift 4.0.0 or later.
+This branch of RxSwiftExt targets Swift 5.x and RxSwift 5.0.0 or later.
 
-* If you're looking for the Swift 3 version of RxSwiftExt, please use version `2.5.1` of the framework.
-* If your project is running on Swift 2.x, please use version `1.2` of the framework.
+* If you're looking for the Swift 4 version of RxSwiftExt, please use version `3.4.0` of the framework.
 
 #### CocoaPods
 
-Using Swift 4:
+Add to your `Podfile`:
 
 ```ruby
-pod 'RxSwiftExt'
+pod 'RxSwiftExt', '~> 5'
 ```
 
 This will install both the `RxSwift` and `RxCocoa` extensions.
@@ -30,16 +29,10 @@ If you're interested in only installing the `RxSwift` extensions, without the `R
 pod 'RxSwiftExt/Core'
 ```
 
-Using Swift 3:
+Using Swift 4:
 
 ```ruby
-pod 'RxSwiftExt', '2.5.1'
-```
-
-If you use Swift 2.x:
-
-```ruby
-pod 'RxSwiftExt', '1.2'
+pod 'RxSwiftExt', '~> 3'
 ```
 
 #### Carthage
@@ -653,6 +646,6 @@ slider.rx.value.map(CGFloat.init)
 ```
 ## License
 
-This library belongs to _RxSwiftCommunity_.
+This library belongs to _RxSwift Community_.
 
 RxSwiftExt is available under the MIT license. See the LICENSE file for more info.

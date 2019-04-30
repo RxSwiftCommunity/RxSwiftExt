@@ -162,6 +162,7 @@
 		A23E149321A9F73500CD5B2F /* PartitionTests+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E149221A9F73500CD5B2F /* PartitionTests+RxCocoa.swift */; };
 		A23E149421A9F73500CD5B2F /* PartitionTests+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E149221A9F73500CD5B2F /* PartitionTests+RxCocoa.swift */; };
 		A23E149521A9F73500CD5B2F /* PartitionTests+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E149221A9F73500CD5B2F /* PartitionTests+RxCocoa.swift */; };
+		A2A68C992278AF6800586188 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A68C972278AF5000586188 /* RxRelay.framework */; };
 		B69B45492190C27D00F30418 /* count.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B45482190C27D00F30418 /* count.swift */; };
 		B69B454A2190C3AE00F30418 /* count.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B45482190C27D00F30418 /* count.swift */; };
 		B69B454B2190C3AF00F30418 /* count.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B45482190C27D00F30418 /* count.swift */; };
@@ -358,6 +359,7 @@
 		A23E148A21A9F03600CD5B2F /* partition+RxCocoa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "partition+RxCocoa.swift"; sourceTree = "<group>"; };
 		A23E148E21A9F10D00CD5B2F /* PartitionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartitionTests.swift; sourceTree = "<group>"; };
 		A23E149221A9F73500CD5B2F /* PartitionTests+RxCocoa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PartitionTests+RxCocoa.swift"; sourceTree = "<group>"; };
+		A2A68C972278AF5000586188 /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
 		B69B45482190C27D00F30418 /* count.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = count.swift; sourceTree = "<group>"; };
 		B69B454C2190C3BC00F30418 /* CountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountTests.swift; sourceTree = "<group>"; };
 		BF515CDF1F3F370600492640 /* curry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = curry.swift; path = Source/Tools/curry.swift; sourceTree = SOURCE_ROOT; };
@@ -393,6 +395,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D638E1D1DC2B36A0089A590 /* RxSwift.framework in Frameworks */,
+				A2A68C992278AF6800586188 /* RxRelay.framework in Frameworks */,
 				3D638DEC1DC2B2D50089A590 /* RxSwiftExt.framework in Frameworks */,
 				3D638E1F1DC2B3A40089A590 /* RxTest.framework in Frameworks */,
 			);
@@ -607,6 +610,7 @@
 		9DAB77991D6763AC007E85BC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A2A68C972278AF5000586188 /* RxRelay.framework */,
 				1AA8395A207451D5001C49ED /* RxCocoa.framework */,
 				E36BDFB81F38755F008C9D56 /* tvOS */,
 				62512C561F0EAEB90083A89F /* macOS */,
@@ -780,7 +784,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = RxSwiftCommunity;
 				TargetAttributes = {
 					188C6D901C47B2B20092101A = {
@@ -820,7 +824,7 @@
 			};
 			buildConfigurationList = 18EE7A131C47B12F00C7256C /* Build configuration list for PBXProject "RxSwiftExt" */;
 			compatibilityVersion = "Xcode 8.0";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -897,12 +901,13 @@
 				"$(SRCROOT)/Carthage/Build/Mac/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/RxTest.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/RxRelay.framework",
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 			showEnvVarsInLog = 0;
 		};
 		6E407C291DCF8E4C008D2828 /* Copy carthage frameworks */ = {
@@ -914,13 +919,14 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxTest.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxRelay.framework",
 			);
 			name = "Copy carthage frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 		87B3D2C1203EB014001327A4 /* Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -986,13 +992,14 @@
 				"$(SRCROOT)/Carthage/Build/tvOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/tvOS/RxTest.framework",
 				"$(SRCROOT)/Carthage/Build/tvOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/tvOS/RxRelay.framework",
 			);
 			name = "Copy carthage frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1306,6 +1313,7 @@
 				PRODUCT_NAME = RxSwiftExt;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1336,6 +1344,7 @@
 				PRODUCT_NAME = RxSwiftExt;
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1393,7 +1402,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -1440,7 +1449,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1510,6 +1519,7 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1544,6 +1554,7 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
