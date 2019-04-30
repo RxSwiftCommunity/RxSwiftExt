@@ -27,7 +27,7 @@ extension ObservableType {
 
      - parameter n: size of the groups, must be greater than 1
     */
-    public func nwise(_ n: Int) -> Observable<[E]> {
+    public func nwise(_ n: Int) -> Observable<[Element]> {
         assert(n > 1, "n must be greater than 1")
         return self
             .scan([]) { acc, item in Array((acc + [item]).suffix(n)) }
@@ -50,7 +50,7 @@ extension ObservableType {
           v
          -------(1,2)-(2,3)----(3,4)-----(4,5)----->
     */
-    public func pairwise() -> Observable<(E, E)> {
+    public func pairwise() -> Observable<(Element, Element)> {
         return self.nwise(2)
             .map { ($0[0], $0[1]) }
     }

@@ -58,7 +58,7 @@ extension ObservableType {
 
      see filterMap for an example of a custom operator
      */
-    public func flatMapSync<O: CustomOperator>(_ transform: @escaping (E) -> O) -> Observable<O.Result> {
+    public func flatMapSync<O: CustomOperator>(_ transform: @escaping (Element) -> O) -> Observable<O.Result> {
         return Observable.create { observer in
             return self.subscribe { event in
                 switch event {

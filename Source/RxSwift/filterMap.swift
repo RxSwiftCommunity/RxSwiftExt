@@ -29,7 +29,7 @@ extension ObservableType {
         - returning `.ignore` will filter the value out of the returned Observable
         - returning `.map(newValue)` will propagate newValue through the returned Observable.
      */
-    public func filterMap<T>(_ transform: @escaping (E) -> FilterMap<T>) -> Observable<T> {
+    public func filterMap<Result>(_ transform: @escaping (Element) -> FilterMap<Result>) -> Observable<Result> {
         return flatMapSync { transform($0).asOperator }
     }
 }

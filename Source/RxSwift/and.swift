@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-extension ObservableType where E == Bool {
+extension ObservableType where Element == Bool {
 	/**
 	Emits a single Bool value indicating whether or not a Bool sequence emits only `true` values.
 
@@ -20,7 +20,7 @@ extension ObservableType where E == Bool {
 
 	Use `asSingle()` or `asObservable()` to convert to your requirements.
 	*/
-	public func and() -> Maybe<E> {
+	public func and() -> Maybe<Element> {
 		return Maybe.create { observer in
 			var gotValue = false
 			return self.subscribe { event in
@@ -51,7 +51,7 @@ extension ObservableType where E == Bool {
 
 	Use `asSingle()` or `asObservable()` to convert to your requirements.
 	*/
-	public static func and<C: Collection>(_ collection: C) -> Maybe<E> where C.Element: ObservableType, C.Element.E == E {
+	public static func and<C: Collection>(_ collection: C) -> Maybe<Element> where C.Element: ObservableType, C.Element.Element == Element {
 		return Maybe.create { observer in
 			var emitted = [Bool](repeating: false, count: Int(collection.count))
 			var completed = 0
@@ -99,7 +99,7 @@ extension ObservableType where E == Bool {
 
 	Use `asSingle()` or `asObservable()` to convert to your requirements.
 	*/
-	public static func and<O: ObservableType>(_ sources: O ...) -> Maybe<E> where O.E == E {
+	public static func and<O: ObservableType>(_ sources: O ...) -> Maybe<Element> where O.Element == Element {
 		return and(sources)
 	}
 }

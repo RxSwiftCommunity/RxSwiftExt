@@ -10,9 +10,6 @@ import Foundation
 import RxSwift
 
 extension Observable where Element: ObservableType {
-
-	public typealias T = Element.E
-
 	/**
 	Cascade through a sequence of observables: every observable that sends a `next` value becomes the "current"
 	observable (like in `switchLatest`), and the subscription to all previous observables in the sequence is disposed.
@@ -23,13 +20,13 @@ extension Observable where Element: ObservableType {
 	- parameter observables: a sequence of observables which will all be immediately subscribed to
 	- returns: An observable sequence that contains elements from the latest observable sequence that emitted elements
 	*/
-	public static func cascade<S: Sequence>(_ observables: S) -> Observable<T> where S.Iterator.Element == Element {
+	public static func cascade<S: Sequence>(_ observables: S) -> Observable<Element.Element> where S.Element == Element {
         let flow = Array(observables)
         if flow.isEmpty {
-            return Observable<T>.empty()
+            return Observable<Element.Element>.empty()
         }
 
-        return Observable<T>.create { observer in
+        return Observable<Element.Element>.create { observer in
             var current = 0, initialized = false
             var subscriptions: [SerialDisposable?] = flow.map { _ in SerialDisposable() }
 
@@ -104,7 +101,7 @@ extension ObservableType {
     - parameter observables: a sequence of observables which will all be immediately subscribed to
     - returns: An observable sequence that contains elements from the latest observable sequence that emitted elements
     */
-    public func cascade<S: Sequence>(_ next: S) -> Observable<E> where S.Iterator.Element == Self {
+    public func cascade<S: Sequence>(_ next: S) -> Observable<Element> where S.Element == Self {
         return Observable.cascade([self.asObservable()] + Array(next).map { $0.asObservable() })
     }
 }

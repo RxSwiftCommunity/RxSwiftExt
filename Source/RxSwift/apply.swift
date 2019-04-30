@@ -11,14 +11,14 @@ import RxSwift
 
 extension ObservableType {
     /// Apply a transformation function to the Observable.
-    public func apply<T>(_ transform: (Observable<Self.E>) -> Observable<T>) -> Observable<T> {
+    public func apply<Result>(_ transform: (Observable<Element>) -> Observable<Result>) -> Observable<Result> {
         return transform(self.asObservable())
     }
 }
 
-extension PrimitiveSequenceType where TraitType == SingleTrait {
+extension PrimitiveSequenceType where Trait == SingleTrait {
     /// Apply a transformation function to the Single.
-    public func apply<T>(_ transform: (Single<Self.ElementType>) -> Single<T>) -> Single<T> {
+    public func apply<T>(_ transform: (Single<Element>) -> Single<T>) -> Single<T> {
         return transform(self.primitiveSequence)
     }
 }
