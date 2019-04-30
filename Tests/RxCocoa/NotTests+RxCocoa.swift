@@ -25,12 +25,12 @@ class NotCocoaTests: XCTestCase {
 
         scheduler.start()
 
-        let correct = [
-            next(0, false),
-            next(0, true),
-            next(0, false),
-            completed(0)
-        ]
+        let correct = Recorded.events([
+            .next(0, false),
+            .next(0, true),
+            .next(0, false),
+            .completed(0)
+        ])
 
         XCTAssertEqual(observer.events, correct)
     }

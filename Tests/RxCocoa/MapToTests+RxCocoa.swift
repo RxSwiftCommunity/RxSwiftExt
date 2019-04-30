@@ -40,12 +40,13 @@ class MapToCocoaTests: XCTestCase {
 
     func testReplaceWithResultValues() {
         // test elements values and type
-        let correctValues = [
-            next(0, "candy"),
-            next(0, "candy"),
-            next(0, "candy"),
-            completed(0)
-        ]
+        let correctValues = Recorded.events([
+            .next(0, "candy"),
+            .next(0, "candy"),
+            .next(0, "candy"),
+            .completed(0)
+        ])
+
         XCTAssertEqual(observer.events, correctValues)
     }
 }

@@ -26,10 +26,10 @@ class DistinctCocoaTests: XCTestCase {
 
             scheduler.start()
 
-            let correct = [
-                next(0, DummyHashable(id: 1, name: "SomeName")),
-                completed(0)
-            ]
+            let correct = Recorded.events([
+                .next(0, DummyHashable(id: 1, name: "SomeName")),
+                .completed(0)
+            ])
 
             XCTAssertEqual(observer.events, correct)
         }
@@ -50,11 +50,11 @@ class DistinctCocoaTests: XCTestCase {
 
             scheduler.start()
 
-            let correct = [
-                next(0, DummyHashable(id: 1, name: "SomeName")),
-                next(0, DummyHashable(id: 2, name: "SomeName2")),
-                completed(0)
-            ]
+            let correct = Recorded.events([
+                .next(0, DummyHashable(id: 1, name: "SomeName")),
+                .next(0, DummyHashable(id: 2, name: "SomeName2")),
+                .completed(0)
+            ])
 
             XCTAssertEqual(observer.events, correct)
         }
@@ -73,7 +73,7 @@ class DistinctCocoaTests: XCTestCase {
             scheduler.start()
 
             let correct: [Recorded<Event<DummyHashable>>] = [
-                completed(0)
+                .completed(0)
             ]
 
             XCTAssertEqual(observer.events, correct)
@@ -84,19 +84,19 @@ class DistinctCocoaTests: XCTestCase {
         let scheduler = TestScheduler(initialClock: 0, simulateProcessingDelay: false)
 
         SharingScheduler.mock(scheduler: scheduler) {
-            let values = [DummyEquatable(id: 1, name: "SomeName")]
-            let value = DummyEquatable(id: 0, name: "NoneName")
-            let observer = scheduler.createObserver(DummyEquatable.self)
+            let values = [DummyHashable(id: 1, name: "SomeName")]
+            let value = DummyHashable(id: 0, name: "NoneName")
+            let observer = scheduler.createObserver(DummyHashable.self)
 
             _ = Observable.from(values).asDriver(onErrorJustReturn: value)
                 .distinct().drive(observer)
 
             scheduler.start()
 
-            let correct = [
-                next(0, DummyEquatable(id: 1, name: "SomeName")),
-                completed(0)
-            ]
+            let correct = Recorded.events([
+                .next(0, DummyHashable(id: 1, name: "SomeName")),
+                .completed(0)
+            ])
 
             XCTAssertEqual(observer.events, correct)
         }
@@ -106,22 +106,22 @@ class DistinctCocoaTests: XCTestCase {
         let scheduler = TestScheduler(initialClock: 0, simulateProcessingDelay: false)
 
         SharingScheduler.mock(scheduler: scheduler) {
-            let values = [DummyEquatable(id: 1, name: "SomeName"),
-                          DummyEquatable(id: 2, name: "SomeName2"),
-                          DummyEquatable(id: 1, name: "SomeName")]
+            let values = [DummyHashable(id: 1, name: "SomeName"),
+                          DummyHashable(id: 2, name: "SomeName2"),
+                          DummyHashable(id: 1, name: "SomeName")]
 
-            let errored = DummyEquatable(id: 0, name: "NoneName")
-            let observer = scheduler.createObserver(DummyEquatable.self)
+            let errored = DummyHashable(id: 0, name: "NoneName")
+            let observer = scheduler.createObserver(DummyHashable.self)
 
             _ = Observable.from(values).asDriver(onErrorJustReturn: errored).distinct().drive(observer)
 
             scheduler.start()
 
-            let correct = [
-                next(0, DummyEquatable(id: 1, name: "SomeName")),
-                next(0, DummyEquatable(id: 2, name: "SomeName2")),
-                completed(0)
-            ]
+            let correct = Recorded.events([
+                .next(0, DummyHashable(id: 1, name: "SomeName")),
+                .next(0, DummyHashable(id: 2, name: "SomeName2")),
+                .completed(0)
+            ])
 
             XCTAssertEqual(observer.events, correct)
         }
@@ -131,15 +131,15 @@ class DistinctCocoaTests: XCTestCase {
         let scheduler = TestScheduler(initialClock: 0, simulateProcessingDelay: false)
 
         SharingScheduler.mock(scheduler: scheduler) {
-            let errored = DummyEquatable(id: 0, name: "NoneName")
-            let observer = scheduler.createObserver(DummyEquatable.self)
+            let errored = DummyHashable(id: 0, name: "NoneName")
+            let observer = scheduler.createObserver(DummyHashable.self)
 
-            _ = Observable<DummyEquatable>.empty().asDriver(onErrorJustReturn: errored).distinct().drive(observer)
+            _ = Observable<DummyHashable>.empty().asDriver(onErrorJustReturn: errored).distinct().drive(observer)
 
             scheduler.start()
 
-            let correct: [Recorded<Event<DummyEquatable>>] = [
-                completed(0)
+            let correct: [Recorded<Event<DummyHashable>>] = [
+                .completed(0)
             ]
 
             XCTAssertEqual(observer.events, correct)
@@ -150,12 +150,12 @@ class DistinctCocoaTests: XCTestCase {
         let scheduler = TestScheduler(initialClock: 0, simulateProcessingDelay: false)
 
         SharingScheduler.mock(scheduler: scheduler) {
-            let values = [DummyEquatable(id: 1, name: "SomeName1"),
-                          DummyEquatable(id: 2, name: "SomeName2"),
-                          DummyEquatable(id: 3, name: "SomeName1")]
+            let values = [DummyHashable(id: 1, name: "SomeName1"),
+                          DummyHashable(id: 2, name: "SomeName2"),
+                          DummyHashable(id: 3, name: "SomeName1")]
 
-            let errored = DummyEquatable(id: 0, name: "SomeName0")
-            let observer = scheduler.createObserver(DummyEquatable.self)
+            let errored = DummyHashable(id: 0, name: "SomeName0")
+            let observer = scheduler.createObserver(DummyHashable.self)
 
             _ = Observable.from(values).asDriver(onErrorJustReturn: errored)
                 .distinct {
@@ -164,10 +164,10 @@ class DistinctCocoaTests: XCTestCase {
 
             scheduler.start()
 
-            let correct = [
-                next(0, DummyEquatable(id: 1, name: "SomeName1")),
-                completed(0)
-            ]
+            let correct = Recorded.events([
+                .next(0, DummyHashable(id: 1, name: "SomeName1")),
+                .completed(0)
+            ])
 
             XCTAssertEqual(observer.events, correct)
         }
@@ -177,12 +177,12 @@ class DistinctCocoaTests: XCTestCase {
         let scheduler = TestScheduler(initialClock: 0, simulateProcessingDelay: false)
 
         SharingScheduler.mock(scheduler: scheduler) {
-            let values = [DummyEquatable(id: 1, name: "SomeName1"),
-                          DummyEquatable(id: 2, name: "SomeName2"),
-                          DummyEquatable(id: 3, name: "SomeName3")]
+            let values = [DummyHashable(id: 1, name: "SomeName1"),
+                          DummyHashable(id: 2, name: "SomeName2"),
+                          DummyHashable(id: 3, name: "SomeName3")]
 
-            let errored = DummyEquatable(id: 0, name: "SomeName0")
-            let observer = scheduler.createObserver(DummyEquatable.self)
+            let errored = DummyHashable(id: 0, name: "SomeName0")
+            let observer = scheduler.createObserver(DummyHashable.self)
 
             _ = Observable.from(values).asDriver(onErrorJustReturn: errored)
                 .distinct {
@@ -191,12 +191,12 @@ class DistinctCocoaTests: XCTestCase {
 
             scheduler.start()
 
-            let correct = [
-                next(0, DummyEquatable(id: 1, name: "SomeName1")),
-                next(0, DummyEquatable(id: 2, name: "SomeName2")),
-                next(0, DummyEquatable(id: 3, name: "SomeName3")),
-                completed(0)
-            ]
+            let correct = Recorded.events([
+                .next(0, DummyHashable(id: 1, name: "SomeName1")),
+                .next(0, DummyHashable(id: 2, name: "SomeName2")),
+                .next(0, DummyHashable(id: 3, name: "SomeName3")),
+                .completed(0)
+            ])
 
             XCTAssertEqual(observer.events, correct)
         }
@@ -206,10 +206,10 @@ class DistinctCocoaTests: XCTestCase {
         let scheduler = TestScheduler(initialClock: 0, simulateProcessingDelay: false)
 
         SharingScheduler.mock(scheduler: scheduler) {
-            let errored = DummyEquatable(id: 0, name: "NoneName")
-            let observer = scheduler.createObserver(DummyEquatable.self)
+            let errored = DummyHashable(id: 0, name: "NoneName")
+            let observer = scheduler.createObserver(DummyHashable.self)
 
-            _ = Observable<DummyEquatable>.empty().asDriver(onErrorJustReturn: errored)
+            _ = Observable<DummyHashable>.empty().asDriver(onErrorJustReturn: errored)
                 .distinct {
                     $0.id < 0
                 }
@@ -217,8 +217,8 @@ class DistinctCocoaTests: XCTestCase {
 
             scheduler.start()
 
-            let correct: [Recorded<Event<DummyEquatable>>] = [
-                completed(0)
+            let correct: [Recorded<Event<DummyHashable>>] = [
+                .completed(0)
             ]
 
             XCTAssertEqual(observer.events, correct)
@@ -229,12 +229,12 @@ class DistinctCocoaTests: XCTestCase {
         let scheduler = TestScheduler(initialClock: 0, simulateProcessingDelay: false)
 
         SharingScheduler.mock(scheduler: scheduler) {
-            let values = [DummyEquatable(id: 1, name: "SomeName1"),
-                          DummyEquatable(id: 2, name: "SomeName2"),
-                          DummyEquatable(id: 3, name: "SomeName3")]
+            let values = [DummyHashable(id: 1, name: "SomeName1"),
+                          DummyHashable(id: 2, name: "SomeName2"),
+                          DummyHashable(id: 3, name: "SomeName3")]
 
-            let errored = DummyEquatable(id: 0, name: "NoneName")
-            let observer = scheduler.createObserver(DummyEquatable.self)
+            let errored = DummyHashable(id: 0, name: "NoneName")
+            let observer = scheduler.createObserver(DummyHashable.self)
 
             _ = Observable.from(values).asDriver(onErrorJustReturn: errored)
                 .distinct {
@@ -243,10 +243,10 @@ class DistinctCocoaTests: XCTestCase {
 
             scheduler.start()
 
-            let correct = [
-                next(0, DummyEquatable(id: 1, name: "SomeName1")),
-                completed(0)
-            ]
+            let correct = Recorded.events([
+                .next(0, DummyHashable(id: 1, name: "SomeName1")),
+                .completed(0)
+            ])
 
             XCTAssertEqual(observer.events, correct)
         }
@@ -256,12 +256,12 @@ class DistinctCocoaTests: XCTestCase {
         let scheduler = TestScheduler(initialClock: 0, simulateProcessingDelay: false)
 
         SharingScheduler.mock(scheduler: scheduler) {
-            let values = [DummyEquatable(id: 1, name: "SomeName1"),
-                          DummyEquatable(id: 2, name: "SomeName2"),
-                          DummyEquatable(id: 3, name: "SomeName3")]
+            let values = [DummyHashable(id: 1, name: "SomeName1"),
+                          DummyHashable(id: 2, name: "SomeName2"),
+                          DummyHashable(id: 3, name: "SomeName3")]
 
-            let errored = DummyEquatable(id: 0, name: "NoneName")
-            let observer = scheduler.createObserver(DummyEquatable.self)
+            let errored = DummyHashable(id: 0, name: "NoneName")
+            let observer = scheduler.createObserver(DummyHashable.self)
 
             _ = Observable.from(values).asDriver(onErrorJustReturn: errored)
                 .distinct {
@@ -270,11 +270,11 @@ class DistinctCocoaTests: XCTestCase {
 
             scheduler.start()
 
-            let correct = [
-                next(0, DummyEquatable(id: 1, name: "SomeName1")),
-                next(0, DummyEquatable(id: 2, name: "SomeName2")),
-                completed(0)
-            ]
+            let correct = Recorded.events([
+                .next(0, DummyHashable(id: 1, name: "SomeName1")),
+                .next(0, DummyHashable(id: 2, name: "SomeName2")),
+                .completed(0)
+            ])
 
             XCTAssertEqual(observer.events, correct)
         }
