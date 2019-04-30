@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-extension ObservableType where E == Bool {
+extension ObservableType where Element == Bool {
     /// Boolean not operator
     public func not() -> Observable<Bool> {
         return self.map(!)

@@ -1,9 +1,9 @@
 //
 //  bufferWithTrigger.swift
-//  RxSwiftExt-iOS
+//  RxSwiftExt
 //
 //  Created by Patrick Maltagliati on 11/12/18.
-//  Copyright © 2018 RxSwiftCommunity. All rights reserved.
+//  Copyright © 2018 RxSwift Community. All rights reserved.
 //
 
 import Foundation
@@ -16,9 +16,9 @@ extension ObservableType {
      - parameter trigger: The observable sequence used to signal the emission of the buffered items.
      - returns: The buffered observable from elements of the source sequence.
      */
-    public func bufferWithTrigger<U>(_ trigger: Observable<U>) -> Observable<[E]> {
-        return Observable<[E]>.create { observer in
-            var buffer: [E] = []
+    public func bufferWithTrigger<U>(_ trigger: Observable<U>) -> Observable<[Element]> {
+        return Observable.create { observer in
+            var buffer: [Element] = []
             let lock = NSRecursiveLock()
             let triggerDisposable = trigger.subscribe { event in
                 lock.lock(); defer { lock.unlock() }

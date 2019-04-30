@@ -24,7 +24,7 @@ extension Observable {
 	 - returns: An observable sequence containing the single specified element delivered once.
 	*/
 
-	public static func once(_ element: E) -> Observable<E> {
+	public static func once(_ element: Element) -> Observable<Element> {
 		var delivered: UInt32 = 0
 		return create { observer in
 			let wasDelivered = OSAtomicOr32OrigBarrier(1, &delivered)

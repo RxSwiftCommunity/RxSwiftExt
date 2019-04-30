@@ -20,7 +20,7 @@ extension ObservableType {
 	- parameter predicate: A function to test each source element for a condition.
 	- returns: An observable sequence that contains elements from the input sequence except those that satisfy the condition.
 	*/
-	public func ignoreWhen(_ predicate: @escaping (E) throws -> Bool) -> Observable<E> {
+	public func ignoreWhen(_ predicate: @escaping (Element) throws -> Bool) -> Observable<Element> {
 		return self.asObservable().filter { try !predicate($0) }
 	}
 }
