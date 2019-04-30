@@ -1,9 +1,9 @@
 //
 //  CountTests.swift
-//  RxSwiftExt-iOS
+//  RxSwiftExt
 //
 //  Created by Fred on 06/11/2018.
-//  Copyright © 2018 RxSwiftCommunity. All rights reserved.
+//  Copyright © 2018 RxSwift Community. All rights reserved.
 //
 
 import XCTest
@@ -24,10 +24,10 @@ class CountTests: XCTestCase {
 
         scheduler.start()
 
-        let correct = [
-            next(0, 1),
-            completed(0)
-        ]
+        let correct = Recorded.events([
+            .next(0, 1),
+            .completed(0)
+        ])
 
         XCTAssertEqual(observer.events, correct)
     }
@@ -43,10 +43,10 @@ class CountTests: XCTestCase {
 
         scheduler.start()
 
-        let correct = [
-            next(0, 1),
-            completed(0)
-        ]
+        let correct = Recorded.events([
+            .next(0, 1),
+            .completed(0)
+        ])
 
         XCTAssertEqual(observer.events, correct)
     }
@@ -62,10 +62,10 @@ class CountTests: XCTestCase {
 
         scheduler.start()
 
-        let correct = [
-            next(0, 1),
-            completed(0)
-        ]
+        let correct = Recorded.events([
+            .next(0, 1),
+            .completed(0)
+        ])
 
         XCTAssertEqual(observer.events, correct)
     }
@@ -81,10 +81,10 @@ class CountTests: XCTestCase {
 
         scheduler.start()
 
-        let correct = [
-            next(0, 2),
-            completed(0)
-        ]
+        let correct = Recorded.events([
+            .next(0, 2),
+            .completed(0)
+        ])
 
         XCTAssertEqual(observer.events, correct)
     }
@@ -100,10 +100,10 @@ class CountTests: XCTestCase {
 
         scheduler.start()
 
-        let correct = [
-            next(0, 1),
-            completed(0)
-        ]
+        let correct = Recorded.events([
+            .next(0, 1),
+            .completed(0)
+        ])
 
         XCTAssertEqual(observer.events, correct)
     }
@@ -119,10 +119,10 @@ class CountTests: XCTestCase {
 
         scheduler.start()
 
-        let correct = [
-            next(0, 0),
-            completed(0)
-        ]
+        let correct = Recorded.events([
+            .next(0, 0),
+            .completed(0)
+        ])
 
         XCTAssertEqual(observer.events, correct)
     }
@@ -138,10 +138,10 @@ class CountTests: XCTestCase {
 
         scheduler.start()
 
-        let correct = [
-            next(0, 3),
-            completed(0)
-        ]
+        let correct = Recorded.events([
+            .next(0, 3),
+            .completed(0)
+        ])
 
         XCTAssertEqual(observer.events, correct)
     }
@@ -157,10 +157,10 @@ class CountTests: XCTestCase {
 
         scheduler.start()
 
-        let correct = [
-            next(0, 0),
-            completed(0)
-        ]
+        let correct = Recorded.events([
+            .next(0, 0),
+            .completed(0)
+        ])
 
         XCTAssertEqual(observer.events, correct)
     }
@@ -176,10 +176,10 @@ class CountTests: XCTestCase {
 
         scheduler.start()
 
-        let correct = [
-            next(0, 0),
-            completed(0)
-        ]
+        let correct = Recorded.events([
+            .next(0, 0),
+            .completed(0)
+        ])
 
         XCTAssertEqual(observer.events, correct)
     }
@@ -195,10 +195,10 @@ class CountTests: XCTestCase {
 
         scheduler.start()
 
-        let correct = [
-            next(0, 2),
-            completed(0)
-        ]
+        let correct = Recorded.events([
+            .next(0, 2),
+            .completed(0)
+        ])
 
         XCTAssertEqual(observer.events, correct)
     }
@@ -214,10 +214,10 @@ class CountTests: XCTestCase {
 
         scheduler.start()
 
-        let correct = [
-            next(0, 4),
-            completed(0)
-        ]
+        let correct = Recorded.events([
+            .next(0, 4),
+            .completed(0)
+        ])
 
         XCTAssertEqual(observer.events, correct)
     }

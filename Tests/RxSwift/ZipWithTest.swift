@@ -38,11 +38,12 @@ class ZipWithTest: XCTestCase {
             }
         }
 
-        let expected = [
-			next(200, Pair(first: 1, second: "a")),
-			next(200, Pair(first: 2, second: "b")),
-			completed(200)
-		]
+        let expected = Recorded.events([
+			.next(200, Pair(first: 1, second: "a")),
+			.next(200, Pair(first: 2, second: "b")),
+			.completed(200)
+		])
+
         XCTAssertEqual(res.events, expected)
     }
 
@@ -57,7 +58,7 @@ class ZipWithTest: XCTestCase {
             }
         }
 
-        let expected: [Recorded<Event<Pair<Int, Int>>>] = [completed(200)]
+        let expected: [Recorded<Event<Pair<Int, Int>>>] = [.completed(200)]
         XCTAssertEqual(res.events, expected)
     }
 
@@ -72,7 +73,7 @@ class ZipWithTest: XCTestCase {
             }
         }
 
-        let expected: [Recorded<Event<Pair<Int, Int>>>] = [error(200, ZipWithTestError.error)]
+        let expected: [Recorded<Event<Pair<Int, Int>>>] = [.error(200, ZipWithTestError.error)]
         XCTAssertEqual(res.events, expected)
     }
 
@@ -87,10 +88,10 @@ class ZipWithTest: XCTestCase {
             }
         }
 
-        let expected = [
-			next(200, Pair(first: 1, second: "a")),
-			completed(200)
-		]
+        let expected = Recorded.events([
+			.next(200, Pair(first: 1, second: "a")),
+			.completed(200)
+		])
         XCTAssertEqual(res.events, expected)
     }
 
@@ -105,10 +106,10 @@ class ZipWithTest: XCTestCase {
             }
         }
 
-        let expected = [
-			next(200, Pair(first: 1, second: 2)),
-			completed(200)
-		]
+        let expected = Recorded.events([
+			.next(200, Pair(first: 1, second: 2)),
+			.completed(200)
+		])
         XCTAssertEqual(res.events, expected)
     }
 }

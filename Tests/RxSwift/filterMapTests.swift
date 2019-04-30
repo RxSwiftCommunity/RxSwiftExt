@@ -31,8 +31,9 @@ class FilterMapTests: XCTestCase {
 
         var correct = values
             .filter { $0 % 2 != 0 }
-            .map { next(0, 2*$0) }
-        correct.append(completed(0))
+            .map { Recorded.next(0, 2 * $0) }
+
+        correct.append(.completed(0))
 
         XCTAssertEqual(observer.events, correct)
     }
@@ -53,11 +54,11 @@ class FilterMapTests: XCTestCase {
 
         scheduler.start()
 
-        let correct = [
-            next(0, 2),
-            next(0, 6),
-            error(0, FilterMapTestError.error)
-        ]
+        let correct = Recorded.events([
+            .next(0, 2),
+            .next(0, 6),
+            .error(0, FilterMapTestError.error)
+        ])
 
         print(observer.events)
 

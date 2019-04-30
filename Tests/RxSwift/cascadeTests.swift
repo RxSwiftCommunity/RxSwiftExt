@@ -33,10 +33,10 @@ class CascadeTests: XCTestCase {
 
     func testCascadeOne() {
         let xs = scheduler.createHotObservable([
-            next(110, 1),
-            next(180, 2),
-            next(230, 3),
-            completed(600)
+            .next(110, 1),
+            .next(180, 2),
+            .next(230, 3),
+            .completed(600)
         ])
 
         let res = scheduler.start { () -> Observable<Int> in
@@ -44,8 +44,8 @@ class CascadeTests: XCTestCase {
         }
 
         XCTAssertEqual(res.events, [
-            next(230, 3),
-            completed(600)
+            .next(230, 3),
+            .completed(600)
         ])
         XCTAssertEqual(xs.subscriptions, [
             Subscription(200, 600)
@@ -54,33 +54,33 @@ class CascadeTests: XCTestCase {
 
     func testCascadeTwo() {
         let xs = scheduler.createHotObservable([
-            next(110, 1),
-            next(180, 2),
-            next(230, 3),
-            next(270, 4),
-            next(340, 5),
-            next(380, 6),
-            next(390, 7),
-            next(450, 8),
-            next(470, 9),
-            next(560, 10),
-            next(580, 11),
-            completed(600),
-            next(610, 12),
-            error(620, testError),
-            completed(630)
+            .next(110, 1),
+            .next(180, 2),
+            .next(230, 3),
+            .next(270, 4),
+            .next(340, 5),
+            .next(380, 6),
+            .next(390, 7),
+            .next(450, 8),
+            .next(470, 9),
+            .next(560, 10),
+            .next(580, 11),
+            .completed(600),
+            .next(610, 12),
+            .error(620, testError),
+            .completed(630)
             ])
 
         let ys = scheduler.createHotObservable([
-            next(350, 26),
-            next(390, 27),
-            next(450, 28),
-            next(470, 29),
-            next(560, 30),
-            completed(600),
-            next(610, 31),
-            error(620, testError),
-            completed(630)
+            .next(350, 26),
+            .next(390, 27),
+            .next(450, 28),
+            .next(470, 29),
+            .next(560, 30),
+            .completed(600),
+            .next(610, 31),
+            .error(620, testError),
+            .completed(630)
             ])
 
         let res = scheduler.start { () -> Observable<Int> in
@@ -88,15 +88,15 @@ class CascadeTests: XCTestCase {
         }
 
         XCTAssertEqual(res.events, [
-            next(230, 3),
-            next(270, 4),
-            next(340, 5),
-            next(350, 26),
-            next(390, 27),
-            next(450, 28),
-            next(470, 29),
-            next(560, 30),
-            completed(600)
+            .next(230, 3),
+            .next(270, 4),
+            .next(340, 5),
+            .next(350, 26),
+            .next(390, 27),
+            .next(450, 28),
+            .next(470, 29),
+            .next(560, 30),
+            .completed(600)
             ])
 
         XCTAssertEqual(xs.subscriptions, [
@@ -110,45 +110,45 @@ class CascadeTests: XCTestCase {
 
     func testCascadeSkipMiddleSequence() {
         let xs = scheduler.createHotObservable([
-            next(110, 1),
-            next(180, 2),
-            next(230, 3),
-            next(270, 4),
-            next(340, 5),
-            next(380, 6),
-            next(390, 7),
-            next(450, 8),
-            next(470, 9),
-            next(560, 10),
-            next(580, 11),
-            completed(600),
-            next(610, 12),
-            error(620, testError),
-            completed(630)
+            .next(110, 1),
+            .next(180, 2),
+            .next(230, 3),
+            .next(270, 4),
+            .next(340, 5),
+            .next(380, 6),
+            .next(390, 7),
+            .next(450, 8),
+            .next(470, 9),
+            .next(560, 10),
+            .next(580, 11),
+            .completed(600),
+            .next(610, 12),
+            .error(620, testError),
+            .completed(630)
             ])
 
         let ys = scheduler.createHotObservable([
-            next(350, 26),
-            next(390, 27),
-            next(450, 28),
-            next(470, 29),
-            next(560, 30),
-            completed(600),
-            next(610, 31),
-            error(620, testError),
-            completed(630)
+            .next(350, 26),
+            .next(390, 27),
+            .next(450, 28),
+            .next(470, 29),
+            .next(560, 30),
+            .completed(600),
+            .next(610, 31),
+            .error(620, testError),
+            .completed(630)
             ])
 
         let zs = scheduler.createHotObservable([
-            next(345, 126),
-            next(400, 127),
-            next(450, 128),
-            next(451, 129),
-            next(500, 130),
-            completed(600),
-            next(610, 31),
-            error(620, testError),
-            completed(630)
+            .next(345, 126),
+            .next(400, 127),
+            .next(450, 128),
+            .next(451, 129),
+            .next(500, 130),
+            .completed(600),
+            .next(610, 31),
+            .error(620, testError),
+            .completed(630)
             ])
 
         let res = scheduler.start { () -> Observable<Int> in
@@ -156,15 +156,15 @@ class CascadeTests: XCTestCase {
         }
 
         XCTAssertEqual(res.events, [
-            next(230, 3),
-            next(270, 4),
-            next(340, 5),
-            next(345, 126),
-            next(400, 127),
-            next(450, 128),
-            next(451, 129),
-            next(500, 130),
-            completed(600)
+            .next(230, 3),
+            .next(270, 4),
+            .next(340, 5),
+            .next(345, 126),
+            .next(400, 127),
+            .next(450, 128),
+            .next(451, 129),
+            .next(500, 130),
+            .completed(600)
             ])
 
         XCTAssertEqual(xs.subscriptions, [
@@ -182,21 +182,21 @@ class CascadeTests: XCTestCase {
 
     func testCascadeImmediateError() {
         let xs = scheduler.createHotObservable([
-            next(100, 1),
-            error(210, testError),
-            completed(630)
+            .next(100, 1),
+            .error(210, testError),
+            .completed(630)
             ])
 
         let ys = scheduler.createHotObservable([
-            next(350, 26),
-            next(390, 27),
-            next(450, 28),
-            next(470, 29),
-            next(560, 30),
-            completed(600),
-            next(610, 31),
-            error(620, testError),
-            completed(630)
+            .next(350, 26),
+            .next(390, 27),
+            .next(450, 28),
+            .next(470, 29),
+            .next(560, 30),
+            .completed(600),
+            .next(610, 31),
+            .error(620, testError),
+            .completed(630)
             ])
 
         let res = scheduler.start { () -> Observable<Int> in
@@ -204,7 +204,7 @@ class CascadeTests: XCTestCase {
         }
 
         XCTAssertEqual(res.events, [
-            error(210, testError)
+            .error(210, testError)
             ])
 
         XCTAssertEqual(xs.subscriptions, [
@@ -218,34 +218,34 @@ class CascadeTests: XCTestCase {
 
     func testCascadeErrorOnSecond() {
         let xs = scheduler.createHotObservable([
-            next(110, 1),
-            next(180, 2),
-            next(230, 3),
-            next(270, 4),
-            next(340, 5),
-            next(380, 6),
-            next(390, 7),
-            next(450, 8),
-            next(470, 9),
-            next(560, 10),
-            next(580, 11),
-            completed(600),
-            next(610, 12),
-            error(620, testError),
-            completed(630)
+            .next(110, 1),
+            .next(180, 2),
+            .next(230, 3),
+            .next(270, 4),
+            .next(340, 5),
+            .next(380, 6),
+            .next(390, 7),
+            .next(450, 8),
+            .next(470, 9),
+            .next(560, 10),
+            .next(580, 11),
+            .completed(600),
+            .next(610, 12),
+            .error(620, testError),
+            .completed(630)
             ])
 
         let ys = scheduler.createHotObservable([
-            next(350, 26),
-            next(390, 27),
-            next(450, 28),
-            error(480, testError),
-            completed(630)
+            .next(350, 26),
+            .next(390, 27),
+            .next(450, 28),
+            .error(480, testError),
+            .completed(630)
             ])
 
         let zs = scheduler.createHotObservable([
-            next(500, 130),
-            error(520, testError)
+            .next(500, 130),
+            .error(520, testError)
             ])
 
         let res = scheduler.start { () -> Observable<Int> in
@@ -253,13 +253,13 @@ class CascadeTests: XCTestCase {
         }
 
         XCTAssertEqual(res.events, [
-            next(230, 3),
-            next(270, 4),
-            next(340, 5),
-            next(350, 26),
-            next(390, 27),
-            next(450, 28),
-            error(480, testError)
+            .next(230, 3),
+            .next(270, 4),
+            .next(340, 5),
+            .next(350, 26),
+            .next(390, 27),
+            .next(450, 28),
+            .error(480, testError)
             ])
 
         XCTAssertEqual(xs.subscriptions, [
@@ -277,31 +277,31 @@ class CascadeTests: XCTestCase {
 
     func testOutOfOrderCompletion() {
         let xs = scheduler.createHotObservable([
-            next(110, 1),
-            next(180, 2),
-            next(230, 3),
-            next(270, 4),
-            next(340, 5),
-            next(380, 6),
-            next(390, 7),
-            next(450, 8),
-            next(470, 9),
-            next(560, 10),
-            next(580, 11),
-            completed(600),
-            next(610, 12),
-            error(620, testError),
-            completed(630)
+            .next(110, 1),
+            .next(180, 2),
+            .next(230, 3),
+            .next(270, 4),
+            .next(340, 5),
+            .next(380, 6),
+            .next(390, 7),
+            .next(450, 8),
+            .next(470, 9),
+            .next(560, 10),
+            .next(580, 11),
+            .completed(600),
+            .next(610, 12),
+            .error(620, testError),
+            .completed(630)
             ])
 
         let ys = scheduler.createHotObservable([
-            next(350, 26),
-            next(390, 27),
-            completed(500)
+            .next(350, 26),
+            .next(390, 27),
+            .completed(500)
             ])
 
         let zs = scheduler.createHotObservable([
-            completed(400, Int.self)
+            .completed(400, Int.self)
             ])
 
         let res = scheduler.start { () -> Observable<Int> in
@@ -309,12 +309,12 @@ class CascadeTests: XCTestCase {
         }
 
         XCTAssertEqual(res.events, [
-            next(230, 3),
-            next(270, 4),
-            next(340, 5),
-            next(350, 26),
-            next(390, 27),
-            completed(500)
+            .next(230, 3),
+            .next(270, 4),
+            .next(340, 5),
+            .next(350, 26),
+            .next(390, 27),
+            .completed(500)
             ])
 
         XCTAssertEqual(xs.subscriptions, [
@@ -332,21 +332,21 @@ class CascadeTests: XCTestCase {
 
     func testImmediateCompletion() {
         let xs = scheduler.createHotObservable([
-            next(110, 1),
-            next(180, 2),
-            next(230, 3),
-            next(270, 4),
-            next(340, 5),
-            completed(400)
+            .next(110, 1),
+            .next(180, 2),
+            .next(230, 3),
+            .next(270, 4),
+            .next(340, 5),
+            .completed(400)
             ])
 
         let ys = scheduler.createHotObservable([
-            next(100, 21),
-            completed(210, Int.self)
+            .next(100, 21),
+            .completed(210, Int.self)
             ])
 
         let zs = scheduler.createHotObservable([
-            completed(350, Int.self)
+            .completed(350, Int.self)
             ])
 
         let res = scheduler.start { () -> Observable<Int> in
@@ -354,10 +354,10 @@ class CascadeTests: XCTestCase {
         }
 
         XCTAssertEqual(res.events, [
-            next(230, 3),
-            next(270, 4),
-            next(340, 5),
-            completed(400)
+            .next(230, 3),
+            .next(270, 4),
+            .next(340, 5),
+            .completed(400)
             ])
 
         XCTAssertEqual(xs.subscriptions, [

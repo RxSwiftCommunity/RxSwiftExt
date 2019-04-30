@@ -25,13 +25,13 @@ class OnceTests: XCTestCase {
 
         scheduler.start()
 
-        let correct1 = [
-            next(0, "Hello"),
-            completed(0)
-        ]
+        let correct1 = Recorded.events([
+            .next(0, "Hello"),
+            .completed(0)
+        ])
 
         let correct2: [Recorded<Event<String>>] = [
-            completed(0)
+            .completed(0)
         ]
 
         XCTAssertEqual(observer1.events, correct1)
@@ -56,22 +56,22 @@ class OnceTests: XCTestCase {
 
         scheduler.start()
 
-        let correct1 = [
-            next(0, "Hello"),
-            completed(0)
-        ]
+        let correct1 = Recorded.events([
+            .next(0, "Hello"),
+            .completed(0)
+        ])
 
         let correct2: [Recorded<Event<String>>] = [
-            completed(0)
+            .completed(0)
         ]
 
-        let correct3 = [
-            next(0, "world"),
-            completed(0)
-        ]
+        let correct3 = Recorded.events([
+            .next(0, "world"),
+            .completed(0)
+        ])
 
         let correct4: [Recorded<Event<String>>] = [
-            completed(0)
+            .completed(0)
         ]
 
         XCTAssertEqual(observer1.events, correct1)

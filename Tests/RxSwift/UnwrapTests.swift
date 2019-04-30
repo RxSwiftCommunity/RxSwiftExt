@@ -39,12 +39,13 @@ class UnwrapTests: XCTestCase {
 
     func testUnwrapResultValues() {
         // test elements values and type
-        let correctValues = [
-            next(0, 1),
-            next(0, 3),
-            next(0, 4),
-            completed(0)
-        ]
+        let correctValues = Recorded.events([
+            .next(0, 1),
+            .next(0, 3),
+            .next(0, 4),
+            .completed(0)
+        ])
+
         XCTAssertEqual(observer.events, correctValues)
     }
 }

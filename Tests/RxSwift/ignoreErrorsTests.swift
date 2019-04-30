@@ -23,10 +23,10 @@ class IgnoreErrorsTests: XCTestCase {
         let scheduler = TestScheduler(initialClock: 0)
 
         let xs = scheduler.createColdObservable([
-            next(100, 1),
-            next(150, 2),
-            next(200, 3),
-            completed(250)
+            .next(100, 1),
+            .next(150, 2),
+            .next(200, 3),
+            .completed(250)
             ])
 
         let res = scheduler.start {
@@ -34,10 +34,10 @@ class IgnoreErrorsTests: XCTestCase {
         }
 
         XCTAssertEqual(res.events, [
-            next(300, 1),
-            next(350, 2),
-            next(400, 3),
-            completed(450)
+            .next(300, 1),
+            .next(350, 2),
+            .next(400, 3),
+            .completed(450)
             ])
 
         XCTAssertEqual(xs.subscriptions, [
@@ -49,9 +49,9 @@ class IgnoreErrorsTests: XCTestCase {
         let scheduler = TestScheduler(initialClock: 0)
 
         let xs = scheduler.createColdObservable([
-            next(100, 1),
-            next(150, 2),
-            next(200, 3)
+            .next(100, 1),
+            .next(150, 2),
+            .next(200, 3)
             ])
 
         let res = scheduler.start {
@@ -59,9 +59,9 @@ class IgnoreErrorsTests: XCTestCase {
         }
 
         XCTAssertEqual(res.events, [
-            next(300, 1),
-            next(350, 2),
-            next(400, 3)
+            .next(300, 1),
+            .next(350, 2),
+            .next(400, 3)
             ])
 
         XCTAssertEqual(xs.subscriptions, [
@@ -73,10 +73,10 @@ class IgnoreErrorsTests: XCTestCase {
         let scheduler = TestScheduler(initialClock: 0)
 
         let xs = scheduler.createColdObservable([
-            next(100, 1),
-            next(150, 2),
-            next(200, 3),
-            error(250, testError)
+            .next(100, 1),
+            .next(150, 2),
+            .next(200, 3),
+            .error(250, testError)
             ])
 
         let res = scheduler.start(disposed: 1100) {
@@ -84,16 +84,16 @@ class IgnoreErrorsTests: XCTestCase {
         }
 
         XCTAssertEqual(res.events, [
-            next(300, 1),
-            next(350, 2),
-            next(400, 3),
-            next(550, 1),
-            next(600, 2),
-            next(650, 3),
-            next(800, 1),
-            next(850, 2),
-            next(900, 3),
-            next(1050, 1)
+            .next(300, 1),
+            .next(350, 2),
+            .next(400, 3),
+            .next(550, 1),
+            .next(600, 2),
+            .next(650, 3),
+            .next(800, 1),
+            .next(850, 2),
+            .next(900, 3),
+            .next(1050, 1)
             ])
 
         XCTAssertEqual(xs.subscriptions, [
@@ -109,10 +109,10 @@ class IgnoreErrorsTests: XCTestCase {
         var counter = 0
 
         let xs = scheduler.createColdObservable([
-            next(5, 1),
-            next(10, 2),
-            next(15, 3),
-            error(20, testError)
+            .next(5, 1),
+            .next(10, 2),
+            .next(15, 3),
+            .error(20, testError)
             ])
 
         let res = scheduler.start {
@@ -123,16 +123,16 @@ class IgnoreErrorsTests: XCTestCase {
         }
 
         XCTAssertEqual(res.events, [
-            next(205, 1),
-            next(210, 2),
-            next(215, 3),
-            next(225, 1),
-            next(230, 2),
-            next(235, 3),
-            next(245, 1),
-            next(250, 2),
-            next(255, 3),
-            error(260, testError)
+            .next(205, 1),
+            .next(210, 2),
+            .next(215, 3),
+            .next(225, 1),
+            .next(230, 2),
+            .next(235, 3),
+            .next(245, 1),
+            .next(250, 2),
+            .next(255, 3),
+            .error(260, testError)
             ])
 
         XCTAssertEqual(xs.subscriptions, [
@@ -146,10 +146,10 @@ class IgnoreErrorsTests: XCTestCase {
         let scheduler = TestScheduler(initialClock: 0)
 
         let xs = scheduler.createColdObservable([
-            next(5, 1),
-            next(10, 2),
-            next(15, 3),
-            error(20, testError)
+            .next(5, 1),
+            .next(10, 2),
+            .next(15, 3),
+            .error(20, testError)
             ])
 
         let res = scheduler.start(disposed: 231) {
@@ -159,11 +159,11 @@ class IgnoreErrorsTests: XCTestCase {
         }
 
         XCTAssertEqual(res.events, [
-            next(205, 1),
-            next(210, 2),
-            next(215, 3),
-            next(225, 1),
-            next(230, 2)
+            .next(205, 1),
+            .next(210, 2),
+            .next(215, 3),
+            .next(225, 1),
+            .next(230, 2)
             ])
 
         XCTAssertEqual(xs.subscriptions, [
@@ -176,10 +176,10 @@ class IgnoreErrorsTests: XCTestCase {
         let scheduler = TestScheduler(initialClock: 0)
 
         let xs = scheduler.createColdObservable([
-            next(100, 1),
-            next(150, 2),
-            next(200, 3),
-            completed(250)
+            .next(100, 1),
+            .next(150, 2),
+            .next(200, 3),
+            .completed(250)
             ])
 
         let res = scheduler.start {
@@ -189,10 +189,10 @@ class IgnoreErrorsTests: XCTestCase {
         }
 
         XCTAssertEqual(res.events, [
-            next(300, 1),
-            next(350, 2),
-            next(400, 3),
-            completed(450)
+            .next(300, 1),
+            .next(350, 2),
+            .next(400, 3),
+            .completed(450)
             ])
 
         XCTAssertEqual(xs.subscriptions, [
