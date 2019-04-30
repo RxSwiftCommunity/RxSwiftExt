@@ -1,9 +1,9 @@
 //
 //  BufferWithTriggerTests.swift
-//  RxSwiftExt-iOS
+//  RxSwiftExt
 //
 //  Created by Patrick Maltagliati on 11/12/18.
-//  Copyright © 2018 RxSwiftCommunity. All rights reserved.
+//  Copyright © 2018 RxSwift Community. All rights reserved.
 //
 
 import XCTest
@@ -19,23 +19,23 @@ class BufferWithTriggerTests: XCTestCase {
     func testBuffersUntilBoundaryEmits() {
         let underlying = scheduler.createHotObservable(
             [
-                next(150, 1),
-                next(201, 2),
-                next(230, 3),
-                next(300, 4),
-                next(350, 5),
-                next(375, 6),
-                next(400, 7),
-                next(430, 8),
-                completed(500)
+                .next(150, 1),
+                .next(201, 2),
+                .next(230, 3),
+                .next(300, 4),
+                .next(350, 5),
+                .next(375, 6),
+                .next(400, 7),
+                .next(430, 8),
+                .completed(500)
             ]
         )
 
         let boundary = scheduler.createHotObservable(
             [
-                next(201, ()),
-                next(301, ()),
-                next(401, ())
+                .next(201, ()),
+                .next(301, ()),
+                .next(401, ())
             ]
         )
 
@@ -43,13 +43,14 @@ class BufferWithTriggerTests: XCTestCase {
             underlying.bufferWithTrigger(boundary.asObservable())
         }
 
-        let expected = [
-            next(201, [2]),
-            next(301, [3, 4]),
-            next(401, [5, 6, 7]),
-            next(500, [8]),
-            completed(500)
-        ]
+        let expected = Recorded.events([
+            .next(201, [2]),
+            .next(301, [3, 4]),
+            .next(401, [5, 6, 7]),
+            .next(500, [8]),
+            .completed(500)
+        ])
+
         XCTAssertEqual(res.events, expected)
 
         XCTAssertEqual(underlying.subscriptions, [Subscription(200, 500)])
@@ -58,17 +59,17 @@ class BufferWithTriggerTests: XCTestCase {
     func testPausedError() {
         let underlying = scheduler.createHotObservable(
             [
-                next(150, 1),
-                next(210, 2),
-                error(230, testError),
-                completed(500)
+                .next(150, 1),
+                .next(210, 2),
+                .error(230, testError),
+                .completed(500)
             ]
         )
 
         let boundary = scheduler.createHotObservable(
             [
-                next(201, ()),
-                next(211, ())
+                .next(201, ()),
+                .next(211, ())
             ]
         )
 
@@ -76,11 +77,11 @@ class BufferWithTriggerTests: XCTestCase {
             underlying.bufferWithTrigger(boundary.asObservable())
         }
 
-        let expected = [
-            next(201, []),
-            next(211, [2]),
-            error(230, testError)
-        ]
+        let expected = Recorded.events([
+            .next(201, []),
+            .next(211, [2]),
+            .error(230, testError)
+        ])
         XCTAssertEqual(res.events, expected)
 
         XCTAssertEqual(underlying.subscriptions, [Subscription(200, 230)])

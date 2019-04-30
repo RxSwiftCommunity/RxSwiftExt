@@ -21,31 +21,31 @@ class ToSortedArrayTests: XCTestCase {
 
     func testDefaultToSortedArray() {
         let source = Observable.of(1, 4, 6, 1, 7, 8)
-        let observer = runAndObserve(source.toSortedArray())
-        let correct = [
-            next(0, [1, 1, 4, 6, 7, 8]),
-            completed(0)
-        ]
+        let observer = runAndObserve(source.toSortedArray().asObservable())
+        let correct = Recorded.events([
+            .next(0, [1, 1, 4, 6, 7, 8]),
+            .completed(0)
+        ])
         XCTAssertEqual(observer.events, correct)
     }
 
     func testAscCase() {
         let source = Observable.of(1, 4, 6, 1, 7, 8)
-        let observer = runAndObserve(source.toSortedArray(ascending: true))
-        let correct = [
-            next(0, [1, 1, 4, 6, 7, 8]),
-            completed(0)
-        ]
+        let observer = runAndObserve(source.toSortedArray(ascending: true).asObservable())
+        let correct = Recorded.events([
+            .next(0, [1, 1, 4, 6, 7, 8]),
+            .completed(0)
+        ])
         XCTAssertEqual(observer.events, correct)
     }
 
     func testDescCase() {
         let source = Observable.of(1, 4, 6, 1, 7, 8)
-        let observer = runAndObserve(source.toSortedArray(ascending: false))
-        let correct = [
-            next(0, [8, 7, 6, 4, 1, 1]),
-            completed(0)
-        ]
+        let observer = runAndObserve(source.toSortedArray(ascending: false).asObservable())
+        let correct = Recorded.events([
+            .next(0, [8, 7, 6, 4, 1, 1]),
+            .completed(0)
+        ])
         XCTAssertEqual(observer.events, correct)
     }
 }

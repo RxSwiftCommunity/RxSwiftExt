@@ -21,12 +21,12 @@ final class MaterializedElementsTests: XCTestCase {
 		super.setUp()
 		testScheduler = TestScheduler(initialClock: 0)
 		eventObservable = testScheduler.createHotObservable([
-				next(0, Event.next(0)),
-				next(100, Event.next(1)),
-				next(200, Event.error(dummyError)),
-				next(300, Event.next(2)),
-				next(400, Event.error(dummyError)),
-				next(500, Event.next(3))
+            .next(0, Event.next(0)),
+            .next(100, Event.next(1)),
+            .next(200, Event.error(dummyError)),
+            .next(300, Event.next(2)),
+            .next(400, Event.error(dummyError)),
+            .next(500, Event.next(3))
 		]).asObservable()
 	}
 
@@ -45,10 +45,10 @@ final class MaterializedElementsTests: XCTestCase {
 		testScheduler.start()
 
 		XCTAssertEqual(observer.events, [
-				next(0, 0),
-				next(100, 1),
-				next(300, 2),
-				next(500, 3)
+            .next(0, 0),
+            .next(100, 1),
+            .next(300, 2),
+            .next(500, 3)
 		])
 	}
 

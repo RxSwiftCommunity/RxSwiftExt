@@ -19,7 +19,7 @@ class CatchErrorJustCompleteTests: XCTestCase {
         let scheduler = TestScheduler(initialClock: 0)
 
         let events: [Recorded<Event<Int>>] = [
-            completed(250)]
+            .completed(250)]
         let xs = scheduler.createColdObservable(events)
 
         let res = scheduler.start {
@@ -27,7 +27,7 @@ class CatchErrorJustCompleteTests: XCTestCase {
         }
 
         XCTAssertEqual(res.events, [
-            completed(450)
+            .completed(450)
             ])
 
         XCTAssertEqual(xs.subscriptions, [
@@ -39,10 +39,10 @@ class CatchErrorJustCompleteTests: XCTestCase {
         let scheduler = TestScheduler(initialClock: 0)
 
         let xs = scheduler.createColdObservable([
-            next(100, 1),
-            next(150, 2),
-            next(200, 3),
-            completed(250)
+            .next(100, 1),
+            .next(150, 2),
+            .next(200, 3),
+            .completed(250)
             ])
 
         let res = scheduler.start {
@@ -50,10 +50,10 @@ class CatchErrorJustCompleteTests: XCTestCase {
         }
 
         XCTAssertEqual(res.events, [
-            next(300, 1),
-            next(350, 2),
-            next(400, 3),
-            completed(450)
+            .next(300, 1),
+            .next(350, 2),
+            .next(400, 3),
+            .completed(450)
             ])
 
         XCTAssertEqual(xs.subscriptions, [
@@ -65,9 +65,9 @@ class CatchErrorJustCompleteTests: XCTestCase {
         let scheduler = TestScheduler(initialClock: 0)
 
         let xs = scheduler.createColdObservable([
-            next(100, 1),
-            next(150, 2),
-            next(200, 3)
+            .next(100, 1),
+            .next(150, 2),
+            .next(200, 3)
             ])
 
         let res = scheduler.start {
@@ -75,9 +75,9 @@ class CatchErrorJustCompleteTests: XCTestCase {
         }
 
         XCTAssertEqual(res.events, [
-            next(300, 1),
-            next(350, 2),
-            next(400, 3)
+            .next(300, 1),
+            .next(350, 2),
+            .next(400, 3)
             ])
 
         XCTAssertEqual(xs.subscriptions, [
@@ -89,9 +89,9 @@ class CatchErrorJustCompleteTests: XCTestCase {
         let scheduler = TestScheduler(initialClock: 0)
 
         let xs = scheduler.createColdObservable([
-            next(100, 1),
-            next(150, 2),
-            error(250, testError)
+            .next(100, 1),
+            .next(150, 2),
+            .error(250, testError)
             ])
 
         let res = scheduler.start {
@@ -99,9 +99,9 @@ class CatchErrorJustCompleteTests: XCTestCase {
         }
 
         XCTAssertEqual(res.events, [
-            next(300, 1),
-            next(350, 2),
-            completed(450)
+            .next(300, 1),
+            .next(350, 2),
+            .completed(450)
             ])
 
         XCTAssertEqual(xs.subscriptions, [
