@@ -8,7 +8,7 @@
 
 import RxCocoa
 
-extension SharedSequenceConvertibleType where E == Bool {
+extension SharedSequenceConvertibleType where Element == Bool {
     /// Boolean not operator.
     public func not() -> SharedSequence<SharingStrategy, Bool> {
         return map(!)

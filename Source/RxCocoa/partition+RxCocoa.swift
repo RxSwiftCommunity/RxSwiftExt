@@ -3,7 +3,7 @@
 //  RxSwiftExt
 //
 //  Created by Shai Mishali on 24/11/2018.
-//  Copyright © 2018 RxSwiftCommunity. All rights reserved.
+//  Copyright © 2018 RxSwift Community. All rights reserved.
 //
 
 import RxSwift
@@ -17,8 +17,8 @@ public extension SharedSequence {
 
      - returns: A tuple of two streams of elements that match, and don't match, the provided predicate.
      */
-    func partition(_ predicate: @escaping (E) -> Bool) -> (matches: SharedSequence<S, E>,
-                                                           nonMatches: SharedSequence<S, E>) {
+    func partition(_ predicate: @escaping (Element) -> Bool) -> (matches: SharedSequence<SharingStrategy, Element>,
+                                                                 nonMatches: SharedSequence<SharingStrategy, Element>) {
         let stream = self.map { ($0, predicate($0)) }
 
         let hits = stream.filter { $0.1 }.map { $0.0 }
