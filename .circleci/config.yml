@@ -8,7 +8,7 @@ jobs:
       XCODE_TEST_REPORTS: /tmp/xcode-test-results
       LANG: en_US.UTF-8
     macos:
-      xcode: '9.4.0'
+      xcode: '10.2.0'
     steps:
       - checkout
       - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS $XCODE_TEST_REPORTS
@@ -20,9 +20,9 @@ jobs:
       - run:
           name: Update Homebrew
           command: brew update
-      - run:
-          name: Install Swiftlint
-          command: brew install swiftlint
+      # - run:
+      #     name: Install Swiftlint
+      #     command: brew install swiftlint
       - run: 
           name: Bootstrap Carthage
           command: scripts/bootstrap-if-needed.sh
@@ -48,7 +48,7 @@ jobs:
     environment:
       LANG: en_US.UTF-8
     macos:
-      xcode: '9.2.0'
+      xcode: '10.2.0'
     steps:
       - checkout
       - run:

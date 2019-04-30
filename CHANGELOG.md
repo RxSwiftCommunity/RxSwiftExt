@@ -1,8 +1,10 @@
 Changelog
 =========
 
-master
+4.0.0
 -----
+- Update to RxSwift 5.0.
+- Requires the Swift 5 compiler (Xcode 10.2 and up).
 - added `partition(_:)` operator
 - added `bufferWithTrigger` operator
 - added `fromAsync` operator for `Single`
