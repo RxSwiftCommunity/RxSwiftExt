@@ -17,7 +17,7 @@ extension ObservableType {
      - returns: An observable sequence of non-optional elements
      */
 
-    public func unwrap<T>() -> Observable<T> where E == T? {
+    public func unwrap<T>() -> Observable<T> where Element == T? {
         return self.filter { $0 != nil }.map { $0! }
     }
 }

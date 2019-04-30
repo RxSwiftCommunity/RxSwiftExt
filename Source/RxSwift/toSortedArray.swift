@@ -16,19 +16,19 @@ public extension ObservableType {
      - parameter by: A comparator closure to sort emitted elements.
      - returns: An observable sequence containing all the sorted emitted elements as an array.
     */
-    func toSortedArray(by: @escaping (E, E) -> Bool) -> Observable<[E]> {
+    func toSortedArray(by: @escaping (Element, Element) -> Bool) -> Single<[Element]> {
         return toArray().map { $0.sorted(by: by) }
     }
 }
 
-public extension ObservableType where E: Comparable {
+public extension ObservableType where Element: Comparable {
     /**
      Converts an Observable into another Observable that emits the whole sequence as a single sorted array and then terminates.
 
      - parameter ascending: Should the emitted items be ascending or descending.
      - returns: An observable sequence containing all the sorted emitted elements as an array.
     */
-    func toSortedArray(ascending: Bool = true) -> Observable<[E]> {
+    func toSortedArray(ascending: Bool = true) -> Single<[Element]> {
         return toSortedArray(by: { ascending ? $0 < $1 : $0 > $1 })
     }
 }

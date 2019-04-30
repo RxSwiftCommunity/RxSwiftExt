@@ -9,13 +9,13 @@
 import Foundation
 import RxSwift
 
-extension ObservableType where E: EventConvertible {
+extension ObservableType where Element: EventConvertible {
 
 	/**
 	 Returns an observable sequence containing only next elements from its input
 	 - seealso: [materialize operator on reactivex.io](http://reactivex.io/documentation/operators/materialize-dematerialize.html)
 	 */
-	public func elements() -> Observable<E.ElementType> {
+	public func elements() -> Observable<Element.Element> {
 		return filter { $0.event.element != nil }
 				.map { $0.event.element! }
 	}

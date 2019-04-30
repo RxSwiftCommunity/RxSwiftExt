@@ -1,9 +1,9 @@
 //
 //  count.swift
-//  RxSwiftExt-iOS
+//  RxSwiftExt
 //
 //  Created by Fred on 06/11/2018.
-//  Copyright © 2018 RxSwiftCommunity. All rights reserved.
+//  Copyright © 2018 RxSwift Community. All rights reserved.
 //
 
 import Foundation
