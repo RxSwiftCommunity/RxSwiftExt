@@ -26,46 +26,46 @@ class RepeatWithBehaviorTests: XCTestCase {
 		super.setUp()
 
 		sampleValues = scheduler.createColdObservable([
-			next(210, 1),
-			next(220, 2),
-			completed(300)
+			.next(210, 1),
+			.next(220, 2),
+			.completed(300)
 			])
 
         sampleValuesWithError = scheduler.createColdObservable([
-            next(210, 1),
-            error(220, RepeatTestErrors.fatalError)
+            .next(210, 1),
+            .error(220, RepeatTestErrors.fatalError)
             ])
 	}
 
     // MARK: - Valid events
-    let immediateCorrectValues = [
-        next(210, 1),
-        next(220, 2),
-        next(510, 1),
-        next(520, 2),
-        completed(600)]
+    let immediateCorrectValues = Recorded.events([
+        .next(210, 1),
+        .next(220, 2),
+        .next(510, 1),
+        .next(520, 2),
+        .completed(600)])
 
-    let customDelayCorrectValues = [
-        next(210, 1),
-        next(220, 2),
-        next(520, 1),
-        next(530, 2),
-        next(850, 1),
-        next(860, 2),
-        completed(940)]
+    let customDelayCorrectValues = Recorded.events([
+        .next(210, 1),
+        .next(220, 2),
+        .next(520, 1),
+        .next(530, 2),
+        .next(850, 1),
+        .next(860, 2),
+        .completed(940)])
 
-    let exponentialCorrectValues = [
-        next(210, 1),
-        next(220, 2),
-        next(512, 1),
-        next(522, 2),
-        next(818, 1),
-        next(828, 2),
-        completed(908)]
+    let exponentialCorrectValues = Recorded.events([
+        .next(210, 1),
+        .next(220, 2),
+        .next(512, 1),
+        .next(522, 2),
+        .next(818, 1),
+        .next(828, 2),
+        .completed(908)])
 
     let erroredCorrectValues: [Recorded<Event<Int>>] = [
-        next(210, 1),
-        error(220, RepeatTestErrors.fatalError)
+        .next(210, 1),
+        .error(220, RepeatTestErrors.fatalError)
     ]
 
     // MARK: - Immediate repeats
@@ -102,10 +102,10 @@ class RepeatWithBehaviorTests: XCTestCase {
 	}
 
 	func testImmediateNotRepeatWithPredicate() {
-		let correctValues = [
-			next(210, 1),
-			next(220, 2),
-            completed(300)]
+		let correctValues = Recorded.events([
+			.next(210, 1),
+			.next(220, 2),
+            .completed(300)])
 
 		// provide simple predicate that always return false (so, sequence will not repeated)
 		let res = scheduler.start(created: 0, subscribed: 0, disposed: 1000) {
@@ -129,14 +129,14 @@ class RepeatWithBehaviorTests: XCTestCase {
     // MARK: - Delayed repeats
 
 	func testDelayedRepeatWithoutPredicate() {
-		let correctValues = [
-			next(210, 1),
-			next(220, 2),
-			next(511, 1),
-			next(521, 2),
-			next(812, 1),
-			next(822, 2),
-			completed(902)]
+		let correctValues = Recorded.events([
+			.next(210, 1),
+			.next(220, 2),
+			.next(511, 1),
+			.next(521, 2),
+			.next(812, 1),
+			.next(822, 2),
+			.completed(902)])
 
 		let res = scheduler.start(created: 0, subscribed: 0, disposed: 1000) {
 			self.sampleValues.asObservable().repeatWithBehavior(.delayed(maxCount: 3, time: 1.0), scheduler: self.scheduler)
@@ -146,14 +146,14 @@ class RepeatWithBehaviorTests: XCTestCase {
 	}
 
 	func testDelayedRepeatWithPredicate() {
-        let correctValues = [
-            next(210, 1),
-            next(220, 2),
-            next(511, 1),
-            next(521, 2),
-            next(812, 1),
-            next(822, 2),
-            completed(902)]
+        let correctValues = Recorded.events([
+            .next(210, 1),
+            .next(220, 2),
+            .next(511, 1),
+            .next(521, 2),
+            .next(812, 1),
+            .next(822, 2),
+            .completed(902)])
 
         let res = scheduler.start(created: 0, subscribed: 0, disposed: 1000) {
             self.sampleValues
@@ -165,10 +165,11 @@ class RepeatWithBehaviorTests: XCTestCase {
 	}
 
     func testDelayedNotRepeatWithPredicate() {
-		let correctValues = [
-			next(210, 1),
-			next(220, 2),
-			completed(300)]
+		let correctValues = Recorded.events([
+			.next(210, 1),
+			.next(220, 2),
+			.completed(300)])
+
 		let res = scheduler.start(created: 0, subscribed: 0, disposed: 1000) {
 			self.sampleValues
                 .asObservable()
@@ -206,10 +207,10 @@ class RepeatWithBehaviorTests: XCTestCase {
 	}
 
 	func testExponentialNotRepeatWithPredicate() {
-        let correctValues = [
-            next(210, 1),
-            next(220, 2),
-            completed(300)]
+        let correctValues = Recorded.events([
+            .next(210, 1),
+            .next(220, 2),
+            .completed(300)])
 
 		let res = scheduler.start(created: 0, subscribed: 0, disposed: 1000) {
 			self.sampleValues
@@ -232,11 +233,11 @@ class RepeatWithBehaviorTests: XCTestCase {
     // MARK: - Custom delay repeats
 
     // custom delay calculator
-    let customCalculator: (UInt) -> Double = { attempt in
+    let customCalculator: (UInt) -> DispatchTimeInterval = { attempt in
         switch attempt {
-        case 1: return 10.0
-        case 2: return 30.0
-        default: return 0
+        case 1: return .seconds(10)
+        case 2: return .seconds(30)
+        default: return .never
         }
     }
 

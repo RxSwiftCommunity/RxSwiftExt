@@ -7,9 +7,8 @@
 //
 
 import XCTest
-
-import RxSwift
 import RxSwiftExt
+import RxSwift
 import RxTest
 
 class IgnoreTests: XCTestCase {
@@ -24,11 +23,11 @@ class IgnoreTests: XCTestCase {
 
         scheduler.start()
 
-        let correct = [
-            next(0, "Hello"),
-            next(0, "world"),
-            completed(0)
-        ]
+        let correct = Recorded.events([
+            .next(0, "Hello"),
+            .next(0, "world"),
+            .completed(0)
+        ])
 
         XCTAssertEqual(observer.events, correct)
     }
@@ -44,17 +43,17 @@ class IgnoreTests: XCTestCase {
 
         scheduler.start()
 
-        let correct = [
-            next(0, 1),
-            next(0, 2),
-            next(0, 4),
-            next(0, 5),
-            next(0, 1),
-            next(0, 5),
-            next(0, 7),
-            next(0, 9),
-            completed(0)
-        ]
+        let correct = Recorded.events([
+            .next(0, 1),
+            .next(0, 2),
+            .next(0, 4),
+            .next(0, 5),
+            .next(0, 1),
+            .next(0, 5),
+            .next(0, 7),
+            .next(0, 9),
+            .completed(0)
+        ])
 
         XCTAssertEqual(observer.events, correct)
     }
@@ -70,14 +69,14 @@ class IgnoreTests: XCTestCase {
 
         scheduler.start()
 
-        let correct = [
-            next(0, 2),
-            next(0, 4),
-            next(0, 5),
-            next(0, 5),
-            next(0, 7),
-            completed(0)
-        ]
+        let correct = Recorded.events([
+            .next(0, 2),
+            .next(0, 4),
+            .next(0, 5),
+            .next(0, 5),
+            .next(0, 7),
+            .completed(0)
+        ])
 
         XCTAssertEqual(observer.events, correct)
     }
@@ -95,14 +94,14 @@ class IgnoreTests: XCTestCase {
 
         scheduler.start()
 
-        let correct = [
-            next(0, 2),
-            next(0, 4),
-            next(0, 5),
-            next(0, 5),
-            next(0, 7),
-            completed(0)
-        ]
+        let correct = Recorded.events([
+            .next(0, 2),
+            .next(0, 4),
+            .next(0, 5),
+            .next(0, 5),
+            .next(0, 7),
+            .completed(0)
+        ])
 
         XCTAssertEqual(observer.events, correct)
     }
@@ -120,14 +119,14 @@ class IgnoreTests: XCTestCase {
 
         scheduler.start()
 
-        let correct = [
-            next(0, 2),
-            next(0, 4),
-            next(0, 5),
-            next(0, 5),
-            next(0, 7),
-            completed(0)
-        ]
+        let correct = Recorded.events([
+            .next(0, 2),
+            .next(0, 4),
+            .next(0, 5),
+            .next(0, 5),
+            .next(0, 7),
+            .completed(0)
+        ])
 
         XCTAssertEqual(observer.events, correct)
     }
@@ -145,19 +144,19 @@ class IgnoreTests: XCTestCase {
 
         scheduler.start()
 
-        let correct = [
-            next(0, 1),
-            next(0, 2),
-            next(0, 3),
-            next(0, 4),
-            next(0, 5),
-            next(0, 1),
-            next(0, 3),
-            next(0, 5),
-            next(0, 7),
-            next(0, 9),
-            completed(0)
-        ]
+        let correct = Recorded.events([
+            .next(0, 1),
+            .next(0, 2),
+            .next(0, 3),
+            .next(0, 4),
+            .next(0, 5),
+            .next(0, 1),
+            .next(0, 3),
+            .next(0, 5),
+            .next(0, 7),
+            .next(0, 9),
+            .completed(0)
+        ])
 
         XCTAssertEqual(observer.events, correct)
     }

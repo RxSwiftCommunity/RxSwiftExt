@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import RxSwiftExt
 import RxSwift
 import RxTest
 
@@ -33,10 +34,10 @@ class MapManyTests: XCTestCase {
         let sourceArray = Observable.of(1...4)
 
         let observer = runAndObserve(sourceArray.mapMany(SomeModel.init))
-        let correct = [
-            next(0, [SomeModel(1), SomeModel(2), SomeModel(3), SomeModel(4)]),
-            completed(0)
-        ]
+        let correct = Recorded.events([
+            .next(0, [SomeModel(1), SomeModel(2), SomeModel(3), SomeModel(4)]),
+            .completed(0)
+        ])
 
         XCTAssertEqual(observer.events.description, correct.description)
     }
@@ -45,10 +46,10 @@ class MapManyTests: XCTestCase {
         let sourceArray = Observable.of(1...10)
 
         let observer = runAndObserve(sourceArray.mapMany { $0 + 1 })
-        let correct = [
-            next(0, [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]),
-            completed(0)
-        ]
+        let correct = Recorded.events([
+            .next(0, [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]),
+            .completed(0)
+        ])
 
         XCTAssertEqual(observer.events, correct)
     }
@@ -57,10 +58,10 @@ class MapManyTests: XCTestCase {
         let sourceArray = Observable.just(["a", "b", "C"])
 
         let observer = runAndObserve(sourceArray.mapMany { ($0 + "x").lowercased() })
-        let correct = [
-            next(0, ["ax", "bx", "cx"]),
-            completed(0)
-        ]
+        let correct = Recorded.events([
+            .next(0, ["ax", "bx", "cx"]),
+            .completed(0)
+        ])
 
         XCTAssertEqual(observer.events, correct)
     }

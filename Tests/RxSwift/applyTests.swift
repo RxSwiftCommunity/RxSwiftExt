@@ -29,7 +29,7 @@ class ApplyTests: XCTestCase {
             .filter { $0 > 0 }
             .map { $0 * $0 }
     }
-    
+
     private func transform(input: Single<Int>) -> Single<Int> {
         return input.map { $0 * $0 }
     }
@@ -46,34 +46,34 @@ class ApplyTests: XCTestCase {
 
         scheduler.start()
 
-        let correct = [
-            next(0, 42*42),
-            next(0, 100*100),
-            next(0, 1000*1000),
-            next(0, 1*1),
-            completed(0)
-        ]
+        let correct = Recorded.events([
+            .next(0, 42*42),
+            .next(0, 100*100),
+            .next(0, 1000*1000),
+            .next(0, 1*1),
+            .completed(0)
+        ])
 
         XCTAssertEqual(observer.events, correct)
     }
-    
+
     func testApplySingle() {
         let value = 10
         let scheduler = TestScheduler(initialClock: 0)
         let observer = scheduler.createObserver(Int.self)
-        
+
         _ = Single.just(value)
             .apply(transform)
             .asObservable()
             .subscribe(observer)
-        
+
         scheduler.start()
-        
-        let correct = [
-            next(0, 10*10),
-            completed(0)
-        ]
-        
+
+        let correct = Recorded.events([
+            .next(0, 10*10),
+            .completed(0)
+        ])
+
         XCTAssertEqual(observer.events, correct)
     }
 
@@ -82,11 +82,10 @@ class ApplyTests: XCTestCase {
             .distinctUntilChanged()
             .map { String(describing: $0) }
     }
-    
+
     func transformToString(input: Single<Int>) -> Single<String> {
         return input.map(String.init)
     }
-    
 
     func testApplyTransformingType() {
         let values = [0, 0, 42, 42, -7, 100, 1000, 1, 1]
@@ -100,37 +99,37 @@ class ApplyTests: XCTestCase {
 
         scheduler.start()
 
-        let correct = [
-            next(0, "0"),
-            next(0, "42"),
-            next(0, "-7"),
-            next(0, "100"),
-            next(0, "1000"),
-            next(0, "1"),
-            completed(0)
-        ]
+        let correct = Recorded.events([
+            .next(0, "0"),
+            .next(0, "42"),
+            .next(0, "-7"),
+            .next(0, "100"),
+            .next(0, "1000"),
+            .next(0, "1"),
+            .completed(0)
+        ])
 
         XCTAssertEqual(observer.events, correct)
     }
-    
+
     func testApplyTransformingTypeSingle() {
         let value = -7
-        
+
         let scheduler = TestScheduler(initialClock: 0)
         let observer = scheduler.createObserver(String.self)
-        
+
         _ = Single.just(value)
             .apply(transformToString)
             .asObservable()
             .subscribe(observer)
-        
+
         scheduler.start()
-        
-        let correct = [
-            next(0, "-7"),
-            completed(0)
-        ]
-        
+
+        let correct = Recorded.events([
+            .next(0, "-7"),
+            .completed(0)
+        ])
+
         XCTAssertEqual(observer.events, correct)
     }
 }
