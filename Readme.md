@@ -89,6 +89,7 @@ Read below for details about each operator.
 RxSwift/RxCocoa Reactive Extensions are provided to enhance existing objects and classes from the Apple-ecosystem with Reactive abilities.
 
 * [UIViewPropertyAnimator.animate](#uiviewpropertyanimatoranimate)
+* [UIScrollView.reachedBottom](#uiscrollviewreachedbottom)
 
 --------
 
@@ -639,11 +640,23 @@ button.rx.tap
 ```
 
 #### UIViewPropertyAnimator.fractionComplete
+
 The `fractionComplete` binder provides a reactive way to bind to `UIViewPropertyAnimator.fractionComplete`.
+
 ```swift
 slider.rx.value.map(CGFloat.init)
     .bind(to: animator.rx.fractionComplete)
 ```
+
+#### UIScrollView.reachedBottom
+
+`reachedBottom` provides a sequence that emits every time the `UIScrollView` is scrolled to the bottom, with an optional offset.
+
+```swift
+tableView.rx.reachedBottom(offset: 40)
+            .subscribe { print("Reached bottom") }
+```
+
 ## License
 
 This library belongs to _RxSwift Community_.
