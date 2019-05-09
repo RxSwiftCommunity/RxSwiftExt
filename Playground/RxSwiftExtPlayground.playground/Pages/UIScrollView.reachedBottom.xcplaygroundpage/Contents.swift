@@ -18,7 +18,7 @@ import UIKit
 /*:
  ## reachedBottom
 
- The `reachedBottom` operator provides a sequence that emits every time `UIScrollView` is scrolled to the bottom.
+ The `reachedBottom` operator provides a sequence that emits every time the `UIScrollView` is scrolled to the bottom.
 
  Please open the Assistant Editor (⌘⌥⏎) to see the Interactive Live View example.
  */
