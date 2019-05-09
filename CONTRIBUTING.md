@@ -17,10 +17,12 @@ You can also make pull requests. Other than bug fixes, please make sure you disc
 
 When submitting new code, please make sure that it is backed by tests. When submitting code for a new operator, please make sure that:
 
-- Your code documents what the operator does (see other operators for examples)
-- You provide tests for your new operator
-- You provide a demo playground page, and add a reference to this page in the playground index
+- Your code documents what the operator does (see other operators for examples).
+- You provide tests for your new operator.
+- You provide a demo playground page, and add a reference to this page in the playground index.
+- You add documentation of the operator in this repo's `README.md` file.
 
+**Note**: Base your custom operators only on RxSwift Core operators. Do not use existing RxSwiftExt operators to implement your own operator, unless it's an absolute necessity.
 
 ## Developer's Certificate of Origin 1.1
 
