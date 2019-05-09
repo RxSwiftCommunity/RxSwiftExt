@@ -141,6 +141,8 @@
 		780CB21D20A0EE8300FD3F39 /* MapManyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780CB21C20A0EE8300FD3F39 /* MapManyTests.swift */; };
 		780CB21E20A0EE8300FD3F39 /* MapManyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780CB21C20A0EE8300FD3F39 /* MapManyTests.swift */; };
 		780CB21F20A0EE8300FD3F39 /* MapManyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780CB21C20A0EE8300FD3F39 /* MapManyTests.swift */; };
+		78199613228449CA00340AF4 /* UIScrollView+reachedBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78199612228449CA00340AF4 /* UIScrollView+reachedBottom.swift */; };
+		7819961622844EF800340AF4 /* UIScrollView+reachedBottomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7819961422844E9D00340AF4 /* UIScrollView+reachedBottomTests.swift */; };
 		789682E720408A7500545396 /* mapAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF5F8B2202D6C5F00C1BA97 /* mapAt.swift */; };
 		789682E820408A7700545396 /* mapAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF5F8B2202D6C5F00C1BA97 /* mapAt.swift */; };
 		8CF5F8AF202D62AB00C1BA97 /* MapAtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF5F8AD202D622000C1BA97 /* MapAtTests.swift */; };
@@ -349,6 +351,8 @@
 		780CB21420A0ED1C00FD3F39 /* toSortedArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = toSortedArray.swift; sourceTree = "<group>"; };
 		780CB21820A0ED3B00FD3F39 /* ToSortedArrayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToSortedArrayTests.swift; sourceTree = "<group>"; };
 		780CB21C20A0EE8300FD3F39 /* MapManyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapManyTests.swift; sourceTree = "<group>"; };
+		78199612228449CA00340AF4 /* UIScrollView+reachedBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+reachedBottom.swift"; sourceTree = "<group>"; };
+		7819961422844E9D00340AF4 /* UIScrollView+reachedBottomTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+reachedBottomTests.swift"; sourceTree = "<group>"; };
 		8CF5F8AD202D622000C1BA97 /* MapAtTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAtTests.swift; sourceTree = "<group>"; };
 		8CF5F8B2202D6C5F00C1BA97 /* mapAt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapAt.swift; sourceTree = "<group>"; };
 		98309EAE1EDF14AC00BD07D9 /* flatMapSync.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = flatMapSync.swift; path = Source/RxSwift/flatMapSync.swift; sourceTree = SOURCE_ROOT; };
@@ -494,6 +498,7 @@
 				4A73956B206D501300E2BE2D /* UIViewPropertyAnimator+Rx.swift */,
 				1958B5F0216768D900CAF1D3 /* unwrap+SharedSequence.swift */,
 				A23E148A21A9F03600CD5B2F /* partition+RxCocoa.swift */,
+				78199612228449CA00340AF4 /* UIScrollView+reachedBottom.swift */,
 			);
 			path = RxCocoa;
 			sourceTree = "<group>";
@@ -507,6 +512,7 @@
 				1A8741AB20745A91004BB762 /* UIViewPropertyAnimatorTests+Rx.swift */,
 				1958B5F521676ECB00CAF1D3 /* unrwapTests+SharedSequence.swift */,
 				A23E149221A9F73500CD5B2F /* PartitionTests+RxCocoa.swift */,
+				7819961422844E9D00340AF4 /* UIScrollView+reachedBottomTests.swift */,
 			);
 			name = RxCocoa;
 			path = Tests/RxCocoa;
@@ -1019,6 +1025,7 @@
 				4A73956C206D501300E2BE2D /* UIViewPropertyAnimator+Rx.swift in Sources */,
 				538607B11E6F334B000361DE /* mapTo.swift in Sources */,
 				538607AA1E6F334B000361DE /* apply.swift in Sources */,
+				78199613228449CA00340AF4 /* UIScrollView+reachedBottom.swift in Sources */,
 				C4D2153F20118A81009804AE /* ofType.swift in Sources */,
 				538607B41E6F334B000361DE /* ObservableType+Weak.swift in Sources */,
 				3DBDE5FC1FBBAE3A00DF47F9 /* and.swift in Sources */,
@@ -1070,6 +1077,7 @@
 				A23E149321A9F73500CD5B2F /* PartitionTests+RxCocoa.swift in Sources */,
 				BF79DA0E206C185B008AA708 /* WithUnretainedTests.swift in Sources */,
 				538607EE1E6F36A9000361DE /* WeakTests.swift in Sources */,
+				7819961622844EF800340AF4 /* UIScrollView+reachedBottomTests.swift in Sources */,
 				780CB21920A0ED3B00FD3F39 /* ToSortedArrayTests.swift in Sources */,
 				538607E51E6F36A9000361DE /* IgnoreWhenTests.swift in Sources */,
 				538607E11E6F36A9000361DE /* CatchErrorJustCompleteTests.swift in Sources */,

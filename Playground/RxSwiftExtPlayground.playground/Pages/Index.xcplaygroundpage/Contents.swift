@@ -48,6 +48,7 @@
  - [bufferWithTrigger()](bufferWithTrigger) Collects the elements of the source observable, and emits them as an array when the trigger emits.
  - **UIViewPropertyAnimator** [animate()](UIViewPropertyAnimator.animate) operator, returns a Completable that completes as soon as the animation ends.
  - **UIViewPropertyAnimator** [fractionComplete](UIViewPropertyAnimator.fractionComplete) binder, provides a reactive way to bind to `UIViewPropertyAnimator.fractionComplete`.
+ - **UIScrollView** [reachedBottom](UIScrollView.reachedBottom) emits events when UIScrollView is scrolled to the bottom.
 */
 
 //: [Next >>](@next)
