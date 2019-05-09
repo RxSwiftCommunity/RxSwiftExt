@@ -1,6 +1,8 @@
 Changelog
 =========
 
+- added `reachedBottom(offset:)` for `UIScrollView`
+
 5.0.0
 -----
 - Update to RxSwift 5.0.

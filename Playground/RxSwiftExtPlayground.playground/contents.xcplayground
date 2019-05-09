@@ -29,5 +29,7 @@
         <page name='UIViewPropertyAnimator.animate'/>
         <page name='UIViewPropertyAnimator.fractionComplete'/>
         <page name='withUnretained'/>
+        <page name='partition'/>
+        <page name='UIScrollView.reachedBottom'/>
     </pages>
 </playground>
