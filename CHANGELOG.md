@@ -2,6 +2,7 @@ Changelog
 =========
 
 - added `reachedBottom(offset:)` for `UIScrollView`
+- removed deprecated `OSAtomicOr32OrigBarrier`
 
 5.0.0
 -----

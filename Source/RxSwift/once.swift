@@ -25,12 +25,15 @@ extension Observable {
 	*/
 
 	public static func once(_ element: Element) -> Observable<Element> {
-		var delivered: UInt32 = 0
+        let lock = NSRecursiveLock()
+		var isDelivered = false
 		return create { observer in
-			let wasDelivered = OSAtomicOr32OrigBarrier(1, &delivered)
-			if wasDelivered == 0 {
+			lock.lock()
+			if !isDelivered {
 				observer.onNext(element)
 			}
+            isDelivered = true
+            lock.unlock()
 			observer.onCompleted()
             return Disposables.create()
 		}
