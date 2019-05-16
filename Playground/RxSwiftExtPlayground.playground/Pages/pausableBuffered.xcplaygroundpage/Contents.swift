@@ -19,24 +19,24 @@ Pauses the elements of the source observable sequence based on the latest elemen
 
 While paused, elements from the source are buffered, limited to a maximum number of element.
 
-When resumed, all bufered elements are flushed as single events in a contiguous stream.
+When resumed, all buffered elements are flushed as single events in a contiguous stream.
 */
 
 example("pausableBuffered") {
-	
+
 	let observable = Observable<Int>.interval(1, scheduler: MainScheduler.instance)
-	
+
 	let trueAtThreeSeconds = Observable<Int>.timer(3, scheduler: MainScheduler.instance).map { _ in true }
 	let falseAtFiveSeconds = Observable<Int>.timer(5, scheduler: MainScheduler.instance).map { _ in false }
 	let pauser = Observable.of(trueAtThreeSeconds, falseAtFiveSeconds).merge()
-	
+
 	// unlimited buffering of values received while paused
 	let pausedObservable = observable.pausableBuffered(pauser, limit: nil)
-	
+
 	pausedObservable
 		.subscribe { print($0) }
-	
+
 	playgroundShouldContinueIndefinitely()
-	
+
 }
 //: [Next](@next)
