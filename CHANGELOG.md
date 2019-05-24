@@ -2,6 +2,7 @@ Changelog
 =========
 
 - added `reachedBottom(offset:)` for `UIScrollView`
+- changed `filterMap(transform:)` callback on throwing
 
 5.0.0
 -----

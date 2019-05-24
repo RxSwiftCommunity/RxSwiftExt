@@ -21,15 +21,14 @@ public enum FilterMap<Result> {
 }
 
 extension ObservableType {
-
     /**
      Filters or Maps values from the source.
-     - The returned Observable will error and complete with the source.
+     - The returned Observable will complete with the source. It will error with the source or with error thrown by transform callback.
      - `next` values will be output according to the `transform` callback result:
         - returning `.ignore` will filter the value out of the returned Observable
         - returning `.map(newValue)` will propagate newValue through the returned Observable.
      */
-    public func filterMap<Result>(_ transform: @escaping (Element) -> FilterMap<Result>) -> Observable<Result> {
-        return flatMapSync { transform($0).asOperator }
+    public func filterMap<Result>(_ transform: @escaping (Element) throws -> FilterMap<Result>) -> Observable<Result> {
+        return flatMapSync { try transform($0).asOperator }
     }
 }

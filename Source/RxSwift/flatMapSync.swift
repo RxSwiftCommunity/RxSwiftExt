@@ -53,18 +53,25 @@ extension ObservableType {
 
     /**
      FlatMaps values from a stream synchronously using CustomOperator type.
-     - The returned Observable will error and complete with the source.
+     - The returned Observable will complete with the source.  It will error with the source or with error thrown by transform callback.
      - `next` values will be transformed by according to the CustomOperator application rules.
 
      see filterMap for an example of a custom operator
      */
-    public func flatMapSync<O: CustomOperator>(_ transform: @escaping (Element) -> O) -> Observable<O.Result> {
+    public func flatMapSync<Operator: CustomOperator>(_ transform: @escaping (Element) throws -> Operator) -> Observable<Operator.Result> {
         return Observable.create { observer in
             return self.subscribe { event in
                 switch event {
-                case .next(let element): transform(element).apply { observer.onNext($0) }
-                case .completed: observer.onCompleted()
-                case .error(let error): observer.onError(error)
+                case let .next(element):
+                    do {
+                        try transform(element).apply(observer.onNext)
+                    } catch {
+                        observer.onError(error)
+                    }
+                case .completed:
+                    observer.onCompleted()
+                case let .error(error):
+                    observer.onError(error)
                 }
             }
         }
