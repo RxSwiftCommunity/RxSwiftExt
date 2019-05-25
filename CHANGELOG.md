@@ -2,6 +2,7 @@ Changelog
 =========
 
 - added `reachedBottom(offset:)` for `UIScrollView`
+- added `skipLast` operator
 
 5.0.0
 -----

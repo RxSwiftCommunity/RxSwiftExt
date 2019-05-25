@@ -49,6 +49,7 @@
  - **UIViewPropertyAnimator** [animate()](UIViewPropertyAnimator.animate) operator, returns a Completable that completes as soon as the animation ends.
  - **UIViewPropertyAnimator** [fractionComplete](UIViewPropertyAnimator.fractionComplete) binder, provides a reactive way to bind to `UIViewPropertyAnimator.fractionComplete`.
  - **UIScrollView** [reachedBottom](UIScrollView.reachedBottom) emits events when UIScrollView is scrolled to the bottom.
+ - [skipLast()](skipLast) suppress the specified number of items emitted by an Observable.
 */
 
 //: [Next >>](@next)
