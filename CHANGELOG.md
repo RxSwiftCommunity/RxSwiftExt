@@ -2,7 +2,7 @@ Changelog
 =========
 
 - added `reachedBottom(offset:)` for `UIScrollView`
-- removed deprecated `OSAtomicOr32OrigBarrier`
+- `once` now uses a `NSRecursiveLock` instead of the deprecated `OSAtomicOr32OrigBarrier`
 
 5.0.0
 -----
