@@ -18,7 +18,7 @@ import RxSwiftExt
  of the observable sequences have produced an element at a corresponding index.
 
  */
-example("zip values") {
+example("zip(with:)") {
 	let numbers = [1,2,3]
 	let strings = ["a", "b", "c"]
 
