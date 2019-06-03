@@ -6,6 +6,7 @@ Changelog
 - Simplify `filterMap(_:)` implementation and make callback throwing
 - `once` now uses a `NSRecursiveLock` instead of the deprecated `OSAtomicOr32OrigBarrier`
 - added `merge(with:)` for `Observable`
+- removed `flatMapSync` operator
 
 5.0.0
 -----
