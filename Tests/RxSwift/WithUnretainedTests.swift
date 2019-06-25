@@ -39,6 +39,13 @@ class WithUnretainedTests: XCTestCase {
         ])
     }
 
+    override func tearDown() {
+        testClass = nil
+        values = nil
+        tupleValues = nil
+        super.tearDown()
+    }
+
     func testObjectAttached() {
         let testClassId = testClass.id
 
@@ -115,6 +122,27 @@ class WithUnretainedTests: XCTestCase {
                 .map { "\($0.id), \($1), \($2)" }
         }
 
+        XCTAssertEqual(res.events, correctValues)
+    }
+
+    func testUnretainedSelf() {
+        // Given
+        let correctValues = Recorded.events([
+            .next(410, self),
+            .next(415, self),
+            .next(420, self),
+            .next(425, self),
+            .next(430, self),
+            .completed(450)
+        ])
+        // When
+        let res = scheduler.start {
+            self.tupleValues
+                .map { _ in }
+                .withUnretained(self)
+        }
+        // Then
+        XCTAssertTrue(type(of: res) == TestableObserver<WithUnretainedTests>.self)
         XCTAssertEqual(res.events, correctValues)
     }
 }

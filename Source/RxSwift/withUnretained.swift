@@ -46,6 +46,32 @@ extension ObservableType {
     }
 }
 
+extension ObservableType where Element == Void {
+    /**
+     Provides an unretained, safe to use (i.e. not implicitly unwrapped), reference to an object replacing the element emitted by the sequence in case its `Void`.
+     In the case the provided object cannot be retained successfully, the seqeunce will complete.
+
+     - parameter obj: The object to provide an unretained reference on.
+     - parameter resultSelector: A function to transform the unretained referenced on `obj`.
+     - returns: An observable sequence that contains the result of `resultSelector` being called with an unretained reference on `obj`.
+     */
+    public func withUnretained<T: AnyObject, Out>(_ obj: T, resultSelector: @escaping (T) -> Out)
+        -> Observable<Out> {
+            return withUnretained(obj) { object, _ in resultSelector(object) }
+    }
+
+    /**
+     Provides an unretained, safe to use (i.e. not implicitly unwrapped), reference to an object replacing the element emitted by the sequence in case its `Void`.
+     In the case the provided object cannot be retained successfully, the seqeunce will complete.
+
+     - parameter obj: The object to provide an unretained reference on.
+     - returns: An observable sequence that contains an unretained reference on `obj`.
+     */
+    public func withUnretained<T: AnyObject>(_ obj: T) -> Observable<(T)> {
+        return withUnretained(obj) { $0 }
+    }
+}
+
 private enum UnretainedError: Swift.Error {
     case failedRetaining
 }
