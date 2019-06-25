@@ -76,7 +76,7 @@ extension ObservableType where Element == Bool {
 						completed += 1
 						guard completed == collection.count else { return }
 						// if all emitted at least one `true`, emit true otherwise just complete
-						if emitted.reduce(true, { $0 && $1 }) {
+						if emitted.allSatisfy({ $0 }) {
 							observer(.success(true))
 						} else {
 							observer(.completed)
