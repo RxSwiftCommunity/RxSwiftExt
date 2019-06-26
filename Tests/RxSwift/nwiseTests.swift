@@ -166,7 +166,7 @@ private enum DummyError: Error {
     case expected
 }
 
-private struct EquatableArray<Element: Equatable> : Equatable {
+private struct EquatableArray<Element: Equatable>: Equatable {
     let elements: [Element]
     init(_ elements: [Element]) {
         self.elements = elements
