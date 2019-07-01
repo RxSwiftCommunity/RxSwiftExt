@@ -55,7 +55,6 @@ extension MapToTests {
         // Given
         let expectedValue = "candy"
         let scheduler = TestScheduler(initialClock: 0)
-        observer = scheduler.createObserver(String.self)
         // When
         let result = scheduler.start {
             Single.just(1).mapTo(expectedValue).asObservable()
@@ -70,7 +69,6 @@ extension MapToTests {
     func testSingleNoReplaceFailure() {
         // Given
         let scheduler = TestScheduler(initialClock: 0)
-        observer = scheduler.createObserver(String.self)
         // When
         let result = scheduler.start {
             Single<Int>.error(testError).mapTo("candy").asObservable()
@@ -86,7 +84,6 @@ extension MapToTests {
         // Given
         let expectedValue = "candy"
         let scheduler = TestScheduler(initialClock: 0)
-        observer = scheduler.createObserver(String.self)
         // When
         let result = scheduler.start {
             Maybe.just(1).mapTo(expectedValue).asObservable()
@@ -101,7 +98,6 @@ extension MapToTests {
     func testMaybeNoReplaceFailure() {
         // Given
         let scheduler = TestScheduler(initialClock: 0)
-        observer = scheduler.createObserver(String.self)
         // When
         let result = scheduler.start {
             Maybe<Int>.error(testError).mapTo("candy").asObservable()
@@ -113,7 +109,6 @@ extension MapToTests {
     func testMaybeNoReplaceEmpty() {
         // Given
         let scheduler = TestScheduler(initialClock: 0)
-        observer = scheduler.createObserver(String.self)
         // When
         let result = scheduler.start {
             Maybe<Int>.empty().mapTo("candy").asObservable()
