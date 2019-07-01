@@ -7,6 +7,7 @@ Changelog
 - `once` now uses a `NSRecursiveLock` instead of the deprecated `OSAtomicOr32OrigBarrier`
 - added `merge(with:)` for `Observable`
 - removed `flatMapSync` operator
+- added `apply` for `Completable` and `Maybe` 
 
 5.0.0
 -----

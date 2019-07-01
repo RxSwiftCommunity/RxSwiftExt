@@ -16,9 +16,10 @@ extension ObservableType {
     }
 }
 
-extension PrimitiveSequenceType where Trait == SingleTrait {
-    /// Apply a transformation function to the Single.
-    public func apply<T>(_ transform: (Single<Element>) -> Single<T>) -> Single<T> {
+extension PrimitiveSequenceType {
+    /// Apply a transformation function to the primitive sequence.
+    public func apply<Result>(_ transform: (PrimitiveSequence<Trait, Element>) -> PrimitiveSequence<Trait, Result>)
+        -> PrimitiveSequence<Trait, Result> {
         return transform(self.primitiveSequence)
     }
 }
