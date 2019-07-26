@@ -11,7 +11,7 @@ import RxSwift
 
 /**
 Specifies how observable sequence will be repeated in case of an error
-- Immediate: Will be immediatelly repeated specified number of times
+- Immediate: Will be immediately repeated specified number of times
 - Delayed: Will be repeated after specified delay specified number of times
 - ExponentialDelayed: Will be repeated specified number of times. 
 Delay will be incremented by multiplier after each iteration (multiplier = 0.5 means 50% increment)

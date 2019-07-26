@@ -13,7 +13,7 @@ import RxCocoa
 public extension Reactive where Base: UIScrollView {
     /**
      Shows if the bottom of the UIScrollView is reached.
-     - parameter offset: A threshhold indicating the bottom of the UIScrollView.
+     - parameter offset: A threshold indicating the bottom of the UIScrollView.
      - returns: ControlEvent that emits when the bottom of the base UIScrollView is reached.
      */
     func reachedBottom(offset: CGFloat = 0.0) -> ControlEvent<Void> {
