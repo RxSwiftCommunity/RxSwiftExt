@@ -16,8 +16,7 @@ extension ObservableType where Element: EventConvertible {
 	 - seealso: [materialize operator on reactivex.io](http://reactivex.io/documentation/operators/materialize-dematerialize.html)
 	 */
 	public func elements() -> Observable<Element.Element> {
-		return filter { $0.event.element != nil }
-				.map { $0.event.element! }
+		return compactMap { $0.event.element }
 	}
 
 	/**
@@ -25,7 +24,6 @@ extension ObservableType where Element: EventConvertible {
 	 - seealso: [materialize operator on reactivex.io](http://reactivex.io/documentation/operators/materialize-dematerialize.html)
 	 */
 	public func errors() -> Observable<Swift.Error> {
-		return filter { $0.event.error != nil }
-				.map { $0.event.error! }
+		return compactMap { $0.event.error }
 	}
 }
