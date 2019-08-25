@@ -22,7 +22,7 @@ extension ObservableType {
         - returning `.ignore` will filter the value out of the returned Observable
         - returning `.map(newValue)` will propagate newValue through the returned Observable.
      */
-    @available(*, deprecated, renamed: "compactMap", message: "compactMap was added to the main RxSwift repository and should be used instead of filterMap")
+    @available(*, deprecated, renamed: "compactMap", message: "Use compactMap instead")
     public func filterMap<Result>(_ transform: @escaping (Element) throws -> FilterMap<Result>) -> Observable<Result> {
         return flatMap { element -> Observable<Result> in
             switch try transform(element) {
