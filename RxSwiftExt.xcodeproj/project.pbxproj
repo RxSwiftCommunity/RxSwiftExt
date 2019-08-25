@@ -142,6 +142,9 @@
 		780CB21F20A0EE8300FD3F39 /* MapManyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780CB21C20A0EE8300FD3F39 /* MapManyTests.swift */; };
 		78199613228449CA00340AF4 /* UIScrollView+reachedBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78199612228449CA00340AF4 /* UIScrollView+reachedBottom.swift */; };
 		7819961622844EF800340AF4 /* UIScrollView+reachedBottomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7819961422844E9D00340AF4 /* UIScrollView+reachedBottomTests.swift */; };
+		781C53FE23122554005CB85A /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781C53FD23122554005CB85A /* Package.swift */; };
+		781C53FF23122554005CB85A /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781C53FD23122554005CB85A /* Package.swift */; };
+		781C540023122554005CB85A /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781C53FD23122554005CB85A /* Package.swift */; };
 		782485932298A708005CF8CC /* mergeWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782485922298A702005CF8CC /* mergeWith.swift */; };
 		782485952298A785005CF8CC /* MergeWithTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782485942298A785005CF8CC /* MergeWithTests.swift */; };
 		782485962298A785005CF8CC /* MergeWithTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782485942298A785005CF8CC /* MergeWithTests.swift */; };
@@ -359,6 +362,7 @@
 		780CB21C20A0EE8300FD3F39 /* MapManyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapManyTests.swift; sourceTree = "<group>"; };
 		78199612228449CA00340AF4 /* UIScrollView+reachedBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+reachedBottom.swift"; sourceTree = "<group>"; };
 		7819961422844E9D00340AF4 /* UIScrollView+reachedBottomTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+reachedBottomTests.swift"; sourceTree = "<group>"; };
+		781C53FD23122554005CB85A /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = SOURCE_ROOT; };
 		782485922298A702005CF8CC /* mergeWith.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mergeWith.swift; sourceTree = "<group>"; };
 		782485942298A785005CF8CC /* MergeWithTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MergeWithTests.swift; sourceTree = "<group>"; };
 		782485B6229952FD005CF8CC /* TestErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestErrors.swift; path = Tests/TestErrors.swift; sourceTree = "<group>"; };
@@ -467,6 +471,7 @@
 		18EE7A0F1C47B12F00C7256C = {
 			isa = PBXGroup;
 			children = (
+				781C53FD23122554005CB85A /* Package.swift */,
 				188C6D921C47B2B20092101A /* Sources */,
 				3D638DF21DC2B2EE0089A590 /* Tests */,
 				9DAB77991D6763AC007E85BC /* Frameworks */,
@@ -1060,6 +1065,7 @@
 				DC612872209E80810053CBB7 /* mapMany.swift in Sources */,
 				5386076F1E6F1C0A000361DE /* mapTo+RxCocoa.swift in Sources */,
 				A23E148B21A9F03600CD5B2F /* partition+RxCocoa.swift in Sources */,
+				781C53FE23122554005CB85A /* Package.swift in Sources */,
 				538607B71E6F334B000361DE /* repeatWithBehavior.swift in Sources */,
 				538607AC1E6F334B000361DE /* catchErrorJustComplete.swift in Sources */,
 				58C5450451345D65DF48F6C5 /* zipWith.swift in Sources */,
@@ -1149,6 +1155,7 @@
 				BF515CE81F3F3B0000492640 /* fromAsync.swift in Sources */,
 				BF515CEA1F3F3B0300492640 /* curry.swift in Sources */,
 				62512C691F0EAF850083A89F /* not+RxCocoa.swift in Sources */,
+				781C53FF23122554005CB85A /* Package.swift in Sources */,
 				62512C6C1F0EAF950083A89F /* catchErrorJustComplete.swift in Sources */,
 				62512C751F0EAF950083A89F /* once.swift in Sources */,
 				62512C711F0EAF950083A89F /* mapTo.swift in Sources */,
@@ -1236,6 +1243,7 @@
 				BF515CE91F3F3B0100492640 /* fromAsync.swift in Sources */,
 				BF515CEB1F3F3B0300492640 /* curry.swift in Sources */,
 				E39C41DA1F18B086007F2ACD /* not+RxCocoa.swift in Sources */,
+				781C540023122554005CB85A /* Package.swift in Sources */,
 				E39C41DD1F18B08A007F2ACD /* catchErrorJustComplete.swift in Sources */,
 				E39C41E61F18B08A007F2ACD /* once.swift in Sources */,
 				E39C41E21F18B08A007F2ACD /* mapTo.swift in Sources */,
