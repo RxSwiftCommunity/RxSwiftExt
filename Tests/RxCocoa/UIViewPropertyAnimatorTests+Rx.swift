@@ -6,6 +6,7 @@
 //  Copyright © 2017 RxSwift Community. All rights reserved.
 //
 
+#if canImport(UIKit)
 import XCTest
 import RxSwift
 import RxCocoa
@@ -59,3 +60,4 @@ class UIViewPropertyAnimatorTests: XCTestCase {
         XCTAssertEqual(animator.fractionComplete, 0.5)
     }
 }
+#endif
