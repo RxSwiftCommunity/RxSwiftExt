@@ -60,5 +60,4 @@ class UIViewPropertyAnimatorTests: XCTestCase {
         XCTAssertEqual(animator.fractionComplete, 0.5)
     }
 }
-
 #endif

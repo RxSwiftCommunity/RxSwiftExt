@@ -17,5 +17,5 @@ let package = Package(
         .target(name: "RxSwiftExt", dependencies: ["RxSwift", "RxCocoa"], path: "Source"),
         .testTarget(name: "RxSwiftExtTests", dependencies: ["RxSwiftExt", "RxTest"], path: "Tests"),
     ],
-    swiftLanguageVersions: [.v5]
+    swiftLanguageVersions: [.v4_2, .v5]
 )

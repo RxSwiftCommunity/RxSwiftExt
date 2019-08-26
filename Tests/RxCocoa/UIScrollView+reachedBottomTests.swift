@@ -86,5 +86,4 @@ private extension UIScrollViewReachedBottomTests {
         }
     }
 }
-
 #endif
