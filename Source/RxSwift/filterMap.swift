@@ -23,12 +23,12 @@ extension ObservableType {
         - returning `.map(newValue)` will propagate newValue through the returned Observable.
      */
     public func filterMap<Result>(_ transform: @escaping (Element) throws -> FilterMap<Result>) -> Observable<Result> {
-        return flatMap { element -> Observable<Result> in
+        return compactMap { element in
             switch try transform(element) {
             case .ignore:
-                return .empty()
+                return nil
             case let .map(result):
-                return .just(result)
+                return result
             }
         }
     }
