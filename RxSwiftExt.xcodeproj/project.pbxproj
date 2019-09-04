@@ -151,6 +151,12 @@
 		782485B7229952FD005CF8CC /* TestErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782485B6229952FD005CF8CC /* TestErrors.swift */; };
 		782485B8229952FD005CF8CC /* TestErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782485B6229952FD005CF8CC /* TestErrors.swift */; };
 		782485B9229952FD005CF8CC /* TestErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782485B6229952FD005CF8CC /* TestErrors.swift */; };
+		783EDF8C2320462A00F5C062 /* pausableAfterCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783EDF8B2320462A00F5C062 /* pausableAfterCount.swift */; };
+		783EDF8D2320462A00F5C062 /* pausableAfterCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783EDF8B2320462A00F5C062 /* pausableAfterCount.swift */; };
+		783EDF8E2320462A00F5C062 /* pausableAfterCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783EDF8B2320462A00F5C062 /* pausableAfterCount.swift */; };
+		783EDF90232048E000F5C062 /* PausableAfterCountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783EDF8F232048E000F5C062 /* PausableAfterCountTests.swift */; };
+		783EDF91232048E000F5C062 /* PausableAfterCountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783EDF8F232048E000F5C062 /* PausableAfterCountTests.swift */; };
+		783EDF92232048E000F5C062 /* PausableAfterCountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783EDF8F232048E000F5C062 /* PausableAfterCountTests.swift */; };
 		789682E720408A7500545396 /* mapAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF5F8B2202D6C5F00C1BA97 /* mapAt.swift */; };
 		789682E820408A7700545396 /* mapAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF5F8B2202D6C5F00C1BA97 /* mapAt.swift */; };
 		8CF5F8AF202D62AB00C1BA97 /* MapAtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF5F8AD202D622000C1BA97 /* MapAtTests.swift */; };
@@ -363,6 +369,8 @@
 		782485922298A702005CF8CC /* mergeWith.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mergeWith.swift; sourceTree = "<group>"; };
 		782485942298A785005CF8CC /* MergeWithTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MergeWithTests.swift; sourceTree = "<group>"; };
 		782485B6229952FD005CF8CC /* TestErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestErrors.swift; path = Tests/TestErrors.swift; sourceTree = "<group>"; };
+		783EDF8B2320462A00F5C062 /* pausableAfterCount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pausableAfterCount.swift; sourceTree = "<group>"; };
+		783EDF8F232048E000F5C062 /* PausableAfterCountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PausableAfterCountTests.swift; sourceTree = "<group>"; };
 		8CF5F8AD202D622000C1BA97 /* MapAtTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAtTests.swift; sourceTree = "<group>"; };
 		8CF5F8B2202D6C5F00C1BA97 /* mapAt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapAt.swift; sourceTree = "<group>"; };
 		98309EB01EDF159500BD07D9 /* filterMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = filterMap.swift; path = Source/RxSwift/filterMap.swift; sourceTree = SOURCE_ROOT; };
@@ -553,6 +561,7 @@
 				538607A41E6F334B000361DE /* ObservableType+Weak.swift */,
 				538607A51E6F334B000361DE /* once.swift */,
 				538607A61E6F334B000361DE /* pausable.swift */,
+				783EDF8B2320462A00F5C062 /* pausableAfterCount.swift */,
 				5A1DDEBE1ED58F8600F2E4B1 /* pausableBuffered.swift */,
 				538607A71E6F334B000361DE /* repeatWithBehavior.swift */,
 				538607A81E6F334B000361DE /* retryWithBehavior.swift */,
@@ -593,6 +602,7 @@
 				538607C51E6F367A000361DE /* OnceTests.swift */,
 				5A1DDEB81ED58D2800F2E4B1 /* PausableBufferedTests.swift */,
 				538607C61E6F367A000361DE /* PausableTests.swift */,
+				783EDF8F232048E000F5C062 /* PausableAfterCountTests.swift */,
 				538607C71E6F367A000361DE /* RepeatWithBehaviorTests.swift */,
 				538607C81E6F367A000361DE /* RetryWithBehaviorTests.swift */,
 				780CB21820A0ED3B00FD3F39 /* ToSortedArrayTests.swift */,
@@ -1029,6 +1039,7 @@
 				538607AF1E6F334B000361DE /* ignoreErrors.swift in Sources */,
 				538607B91E6F334B000361DE /* unwrap.swift in Sources */,
 				538607B01E6F334B000361DE /* ignoreWhen.swift in Sources */,
+				783EDF8C2320462A00F5C062 /* pausableAfterCount.swift in Sources */,
 				538607AB1E6F334B000361DE /* cascade.swift in Sources */,
 				538607F01E6F589E000361DE /* not+RxCocoa.swift in Sources */,
 				538607B81E6F334B000361DE /* retryWithBehavior.swift in Sources */,
@@ -1099,6 +1110,7 @@
 				1958B5F621676ECB00CAF1D3 /* unrwapTests+SharedSequence.swift in Sources */,
 				C4D2154220118FB9009804AE /* Observable+OfTypeTests.swift in Sources */,
 				780CB21D20A0EE8300FD3F39 /* MapManyTests.swift in Sources */,
+				783EDF90232048E000F5C062 /* PausableAfterCountTests.swift in Sources */,
 				538607E41E6F36A9000361DE /* IgnoreTests.swift in Sources */,
 				538607E31E6F36A9000361DE /* IgnoreErrorsTests.swift in Sources */,
 				53C79D621E6F5B3900CD9B6A /* NotTests+RxCocoa.swift in Sources */,
@@ -1149,6 +1161,7 @@
 				A23E148821A9EFC000CD5B2F /* partition.swift in Sources */,
 				A23E148C21A9F03600CD5B2F /* partition+RxCocoa.swift in Sources */,
 				BF515CE81F3F3B0000492640 /* fromAsync.swift in Sources */,
+				783EDF8D2320462A00F5C062 /* pausableAfterCount.swift in Sources */,
 				BF515CEA1F3F3B0300492640 /* curry.swift in Sources */,
 				62512C691F0EAF850083A89F /* not+RxCocoa.swift in Sources */,
 				62512C6C1F0EAF950083A89F /* catchErrorJustComplete.swift in Sources */,
@@ -1199,6 +1212,7 @@
 				62512C991F0EB1850083A89F /* MapToTests.swift in Sources */,
 				3DBDE6001FBBB09A00DF47F9 /* AndTests.swift in Sources */,
 				58C54302EC14B6FF2034BAF6 /* ZipWithTest.swift in Sources */,
+				783EDF91232048E000F5C062 /* PausableAfterCountTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1236,6 +1250,7 @@
 				A23E148921A9EFC000CD5B2F /* partition.swift in Sources */,
 				A23E148D21A9F03600CD5B2F /* partition+RxCocoa.swift in Sources */,
 				BF515CE91F3F3B0100492640 /* fromAsync.swift in Sources */,
+				783EDF8E2320462A00F5C062 /* pausableAfterCount.swift in Sources */,
 				BF515CEB1F3F3B0300492640 /* curry.swift in Sources */,
 				E39C41DA1F18B086007F2ACD /* not+RxCocoa.swift in Sources */,
 				E39C41DD1F18B08A007F2ACD /* catchErrorJustComplete.swift in Sources */,
@@ -1286,6 +1301,7 @@
 				E39C42071F18B13E007F2ACD /* MapToTests.swift in Sources */,
 				3DBDE6011FBBB09A00DF47F9 /* AndTests.swift in Sources */,
 				58C54B6E1B4C678DE2378145 /* ZipWithTest.swift in Sources */,
+				783EDF92232048E000F5C062 /* PausableAfterCountTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

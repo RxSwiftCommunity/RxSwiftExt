@@ -13,6 +13,7 @@
         <page name='once'/>
         <page name='pausable'/>
         <page name='pausableBuffered'/>
+        <page name='pausableAfterCount'/>
         <page name='repeatWithBehavior'/>
         <page name='retryWithBehavior'/>
         <page name='unwrap'/>

@@ -68,6 +68,7 @@ These operators are much like the RxSwift & RxCocoa core operators, but provide 
 * [catchErrorJustComplete](#catcherrorjustcomplete)
 * [pausable](#pausable)
 * [pausableBuffered](#pausablebuffered)
+* [pausableAfterCount](#pausableaftercount)
 * [apply](#apply)
 * [filterMap](#filtermap)
 * [Observable.fromAsync](#fromasync)
@@ -427,6 +428,12 @@ More examples are available in the project's Playground.
 #### pausableBuffered
 
 Pauses the elements of the source observable sequence unless the latest element from the second observable sequence is `true`. Elements emitted by the source observable are buffered (with a configurable limit) and "flushed" (re-emitted) when the observable resumes.
+
+Examples are available in the project's Playground.
+
+#### pausableAfterCount
+
+Pauses the elements of the source observable sequence unless the latest element from the second observable sequence is `true`. The pause is available only after a certain count of events. Before the number of emitted events reaches that count the Pauser will not be taken care of.
 
 Examples are available in the project's Playground.
 
