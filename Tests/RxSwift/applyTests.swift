@@ -14,24 +14,10 @@ import RxTest
 
 class ApplyTests: XCTestCase {
 
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-
     func transform(input: Observable<Int>) -> Observable<Int> {
         return input
             .filter { $0 > 0 }
             .map { $0 * $0 }
-    }
-
-    private func transform(input: Single<Int>) -> Single<Int> {
-        return input.map { $0 * $0 }
     }
 
     func testApply() {
@@ -57,34 +43,10 @@ class ApplyTests: XCTestCase {
         XCTAssertEqual(observer.events, correct)
     }
 
-    func testApplySingle() {
-        let value = 10
-        let scheduler = TestScheduler(initialClock: 0)
-        let observer = scheduler.createObserver(Int.self)
-
-        _ = Single.just(value)
-            .apply(transform)
-            .asObservable()
-            .subscribe(observer)
-
-        scheduler.start()
-
-        let correct = Recorded.events([
-            .next(0, 10*10),
-            .completed(0)
-        ])
-
-        XCTAssertEqual(observer.events, correct)
-    }
-
     func transformToString(input: Observable<Int>) -> Observable<String> {
         return input
             .distinctUntilChanged()
             .map { String(describing: $0) }
-    }
-
-    func transformToString(input: Single<Int>) -> Single<String> {
-        return input.map(String.init)
     }
 
     func testApplyTransformingType() {
@@ -111,25 +73,88 @@ class ApplyTests: XCTestCase {
 
         XCTAssertEqual(observer.events, correct)
     }
+}
+
+// MARK: - Single
+extension ApplyTests {
+    private func transformToString(input: Single<Int>) -> Single<String> {
+        return input.map(String.init)
+    }
+
+    private func transform(input: Single<Int>) -> Single<Int> {
+        return input.map { $0 * $0 }
+    }
+
+    func testApplySingle() {
+        // Given
+        let value = 10
+        let scheduler = TestScheduler(initialClock: 0)
+        // When
+        let result = scheduler.start {
+            Single.just(value).apply(self.transform).asObservable()
+        }
+        // Then
+        let correct = Recorded.events([
+            .next(TestScheduler.Defaults.subscribed, 10 * 10),
+            .completed(TestScheduler.Defaults.subscribed)
+        ])
+        XCTAssertEqual(result.events, correct)
+    }
 
     func testApplyTransformingTypeSingle() {
+        // Given
         let value = -7
-
         let scheduler = TestScheduler(initialClock: 0)
-        let observer = scheduler.createObserver(String.self)
-
-        _ = Single.just(value)
-            .apply(transformToString)
-            .asObservable()
-            .subscribe(observer)
-
-        scheduler.start()
-
+        // When
+        let result = scheduler.start {
+            Single.just(value).apply(self.transformToString).asObservable()
+        }
         let correct = Recorded.events([
-            .next(0, "-7"),
-            .completed(0)
+            .next(TestScheduler.Defaults.subscribed, "-7"),
+            .completed(TestScheduler.Defaults.subscribed)
         ])
+        XCTAssertEqual(result.events, correct)
+    }
+}
 
-        XCTAssertEqual(observer.events, correct)
+// MARK: - Maybe
+extension ApplyTests {
+    private func transform(input: Maybe<Int>) -> Maybe<Int> {
+        return input.map { $0 * $0 }
+    }
+
+    func testApplyMaybe() {
+        // Given
+        let value = 10
+        let scheduler = TestScheduler(initialClock: 0)
+        // When
+        let result = scheduler.start {
+            Maybe.just(value).apply(self.transform).asObservable()
+        }
+        // Then
+        XCTAssertEqual(result.events, Recorded.events([
+            .next(TestScheduler.Defaults.subscribed, value * value),
+            .completed(TestScheduler.Defaults.subscribed)
+        ]))
+    }
+}
+
+// MARK: - Completable
+extension ApplyTests {
+    private func transform(input: Completable) -> Completable {
+        return input.do(onError: { print($0) })
+    }
+
+    func testApplyCompletable() {
+        // Given
+        let scheduler = TestScheduler(initialClock: 0)
+        // When
+        let result = scheduler.start {
+            Observable.just(1).ignoreElements().asObservable()
+        }
+        // Then
+        XCTAssertEqual(result.events, Recorded.events([
+            .completed(TestScheduler.Defaults.subscribed)
+        ]))
     }
 }
