@@ -187,16 +187,16 @@ class PausableBufferedTests: XCTestCase {
 
     func testPausedReentrantPauser() {
         let underlying = scheduler.createHotObservable([
-            next(110, 1),
-            next(210, 2),
-            next(310, 3),
-            next(410, 4),
-            completed(500),
-            ])
+            .next(110, 1),
+            .next(210, 2),
+            .next(310, 3),
+            .next(410, 4),
+            .completed(500),
+        ])
 
         let pauser = scheduler.createHotObservable([
-            next(301, true),
-            ])
+            .next(301, true),
+        ])
 
         let res = scheduler.start(disposed: 1000) { () -> Observable<Int> in
             return Observable.create { observer in
@@ -219,11 +219,11 @@ class PausableBufferedTests: XCTestCase {
         }
 
         XCTAssertEqual(res.events, [
-            next(301, 2),
-            next(310, 3),
-            next(410, 4),
-            completed(500),
-            ])
+            .next(301, 2),
+            .next(310, 3),
+            .next(410, 4),
+            .completed(500),
+        ])
 
         XCTAssertEqual(underlying.subscriptions, [
             Subscription(200, 500),
@@ -232,16 +232,16 @@ class PausableBufferedTests: XCTestCase {
 
     func testPausedReentrantUnderlying() {
         let underlying = scheduler.createHotObservable([
-            next(210, 1),
-            next(210, 2),
-            next(210, 3),
-            next(310, 4),
-            completed(500),
-            ])
+            .next(210, 1),
+            .next(210, 2),
+            .next(210, 3),
+            .next(310, 4),
+            .completed(500),
+        ])
 
         let pauser = scheduler.createHotObservable([
-            next(301, true),
-            ])
+            .next(301, true),
+        ])
 
         let res = scheduler.start(disposed: 1000) { () -> Observable<Int> in
             return Observable.create { observer in
@@ -263,14 +263,14 @@ class PausableBufferedTests: XCTestCase {
         }
 
         XCTAssertEqual(res.events, [
-            next(301, 1),
-            next(301, 2),
-            next(301, 3),
-            next(301, 1),
-            next(301, 2),
-            next(310, 4),
-            completed(500),
-            ])
+            .next(301, 1),
+            .next(301, 2),
+            .next(301, 3),
+            .next(301, 1),
+            .next(301, 2),
+            .next(310, 4),
+            .completed(500),
+        ])
 
         XCTAssertEqual(underlying.subscriptions, [
             Subscription(200, 500),
