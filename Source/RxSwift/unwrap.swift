@@ -18,6 +18,6 @@ extension ObservableType {
      */
 
     public func unwrap<T>() -> Observable<T> where Element == T? {
-        return self.filter { $0 != nil }.map { $0! }
+        return self.compactMap { $0 }
     }
 }
