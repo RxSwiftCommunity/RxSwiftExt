@@ -33,6 +33,9 @@ jobs:
       - run:
           name: Test tvOS
           command: set -o pipefail && xcodebuild test -scheme RxSwiftExt-tvOS -workspace RxSwiftExt.xcworkspace -sdk appletvsimulator -destination "name=Apple TV 4K (at 1080p)" | xcpretty -c -r html --output $XCODE_TEST_REPORTS/tvOS.html
+      - run:
+          name: Test SPM
+          command: swift test
       - store_artifacts:
           path: /tmp/xcode-test-results
   "RxSwiftExt Release":

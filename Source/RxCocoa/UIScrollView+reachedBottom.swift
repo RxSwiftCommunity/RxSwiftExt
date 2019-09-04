@@ -6,6 +6,7 @@
 //  Copyright © 2019 RxSwift Community. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 import RxSwift
 import RxCocoa
@@ -29,3 +30,4 @@ public extension Reactive where Base: UIScrollView {
         return ControlEvent(events: source)
     }
 }
+#endif
