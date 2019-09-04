@@ -454,7 +454,7 @@ let resilientRequest = request.apply(requestPolicy)
 A common pattern in Rx is to filter out some values, then map the remaining ones to something else. `filterMap` allows you to do this in one step:
 
 ```swift
-// keep only odd numbers and double them
+// keep only even numbers and double them
 Observable.of(1,2,3,4,5,6)
 	.filterMap { number in
 		(number % 2 == 0) ? .ignore : .map(number * 2)

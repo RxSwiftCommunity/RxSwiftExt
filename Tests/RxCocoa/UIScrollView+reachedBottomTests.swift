@@ -6,6 +6,7 @@
 //  Copyright © 2019 RxSwift Community. All rights reserved.
 //
 
+#if canImport(UIKit)
 import XCTest
 import RxCocoa
 import RxSwift
@@ -85,3 +86,4 @@ private extension UIScrollViewReachedBottomTests {
         }
     }
 }
+#endif
