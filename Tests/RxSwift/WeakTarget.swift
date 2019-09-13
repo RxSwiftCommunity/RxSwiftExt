@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
 enum WeakTargetError: Error {
     case error
@@ -23,11 +24,37 @@ enum RxEvent {
     }
 }
 
-var weakTargetReferenceCount: Int = 0
+private var weakTargetReferenceCounts: [ObjectIdentifier: Int] = [:]
 
-class WeakTarget<Type> {
+private func mutateReferenceCount<T>(for type: T.Type, mutator: (Int) -> Int) {
+     weakTargetReferenceCounts[ObjectIdentifier(type)] = mutator(weakTargetReferenceCounts[ObjectIdentifier(type)] ?? 0)
+}
+
+private func incReferenceCount<T>(for type: T.Type) {
+    mutateReferenceCount(for: type) {
+        return $0 + 1
+    }
+}
+
+private func decReferenceCount<T>(for type: T.Type) {
+    mutateReferenceCount(for: type) {
+        return $0 - 1
+    }
+}
+
+func resetReferenceCount<T>(for type: T.Type) {
+    mutateReferenceCount(for: type) { _ in
+        return 0
+    }
+}
+
+func getReferenceCount<T>(for type: T.Type) -> Int {
+    return weakTargetReferenceCounts[ObjectIdentifier(type)] ?? 0
+}
+
+class WeakTarget<Type, Sequence> {
     let listener: ([RxEvent: Int]) -> Void
-    fileprivate let observable: Observable<Type>
+    fileprivate let sequence: Sequence
     fileprivate var disposeBag = DisposeBag()
     fileprivate var events: [RxEvent: Int] = [.next: 0, .error: 0, .completed: 0, .disposed: 0]
     fileprivate func updateEvents(_ event: RxEvent) {
@@ -35,47 +62,113 @@ class WeakTarget<Type> {
         self.listener(self.events)
     }
 
-    init(obs: Observable<Type>, listener: @escaping ([RxEvent: Int]) -> Void) {
-        weakTargetReferenceCount += 1
+    init(sequence: Sequence, listener: @escaping ([RxEvent: Int]) -> Void) {
+        incReferenceCount(for: WeakTarget.self)
         self.listener = listener
-        self.observable = obs
+        self.sequence = sequence
     }
-    deinit { weakTargetReferenceCount -= 1 }
+
+    deinit { decReferenceCount(for: WeakTarget.self) }
 
     // MARK: - Subscribers
     fileprivate func subscriber_on(_ event: Event<Type>) { self.updateEvents(RxEvent(event: event)) }
     fileprivate func subscriber_onNext(_ element: Type) { self.updateEvents(.next) }
     fileprivate func subscriber_onError(_ error: Error) { self.updateEvents(.error) }
-    fileprivate func subscriber_onComplete() { self.updateEvents(.completed) }
+    fileprivate func subscriber_onCompleted() { self.updateEvents(.completed) }
     fileprivate func subscriber_onDisposed() { self.updateEvents(.disposed) }
 
-    // MARK: - Subscription Setup
+    func dispose() {
+        self.disposeBag = DisposeBag()
+    }
+}
+
+// MARK: - Observable Subscription Setup
+extension WeakTarget where Sequence == Observable<Type> {
     func useSubscribe() {
-        self.observable.subscribe(weak: self, WeakTarget.subscriber_on).disposed(by: self.disposeBag)
+        self.sequence
+            .subscribe(weak: self, WeakTarget.subscriber_on)
+            .disposed(by: self.disposeBag)
     }
+
     func useSubscribeNext() {
-        //self.observable.subscribeNext(self.subscriber_onNext).addDisposableTo(self.disposeBag) //uncomment this line to create a retain cycle
-        self.observable.subscribeNext(weak: self, WeakTarget.subscriber_onNext).disposed(by: self.disposeBag)
+//        // uncomment these lines to create a retain cycle
+//        self.sequence
+//            .subscribe(onNext: self.subscriber_onNext)
+//            .disposed(by: self.disposeBag)
+        self.sequence
+            .subscribeNext(weak: self, WeakTarget.subscriber_onNext)
+            .disposed(by: self.disposeBag)
     }
+
     func useSubscribeError() {
-        self.observable.subscribeError(weak: self, WeakTarget.subscriber_onError).disposed(by: self.disposeBag)
+        self.sequence
+            .subscribeError(weak: self, WeakTarget.subscriber_onError)
+            .disposed(by: self.disposeBag)
     }
-    func useSubscribeComplete() {
-        self.observable.subscribeCompleted(weak: self, WeakTarget.subscriber_onComplete).disposed(by: self.disposeBag)
+
+    func useSubscribeCompleted() {
+        self.sequence
+            .subscribeCompleted(weak: self, WeakTarget.subscriber_onCompleted)
+            .disposed(by: self.disposeBag)
     }
+
     func useSubscribeMulti() {
-        self.observable
+        self.sequence
             .subscribe(
                 weak: self,
                 onNext: WeakTarget.subscriber_onNext,
                 onError: WeakTarget.subscriber_onError,
-                onCompleted: WeakTarget.subscriber_onComplete,
+                onCompleted: WeakTarget.subscriber_onCompleted,
                 onDisposed: WeakTarget.subscriber_onDisposed
             )
             .disposed(by: self.disposeBag)
     }
+}
 
-    func dispose() {
-        self.disposeBag = DisposeBag()
+// MARK: - Driver Subscription Setup
+extension WeakTarget where Sequence == Driver<Type> {
+    func useDriveMulti(retaining: Bool = false) {
+        if retaining {
+            self.sequence
+                .drive(
+                    onNext: self.subscriber_onNext,
+                    onCompleted: self.subscriber_onCompleted,
+                    onDisposed: self.subscriber_onDisposed
+                )
+                .disposed(by: self.disposeBag)
+        } else {
+            self.sequence
+                .drive(
+                    weak: self,
+                    onNext: WeakTarget.subscriber_onNext,
+                    onCompleted: WeakTarget.subscriber_onCompleted,
+                    onDisposed: WeakTarget.subscriber_onDisposed
+                )
+                .disposed(by: self.disposeBag)
+        }
+    }
+}
+
+// MARK: - Signal Subscription Setup
+extension WeakTarget where Sequence == Signal<Type> {
+    func useEmitMulti(retaining: Bool = false) {
+        if retaining {
+            self.sequence
+                .emit(
+                    onNext: self.subscriber_onNext,
+                    onCompleted: self.subscriber_onCompleted,
+                    onDisposed: self.subscriber_onDisposed
+                )
+                .disposed(by: self.disposeBag)
+        } else {
+            self.sequence
+                .emit(
+                    weak: self,
+                    onNext: WeakTarget.subscriber_onNext,
+                    onCompleted: WeakTarget.subscriber_onCompleted,
+                    onDisposed: WeakTarget.subscriber_onDisposed
+                )
+                .disposed(by: self.disposeBag)
+        }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  WeakTests.swift
+//  WeakObservableTests.swift
 //  RxSwiftExt
 //
 //  Created by Ian Keen on 17/04/2016.
@@ -12,8 +12,9 @@ import RxSwift
 import RxSwiftExt
 import RxTest
 
-class WeakTests: XCTestCase {
-    var target: WeakTarget<Int>?
+class WeakObservableTests: XCTestCase {
+    typealias TargetType = WeakTarget<Int, Observable<Int>>
+    var target: TargetType?
     var events = [RxEvent: Int]()
     let source = PublishSubject<Int>()
 
@@ -21,11 +22,11 @@ class WeakTests: XCTestCase {
         super.setUp()
 
         self.events = [RxEvent: Int]()
-        XCTAssertTrue(weakTargetReferenceCount == 0)
-        self.target = WeakTarget<Int>(obs: self.source) {
+        XCTAssertTrue(getReferenceCount(for: TargetType.self) == 0)
+        self.target = .init(sequence: self.source) {
             self.events = $0
         }
-        XCTAssertTrue(weakTargetReferenceCount == 1)
+        XCTAssertTrue(getReferenceCount(for: TargetType.self) == 1)
     }
 
     override func tearDown() {
@@ -33,7 +34,8 @@ class WeakTests: XCTestCase {
         self.target = nil
 
         // If a retain cycle was present this would not return to 0
-        XCTAssertTrue(weakTargetReferenceCount == 0)
+        XCTAssertTrue(getReferenceCount(for: TargetType.self) == 0)
+        resetReferenceCount(for: TargetType.self)
     }
 
     // MARK: - Event Subscriber
@@ -77,7 +79,7 @@ class WeakTests: XCTestCase {
     }
 
     func testSubscribeCompleted() {
-        self.target?.useSubscribeComplete()
+        self.target?.useSubscribeCompleted()
 
         self.source.onCompleted()
         self.target = nil
