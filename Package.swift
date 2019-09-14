@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "RxSwiftExt",
     platforms: [
-        .iOS(.v8), .tvOS(.v9), .macOS(.v10_11)
+        .iOS(.v8), .tvOS(.v9), .macOS(.v10_11), .watchOS(.v3)
     ],
     products: [
         .library(name: "RxSwiftExt", targets: ["RxSwiftExt"]),

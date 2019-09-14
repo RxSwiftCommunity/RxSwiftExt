@@ -6,7 +6,7 @@
 //  Copyright © 2019 RxSwift Community. All rights reserved.
 //
 
-#if canImport(UIKit)
+#if os(iOS)
 import UIKit
 import RxSwift
 import RxCocoa
