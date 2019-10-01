@@ -10,9 +10,6 @@ import XCTest
 import RxSwift
 import RxTest
 
-enum MergeWithError: Error {
-    case error
-}
 
 class MergeWithTests: XCTestCase {
     fileprivate func runAndObserve<T>(_ sequence: Observable<T>) -> TestableObserver<T> {
@@ -67,11 +64,11 @@ class MergeWithTests: XCTestCase {
 
     func testMergeWith_Error() {
         let numberStream = Observable.from([1, 2, 3, 4])
-        let errorStream = Observable<Int>.error(MergeWithError.error)
+        let errorStream = Observable<Int>.error(testError)
 
         let observer = runAndObserve(numberStream.merge(with: errorStream))
 
-        let expected = Recorded<Event<Int>>.events([.error(0, MergeWithError.error)])
+        let expected = Recorded<Event<Int>>.events([.error(0, testError)])
 
         XCTAssertEqual(observer.events, expected)
     }

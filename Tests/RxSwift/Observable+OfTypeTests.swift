@@ -14,14 +14,8 @@ import RxTest
 #if os(Linux)
     import Glibc
 #endif
-class ObservableOfTypeTest: XCTestCase {
-    enum TestError: Error {
-        case dummyError
-    }
-    let testError = TestError.dummyError
-}
 
-extension ObservableOfTypeTest {
+class ObservableOfTypeTest {
     func test_ofTypeComplete() {
         let scheduler = TestScheduler(initialClock: 0)
 

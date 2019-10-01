@@ -72,13 +72,13 @@ class NwiseTests: XCTestCase {
         subject.onNext(2)
         subject.onNext(3)
         subject.onNext(4)
-        subject.onError(DummyError.expected)
+        subject.onError(testError)
         scheduler.start()
 
         let correct: [Recorded<Event<EquatableArray<Int>>>] = [
             .next(0, EquatableArray([1, 2, 3])),
             .next(0, EquatableArray([2, 3, 4])),
-            .error(0, DummyError.expected)
+            .error(0, testError)
         ]
 
         XCTAssertEqual(observer.events, correct)
@@ -148,22 +148,18 @@ class NwiseTests: XCTestCase {
         subject.onNext(2)
         subject.onNext(3)
         subject.onNext(4)
-        subject.onError(DummyError.expected)
+        subject.onError(testError)
         scheduler.start()
 
         let correct = Recorded.events([
             .next(0, "1 2"),
             .next(0, "2 3"),
             .next(0, "3 4"),
-            .error(0, DummyError.expected)
+            .error(0, testError)
         ])
 
         XCTAssertEqual(observer.events, correct)
     }
-}
-
-private enum DummyError: Error {
-    case expected
 }
 
 private struct EquatableArray<Element: Equatable>: Equatable {
