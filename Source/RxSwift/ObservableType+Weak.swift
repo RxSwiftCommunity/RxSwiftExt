@@ -16,14 +16,14 @@ extension ObservableType {
 	- parameter obj:    The object that owns the function
 	- parameter method: The instance function represented as `InstanceType.instanceFunc`
 	*/
-	fileprivate func weakify<A: AnyObject, B>(_ obj: A, method: ((A) -> (B) -> Void)?) -> ((B) -> Void) {
+	fileprivate func weakify<Object: AnyObject, Input>(_ obj: Object, method: ((Object) -> (Input) -> Void)?) -> ((Input) -> Void) {
 		return { [weak obj] value in
 			guard let obj = obj else { return }
 			method?(obj)(value)
 		}
 	}
 
-    fileprivate func weakify<A: AnyObject>(_ obj: A, method: ((A) -> () -> Void)?) -> (() -> Void) {
+    fileprivate func weakify<Object: AnyObject>(_ obj: Object, method: ((Object) -> () -> Void)?) -> (() -> Void) {
         return { [weak obj] in
             guard let obj = obj else { return }
             method?(obj)()
@@ -37,7 +37,7 @@ extension ObservableType {
 	- parameter on: Function to invoke on `weak` for each event in the observable sequence.
 	- returns: Subscription object used to unsubscribe from the observable sequence.
 	*/
-	public func subscribe<A: AnyObject>(weak obj: A, _ on: @escaping (A) -> (Event<Element>) -> Void) -> Disposable {
+	public func subscribe<Object: AnyObject>(weak obj: Object, _ on: @escaping (Object) -> (Event<Element>) -> Void) -> Disposable {
 		return self.subscribe(weakify(obj, method: on))
 	}
 
@@ -52,13 +52,13 @@ extension ObservableType {
 	gracefully completed, errored, or if the generation is cancelled by disposing subscription)
 	- returns: Subscription object used to unsubscribe from the observable sequence.
 	*/
-	public func subscribe<A: AnyObject>(
-                    weak obj: A,
-                    onNext: ((A) -> (Element) -> Void)? = nil,
-                    onError: ((A) -> (Error) -> Void)? = nil,
-                    onCompleted: ((A) -> () -> Void)? = nil,
-                    onDisposed: ((A) -> () -> Void)? = nil)
-        -> Disposable {
+    public func subscribe<Object: AnyObject>(
+        weak obj: Object,
+        onNext: ((Object) -> (Element) -> Void)? = nil,
+        onError: ((Object) -> (Error) -> Void)? = nil,
+        onCompleted: ((Object) -> () -> Void)? = nil,
+        onDisposed: ((Object) -> () -> Void)? = nil
+    ) -> Disposable {
 		let disposable: Disposable
 
 		if let disposed = onDisposed {
@@ -91,7 +91,7 @@ extension ObservableType {
 	- parameter onNext: Function to invoke on `weak` for each element in the observable sequence.
 	- returns: Subscription object used to unsubscribe from the observable sequence.
 	*/
-	public func subscribeNext<A: AnyObject>(weak obj: A, _ onNext: @escaping (A) -> (Element) -> Void) -> Disposable {
+	public func subscribeNext<Object: AnyObject>(weak obj: Object, _ onNext: @escaping (Object) -> (Element) -> Void) -> Disposable {
         return self.subscribe(onNext: weakify(obj, method: onNext))
 	}
 
@@ -102,7 +102,7 @@ extension ObservableType {
 	- parameter onError: Function to invoke on `weak` upon errored termination of the observable sequence.
 	- returns: Subscription object used to unsubscribe from the observable sequence.
 	*/
-	public func subscribeError<A: AnyObject>(weak obj: A, _ onError: @escaping (A) -> (Error) -> Void) -> Disposable {
+	public func subscribeError<Object: AnyObject>(weak obj: Object, _ onError: @escaping (Object) -> (Error) -> Void) -> Disposable {
         return self.subscribe(onError: weakify(obj, method: onError))
 	}
 
@@ -113,7 +113,7 @@ extension ObservableType {
 	- parameter onCompleted: Function to invoke on `weak` graceful termination of the observable sequence.
 	- returns: Subscription object used to unsubscribe from the observable sequence.
 	*/
-	public func subscribeCompleted<A: AnyObject>(weak obj: A, _ onCompleted: @escaping (A) -> () -> Void) -> Disposable {
+	public func subscribeCompleted<Object: AnyObject>(weak obj: Object, _ onCompleted: @escaping (Object) -> () -> Void) -> Disposable {
         return self.subscribe(onCompleted: weakify(obj, method: onCompleted))
 	}
 }

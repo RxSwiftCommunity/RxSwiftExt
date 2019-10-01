@@ -16,7 +16,7 @@ extension ObservableType {
      - parameter trigger: The observable sequence used to signal the emission of the buffered items.
      - returns: The buffered observable from elements of the source sequence.
      */
-    public func bufferWithTrigger<U>(_ trigger: Observable<U>) -> Observable<[Element]> {
+    public func bufferWithTrigger<Trigger: ObservableType>(_ trigger: Trigger) -> Observable<[Element]> {
         return Observable.create { observer in
             var buffer: [Element] = []
             let lock = NSRecursiveLock()
