@@ -26,7 +26,7 @@ extension ObservableType {
      - parameter flushOnError: If `true` buffered elements will be flushed when the source errors. Default `true`.
      - returns: The observable sequence which is paused and resumed based upon the pauser observable sequence.
      */
-    public func pausableBuffered<P: ObservableType> (_ pauser: P, limit: Int? = 1, flushOnCompleted: Bool = true, flushOnError: Bool = true) -> Observable<Element> where P.Element == Bool {
+    public func pausableBuffered<Pauser: ObservableType> (_ pauser: Pauser, limit: Int? = 1, flushOnCompleted: Bool = true, flushOnError: Bool = true) -> Observable<Element> where Pauser.Element == Bool {
 
         return Observable<Element>.create { observer in
             var buffer: [Element] = []
