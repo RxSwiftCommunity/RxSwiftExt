@@ -17,7 +17,7 @@ extension ObservableType {
      - returns: An observable sequence of non-optional elements
      */
 
-    public func unwrap<T>() -> Observable<T> where Element == T? {
+    public func unwrap<Result>() -> Observable<Result> where Element == Result? {
         return self.compactMap { $0 }
     }
 }

@@ -51,7 +51,8 @@ extension ObservableType where Element == Bool {
 
 	Use `asSingle()` or `asObservable()` to convert to your requirements.
 	*/
-	public static func and<C: Collection>(_ collection: C) -> Maybe<Element> where C.Element: ObservableType, C.Element.Element == Element {
+    public static func and<Collection: Swift.Collection>(_ collection: Collection)
+        -> Maybe<Element> where Collection.Element: ObservableType, Collection.Element.Element == Element {
 		return Maybe.create { observer in
 			var emitted = [Bool](repeating: false, count: Int(collection.count))
 			var completed = 0
@@ -99,7 +100,7 @@ extension ObservableType where Element == Bool {
 
 	Use `asSingle()` or `asObservable()` to convert to your requirements.
 	*/
-	public static func and<O: ObservableType>(_ sources: O ...) -> Maybe<Element> where O.Element == Element {
+	public static func and<Observable: ObservableType>(_ sources: Observable ...) -> Maybe<Element> where Observable.Element == Element {
 		return and(sources)
 	}
 }

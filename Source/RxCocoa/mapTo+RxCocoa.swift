@@ -15,12 +15,12 @@ extension SharedSequenceConvertibleType {
      - parameter value: A constant that each element of the input sequence is being replaced with
      - returns: An unit containing the values `value` provided as a parameter
      */
-    public func mapTo<R>(_ value: R) -> SharedSequence<SharingStrategy, R> {
+    public func mapTo<Result>(_ value: Result) -> SharedSequence<SharingStrategy, Result> {
         return map { _ in value }
     }
 
     @available(*, deprecated, renamed: "mapTo(_:)")
-    public func map<R>(to value: R) -> SharedSequence<SharingStrategy, R> {
+    public func map<Result>(to value: Result) -> SharedSequence<SharingStrategy, Result> {
         return map { _ in value }
     }
 }

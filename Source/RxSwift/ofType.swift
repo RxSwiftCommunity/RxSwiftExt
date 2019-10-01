@@ -19,9 +19,9 @@ extension ObservableType {
      - parameter type: The Type to filter each source element.
      - returns: An observable sequence that contains elements which is an instance of the suppplied type.
      */
-    public func ofType<T>(_ type: T.Type) -> Observable<T> {
+    public func ofType<Result>(_ type: Result.Type) -> Observable<Result> {
         return self.filterMap {
-            guard let result = $0 as? T else { return .ignore }
+            guard let result = $0 as? Result else { return .ignore }
             return .map(result)
         }
     }
