@@ -15,10 +15,6 @@ struct Pair<F: Equatable, S: Equatable> {
     let second: S
 }
 
-enum ZipWithTestError: Error {
-    case error
-}
-
 extension Pair: Equatable {
 }
 
@@ -65,7 +61,7 @@ class ZipWithTest: XCTestCase {
     func testZipWith_SourceError_ZipCompletesWithError() {
         let scheduler = TestScheduler(initialClock: 0)
         let source1 = Observable.just(1)
-        let source2 = Observable<Int>.error(ZipWithTestError.error)
+        let source2 = Observable<Int>.error(testError)
 
         let res = scheduler.start {
             source1.zip(with: source2) {
@@ -73,7 +69,7 @@ class ZipWithTest: XCTestCase {
             }
         }
 
-        let expected: [Recorded<Event<Pair<Int, Int>>>] = [.error(200, ZipWithTestError.error)]
+        let expected: [Recorded<Event<Pair<Int, Int>>>] = [.error(200, testError)]
         XCTAssertEqual(res.events, expected)
     }
 

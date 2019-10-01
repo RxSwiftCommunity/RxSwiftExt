@@ -9,9 +9,6 @@
 import Foundation
 import RxSwift
 
-enum WeakTargetError: Error {
-    case error
-}
 enum RxEvent {
     case next, error, completed, disposed
     init<T>(event: Event<T>) {

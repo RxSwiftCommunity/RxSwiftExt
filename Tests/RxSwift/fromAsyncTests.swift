@@ -76,7 +76,7 @@ class FromAsyncTests: XCTestCase {
 
     func testSingleResultEqualityErrorCase() {
         // given
-        let expectedEvents: [Recorded<Event<String>>] = [.error(0, TestError())]
+        let expectedEvents: [Recorded<Event<String>>] = [.error(0, testError)]
         // when
         _ = Single<String>
             .fromAsync(serviceThrowingError)
@@ -85,10 +85,6 @@ class FromAsyncTests: XCTestCase {
         scheduler.start()
         // then
         XCTAssertEqual(observer.events, expectedEvents)
-    }
-
-    // MARK: - Private utils
-    private struct TestError: Error {
     }
 
     private func service(arg1: String, arg2: Int, completionHandler: (String) -> Void) {
@@ -104,7 +100,7 @@ class FromAsyncTests: XCTestCase {
     }
 
     private func serviceThrowingError(completionHandler: (String?, TestError?) -> Void) {
-        completionHandler(nil, TestError())
+        completionHandler(nil, testError)
     }
 
     private func serviceWithOptionalResult(completionHandler: (String??, TestError?) -> Void) {

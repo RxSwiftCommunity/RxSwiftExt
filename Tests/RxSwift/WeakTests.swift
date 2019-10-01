@@ -44,7 +44,7 @@ class WeakTests: XCTestCase {
         self.source.onNext(0)
         self.target = nil
         self.source.onNext(0)
-        self.source.onError(WeakTargetError.error)
+        self.source.onError(testError)
         self.target?.dispose()
 
         let expected: [RxEvent: Int] = [.next: 2, .error: 0, .completed: 0, .disposed: 0]
@@ -68,7 +68,7 @@ class WeakTests: XCTestCase {
     func testSubscribeError() {
         self.target?.useSubscribeError()
 
-        self.source.onError(WeakTargetError.error)
+        self.source.onError(testError)
         self.target = nil
 
         // Errors only emit once
@@ -104,7 +104,7 @@ class WeakTests: XCTestCase {
     func testSubscribeOn_Error() {
         self.target?.useSubscribeMulti()
 
-        self.source.onError(WeakTargetError.error)
+        self.source.onError(testError)
         self.target = nil
 
         // Errors only emit once

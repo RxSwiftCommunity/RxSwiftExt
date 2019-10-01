@@ -11,10 +11,6 @@ import RxSwift
 import RxSwiftExt
 import RxTest
 
-private enum RepeatTestErrors: Error {
-	case fatalError
-}
-
 class RepeatWithBehaviorTests: XCTestCase {
 	var sampleValues: TestableObservable<Int>!
     var sampleValuesWithError: TestableObservable<Int>!
@@ -33,7 +29,7 @@ class RepeatWithBehaviorTests: XCTestCase {
 
         sampleValuesWithError = scheduler.createColdObservable([
             .next(210, 1),
-            .error(220, RepeatTestErrors.fatalError)
+            .error(220, testError)
             ])
 	}
 
@@ -65,7 +61,7 @@ class RepeatWithBehaviorTests: XCTestCase {
 
     let erroredCorrectValues: [Recorded<Event<Int>>] = [
         .next(210, 1),
-        .error(220, RepeatTestErrors.fatalError)
+        .error(220, testError)
     ]
 
     // MARK: - Immediate repeats

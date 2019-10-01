@@ -10,9 +10,6 @@ import XCTest
 import RxSwift
 import RxTest
 
-private enum AndTestsError: Error {
-	case anyError
-}
 
 class AndTests: XCTestCase {
 	fileprivate func runAndObserve(_ sequence: Maybe<Bool>) -> TestableObserver<Bool> {
@@ -95,10 +92,10 @@ class AndTests: XCTestCase {
 	}
 
 	func testSingle_onlyError() {
-		let source = Observable<Bool>.error(AndTestsError.anyError)
+		let source = Observable<Bool>.error(testError)
 		let observer = runAndObserve(source.and())
 		let correct: [Recorded<Event<Bool>>] = [
-			.error(0, AndTestsError.anyError)
+			.error(0, testError)
 		]
 		XCTAssertEqual(observer.events, correct)
 	}
@@ -109,7 +106,7 @@ class AndTests: XCTestCase {
 			.next(100, true),
 			.next(110, false),
 			.next(120, true),
-			.error(130, AndTestsError.anyError),
+			.error(130, testError),
 			.completed(300)
 			])
 
@@ -130,7 +127,7 @@ class AndTests: XCTestCase {
 			.next(100, true),
 			.next(110, true),
 			.next(120, true),
-			.error(130, AndTestsError.anyError),
+			.error(130, testError),
 			.completed(300)
 			])
 
@@ -139,7 +136,7 @@ class AndTests: XCTestCase {
 		scheduler.start()
 
 		let correct: [Recorded<Event<Bool>>] = [
-			.error(130, AndTestsError.anyError)
+			.error(130, testError)
 		]
 		XCTAssertEqual(observer.events, correct)
 	}
@@ -283,7 +280,7 @@ class AndTests: XCTestCase {
 			])
 		let source3 = scheduler.createColdObservable([
 			.next(75, true),
-			.error(100, AndTestsError.anyError)
+			.error(100, testError)
 			])
 
 		let observer = scheduler.createObserver(Bool.self)
@@ -294,7 +291,7 @@ class AndTests: XCTestCase {
 		scheduler.start()
 
 		let correct: [Recorded<Event<Bool>>] = [
-			.error(100, AndTestsError.anyError)
+			.error(100, testError)
 		]
 		XCTAssertEqual(observer.events, correct)
 	}
