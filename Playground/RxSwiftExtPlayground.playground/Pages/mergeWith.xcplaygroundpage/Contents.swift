@@ -27,7 +27,8 @@ example("merge(with:)") {
     let evenStream = Observable.from(evenNumbers)
     let otherStream = Observable.from(otherNumbers)
 
-    oddStream.merge(with: evenStream, otherStream)
+    oddStream
+        .merge(with: [evenStream, otherStream])
         .subscribe(onNext: { result in
             print(result)
         })

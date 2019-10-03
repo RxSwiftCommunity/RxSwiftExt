@@ -474,7 +474,9 @@
 				9DAB77991D6763AC007E85BC /* Frameworks */,
 				18EE7A191C47B12F00C7256C /* Products */,
 			);
+			indentWidth = 4;
 			sourceTree = "<group>";
+			tabWidth = 4;
 		};
 		18EE7A191C47B12F00C7256C /* Products */ = {
 			isa = PBXGroup;
