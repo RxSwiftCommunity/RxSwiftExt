@@ -57,7 +57,7 @@ extension ObservableType where Element == Void {
      */
     public func withUnretained<T: AnyObject, Out>(_ obj: T, resultSelector: @escaping (T) -> Out)
         -> Observable<Out> {
-            return withUnretained(obj) { object, _ in resultSelector(object) }
+        return withUnretained(obj) { object, _ in resultSelector(object) }
     }
 
     /**
