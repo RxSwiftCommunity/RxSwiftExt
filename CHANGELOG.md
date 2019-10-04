@@ -1,6 +1,7 @@
 Changelog
 =========
 
+- Add `withUnretained` to `SharedSequence`
 - added `reachedBottom(offset:)` for `UIScrollView`
 - `once` now uses a `NSRecursiveLock` instead of the deprecated `OSAtomicOr32OrigBarrier`
 - Simplify `filterMap(_:)` implementation and make callback throwing

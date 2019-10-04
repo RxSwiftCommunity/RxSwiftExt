@@ -24,7 +24,7 @@
 /* Begin PBXBuildFile section */
 		188C6DA31C47B4240092101A /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188C6DA21C47B4240092101A /* RxSwift.framework */; };
 		1958B5F1216768D900CAF1D3 /* unwrap+SharedSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1958B5F0216768D900CAF1D3 /* unwrap+SharedSequence.swift */; };
-		1958B5F621676ECB00CAF1D3 /* unrwapTests+SharedSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1958B5F521676ECB00CAF1D3 /* unrwapTests+SharedSequence.swift */; };
+		1958B5F621676ECB00CAF1D3 /* unwrapTests+SharedSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1958B5F521676ECB00CAF1D3 /* unwrapTests+SharedSequence.swift */; };
 		1A8741AC20745A91004BB762 /* UIViewPropertyAnimatorTests+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8741AB20745A91004BB762 /* UIViewPropertyAnimatorTests+Rx.swift */; };
 		1AA8395B207451D6001C49ED /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA8395A207451D5001C49ED /* RxCocoa.framework */; };
 		3D11958B1FCAD9AE0095134B /* and.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBDE5FB1FBBAE3900DF47F9 /* and.swift */; };
@@ -159,6 +159,12 @@
 		8CF5F8B3202D6C5F00C1BA97 /* mapAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF5F8B2202D6C5F00C1BA97 /* mapAt.swift */; };
 		98309EB11EDF159500BD07D9 /* filterMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98309EB01EDF159500BD07D9 /* filterMap.swift */; };
 		98309EB41EDF167300BD07D9 /* FilterMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98309EB21EDF161700BD07D9 /* FilterMapTests.swift */; };
+		A23B6F8023475ECD008FA7BF /* withUnretained+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23B6F7F23475ECD008FA7BF /* withUnretained+RxCocoa.swift */; };
+		A23B6F8123475ECD008FA7BF /* withUnretained+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23B6F7F23475ECD008FA7BF /* withUnretained+RxCocoa.swift */; };
+		A23B6F8223475ECD008FA7BF /* withUnretained+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23B6F7F23475ECD008FA7BF /* withUnretained+RxCocoa.swift */; };
+		A23B6F8423475FD6008FA7BF /* withUnretainedTests+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23B6F8323475FD6008FA7BF /* withUnretainedTests+RxCocoa.swift */; };
+		A23B6F8523475FD6008FA7BF /* withUnretainedTests+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23B6F8323475FD6008FA7BF /* withUnretainedTests+RxCocoa.swift */; };
+		A23B6F8623475FD6008FA7BF /* withUnretainedTests+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23B6F8323475FD6008FA7BF /* withUnretainedTests+RxCocoa.swift */; };
 		A23E148721A9EFC000CD5B2F /* partition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E148621A9EFC000CD5B2F /* partition.swift */; };
 		A23E148821A9EFC000CD5B2F /* partition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E148621A9EFC000CD5B2F /* partition.swift */; };
 		A23E148921A9EFC000CD5B2F /* partition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E148621A9EFC000CD5B2F /* partition.swift */; };
@@ -298,7 +304,7 @@
 		188C6D911C47B2B20092101A /* RxSwiftExt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxSwiftExt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		188C6DA21C47B4240092101A /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = SOURCE_ROOT; };
 		1958B5F0216768D900CAF1D3 /* unwrap+SharedSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "unwrap+SharedSequence.swift"; sourceTree = "<group>"; };
-		1958B5F521676ECB00CAF1D3 /* unrwapTests+SharedSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "unrwapTests+SharedSequence.swift"; sourceTree = "<group>"; };
+		1958B5F521676ECB00CAF1D3 /* unwrapTests+SharedSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "unwrapTests+SharedSequence.swift"; sourceTree = "<group>"; };
 		1A8741AB20745A91004BB762 /* UIViewPropertyAnimatorTests+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewPropertyAnimatorTests+Rx.swift"; sourceTree = "<group>"; };
 		1AA8395A207451D5001C49ED /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		3D638DE71DC2B2D40089A590 /* RxSwiftExtTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RxSwiftExtTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -368,6 +374,8 @@
 		98309EB01EDF159500BD07D9 /* filterMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = filterMap.swift; path = Source/RxSwift/filterMap.swift; sourceTree = SOURCE_ROOT; };
 		98309EB21EDF161700BD07D9 /* FilterMapTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterMapTests.swift; sourceTree = "<group>"; };
 		9DAB77851D67639C007E85BC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Source/Info.plist; sourceTree = SOURCE_ROOT; };
+		A23B6F7F23475ECD008FA7BF /* withUnretained+RxCocoa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "withUnretained+RxCocoa.swift"; sourceTree = "<group>"; };
+		A23B6F8323475FD6008FA7BF /* withUnretainedTests+RxCocoa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "withUnretainedTests+RxCocoa.swift"; sourceTree = "<group>"; };
 		A23E148621A9EFC000CD5B2F /* partition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = partition.swift; sourceTree = "<group>"; };
 		A23E148A21A9F03600CD5B2F /* partition+RxCocoa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "partition+RxCocoa.swift"; sourceTree = "<group>"; };
 		A23E148E21A9F10D00CD5B2F /* PartitionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartitionTests.swift; sourceTree = "<group>"; };
@@ -510,6 +518,7 @@
 				1958B5F0216768D900CAF1D3 /* unwrap+SharedSequence.swift */,
 				A23E148A21A9F03600CD5B2F /* partition+RxCocoa.swift */,
 				78199612228449CA00340AF4 /* UIScrollView+reachedBottom.swift */,
+				A23B6F7F23475ECD008FA7BF /* withUnretained+RxCocoa.swift */,
 			);
 			path = RxCocoa;
 			sourceTree = "<group>";
@@ -521,9 +530,10 @@
 				538607711E6F1CFB000361DE /* MapToTests+RxCocoa.swift */,
 				53C79D5F1E6F5AAB00CD9B6A /* NotTests+RxCocoa.swift */,
 				1A8741AB20745A91004BB762 /* UIViewPropertyAnimatorTests+Rx.swift */,
-				1958B5F521676ECB00CAF1D3 /* unrwapTests+SharedSequence.swift */,
+				1958B5F521676ECB00CAF1D3 /* unwrapTests+SharedSequence.swift */,
 				A23E149221A9F73500CD5B2F /* PartitionTests+RxCocoa.swift */,
 				7819961422844E9D00340AF4 /* UIScrollView+reachedBottomTests.swift */,
+				A23B6F8323475FD6008FA7BF /* withUnretainedTests+RxCocoa.swift */,
 			);
 			name = RxCocoa;
 			path = Tests/RxCocoa;
@@ -1046,6 +1056,7 @@
 				538607B31E6F334B000361DE /* not.swift in Sources */,
 				B69B45492190C27D00F30418 /* count.swift in Sources */,
 				538607AD1E6F334B000361DE /* distinct.swift in Sources */,
+				A23B6F8023475ECD008FA7BF /* withUnretained+RxCocoa.swift in Sources */,
 				D7C72A421FDC5D8F00EAAAAB /* nwise.swift in Sources */,
 				538607B61E6F334B000361DE /* pausable.swift in Sources */,
 				780CB21520A0ED1C00FD3F39 /* toSortedArray.swift in Sources */,
@@ -1083,6 +1094,7 @@
 				BF515CE51F3F3AF400492640 /* FromAsyncTests.swift in Sources */,
 				538607EB1E6F36A9000361DE /* RetryWithBehaviorTests.swift in Sources */,
 				D7C72A3E1FDC5C5D00EAAAAB /* NwiseTests.swift in Sources */,
+				A23B6F8423475FD6008FA7BF /* withUnretainedTests+RxCocoa.swift in Sources */,
 				782485952298A785005CF8CC /* MergeWithTests.swift in Sources */,
 				8CF5F8AF202D62AB00C1BA97 /* MapAtTests.swift in Sources */,
 				538607E21E6F36A9000361DE /* DistinctTests.swift in Sources */,
@@ -1096,7 +1108,7 @@
 				538607E51E6F36A9000361DE /* IgnoreWhenTests.swift in Sources */,
 				538607E11E6F36A9000361DE /* CatchErrorJustCompleteTests.swift in Sources */,
 				538607ED1E6F36A9000361DE /* WeakTarget.swift in Sources */,
-				1958B5F621676ECB00CAF1D3 /* unrwapTests+SharedSequence.swift in Sources */,
+				1958B5F621676ECB00CAF1D3 /* unwrapTests+SharedSequence.swift in Sources */,
 				C4D2154220118FB9009804AE /* Observable+OfTypeTests.swift in Sources */,
 				780CB21D20A0EE8300FD3F39 /* MapManyTests.swift in Sources */,
 				538607E41E6F36A9000361DE /* IgnoreTests.swift in Sources */,
@@ -1119,6 +1131,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A23B6F8123475ECD008FA7BF /* withUnretained+RxCocoa.swift in Sources */,
 				62512C7A1F0EAF950083A89F /* unwrap.swift in Sources */,
 				780CB21620A0ED1C00FD3F39 /* toSortedArray.swift in Sources */,
 				7824859B2298ADE2005CF8CC /* mergeWith.swift in Sources */,
@@ -1172,6 +1185,7 @@
 				62512CA41F0EB1850083A89F /* FilterMapTests.swift in Sources */,
 				B69B454F2190C3CC00F30418 /* CountTests.swift in Sources */,
 				D7C72A3F1FDC5C5D00EAAAAB /* NwiseTests.swift in Sources */,
+				A23B6F8523475FD6008FA7BF /* withUnretainedTests+RxCocoa.swift in Sources */,
 				8CF5F8B0202D62AD00C1BA97 /* MapAtTests.swift in Sources */,
 				62512C8F1F0EB17A0083A89F /* DistinctTests+RxCocoa.swift in Sources */,
 				62512C951F0EB1850083A89F /* DistinctTests.swift in Sources */,
@@ -1206,6 +1220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A23B6F8223475ECD008FA7BF /* withUnretained+RxCocoa.swift in Sources */,
 				E39C41EB1F18B08A007F2ACD /* unwrap.swift in Sources */,
 				780CB21720A0ED1C00FD3F39 /* toSortedArray.swift in Sources */,
 				7824859C2298ADE2005CF8CC /* mergeWith.swift in Sources */,
@@ -1259,6 +1274,7 @@
 				E39C41FF1F18B13A007F2ACD /* NotTests+RxCocoa.swift in Sources */,
 				B69B45502190C3CD00F30418 /* CountTests.swift in Sources */,
 				D7C72A401FDC5C5D00EAAAAB /* NwiseTests.swift in Sources */,
+				A23B6F8623475FD6008FA7BF /* withUnretainedTests+RxCocoa.swift in Sources */,
 				8CF5F8B1202D62AE00C1BA97 /* MapAtTests.swift in Sources */,
 				E39C42011F18B13E007F2ACD /* CascadeTests.swift in Sources */,
 				E39C42101F18B13E007F2ACD /* WeakTarget.swift in Sources */,

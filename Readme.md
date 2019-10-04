@@ -568,7 +568,7 @@ This example emits 2, 5 (`NSDecimalNumber` Type).
 #### withUnretained
 
 The `withUnretained(_:resultSelector:)` operator provides an unretained, safe to use (i.e. not implicitly unwrapped), reference to an object along with the events emitted by the sequence.
-In the case the provided object cannot be retained successfully, the seqeunce will complete.
+In the case the provided object cannot be retained successfully, the sequence will complete.
 
 ```swift
 class TestClass: CustomStringConvertible {
