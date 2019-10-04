@@ -20,7 +20,7 @@ extension Observable where Element: ObservableType {
 	- parameter observables: a sequence of observables which will all be immediately subscribed to
 	- returns: An observable sequence that contains elements from the latest observable sequence that emitted elements
 	*/
-    public static func cascade<Sequebce: Swift.Sequence>(_ observables: Sequebce) -> Observable<Element.Element> where Sequebce.Element == Element {
+    public static func cascade<Sequence: Swift.Sequence>(_ observables: Sequence) -> Observable<Element.Element> where Sequence.Element == Element {
         let flow = Array(observables)
         if flow.isEmpty {
             return Observable<Element.Element>.empty()
