@@ -21,7 +21,7 @@ extension ObservableConvertibleType {
 
      - Returns: An observable sequence containing the result of combining elements of the sources using the specified result selector function.
      */
-    public func zip<Observable2: ObservableConvertibleType, ResultType>(with second: Observable2, resultSelector: @escaping (Element, Observable2.Element) throws -> ResultType) -> Observable<ResultType> {
+    public func zip<Other: ObservableConvertibleType, ResultType>(with second: Other, resultSelector: @escaping (Element, Other.Element) throws -> ResultType) -> Observable<ResultType> {
         return Observable.zip(asObservable(), second.asObservable(), resultSelector: resultSelector)
     }
 }
