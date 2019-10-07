@@ -1,8 +1,8 @@
 # set the number of lines that must be changed before this classifies as a 'Big PR'
-@SDM_DANGER_BIG_PR_LINES = 50
+@DANGER_BIG_PR_LINES = 50
 
 # set the files to watch and fail if there are changes
-@SDM_DANGER_IMMUTABLE_FILES = ['LICENSE', 'CONDUCT.md']
+@DANGER_IMMUTABLE_FILES = ['LICENSE', 'CONDUCT.md']
 
 # Sometimes it's a README fix, or something like that which is trivial
 not_declared_trivial = !(github.pr_title.include? "#trivial")
@@ -26,13 +26,13 @@ def did_modify(files_array)
 end
 
 # Fail if changes to immutable files, such as License or CoC
-fail('Do not modify the license or Code of Conduct') if did_modify(@SDM_DANGER_IMMUTABLE_FILES)
+fail('Do not modify the license or Code of Conduct') if did_modify(@DANGER_IMMUTABLE_FILES)
 
 # Make it more obvious that a PR is a work in progress and shouldn't be merged yet
 warn("PR is classed as Work in Progress") if github.pr_title.include? "[WIP]"
 
 # Warn when there is a big PR
-warn("Big PR") if git.lines_of_code > @SDM_DANGER_BIG_PR_LINES
+warn("Big PR") if git.lines_of_code > @DANGER_BIG_PR_LINES
 
 # Mainly to encourage writing up some reasoning about the PR, rather than
 # just leaving a title
