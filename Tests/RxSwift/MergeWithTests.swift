@@ -10,7 +10,6 @@ import XCTest
 import RxSwift
 import RxTest
 
-
 class MergeWithTests: XCTestCase {
     fileprivate func runAndObserve<T>(_ sequence: Observable<T>) -> TestableObserver<T> {
         let scheduler = TestScheduler(initialClock: 0)

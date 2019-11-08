@@ -18,7 +18,7 @@ extension ObservableType {
      - returns: An observable sequence that contains the result of `resultSelector` being called with an unretained reference on `obj` and the values of the original sequence.
      */
     public func withUnretained<Object: AnyObject, Out>(_ obj: Object,
-                                                  resultSelector: @escaping ((Object, Element)) -> Out) -> Observable<Out> {
+                                                       resultSelector: @escaping ((Object, Element)) -> Out) -> Observable<Out> {
         return map { [weak obj] element -> Out in
             guard let obj = obj else { throw UnretainedError.failedRetaining }
 
