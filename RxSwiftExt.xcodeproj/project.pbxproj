@@ -421,7 +421,7 @@
 		BF515CE31F3F3AC900492640 /* FromAsyncTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FromAsyncTests.swift; sourceTree = "<group>"; };
 		BF79DA09206C145D008AA708 /* withUnretained.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = withUnretained.swift; sourceTree = "<group>"; };
 		BF79DA0D206C185B008AA708 /* WithUnretainedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithUnretainedTests.swift; sourceTree = "<group>"; };
-		C36192F62374EE80004C3BD9 /* RxSwiftExt-watchOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "RxSwiftExt-watchOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C36192F62374EE80004C3BD9 /* RxSwiftExt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxSwiftExt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4D2153E20118A81009804AE /* ofType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ofType.swift; sourceTree = "<group>"; };
 		C4D2154020118F8B009804AE /* Observable+OfTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+OfTypeTests.swift"; sourceTree = "<group>"; };
 		D7C72A3D1FDC5C5D00EAAAAB /* NwiseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NwiseTests.swift; sourceTree = "<group>"; };
@@ -538,7 +538,7 @@
 				62512C841F0EB1280083A89F /* RxSwiftExtTests-macOS.xctest */,
 				E39C41D01F18AF84007F2ACD /* RxSwiftExt.framework */,
 				E39C41F21F18B0EA007F2ACD /* RxSwiftTests.xctest */,
-				C36192F62374EE80004C3BD9 /* RxSwiftExt-watchOS.framework */,
+				C36192F62374EE80004C3BD9 /* RxSwiftExt.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -834,7 +834,7 @@
 			);
 			name = "RxSwiftExt-watchOS";
 			productName = NSObject_Rx;
-			productReference = C36192F62374EE80004C3BD9 /* RxSwiftExt-watchOS.framework */;
+			productReference = C36192F62374EE80004C3BD9 /* RxSwiftExt.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		E39C41CF1F18AF84007F2ACD /* RxSwiftExt-tvOS */ = {
@@ -1823,7 +1823,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.RxSwiftCommunity.RxSwiftExt;
-				PRODUCT_NAME = "RxSwiftExt-watchOS";
+				PRODUCT_NAME = RxSwiftExt;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1854,7 +1854,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.RxSwiftCommunity.RxSwiftExt;
-				PRODUCT_NAME = "RxSwiftExt-watchOS";
+				PRODUCT_NAME = RxSwiftExt;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
