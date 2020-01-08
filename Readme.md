@@ -465,7 +465,7 @@ The sequence above keeps even numbers 2, 4, 6 and produces the sequence 4, 8, 12
 
 #### errors, elements
 
-These operators only apply to observable serquences that have been materialized with the `materialize()` operator (from RxSwift core). `errors` returns a sequence of filtered error events, ommitting elements. `elements` returns a sequence of filtered element events, ommitting errors.
+These operators only apply to observable sequences that have been materialized with the `materialize()` operator (from RxSwift core). `errors` returns a sequence of filtered error events, ommitting elements. `elements` returns a sequence of filtered element events, ommitting errors.
 
 ```swift
 let imageResult = _chooseImageButtonPressed.asObservable()
