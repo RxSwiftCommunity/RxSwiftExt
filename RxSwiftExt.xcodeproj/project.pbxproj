@@ -22,6 +22,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		05A2BBB0247DAD2A007B54D6 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05A2BBAF247DAD2A007B54D6 /* RxCocoa.framework */; };
+		05A2BBB4247DB0B8007B54D6 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05A2BBB3247DB0B8007B54D6 /* RxCocoa.framework */; };
 		188C6DA31C47B4240092101A /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188C6DA21C47B4240092101A /* RxSwift.framework */; };
 		1958B5F1216768D900CAF1D3 /* unwrap+SharedSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1958B5F0216768D900CAF1D3 /* unwrap+SharedSequence.swift */; };
 		1958B5F621676ECB00CAF1D3 /* unrwapTests+SharedSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1958B5F521676ECB00CAF1D3 /* unrwapTests+SharedSequence.swift */; };
@@ -171,7 +173,6 @@
 		A23E149321A9F73500CD5B2F /* PartitionTests+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E149221A9F73500CD5B2F /* PartitionTests+RxCocoa.swift */; };
 		A23E149421A9F73500CD5B2F /* PartitionTests+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E149221A9F73500CD5B2F /* PartitionTests+RxCocoa.swift */; };
 		A23E149521A9F73500CD5B2F /* PartitionTests+RxCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E149221A9F73500CD5B2F /* PartitionTests+RxCocoa.swift */; };
-		A2A68C992278AF6800586188 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A68C972278AF5000586188 /* RxRelay.framework */; };
 		B69B45492190C27D00F30418 /* count.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B45482190C27D00F30418 /* count.swift */; };
 		B69B454A2190C3AE00F30418 /* count.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B45482190C27D00F30418 /* count.swift */; };
 		B69B454B2190C3AF00F30418 /* count.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B45482190C27D00F30418 /* count.swift */; };
@@ -295,6 +296,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05A2BBAF247DAD2A007B54D6 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/Mac/RxCocoa.framework; sourceTree = "<group>"; };
+		05A2BBB3247DB0B8007B54D6 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/Mac/RxCocoa.framework; sourceTree = "<group>"; };
 		188C6D911C47B2B20092101A /* RxSwiftExt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxSwiftExt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		188C6DA21C47B4240092101A /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = SOURCE_ROOT; };
 		1958B5F0216768D900CAF1D3 /* unwrap+SharedSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "unwrap+SharedSequence.swift"; sourceTree = "<group>"; };
@@ -372,7 +375,6 @@
 		A23E148A21A9F03600CD5B2F /* partition+RxCocoa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "partition+RxCocoa.swift"; sourceTree = "<group>"; };
 		A23E148E21A9F10D00CD5B2F /* PartitionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartitionTests.swift; sourceTree = "<group>"; };
 		A23E149221A9F73500CD5B2F /* PartitionTests+RxCocoa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PartitionTests+RxCocoa.swift"; sourceTree = "<group>"; };
-		A2A68C972278AF5000586188 /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
 		B69B45482190C27D00F30418 /* count.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = count.swift; sourceTree = "<group>"; };
 		B69B454C2190C3BC00F30418 /* CountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountTests.swift; sourceTree = "<group>"; };
 		BF515CDF1F3F370600492640 /* curry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = curry.swift; path = Source/Tools/curry.swift; sourceTree = SOURCE_ROOT; };
@@ -408,7 +410,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D638E1D1DC2B36A0089A590 /* RxSwift.framework in Frameworks */,
-				A2A68C992278AF6800586188 /* RxRelay.framework in Frameworks */,
 				3D638DEC1DC2B2D50089A590 /* RxSwiftExt.framework in Frameworks */,
 				3D638E1F1DC2B3A40089A590 /* RxTest.framework in Frameworks */,
 			);
@@ -418,6 +419,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05A2BBB0247DAD2A007B54D6 /* RxCocoa.framework in Frameworks */,
 				62512C661F0EAF670083A89F /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,6 +438,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05A2BBB4247DB0B8007B54D6 /* RxCocoa.framework in Frameworks */,
 				E36BDFBB1F387571008C9D56 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -612,6 +615,7 @@
 		62512C551F0EAEB20083A89F /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				1AA8395A207451D5001C49ED /* RxCocoa.framework */,
 				188C6DA21C47B4240092101A /* RxSwift.framework */,
 				3D638E1E1DC2B3A40089A590 /* RxTest.framework */,
 			);
@@ -621,8 +625,9 @@
 		62512C561F0EAEB90083A89F /* macOS */ = {
 			isa = PBXGroup;
 			children = (
-				62512CA61F0EB1BD0083A89F /* RxTest.framework */,
+				05A2BBAF247DAD2A007B54D6 /* RxCocoa.framework */,
 				62512C581F0EAED20083A89F /* RxSwift.framework */,
+				62512CA61F0EB1BD0083A89F /* RxTest.framework */,
 			);
 			name = macOS;
 			sourceTree = "<group>";
@@ -630,8 +635,6 @@
 		9DAB77991D6763AC007E85BC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A2A68C972278AF5000586188 /* RxRelay.framework */,
-				1AA8395A207451D5001C49ED /* RxCocoa.framework */,
 				E36BDFB81F38755F008C9D56 /* tvOS */,
 				62512C561F0EAEB90083A89F /* macOS */,
 				62512C551F0EAEB20083A89F /* iOS */,
@@ -650,6 +653,7 @@
 		E36BDFB81F38755F008C9D56 /* tvOS */ = {
 			isa = PBXGroup;
 			children = (
+				05A2BBB3247DB0B8007B54D6 /* RxCocoa.framework */,
 				E36BDFB91F387571008C9D56 /* RxSwift.framework */,
 				E36BDFBA1F387571008C9D56 /* RxTest.framework */,
 			);
