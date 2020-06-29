@@ -200,6 +200,7 @@
 		C4D2154420118FBA009804AE /* Observable+OfTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D2154020118F8B009804AE /* Observable+OfTypeTests.swift */; };
 		C4D2154520118FC1009804AE /* ofType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D2153E20118A81009804AE /* ofType.swift */; };
 		C4D2154620118FC1009804AE /* ofType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D2153E20118A81009804AE /* ofType.swift */; };
+		C9ACD7AB24A9B4A000DCBFE3 /* mapToResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACD7AA24A9B4A000DCBFE3 /* mapToResult.swift */; };
 		D7C72A3E1FDC5C5D00EAAAAB /* NwiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C72A3D1FDC5C5D00EAAAAB /* NwiseTests.swift */; };
 		D7C72A3F1FDC5C5D00EAAAAB /* NwiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C72A3D1FDC5C5D00EAAAAB /* NwiseTests.swift */; };
 		D7C72A401FDC5C5D00EAAAAB /* NwiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C72A3D1FDC5C5D00EAAAAB /* NwiseTests.swift */; };
@@ -384,6 +385,7 @@
 		BF79DA0D206C185B008AA708 /* WithUnretainedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithUnretainedTests.swift; sourceTree = "<group>"; };
 		C4D2153E20118A81009804AE /* ofType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ofType.swift; sourceTree = "<group>"; };
 		C4D2154020118F8B009804AE /* Observable+OfTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+OfTypeTests.swift"; sourceTree = "<group>"; };
+		C9ACD7AA24A9B4A000DCBFE3 /* mapToResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapToResult.swift; sourceTree = "<group>"; };
 		D7C72A3D1FDC5C5D00EAAAAB /* NwiseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NwiseTests.swift; sourceTree = "<group>"; };
 		D7C72A411FDC5D8F00EAAAAB /* nwise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = nwise.swift; path = Source/RxSwift/nwise.swift; sourceTree = SOURCE_ROOT; };
 		DC612871209E80810053CBB7 /* mapMany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapMany.swift; sourceTree = "<group>"; };
@@ -568,6 +570,7 @@
 				BF79DA09206C145D008AA708 /* withUnretained.swift */,
 				DC612871209E80810053CBB7 /* mapMany.swift */,
 				A23E148621A9EFC000CD5B2F /* partition.swift */,
+				C9ACD7AA24A9B4A000DCBFE3 /* mapToResult.swift */,
 			);
 			path = RxSwift;
 			sourceTree = "<group>";
@@ -1068,6 +1071,7 @@
 				DC612872209E80810053CBB7 /* mapMany.swift in Sources */,
 				5386076F1E6F1C0A000361DE /* mapTo+RxCocoa.swift in Sources */,
 				A23E148B21A9F03600CD5B2F /* partition+RxCocoa.swift in Sources */,
+				C9ACD7AB24A9B4A000DCBFE3 /* mapToResult.swift in Sources */,
 				538607B71E6F334B000361DE /* repeatWithBehavior.swift in Sources */,
 				538607AC1E6F334B000361DE /* catchErrorJustComplete.swift in Sources */,
 				58C5450451345D65DF48F6C5 /* zipWith.swift in Sources */,
