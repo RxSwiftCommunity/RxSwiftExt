@@ -12,11 +12,11 @@ public extension ObservableType {
     /**
      Returns an Observable that transformed event(`Element`, `Error`) to element of `Result<Element, Error>`
     
-     - parameter type: A specific error type, will be `Result.Failure` type (If `type` is different from type of error emitted by Observable, an error occurs)
+     - parameter errorType: A specific error type, will be `Result.Failure` type (If `type` is different from type of error emitted by Observable, an error occurs)
      - parameter catchErrorCastingFailed: Error casting failure handler function, producing another Observable.
      - returns: An Observable which only element of `Result` type is emitted
     */
-    func mapToResult<E: Error>(type: E.Type, catchErrorCastingFailed handler: @escaping (Error) -> Observable<Result<Element, E>>) -> Observable<Result<Element, E>> {
+    func mapToResult<E: Error>(errorType: E.Type, catchErrorCastingFailed handler: @escaping (Error) -> Observable<Result<Element, E>>) -> Observable<Result<Element, E>> {
         self.map { element -> Result<Element, E> in
             return .success(element)
         }.catchError { error -> Observable<Result<Element, E>> in
@@ -30,12 +30,12 @@ public extension ObservableType {
     /**
      Returns an Observable that transformed event (`Element`, `Error`) to element of `Result<Element, Error>`
      
-     - parameter type: A specific error type, will be `Result.Failure` type (If `type` is different from type of error emitted by Observable, an error occurs)
+     - parameter errorType: A specific error type, will be `Result.Failure` type (If `type` is different from type of error emitted by Observable, an error occurs)
      - returns: An Observable which only element of `Result` type is emitted
      */
-    func mapToResult<E: Error>(type: E.Type) -> Observable<Result<Element, E>> {
-        self.mapToResult(type: type) { unexpectedError in
-            assertionFailure("unexpected error is emitted [expected type: \(type)] [emitted type: \(unexpectedError.self)]")
+    func mapToResult<E: Error>(errorType: E.Type) -> Observable<Result<Element, E>> {
+        self.mapToResult(errorType: errorType) { unexpectedError in
+            assertionFailure("unexpected error is emitted [expected type: \(errorType)] [emitted type: \(unexpectedError.self)]")
             return .empty()
         }
     }
@@ -47,7 +47,7 @@ public extension ObservableType {
      - returns: An Observable which only element of `Result` type is emitted
     */
     func mapToResult<E: Error>(catchErrorCastingFailedJustReturn errorValue: E) -> Observable<Result<Element, E>> {
-        self.mapToResult(type: E.self) { _ in
+        self.mapToResult(errorType: E.self) { _ in
             return .just(.failure(errorValue))
         }
     }
@@ -57,12 +57,12 @@ public extension PrimitiveSequence where Trait == SingleTrait {
     /**
      Returns an Single that transformed event(`Element`, `Error`) to element of `Result<Element, Error>`
     
-     - parameter type: A specific error type, will be `Result.Failure` type (If `type` is different from from type of error emitted by Single, an error occurs)
+     - parameter errorType: A specific error type, will be `Result.Failure` type (If `type` is different from from type of error emitted by Single, an error occurs)
      - parameter catchErrorCastingFailed: Error casting failure handler function, producing another Single.
      - returns: An Single which only element of `Result` type is emitted
      */
-    func mapToResult<E: Error>(type: E.Type, catchErrorCastingFailed handler: @escaping (Error) -> Single<Result<Element, E>>) -> Single<Result<Element, E>> {
-        self.asObservable().mapToResult(type: type) { error in
+    func mapToResult<E: Error>(errorType: E.Type, catchErrorCastingFailed handler: @escaping (Error) -> Single<Result<Element, E>>) -> Single<Result<Element, E>> {
+        self.asObservable().mapToResult(errorType: errorType) { error in
             return handler(error).asObservable()
         }
         .asSingle()
@@ -71,12 +71,12 @@ public extension PrimitiveSequence where Trait == SingleTrait {
     /**
      Returns an Single that transformed event (`Element`, `Error`) to element of `Result<Element, Error>`
     
-     - parameter type: A specific error type, will be `Result.Failure` type (If `type` is different from type of error emitted by Single, an error occurs)
+     - parameter errorType: A specific error type, will be `Result.Failure` type (If `type` is different from type of error emitted by Single, an error occurs)
      - returns: An Single which only element of `Result` type is emitted
      */
-    func mapToResult<E: Error>(type: E.Type) -> Single<Result<Element, E>> {
-        self.mapToResult(type: type) { unexpectedError in
-            assertionFailure("unexpected error is emitted [expected type: \(type)] [emitted type: \(unexpectedError.self)]")
+    func mapToResult<E: Error>(errorType: E.Type) -> Single<Result<Element, E>> {
+        self.mapToResult(errorType: errorType) { unexpectedError in
+            assertionFailure("unexpected error is emitted [expected type: \(errorType)] [emitted type: \(unexpectedError.self)]")
             return .never()
         }
     }
@@ -96,12 +96,12 @@ public extension PrimitiveSequence where Trait == MaybeTrait {
     /**
      Returns an Maybe that transformed event(`Element`, `Error`) to element of `Result<Element, Error>`
     
-     - parameter type: A specific error type, will be `Result.Failure` type (If `type` is different from from type of error emitted by Maybe, an error occurs)
+     - parameter errorType: A specific error type, will be `Result.Failure` type (If `type` is different from from type of error emitted by Maybe, an error occurs)
      - parameter catchErrorCastingFailed: Error casting failure handler function, producing another Maybe.
      - returns: An Single which only element of `Result` type is emitted
     */
-    func mapToResult<E: Error>(type: E.Type, catchErrorCastingFailed handler: @escaping (Error) -> Maybe<Result<Element, E>>) -> Maybe<Result<Element, E>> {
-        self.asObservable().mapToResult(type: type) { error in
+    func mapToResult<E: Error>(errorType: E.Type, catchErrorCastingFailed handler: @escaping (Error) -> Maybe<Result<Element, E>>) -> Maybe<Result<Element, E>> {
+        self.asObservable().mapToResult(errorType: errorType) { error in
             return handler(error).asObservable()
         }
         .asMaybe()
@@ -110,11 +110,11 @@ public extension PrimitiveSequence where Trait == MaybeTrait {
     /**
      Returns an Maybe that transformed event (`Element`, `Error`) to element of `Result<Element, Error>`
     
-     - parameter type: A specific error type, will be `Result.Failure` type (If `type` is different from type of error emitted by Maybe, an error occurs)
+     - parameter errorType: A specific error type, will be `Result.Failure` type (If `type` is different from type of error emitted by Maybe, an error occurs)
      - returns: An Maybe which only element of `Result` type is emitted
      */
-    func mapToResult<E: Error>(type: E.Type) -> Maybe<Result<Element, E>> {
-        self.asObservable().mapToResult(type: type).asMaybe()
+    func mapToResult<E: Error>(errorType: E.Type) -> Maybe<Result<Element, E>> {
+        self.asObservable().mapToResult(errorType: errorType).asMaybe()
     }
 
     /**
