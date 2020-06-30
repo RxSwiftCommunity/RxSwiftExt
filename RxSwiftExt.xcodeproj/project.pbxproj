@@ -200,6 +200,9 @@
 		C4D2154420118FBA009804AE /* Observable+OfTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D2154020118F8B009804AE /* Observable+OfTypeTests.swift */; };
 		C4D2154520118FC1009804AE /* ofType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D2153E20118A81009804AE /* ofType.swift */; };
 		C4D2154620118FC1009804AE /* ofType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D2153E20118A81009804AE /* ofType.swift */; };
+		C96AAA2324AB0DF6009BBACE /* MapToResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A870AA24AB03C100E4013B /* MapToResultTests.swift */; };
+		C96AAA2424AB0DF7009BBACE /* MapToResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A870AA24AB03C100E4013B /* MapToResultTests.swift */; };
+		C96AAA2524AB0DF7009BBACE /* MapToResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A870AA24AB03C100E4013B /* MapToResultTests.swift */; };
 		C9ACD7AB24A9B4A000DCBFE3 /* mapToResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ACD7AA24A9B4A000DCBFE3 /* mapToResult.swift */; };
 		D7C72A3E1FDC5C5D00EAAAAB /* NwiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C72A3D1FDC5C5D00EAAAAB /* NwiseTests.swift */; };
 		D7C72A3F1FDC5C5D00EAAAAB /* NwiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C72A3D1FDC5C5D00EAAAAB /* NwiseTests.swift */; };
@@ -385,6 +388,7 @@
 		BF79DA0D206C185B008AA708 /* WithUnretainedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithUnretainedTests.swift; sourceTree = "<group>"; };
 		C4D2153E20118A81009804AE /* ofType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ofType.swift; sourceTree = "<group>"; };
 		C4D2154020118F8B009804AE /* Observable+OfTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+OfTypeTests.swift"; sourceTree = "<group>"; };
+		C9A870AA24AB03C100E4013B /* MapToResultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapToResultTests.swift; sourceTree = "<group>"; };
 		C9ACD7AA24A9B4A000DCBFE3 /* mapToResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapToResult.swift; sourceTree = "<group>"; };
 		D7C72A3D1FDC5C5D00EAAAAB /* NwiseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NwiseTests.swift; sourceTree = "<group>"; };
 		D7C72A411FDC5D8F00EAAAAB /* nwise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = nwise.swift; path = Source/RxSwift/nwise.swift; sourceTree = SOURCE_ROOT; };
@@ -610,6 +614,7 @@
 				58C54E184069446EDEE748F9 /* ZipWithTest.swift */,
 				BF79DA0D206C185B008AA708 /* WithUnretainedTests.swift */,
 				A23E148E21A9F10D00CD5B2F /* PartitionTests.swift */,
+				C9A870AA24AB03C100E4013B /* MapToResultTests.swift */,
 			);
 			name = RxSwift;
 			path = Tests/RxSwift;
@@ -1121,6 +1126,7 @@
 				1A8741AC20745A91004BB762 /* UIViewPropertyAnimatorTests+Rx.swift in Sources */,
 				E62D9D592199D2E3006636D7 /* BufferWithTriggerTests.swift in Sources */,
 				3DBDE5FF1FBBB09900DF47F9 /* AndTests.swift in Sources */,
+				C96AAA2324AB0DF6009BBACE /* MapToResultTests.swift in Sources */,
 				58C545FD1AE234C7F290334F /* ZipWithTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1194,6 +1200,7 @@
 				62512CA01F0EB1850083A89F /* RetryWithBehaviorTests.swift in Sources */,
 				C4D2154320118FB9009804AE /* Observable+OfTypeTests.swift in Sources */,
 				A23E149021A9F10D00CD5B2F /* PartitionTests.swift in Sources */,
+				C96AAA2424AB0DF7009BBACE /* MapToResultTests.swift in Sources */,
 				782485962298A785005CF8CC /* MergeWithTests.swift in Sources */,
 				780CB21E20A0EE8300FD3F39 /* MapManyTests.swift in Sources */,
 				62512C911F0EB17F0083A89F /* NotTests+RxCocoa.swift in Sources */,
@@ -1281,6 +1288,7 @@
 				E39C42061F18B13E007F2ACD /* IgnoreWhenTests.swift in Sources */,
 				C4D2154420118FBA009804AE /* Observable+OfTypeTests.swift in Sources */,
 				A23E149121A9F10D00CD5B2F /* PartitionTests.swift in Sources */,
+				C96AAA2524AB0DF7009BBACE /* MapToResultTests.swift in Sources */,
 				782485972298A785005CF8CC /* MergeWithTests.swift in Sources */,
 				780CB21F20A0EE8300FD3F39 /* MapManyTests.swift in Sources */,
 				E39C420C1F18B13E007F2ACD /* PausableBufferedTests.swift in Sources */,

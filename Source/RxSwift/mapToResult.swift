@@ -26,7 +26,7 @@ public extension ObservableType {
             return .just(.failure(transformedError))
         }
     }
-    
+
     /**
      Returns an Observable that transformed event (`Element`, `Error`) to element of `Result<Element, Error>`
      
@@ -67,7 +67,7 @@ public extension PrimitiveSequence where Trait == SingleTrait {
         }
         .asSingle()
     }
-    
+
     /**
      Returns an Single that transformed event (`Element`, `Error`) to element of `Result<Element, Error>`
     
@@ -106,7 +106,7 @@ public extension PrimitiveSequence where Trait == MaybeTrait {
         }
         .asMaybe()
     }
-    
+
     /**
      Returns an Maybe that transformed event (`Element`, `Error`) to element of `Result<Element, Error>`
     

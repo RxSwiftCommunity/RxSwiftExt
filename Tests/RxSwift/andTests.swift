@@ -10,7 +10,6 @@ import XCTest
 import RxSwift
 import RxTest
 
-
 class AndTests: XCTestCase {
 	fileprivate func runAndObserve(_ sequence: Maybe<Bool>) -> TestableObserver<Bool> {
 		let scheduler = TestScheduler(initialClock: 0)
