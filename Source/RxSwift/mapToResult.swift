@@ -57,7 +57,7 @@ public extension PrimitiveSequence where Trait == SingleTrait {
     /**
      Returns an Single that transformed event(`Element`, `Error`) to element of `Result<Element, Error>`
     
-     - parameter errorType: A specific error type, will be `Result.Failure` type (If `type` is different from from type of error emitted by Single, an error occurs)
+     - parameter errorType: A specific error type, will be `Result.Failure` type (If `type` is different from type of error emitted by Single, an error occurs)
      - parameter catchErrorCastingFailed: Error casting failure handler function, producing another Single.
      - returns: An Single which only element of `Result` type is emitted
      */
@@ -96,7 +96,7 @@ public extension PrimitiveSequence where Trait == MaybeTrait {
     /**
      Returns an Maybe that transformed event(`Element`, `Error`) to element of `Result<Element, Error>`
     
-     - parameter errorType: A specific error type, will be `Result.Failure` type (If `type` is different from from type of error emitted by Maybe, an error occurs)
+     - parameter errorType: A specific error type, will be `Result.Failure` type (If `type` is different from type of error emitted by Maybe, an error occurs)
      - parameter catchErrorCastingFailed: Error casting failure handler function, producing another Maybe.
      - returns: An Single which only element of `Result` type is emitted
     */
