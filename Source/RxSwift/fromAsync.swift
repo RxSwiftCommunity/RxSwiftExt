@@ -13,7 +13,7 @@ extension Observable {
 
     /**
      Transforms an async function that returns data through a completionHandler in a function that returns data through an Observable
-     - The returned function will thake the same arguments than asyncRequest, minus the last one
+     - The returned function will take the same arguments as asyncRequest, minus the last one
      */
     public static func fromAsync(_ asyncRequest: @escaping (@escaping (Element) -> Void) -> Void) -> Observable<Element> {
         return Observable.create({ (o) -> Disposable in
@@ -75,7 +75,7 @@ public enum FromAsyncError: Error {
 public extension PrimitiveSequenceType where Trait == SingleTrait {
     /**
      Transforms an async function that returns data or error through a completionHandler in a function that returns data through a Single
-     - The returned function will thake the same arguments than asyncRequest, minus the last one
+     - The returned function will take the same arguments as asyncRequest, minus the last one
      */
     static func fromAsync<Er: Error>(_ asyncRequest: @escaping (@escaping (Element?, Er?) -> Void) -> Void) -> Single<Element> {
         return .create { single in
