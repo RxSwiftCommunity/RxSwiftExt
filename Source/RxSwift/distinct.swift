@@ -57,7 +57,7 @@ extension Observable where Element: Equatable {
      */
     public func distinct() -> Observable<Element> {
         var cache = [Element]()
-        return flatMap { element -> Element? in
+        return compactMap { element -> Element? in
             if cache.contains(element) {
                 return nil
             } else {
