@@ -19,12 +19,12 @@ extension Observable {
      */
     public func distinct(_ predicate: @escaping (Element) throws -> Bool) -> Observable<Element> {
         var cache = [Element]()
-        return flatMap { element -> Observable<Element> in
+        return compactMap { element -> Element? in
             if try cache.contains(where: predicate) {
-                return Observable<Element>.empty()
+                return nil
             } else {
                 cache.append(element)
-                return Observable<Element>.just(element)
+                return element
             }
         }
     }
@@ -38,12 +38,12 @@ extension Observable where Element: Hashable {
      */
     public func distinct() -> Observable<Element> {
         var cache = Set<Element>()
-        return flatMap { element -> Observable<Element> in
+        return compactMap { element -> Element? in
             if cache.contains(element) {
-                return Observable<Element>.empty()
+                return nil
             } else {
                 cache.insert(element)
-                return Observable<Element>.just(element)
+                return element
             }
         }
     }
@@ -57,12 +57,12 @@ extension Observable where Element: Equatable {
      */
     public func distinct() -> Observable<Element> {
         var cache = [Element]()
-        return flatMap { element -> Observable<Element> in
+        return flatMap { element -> Element? in
             if cache.contains(element) {
-                return Observable<Element>.empty()
+                return nil
             } else {
                 cache.append(element)
-                return Observable<Element>.just(element)
+                return element
             }
         }
     }
