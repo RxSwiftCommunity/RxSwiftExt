@@ -19,14 +19,10 @@ extension SharedSequence {
     public func distinct(_ predicate: @escaping (Element) -> Bool) -> SharedSequence<SharingStrategy, Element> {
         var cache = [Element]()
 
-        return flatMap { element -> SharedSequence<SharingStrategy, Element> in
-            if cache.contains(where: predicate) {
-                return SharedSequence<SharingStrategy, Element>.empty()
-            } else {
-                cache.append(element)
-
-                return SharedSequence<SharingStrategy, Element>.just(element)
-            }
+        return filter { element -> Bool in
+            let emitted = try cache.contains(where: predicate)
+            if !emitted { cache.append(element) }
+            return !emitted
         }
     }
 }
@@ -40,14 +36,10 @@ extension SharedSequence where Element: Equatable {
     public func distinct() -> SharedSequence<SharingStrategy, Element> {
         var cache = [Element]()
 
-        return flatMap { element -> SharedSequence<SharingStrategy, Element> in
-            if cache.contains(element) {
-                return SharedSequence<SharingStrategy, Element>.empty()
-            } else {
-                cache.append(element)
-
-                return SharedSequence<SharingStrategy, Element>.just(element)
-            }
+        return filter { element -> Bool in
+            let emitted = cache.contains(element)
+            if !emitted { cache.append(element) }
+            return !emitted
         }
     }
 }
