@@ -20,7 +20,7 @@ extension SharedSequence {
         var cache = [Element]()
 
         return filter { element -> Bool in
-            let emitted = try cache.contains(where: predicate)
+            let emitted = cache.contains(where: predicate)
             if !emitted { cache.append(element) }
             return !emitted
         }
