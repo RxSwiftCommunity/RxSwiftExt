@@ -15,7 +15,6 @@
         <page name='pausableBuffered'/>
         <page name='repeatWithBehavior'/>
         <page name='retryWithBehavior'/>
-        <page name='unwrap'/>
         <page name='filterMap'/>
         <page name='mapAt'/>
         <page name='mapTo'/>

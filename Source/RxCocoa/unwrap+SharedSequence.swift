@@ -15,7 +15,7 @@ extension SharedSequence {
 
      - returns: A SharedSequence of non-optional elements
      */
-
+    @available(*, deprecated, renamed: "compactMap", message: "compactMap was added to the main RxSwift repository and should be used instead of unwrap")
     public func unwrap<Result>() -> SharedSequence<SharingStrategy, Result> where Element == Result? {
         return self.filter { $0 != nil }.map { $0! }
     }

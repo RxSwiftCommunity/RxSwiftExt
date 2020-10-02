@@ -10,6 +10,7 @@ Changelog
 - added `apply` for `Completable` and `Maybe` 
 - added `mapTo` for `Single` and `Maybe`
 - added SPM support
+- Deprecated the `unwrap()` method in favor of RxSwift's `compactMap(_:)`, Removed the associated references in the playground and documentation.
 
 5.0.0
 -----

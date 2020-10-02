@@ -52,7 +52,6 @@ RxSwiftExt is all about adding operators and Reactive Extensions to [RxSwift](ht
 
 These operators are much like the RxSwift & RxCocoa core operators, but provide additional useful abilities to your Rx arsenal.
 
-* [unwrap](#unwrap)
 * [ignore](#ignore)
 * [ignoreWhen](#ignorewhen)
 * [Observable.once](#once)
@@ -96,22 +95,6 @@ RxSwift/RxCocoa Reactive Extensions are provided to enhance existing objects and
 
 Operator details
 ===========
-
-#### unwrap
-
-Unwrap optionals and filter out nil values.
-
-```swift
-  Observable.of(1,2,nil,Int?(4))
-    .unwrap()
-    .subscribe { print($0) }
-```
-
-```
-next(1)
-next(2)
-next(4)
-```
 
 #### ignore
 
@@ -479,7 +462,7 @@ let image = imageResult
 let errorMessage = imageResult
     .errors()
     .map(mapErrorMessages)
-    .unwrap()
+    .compactMap { $0 }
     .asDriver(onErrorDriveWith: .never())
 ```
 
