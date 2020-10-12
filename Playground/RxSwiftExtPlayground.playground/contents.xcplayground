@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<playground version='6.0' target-platform='ios' display-mode='rendered' last-migration='0900'>
+<playground version='6.0' target-platform='ios' display-mode='raw' buildActiveScheme='true' last-migration='0900'>
     <pages>
         <page name='Index'/>
         <page name='apply'/>
@@ -17,6 +17,7 @@
         <page name='retryWithBehavior'/>
         <page name='unwrap'/>
         <page name='filterMap'/>
+        <page name='flatScan'/>
         <page name='mapAt'/>
         <page name='mapTo'/>
         <page name='fromAsync'/>
@@ -30,5 +31,7 @@
         <page name='UIViewPropertyAnimator.animate'/>
         <page name='UIViewPropertyAnimator.fractionComplete'/>
         <page name='withUnretained'/>
+        <page name='partition'/>
+        <page name='UIScrollView.reachedBottom'/>
     </pages>
 </playground>
