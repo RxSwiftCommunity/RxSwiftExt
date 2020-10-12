@@ -1,11 +1,11 @@
 /*:
-> # IMPORTANT: To use `RxSwiftExtPlayground.playground`, please:
-
-1. Make sure you have [Carthage](https://github.com/Carthage/Carthage) installed
-1. Fetch Carthage dependencies from shell: `carthage bootstrap --platform ios`
-1. Build scheme `RxSwiftExtPlayground` scheme for a simulator target
-1. Choose `View > Show Debug Area`
-*/
+ > # IMPORTANT: To use `RxSwiftExtPlayground.playground`, please:
+ 
+ 1. Make sure you have [Carthage](https://github.com/Carthage/Carthage) installed
+ 1. Fetch Carthage dependencies from shell: `carthage bootstrap --platform ios`
+ 1. Build scheme `RxSwiftExtPlayground` scheme for a simulator target
+ 1. Choose `View > Show Debug Area`
+ */
 
 //: [Previous](@previous)
 
