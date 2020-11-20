@@ -81,7 +81,7 @@ extension ObservableType {
 			// calculate conditions for bahavior
 			let conditions = behavior.calculateConditions(currentAttempt)
 
-			return catchError { error -> Observable<Element> in
+            return `catch` { error -> Observable<Element> in
 				// return error if exceeds maximum amount of retries
 				guard conditions.maxCount > currentAttempt else { return Observable.error(error) }
 
