@@ -1,4 +1,4 @@
-[![CircleCI](https://img.shields.io/circleci/project/github/RxSwiftCommunity/RxSwiftExt/master.svg)](https://circleci.com/gh/RxSwiftCommunity/RxSwiftExt/tree/master)
+[![CircleCI](https://img.shields.io/circleci/project/github/RxSwiftCommunity/RxSwiftExt/main.svg)](https://circleci.com/gh/RxSwiftCommunity/RxSwiftExt/tree/main)
 ![pod](https://img.shields.io/cocoapods/v/RxSwiftExt.svg)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
