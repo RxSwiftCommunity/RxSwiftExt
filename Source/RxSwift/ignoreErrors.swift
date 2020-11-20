@@ -27,10 +27,10 @@ extension ObservableType {
      - returns: An observable sequence that errors only when `predicate` returns `false`
      */
     public func ignoreErrors(_ predicate : @escaping (Error) -> Bool) -> Observable<Element> {
-        return retryWhen {
+        return retry(when: {
             return $0.flatMap { error -> Observable<Bool> in
                 return predicate(error) ?  Observable.just(true) : Observable<Bool>.error(error)
             }
-        }
+        })
     }
 }
