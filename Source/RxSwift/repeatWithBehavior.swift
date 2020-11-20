@@ -49,7 +49,7 @@ extension ObservableType {
 			let conditions = behavior.calculateConditions(currentRepeat)
 
             return concat(Observable.error(RepeatError.catchable))
-                .catchError {error in
+                .catch { error in
                     //if observable errors, forward the error
                     guard error is RepeatError else {
                         return Observable.error(error)

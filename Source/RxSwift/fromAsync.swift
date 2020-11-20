@@ -84,9 +84,9 @@ public extension PrimitiveSequenceType where Trait == SingleTrait {
                 case let (.some(result), nil):
                     single(.success(result))
                 case let (nil, .some(error)):
-                    single(.error(error))
+                    single(.failure(error))
                 default:
-                    single(.error(FromAsyncError.inconsistentCompletionResult))
+                    single(.failure(FromAsyncError.inconsistentCompletionResult))
                 }
             }
             return Disposables.create()
