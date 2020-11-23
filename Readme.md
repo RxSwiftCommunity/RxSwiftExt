@@ -70,6 +70,7 @@ These operators are much like the RxSwift & RxCocoa core operators, but provide 
 * [pausableBuffered](#pausablebuffered)
 * [apply](#apply)
 * [filterMap](#filtermap)
+* [flatScan](#flatscan)
 * [Observable.fromAsync](#fromasync)
 * [Observable.zip(with:)](#zipwith)
 * [Observable.merge(with:)](#mergewith)
@@ -462,6 +463,25 @@ Observable.of(1,2,3,4,5,6)
 ```
 
 The sequence above keeps even numbers 2, 4, 6 and produces the sequence 4, 8, 12.
+
+#### flatScan
+
+Sometimes you need s kind of `flatMap` that reuse its previous element and accumulate it with the new element. For example a common pattern is to reuse the previous API response to prepare next request with current offset.
+
+```swift
+loadMoreTrigger
+    .withLatestFrom(searchQuery)
+    .flatScan(SearchResults()) { previous, query in
+        searchResults(
+            for: query,
+            start: previous.elements.count,
+            count: 20
+        )
+        .map(previous.merging)
+    }
+```
+
+The sequence above "loads more" search results by making a new search request based on current results count so it can load results by chunks of 20 elements.
 
 #### errors, elements
 

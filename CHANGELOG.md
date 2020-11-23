@@ -9,6 +9,7 @@ Changelog
 - removed `flatMapSync` operator
 - added `apply` for `Completable` and `Maybe` 
 - added `mapTo` for `Single` and `Maybe`
+- added `flatScan`, `flatScanFirst` and `flatScanLatest` operators
 - added SPM support
 
 5.0.0

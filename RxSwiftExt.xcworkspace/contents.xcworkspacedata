@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Readme.md">
+   </FileRef>
+   <FileRef
+      location = "group:CHANGELOG.md">
+   </FileRef>
+   <FileRef
       location = "container:Playground/RxSwiftExtPlayground.playground">
    </FileRef>
    <FileRef
