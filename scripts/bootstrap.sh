@@ -19,7 +19,4 @@ applyXcode12Workaround() {
 }
 
 applyXcode12Workaround
-carthage bootstrap --cache-builds
-
-cartSum=`{ cat Cartfile.resolved; xcrun swift -version; } | md5`
-echo $cartSum > Carthage/cartSum.txt
+carthage bootstrap
