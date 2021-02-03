@@ -26,13 +26,13 @@ jobs:
             - Carthage
       - run:
           name: Test macOS
-          command: set -o pipefail && xcodebuild test -scheme RxSwiftExt-macOS -workspace RxSwiftExt.xcworkspace -sdk macosx -destination "arch=x86_64" | xcpretty -c -r html --output $XCODE_TEST_REPORTS/macOS.html
+          command: set -o pipefail && xcodebuild test -scheme RxSwiftExt-macOS -workspace RxSwiftExt.xcworkspace -sdk macosx -destination "arch=x86_64" | tee "${XCODE_TEST_REPORTS}/xcode_macOS.log" | xcpretty -c -r html --output $XCODE_TEST_REPORTS/macOS.html
       - run:
           name: Test iOS
-          command: set -o pipefail && xcodebuild test -scheme RxSwiftExt-iOS -workspace RxSwiftExt.xcworkspace -sdk iphonesimulator -destination "name=iPhone X" | xcpretty -c -r html --output $XCODE_TEST_REPORTS/iOS.html
+          command: set -o pipefail && xcodebuild test -scheme RxSwiftExt-iOS -workspace RxSwiftExt.xcworkspace -sdk iphonesimulator -destination "name=iPhone X" | tee "${XCODE_TEST_REPORTS}/xcode_iOS.log" | xcpretty -c -r html --output $XCODE_TEST_REPORTS/iOS.html
       - run:
           name: Test tvOS
-          command: set -o pipefail && xcodebuild test -scheme RxSwiftExt-tvOS -workspace RxSwiftExt.xcworkspace -sdk appletvsimulator -destination "name=Apple TV 4K (at 1080p)" | xcpretty -c -r html --output $XCODE_TEST_REPORTS/tvOS.html
+          command: set -o pipefail && xcodebuild test -scheme RxSwiftExt-tvOS -workspace RxSwiftExt.xcworkspace -sdk appletvsimulator -destination "name=Apple TV 4K (at 1080p)" | tee "${XCODE_TEST_REPORTS}/xcode_tvOS.log" | xcpretty -c -r html --output $XCODE_TEST_REPORTS/tvOS.html
       - run:
           name: Test SPM
           command: swift test
