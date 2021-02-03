@@ -26,6 +26,10 @@
 		05A2BBB4247DB0B8007B54D6 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05A2BBB3247DB0B8007B54D6 /* RxCocoa.framework */; };
 		0D4D8D3E25CB005800C6971D /* RxSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 62512C581F0EAED20083A89F /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0D4D8D3F25CB005800C6971D /* RxTest.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 62512CA61F0EB1BD0083A89F /* RxTest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0D4D8D4C25CB079A00C6971D /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05A2BBAF247DAD2A007B54D6 /* RxCocoa.framework */; };
+		0D4D8D4D25CB079D00C6971D /* RxCocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05A2BBAF247DAD2A007B54D6 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0D4D8D5425CB07A300C6971D /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05A2BBB3247DB0B8007B54D6 /* RxCocoa.framework */; };
+		0D4D8D5B25CB07AE00C6971D /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA8395A207451D5001C49ED /* RxCocoa.framework */; };
 		188C6DA31C47B4240092101A /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188C6DA21C47B4240092101A /* RxSwift.framework */; };
 		1958B5F1216768D900CAF1D3 /* unwrap+SharedSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1958B5F0216768D900CAF1D3 /* unwrap+SharedSequence.swift */; };
 		1958B5F621676ECB00CAF1D3 /* unrwapTests+SharedSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1958B5F521676ECB00CAF1D3 /* unrwapTests+SharedSequence.swift */; };
@@ -300,6 +304,7 @@
 			files = (
 				0D4D8D3E25CB005800C6971D /* RxSwift.framework in CopyFiles */,
 				0D4D8D3F25CB005800C6971D /* RxTest.framework in CopyFiles */,
+				0D4D8D4D25CB079D00C6971D /* RxCocoa.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +422,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D4D8D5B25CB07AE00C6971D /* RxCocoa.framework in Frameworks */,
 				3D638E1D1DC2B36A0089A590 /* RxSwift.framework in Frameworks */,
 				3D638DEC1DC2B2D50089A590 /* RxSwiftExt.framework in Frameworks */,
 				3D638E1F1DC2B3A40089A590 /* RxTest.framework in Frameworks */,
@@ -436,6 +442,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D4D8D4C25CB079A00C6971D /* RxCocoa.framework in Frameworks */,
 				62512CA51F0EB1AD0083A89F /* RxSwift.framework in Frameworks */,
 				62512C891F0EB1280083A89F /* RxSwiftExt.framework in Frameworks */,
 				62512CA71F0EB1BD0083A89F /* RxTest.framework in Frameworks */,
@@ -455,6 +462,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D4D8D5425CB07A300C6971D /* RxCocoa.framework in Frameworks */,
 				E39C41F71F18B0EA007F2ACD /* RxSwiftExt.framework in Frameworks */,
 				E36BDFBE1F387615008C9D56 /* RxTest.framework in Frameworks */,
 				E36BDFBD1F387610008C9D56 /* RxSwift.framework in Frameworks */,
@@ -1717,6 +1725,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1738,6 +1747,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

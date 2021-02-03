@@ -28,6 +28,7 @@ cartSum=`computeChecksum`
 
 if [ "$prevSum" != "$cartSum" ] || [ ! -d "Carthage/Build/iOS" ]; then
   printf "${RED}Dependencies out of date with cache.${NC} Bootstrapping...\n"
+  rm -rf Carthage
   scripts/bootstrap.sh
 
   echo `computeChecksum` > "${checksum_file}"
