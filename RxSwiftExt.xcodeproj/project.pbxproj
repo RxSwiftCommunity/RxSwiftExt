@@ -30,6 +30,13 @@
 		0D4D8D4D25CB079D00C6971D /* RxCocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05A2BBAF247DAD2A007B54D6 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0D4D8D5425CB07A300C6971D /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05A2BBB3247DB0B8007B54D6 /* RxCocoa.framework */; };
 		0D4D8D5B25CB07AE00C6971D /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA8395A207451D5001C49ED /* RxCocoa.framework */; };
+		0D4D8D6F25CB0B1700C6971D /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D4D8D6E25CB0B1700C6971D /* RxRelay.framework */; };
+		0D4D8D7025CB0B1700C6971D /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D4D8D6E25CB0B1700C6971D /* RxRelay.framework */; };
+		0D4D8D7225CB0B2F00C6971D /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D4D8D7125CB0B2F00C6971D /* RxRelay.framework */; };
+		0D4D8D7325CB0B2F00C6971D /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D4D8D7125CB0B2F00C6971D /* RxRelay.framework */; };
+		0D4D8D7425CB0B3F00C6971D /* RxRelay.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0D4D8D7125CB0B2F00C6971D /* RxRelay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0D4D8D7C25CB0B4E00C6971D /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D4D8D7B25CB0B4E00C6971D /* RxRelay.framework */; };
+		0D4D8D7D25CB0B4E00C6971D /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D4D8D7B25CB0B4E00C6971D /* RxRelay.framework */; };
 		188C6DA31C47B4240092101A /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188C6DA21C47B4240092101A /* RxSwift.framework */; };
 		1958B5F1216768D900CAF1D3 /* unwrap+SharedSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1958B5F0216768D900CAF1D3 /* unwrap+SharedSequence.swift */; };
 		1958B5F621676ECB00CAF1D3 /* unrwapTests+SharedSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1958B5F521676ECB00CAF1D3 /* unrwapTests+SharedSequence.swift */; };
@@ -305,6 +312,7 @@
 				0D4D8D3E25CB005800C6971D /* RxSwift.framework in CopyFiles */,
 				0D4D8D3F25CB005800C6971D /* RxTest.framework in CopyFiles */,
 				0D4D8D4D25CB079D00C6971D /* RxCocoa.framework in CopyFiles */,
+				0D4D8D7425CB0B3F00C6971D /* RxRelay.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +321,9 @@
 /* Begin PBXFileReference section */
 		05A2BBAF247DAD2A007B54D6 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/Mac/RxCocoa.framework; sourceTree = "<group>"; };
 		05A2BBB3247DB0B8007B54D6 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/tvOS/RxCocoa.framework; sourceTree = "<group>"; };
+		0D4D8D6E25CB0B1700C6971D /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
+		0D4D8D7125CB0B2F00C6971D /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/Mac/RxRelay.framework; sourceTree = "<group>"; };
+		0D4D8D7B25CB0B4E00C6971D /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/tvOS/RxRelay.framework; sourceTree = "<group>"; };
 		188C6D911C47B2B20092101A /* RxSwiftExt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxSwiftExt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		188C6DA21C47B4240092101A /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = SOURCE_ROOT; };
 		1958B5F0216768D900CAF1D3 /* unwrap+SharedSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "unwrap+SharedSequence.swift"; sourceTree = "<group>"; };
@@ -415,6 +426,7 @@
 			files = (
 				1AA8395B207451D6001C49ED /* RxCocoa.framework in Frameworks */,
 				188C6DA31C47B4240092101A /* RxSwift.framework in Frameworks */,
+				0D4D8D6F25CB0B1700C6971D /* RxRelay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +438,7 @@
 				3D638E1D1DC2B36A0089A590 /* RxSwift.framework in Frameworks */,
 				3D638DEC1DC2B2D50089A590 /* RxSwiftExt.framework in Frameworks */,
 				3D638E1F1DC2B3A40089A590 /* RxTest.framework in Frameworks */,
+				0D4D8D7025CB0B1700C6971D /* RxRelay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +448,7 @@
 			files = (
 				05A2BBB0247DAD2A007B54D6 /* RxCocoa.framework in Frameworks */,
 				62512C661F0EAF670083A89F /* RxSwift.framework in Frameworks */,
+				0D4D8D7225CB0B2F00C6971D /* RxRelay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +460,7 @@
 				62512CA51F0EB1AD0083A89F /* RxSwift.framework in Frameworks */,
 				62512C891F0EB1280083A89F /* RxSwiftExt.framework in Frameworks */,
 				62512CA71F0EB1BD0083A89F /* RxTest.framework in Frameworks */,
+				0D4D8D7325CB0B2F00C6971D /* RxRelay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,6 +470,7 @@
 			files = (
 				05A2BBB4247DB0B8007B54D6 /* RxCocoa.framework in Frameworks */,
 				E36BDFBB1F387571008C9D56 /* RxSwift.framework in Frameworks */,
+				0D4D8D7C25CB0B4E00C6971D /* RxRelay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +482,7 @@
 				E39C41F71F18B0EA007F2ACD /* RxSwiftExt.framework in Frameworks */,
 				E36BDFBE1F387615008C9D56 /* RxTest.framework in Frameworks */,
 				E36BDFBD1F387610008C9D56 /* RxSwift.framework in Frameworks */,
+				0D4D8D7D25CB0B4E00C6971D /* RxRelay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -630,6 +647,7 @@
 			isa = PBXGroup;
 			children = (
 				1AA8395A207451D5001C49ED /* RxCocoa.framework */,
+				0D4D8D6E25CB0B1700C6971D /* RxRelay.framework */,
 				188C6DA21C47B4240092101A /* RxSwift.framework */,
 				3D638E1E1DC2B3A40089A590 /* RxTest.framework */,
 			);
@@ -640,6 +658,7 @@
 			isa = PBXGroup;
 			children = (
 				05A2BBAF247DAD2A007B54D6 /* RxCocoa.framework */,
+				0D4D8D7125CB0B2F00C6971D /* RxRelay.framework */,
 				62512C581F0EAED20083A89F /* RxSwift.framework */,
 				62512CA61F0EB1BD0083A89F /* RxTest.framework */,
 			);
@@ -668,6 +687,7 @@
 			isa = PBXGroup;
 			children = (
 				05A2BBB3247DB0B8007B54D6 /* RxCocoa.framework */,
+				0D4D8D7B25CB0B4E00C6971D /* RxRelay.framework */,
 				E36BDFB91F387571008C9D56 /* RxSwift.framework */,
 				E36BDFBA1F387571008C9D56 /* RxTest.framework */,
 			);
