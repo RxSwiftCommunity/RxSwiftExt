@@ -11,7 +11,7 @@ checksum_file="Carthage/cartSum.txt"
 # Computes current Carthage checksum using 'Cartfile.resolved' file, Swift version and checksum version.
 computeChecksum() {
     local version="1"
-    { cat Cartfile.resolved; xcrun swift -version; echo "${version}" } | md5
+    { cat Cartfile.resolved; xcrun swift -version; echo "${version}"; } | md5
 }
 
 # Get previous checksum
@@ -20,7 +20,7 @@ touch "${checksum_file}"
 if [ ! -f "${checksum_file}" ]; then
     prevSum="null";
 else
-    prevSum=`computeChecksum`;
+    prevSum=`cat Carthage/cartSum.txt`;
 fi
 
 # Get checksum
