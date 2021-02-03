@@ -13,26 +13,26 @@ import RxSwift
 Specifies how observable sequence will be repeated in case of an error.
 */
 public enum RepeatBehavior {
-    
+
     /**
     Will be immediately repeated specified number of times.
     - **maxCount:** Maximum number of times to repeat the sequence.
     */
 	case immediate (maxCount: UInt)
-    
+
     /**
     Will be repeated after specified delay specified number of times.
     - **maxCount:** Maximum number of times to repeat the sequence.
     */
 	case delayed (maxCount: UInt, time: Double)
-    
+
     /**
     Will be repeated specified number of times.
     Delay will be incremented by multiplier after each iteration (multiplier = 0.5 means 50% increment).
     - **maxCount:** Maximum number of times to repeat the sequence.
     */
 	case exponentialDelayed (maxCount: UInt, initial: Double, multiplier: Double)
-    
+
     /**
     Will be repeated specified number of times. Delay will be calculated by custom closure.
     - **maxCount:** Maximum number of times to repeat the sequence.
