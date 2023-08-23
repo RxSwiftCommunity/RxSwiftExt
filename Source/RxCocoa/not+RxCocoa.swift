@@ -7,6 +7,7 @@
 //
 
 import RxCocoa
+import RxSwift
 
 extension SharedSequenceConvertibleType where Element == Bool {
     /// Boolean not operator.
