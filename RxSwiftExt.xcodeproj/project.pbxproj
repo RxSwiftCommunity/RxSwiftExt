@@ -207,6 +207,9 @@
 		C4D2154420118FBA009804AE /* Observable+OfTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D2154020118F8B009804AE /* Observable+OfTypeTests.swift */; };
 		C4D2154520118FC1009804AE /* ofType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D2153E20118A81009804AE /* ofType.swift */; };
 		C4D2154620118FC1009804AE /* ofType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D2153E20118A81009804AE /* ofType.swift */; };
+		CE898D482AA8BE100044F0B7 /* Observable+Alias.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE898D472AA8BE100044F0B7 /* Observable+Alias.swift */; };
+		CE898D492AA8BE100044F0B7 /* Observable+Alias.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE898D472AA8BE100044F0B7 /* Observable+Alias.swift */; };
+		CE898D4A2AA8BE100044F0B7 /* Observable+Alias.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE898D472AA8BE100044F0B7 /* Observable+Alias.swift */; };
 		D7C72A3E1FDC5C5D00EAAAAB /* NwiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C72A3D1FDC5C5D00EAAAAB /* NwiseTests.swift */; };
 		D7C72A3F1FDC5C5D00EAAAAB /* NwiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C72A3D1FDC5C5D00EAAAAB /* NwiseTests.swift */; };
 		D7C72A401FDC5C5D00EAAAAB /* NwiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C72A3D1FDC5C5D00EAAAAB /* NwiseTests.swift */; };
@@ -479,6 +482,7 @@
 		BF515CE31F3F3AC900492640 /* FromAsyncTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FromAsyncTests.swift; sourceTree = "<group>"; };
 		C4D2153E20118A81009804AE /* ofType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ofType.swift; sourceTree = "<group>"; };
 		C4D2154020118F8B009804AE /* Observable+OfTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+OfTypeTests.swift"; sourceTree = "<group>"; };
+		CE898D472AA8BE100044F0B7 /* Observable+Alias.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Observable+Alias.swift"; path = "Source/Tools/Observable+Alias.swift"; sourceTree = SOURCE_ROOT; };
 		D7C72A3D1FDC5C5D00EAAAAB /* NwiseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NwiseTests.swift; sourceTree = "<group>"; };
 		D7C72A411FDC5D8F00EAAAAB /* nwise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = nwise.swift; path = Source/RxSwift/nwise.swift; sourceTree = SOURCE_ROOT; };
 		DC612871209E80810053CBB7 /* mapMany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapMany.swift; sourceTree = "<group>"; };
@@ -768,6 +772,7 @@
 			isa = PBXGroup;
 			children = (
 				BF515CDF1F3F370600492640 /* curry.swift */,
+				CE898D472AA8BE100044F0B7 /* Observable+Alias.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -1229,6 +1234,7 @@
 				4A73956C206D501300E2BE2D /* UIViewPropertyAnimator+Rx.swift in Sources */,
 				538607B11E6F334B000361DE /* mapTo.swift in Sources */,
 				538607AA1E6F334B000361DE /* apply.swift in Sources */,
+				CE898D482AA8BE100044F0B7 /* Observable+Alias.swift in Sources */,
 				78199613228449CA00340AF4 /* UIScrollView+reachedBottom.swift in Sources */,
 				C4D2153F20118A81009804AE /* ofType.swift in Sources */,
 				538607B41E6F334B000361DE /* ObservableType+Weak.swift in Sources */,
@@ -1311,6 +1317,7 @@
 				62512C7A1F0EAF950083A89F /* unwrap.swift in Sources */,
 				780CB21620A0ED1C00FD3F39 /* toSortedArray.swift in Sources */,
 				7824859B2298ADE2005CF8CC /* mergeWith.swift in Sources */,
+				CE898D492AA8BE100044F0B7 /* Observable+Alias.swift in Sources */,
 				62512C741F0EAF950083A89F /* ObservableType+Weak.swift in Sources */,
 				B69B454A2190C3AE00F30418 /* count.swift in Sources */,
 				62512C6F1F0EAF950083A89F /* ignoreErrors.swift in Sources */,
@@ -1396,6 +1403,7 @@
 				E39C41EB1F18B08A007F2ACD /* unwrap.swift in Sources */,
 				780CB21720A0ED1C00FD3F39 /* toSortedArray.swift in Sources */,
 				7824859C2298ADE2005CF8CC /* mergeWith.swift in Sources */,
+				CE898D4A2AA8BE100044F0B7 /* Observable+Alias.swift in Sources */,
 				E39C41E51F18B08A007F2ACD /* ObservableType+Weak.swift in Sources */,
 				B69B454B2190C3AF00F30418 /* count.swift in Sources */,
 				E39C41E01F18B08A007F2ACD /* ignoreErrors.swift in Sources */,
