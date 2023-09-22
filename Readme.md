@@ -10,7 +10,7 @@ If you're using [RxSwift](https://github.com/ReactiveX/RxSwift), you may have en
 Installation
 ===========
 
-This branch of RxSwiftExt targets Swift 5.x and RxSwift 5.0.0 or later.
+This branch of RxSwiftExt targets Swift 5.x and RxSwift 6.0.0 or later.
 
 * If you're looking for the Swift 4 version of RxSwiftExt, please use version `3.4.0` of the framework.
 
@@ -19,7 +19,7 @@ This branch of RxSwiftExt targets Swift 5.x and RxSwift 5.0.0 or later.
 Add to your `Podfile`:
 
 ```ruby
-pod 'RxSwiftExt', '~> 5'
+pod 'RxSwiftExt', '~> 6'
 ```
 
 This will install both the `RxSwift` and `RxCocoa` extensions.
@@ -41,6 +41,21 @@ Add this to your `Cartfile`
 
 ```
 github "RxSwiftCommunity/RxSwiftExt"
+```
+
+#### Swift Package Manager
+
+Create a `Package.swift` file.
+
+```swift
+import PackageDescription
+
+let package = Package(
+    name: "SampleProject",
+    dependencies: [
+        .package(url: "https://github.com/RxSwiftCommunity/RxSwiftExt.git", from: "6.0.0")
+    ]
+)
 ```
 
 Operators
